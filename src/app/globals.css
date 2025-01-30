@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "TanNimbus";
+  src: url("/fonts/TAN-NIMBUS.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* styles/globals.css */
+
+/* Hide scrollbar for all browsers but keep scrolling functionality */
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0px; /* Set scrollbar width to 0 */
+  height: 0px; /* For horizontal scrollbars */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* General reset for body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; /* Ensure vertical scrolling is enabled */
+}
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

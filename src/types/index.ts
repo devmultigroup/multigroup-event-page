@@ -24,7 +24,7 @@ type AfterMetrics = {
 
 export type Event = {
   id: number;
-  name: string;
+  name: any;
   subTitle: string;
   title: string;
   description: string;
