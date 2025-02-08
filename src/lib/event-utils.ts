@@ -2,7 +2,7 @@ import events from "@/data/events";
 import { Event } from "@/types";
 import { slugify } from "./slugify";
 
-export function getFormattedDate(date: any) {
+export function getFormattedDate(date: string) {
   const formattedDate = new Date(date).toLocaleDateString(
     "tr-TR",
     {
