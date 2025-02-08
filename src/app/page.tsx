@@ -1,6 +1,6 @@
 "use client";
 
-import CountdownTimer from "@/components/counter";
+import CountdownTimer from "@/components/countdown-timer";
 import SessionContainer from "@/components/session-container";
 import { getFormattedDate, getLatestEvent } from "@/lib/event-utils";
 
