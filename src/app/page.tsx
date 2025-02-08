@@ -62,13 +62,14 @@ export default function Home() {
           {latestEventDetails.description}
         </p>
       </div>
+
       <Heading>Konuşmacılar</Heading>
       <SpeakerCarousel speakers={latestEventDetails.speakers} />
       <div className="w-screen bg-zinc-800 h-40"></div>
       <Heading>Etkinlik Akışı</Heading>
       <SessionContainer event={latestEventDetails} />
       <Heading>Konum</Heading>
-      <Location location={latestEventDetails.location}/>
+      {/* <Location location={latestEventDetails.location}/> */}
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />
     </>

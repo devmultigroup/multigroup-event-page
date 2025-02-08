@@ -7,9 +7,9 @@ import {
 
 export default function FAQ() {
   return (
-    <Accordion type="single" collapsible className="w-1/3 m-auto my-8">
+    <Accordion type="single" collapsible className="w-5/6 md:w-1/3 m-auto my-8">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Biz Kimiz?</AccordionTrigger>
+        <AccordionTrigger className="font-bold">Biz Kimiz?</AccordionTrigger>
         <AccordionContent>
           MultiGroup, 2020 yılında teknolojiye olan tutku ve merakını
           birleştiren yazılım geliştiricilerinin bir araya geldiği, büyümeyi, iş
@@ -31,7 +31,7 @@ export default function FAQ() {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Ekibe üye olmak için ne yapmalıyım?</AccordionTrigger>
+        <AccordionTrigger className="font-bold">Ekibe üye olmak için ne yapmalıyım?</AccordionTrigger>
         <AccordionContent>
           MultiGroup yeni üyelere her zaman fırsat sunmayı amaçlayan gelişerek
           büyümeyi hedefleyen kar amacı gütmeyen ve her zaman heyecanlı üyeler
@@ -50,7 +50,7 @@ export default function FAQ() {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger>
+        <AccordionTrigger className="font-bold">
           Etkinliklerde konuşmacı olmak için ne yapmalıyım?
         </AccordionTrigger>
         <AccordionContent>
@@ -62,7 +62,7 @@ export default function FAQ() {
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-4">
-        <AccordionTrigger>Partnerlik için ne yapmalıyım?</AccordionTrigger>
+        <AccordionTrigger className="font-bold">Partnerlik için ne yapmalıyım?</AccordionTrigger>
         <AccordionContent>
           MultiGroup, sektöre karşılıklı fayda sağlamak amacıyla partnerlik
           süreçlerini benimseyen bir yazılım topluluğudur. Faydayı maksimize

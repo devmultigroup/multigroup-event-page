@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ eventLink }: { eventLink: string }) => {
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
@@ -27,7 +27,9 @@ const Navbar = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img className="h-12 w-auto" src="/dmg-logo.png" alt="DMG Logo" />
+            <a href="/">
+              <img className="h-12 w-auto" src="/dmg-logo.png" alt="DMG Logo" />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -35,7 +37,10 @@ const Navbar = () => {
             <NavigationMenu className="flex-1">
               <NavigationMenuList className="flex gap-8 group">
                 {navigationItems.map((item) => (
-                  <NavigationMenuItem key={item.href} className="transition-opacity duration-300 group-hover:opacity-50 hover:!opacity-100">
+                  <NavigationMenuItem
+                    key={item.href}
+                    className="transition-opacity duration-300 group-hover:opacity-50 hover:!opacity-100"
+                  >
                     <NavigationMenuLink
                       href={item.href}
                       className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
@@ -54,11 +59,15 @@ const Navbar = () => {
               variant="outline"
               className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
             >
-              <div className="absolute inset-0 bg-orange-500 translate-x-0 translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
-              
-              <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
-                <span className="relative z-10 font-medium text-sm">Kayıt Ol</span>
-              </div>
+              <a href={eventLink} target="blank">
+                <div className="absolute inset-0 bg-orange-500 translate-x-0 translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
+
+                <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
+                  <span className="relative z-10 font-medium text-sm">
+                    Kayıt Ol
+                  </span>
+                </div>
+              </a>
 
               <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>

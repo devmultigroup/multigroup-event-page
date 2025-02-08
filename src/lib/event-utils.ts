@@ -37,11 +37,16 @@ export function getUpcomingEvent(): Event | null {
   }
 }
 
-export function getLatestEvent(): Event | null {
+export function getLatestEvent(): Event {
   const sortedEvents = sortEventsByDate(events);
-  return sortedEvents.length > 0 ? sortedEvents[sortedEvents.length - 1] : null;
+  return sortedEvents[sortedEvents.length - 1];
 }
 
 export function getEventBySlug(slug: string) {
   return events.find(event => slugify(event.name) === slug) || null;
+}
+
+export function getLatestEventLink(): string {
+  const latestEvent = getLatestEvent();
+  return latestEvent.registerLink;
 }

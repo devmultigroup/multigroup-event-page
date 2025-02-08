@@ -28,7 +28,7 @@ export default function EventCard({ event }: { event: Event }) {
 
       <div className="flex justify-between items-center py-4 text-gray-700">
         <p className="font-semibold">{getFormattedDate(event.date)}</p>
-        <p className="text-right">{event.location}</p>
+        <p className="text-right">{event.location.name}</p>
       </div>
 
       <Button

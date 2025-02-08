@@ -33,10 +33,10 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   }
 
   return (
-    <Carousel className="w-full max-w-6xl mx-auto relative mb-8" ref={emblaRef}>
+    <Carousel className="w-full max-w-6xl mx-auto relative mb-4" ref={emblaRef}>
       <CarouselContent className="backface-hidden -ml-4">
         {slides.map((group, groupIndex) => (
-          <CarouselItem key={groupIndex} className="pl-4">
+          <CarouselItem key={groupIndex} className="p-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {group.map((speaker) => (
                 <Card key={speaker.fullName}>
