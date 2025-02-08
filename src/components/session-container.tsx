@@ -13,7 +13,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
         {event.sessions.map((session) => (
           <div
             key={session.topic}
-            className="bg-white shadow-lg rounded-lg p-6 flex items-center m-y8"
+            className="bg-white shadow-lg rounded-lg p-6 flex items-center  md:my-8 w-5/6 md:w-full mx-auto"
           >
             <div className="flex flex-col items-center justify-center w-24">
               <p className="text-lg font-semibold text-gray-800">
@@ -35,7 +35,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       <div className="flex justify-center my-4">
         <Button
           onClick={() => generateCalendarFile(event)}
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className=" text-white px-4 py-2 rounded"
         >
           Takvime Ekle
         </Button>

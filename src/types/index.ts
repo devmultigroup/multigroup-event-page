@@ -1,6 +1,6 @@
-type Speaker = {
+export type Speaker = {
   fullName: string;
-  linkedInUsername: string;
+  photoUrl: string;
   title: string;
 };
 

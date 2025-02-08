@@ -16,12 +16,12 @@ const events: Event[] = [
     speakers: [
       {
         fullName: "John Doe",
-        linkedInUsername: "johndoe123",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "Senior Developer",
       },
       {
         fullName: "Jane Smith",
-        linkedInUsername: "janesmith456",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "Lead Mobile Architect",
       },
     ],
@@ -65,12 +65,42 @@ const events: Event[] = [
     "speakers": [
       {
         "fullName": "Alice Johnson",
-        "linkedInUsername": "alicejohnson789",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         "title": "AI Research Lead"
       },
       {
         "fullName": "Bob Williams",
-        "linkedInUsername": "bobwilliams321",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "CTO at MobileTech"
+      },
+      {
+        "fullName": "Alice Johnson2",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "AI Research Lead"
+      },
+      {
+        "fullName": "Bob William2",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "CTO at MobileTech"
+      },
+      {
+        "fullName": "Alice Johnson3",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "AI Research Lead"
+      },
+      {
+        "fullName": "Bob Williams3",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "CTO at MobileTech"
+      },
+      {
+        "fullName": "Alice Johnson4",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
+        "title": "AI Research Lead"
+      },
+      {
+        "fullName": "Bob Williams4",
+        photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         "title": "CTO at MobileTech"
       }
     ],

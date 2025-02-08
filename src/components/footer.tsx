@@ -18,15 +18,15 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-zinc-900 text-white py-6 px-4 md:px-12 flex flex-col items-center justify-center border-t border-white rounded-t-full">
+    <footer className="relative bg-zinc-900 text-white py-6 px-4 md:px-12 flex flex-col items-center justify-center">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl">
         <div className="flex items-center gap-3">
           <Image src="/dmg-logo.png" alt="MultiGroup Logo" width={200} height={200} />
           
         </div>
         <nav className="mt-4 md:mt-0 flex gap-6 text-sm">
-          <Link href="#konusmacilar" className="hover:text-gray-400">Konuşmacılar</Link>
-          <Link href="#etkinlik-akisi" className="hover:text-gray-400">Etkinlik Akışı</Link>
+          <Link href="/#konusmacilar" className="hover:text-gray-400">Konuşmacılar</Link>
+          <Link href="/#etkinlik-akisi" className="hover:text-gray-400">Etkinlik Akışı</Link>
           <Link href="/etkinlikler" className="hover:text-gray-400">Önceki Etkinlikler</Link>
         </nav>
         <div className="flex gap-4 mt-4 md:mt-0">
