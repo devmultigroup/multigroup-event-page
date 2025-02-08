@@ -11,7 +11,7 @@ export type Session = {
   speakerName: string;
 };
 
-type AfterMetrics = {
+export type AfterMetrics = {
   applications: string;
   vipGuests: string;
   supporter: string;
@@ -22,15 +22,20 @@ type AfterMetrics = {
   satisfaction: string;
 };
 
+export type Location = {
+  latitude: number;
+  longitude: number;
+  name: string;
+  subtext: string;
+}
+
 export type Event = {
   id: number;
   name: string;
   subTitle: string;
   title: string;
   description: string;
-  location: string;
-  locationName: string;
-  locationSubText: string;
+  location: Location;
   registerLink: string;
   videoUrl?: string;
   date: string; // ISO formatta tarih

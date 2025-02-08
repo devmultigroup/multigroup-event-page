@@ -5,6 +5,7 @@ import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
+import Location from "@/components/location";
 import { getFormattedDate, getLatestEvent } from "@/lib/event-utils";
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
           style={{ fontFamily: "TanNimbus" }}
         >
           <p>{getFormattedDate(latestEventDetails.date)}</p>
-          <p>{latestEventDetails.locationName}</p>
+          <p>{latestEventDetails.location.name}</p>
         </div>
 
         {/* Sağ alt köşe: Orijinal Tarih Nesnesi */}
@@ -66,6 +67,8 @@ export default function Home() {
       <div className="w-screen bg-zinc-800 h-40"></div>
       <Heading>Etkinlik Akışı</Heading>
       <SessionContainer event={latestEventDetails} />
+      <Heading>Konum</Heading>
+      <Location location={latestEventDetails.location}/>
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />
     </>

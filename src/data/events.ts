@@ -7,10 +7,13 @@ const events: Event[] = [
     subTitle: "Summit For",
     title: "Who're interested in MoDe",
     description: "A detailed event on mobile development trends.",
-    locationName: "Tech İstanbul | Şişhane",
-    location: "37.7749° N, 122.4194° W", // San Francisco coordinates
-    locationSubText:
-      "Located at Moscone Center, easily accessible via public transport.",
+    location: {
+      latitude: 37.7749,
+      longitude: 122.4194,
+      name: "Tech İstanbul | Şişhane",
+      subtext:
+        "Located at Moscone Center, easily accessible via public transport.",
+    }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "https://example.com/event-video",
@@ -61,10 +64,13 @@ const events: Event[] = [
     subTitle: "Who're interested in MoDe",
     description:
       "Mobile, Web, Data Science ve Cloud tutkunlarının sabırsızlıkla beklediği etkinliğimiz #multitechsum24 için gerisayım başladı! Heyecan dorukta! Peki, bu etkinlikte seni neler bekliyor?\n\n🎙️ Sektörün öncülerinden ilham verici konuşmalar ve etkileşimli panellerle yepyeni bilgiler edinme fırsatı!\n\n🌟 Birbirinden değerli ve eşsiz network imkanları!\n\n☕ Enerji dolu kahve molalarıyla dinamik bir atmosfer!",
-    location: "34.0522° N, 118.2437° W",
-    locationName: "Tech İstanbul | Şişhane",
-    locationSubText:
-      "Hosted at LA Convention Center, plenty of parking available.",
+    location: {
+      latitude: 37.7749,
+      longitude: 122.4194,
+      name: "Tech İstanbul | Şişhane",
+      subtext:
+        "Located at Moscone Center, easily accessible via public transport.",
+    }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "https://example.com/ai-event-video",
