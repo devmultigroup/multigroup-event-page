@@ -1,4 +1,7 @@
+"use client"
+
 import React from "react";
+import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetContent,
@@ -15,10 +18,29 @@ import {
 import { Menu } from "lucide-react";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
+  const pathname = usePathname();
+
+  const handleScroll = (href: string) => {
+    // Extract the ID from the href (everything after #)
+    const id = href.split('#')[1];
+    
+    // If we're not on the homepage, redirect to homepage with hash
+    if (pathname !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    // If we're already on homepage, smooth scroll
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
-    { href: "/konusmacilar", label: "Konuşmacılar" },
+    { href: "/#konuşmacılar", label: "Konuşmacılar", isScroll: true },
+    { href: "/#konum", label: "Konum", isScroll: true },
   ];
 
   return (
@@ -41,12 +63,21 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                     key={item.href}
                     className="transition-opacity duration-300 group-hover:opacity-50 hover:!opacity-100"
                   >
-                    <NavigationMenuLink
-                      href={item.href}
-                      className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
-                    >
-                      {item.label}
-                    </NavigationMenuLink>
+                    {item.isScroll ? (
+                      <button
+                        onClick={() => handleScroll(item.href)}
+                        className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <NavigationMenuLink
+                        href={item.href}
+                        className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                      >
+                        {item.label}
+                      </NavigationMenuLink>
+                    )}
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -89,6 +120,12 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                       key={item.href}
                       href={item.href}
                       className="text-lg font-medium text-gray-800 hover:text-black"
+                      onClick={(e) => {
+                        if (item.isScroll) {
+                          e.preventDefault();
+                          handleScroll(item.href);
+                        }
+                      }}
                     >
                       {item.label}
                     </a>
@@ -97,7 +134,9 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                     variant="outline"
                     className="mt-4 border-2 font-medium text-lg"
                   >
-                    Kayıt Ol
+                    <a href={eventLink} target="blank">
+                      Kayıt Ol
+                    </a>
                   </Button>
                 </div>
               </SheetContent>
