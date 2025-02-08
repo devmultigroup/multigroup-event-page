@@ -34,11 +34,11 @@ export default function Home() {
         {/* Sol alt köşe: Tarih ve Konum */}
         <div className="absolute bottom-24 left-24 text-white text-xl px-2 py-1 rounded-lg" style={{ fontFamily: "TanNimbus" }}>
           <p>{getFormattedDate(latestEventDetails.date)}</p>
-          <p>{latestEventDetails.location}</p>
+          <p>{latestEventDetails.locationName}</p>
         </div>
 
         {/* Sağ alt köşe: Orijinal Tarih Nesnesi */}
-        <div className="absolute bottom-24 right-24 text-white text-xs bg-black bg-opacity-50 px-2 py-1 rounded-lg shadow-lg">
+        <div className="absolute bottom-24 right-24 text-white text-xl px-2 py-1 rounded-lg" style={{ fontFamily: "TanNimbus" }}>
           <CountdownTimer targetDate={latestEventDetails.date} />
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function Home() {
         </p>
       </div>
       <div className="w-screen bg-zinc-800 h-40"></div>
-      <h2 className="text-2xl font-bold text-center my-4">Etkinlik Akışı</h2>
+      <h2 id="#etkinlik-akisi" className="text-2xl font-bold text-center my-4">Etkinlik Akışı</h2>
       <SessionContainer event={latestEventDetails} />
     </>
   );

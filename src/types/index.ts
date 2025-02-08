@@ -29,7 +29,9 @@ export type Event = {
   title: string;
   description: string;
   location: string;
+  locationName: string;
   locationSubText: string;
+  registerLink: string;
   videoUrl?: string;
   date: string; // ISO formatta tarih
   speakers: Speaker[];

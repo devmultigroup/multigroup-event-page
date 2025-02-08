@@ -60,7 +60,7 @@ const Navbar = () => {
                 <span className="relative z-10 font-medium text-sm">Kayıt Ol</span>
               </div>
 
-              <span className="invisible font-medium text-sm">Davetiye alın</span>
+              <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
 
