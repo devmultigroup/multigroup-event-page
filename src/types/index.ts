@@ -4,7 +4,7 @@ type Speaker = {
   title: string;
 };
 
-type Session = {
+export type Session = {
   topic: string;
   startTime: string; // start time for session
   endTime: string; // end time for session

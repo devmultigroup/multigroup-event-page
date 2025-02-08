@@ -16,7 +16,7 @@ import { Menu } from "lucide-react";
 
 const Navbar = () => {
   const navigationItems = [
-    { href: "/anasayfa", label: "Anasayfa" },
+    { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
     { href: "/konusmacilar", label: "Konuşmacılar" },
   ];

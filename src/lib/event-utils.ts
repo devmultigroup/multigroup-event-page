@@ -1,5 +1,19 @@
 import events from "@/data/events";
 import { Event } from "@/types";
+import { slugify } from "./slugify";
+
+export function getFormattedDate(date: any) {
+  const formattedDate = new Date(date).toLocaleDateString(
+    "tr-TR",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
+
+  return formattedDate
+}
 
 export function sortEventsByDate(events: Event[]): Event[] {
   return events
@@ -26,4 +40,8 @@ export function getUpcomingEvent(): Event | null {
 export function getLatestEvent(): Event | null {
   const sortedEvents = sortEventsByDate(events);
   return sortedEvents.length > 0 ? sortedEvents[sortedEvents.length - 1] : null;
+}
+
+export function getEventBySlug(slug: string) {
+  return events.find(event => slugify(event.name) === slug) || null;
 }

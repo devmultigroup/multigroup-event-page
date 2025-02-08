@@ -1,0 +1,43 @@
+"use client";
+
+import { Event } from "@/types";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
+import { slugify } from "@/lib/slugify";
+import { useRouter } from "next/navigation";
+import { getFormattedDate } from "@/lib/event-utils";
+
+export default function EventCard({ event }: { event: Event }) {
+  const router = useRouter();
+
+  const handleNavigation = () => {
+    const route = `/etkinlikler/${slugify(event.name)}`;
+    router.push(route);
+  };
+
+  return (
+    <div className="max-w-xl bg-white rounded-lg p-4 m-4 shadow-lg">
+      <p
+        className="text-xl text-center font-bold italic py-8 bg-cover bg-center text-white rounded-lg"
+        style={{
+          backgroundImage: `url('../../dmg-main-bg.png')`,
+        }}
+      >
+        {event.name}
+      </p>
+
+      <div className="flex justify-between items-center py-4 text-gray-700">
+        <p className="font-semibold">{getFormattedDate(event.date)}</p>
+        <p className="text-right">{event.location}</p>
+      </div>
+
+      <Button
+        onClick={handleNavigation}
+        className="hover:bg-gray-800 hover:text-white mt-4"
+        variant="outline"
+      >
+        Daha Fazla <ArrowRight />
+      </Button>
+    </div>
+  );
+}

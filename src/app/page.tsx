@@ -1,12 +1,12 @@
 "use client";
 
 import CountdownTimer from "@/components/counter";
-import { getLatestEvent } from "@/lib/event-utils";
+import SessionContainer from "@/components/session-container";
+import { getFormattedDate, getLatestEvent } from "@/lib/event-utils";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
 
-  // Eğer latestEventDetails boşsa bir hata durumu eklenebilir
   if (!latestEventDetails) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
@@ -14,16 +14,6 @@ export default function Home() {
       </div>
     );
   }
-
-  // Tarihi string olarak formatlama
-  const formattedDate = new Date(latestEventDetails.date).toLocaleDateString(
-    "tr-TR",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }
-  );
 
   return (
     <>
@@ -42,8 +32,8 @@ export default function Home() {
         </div>
 
         {/* Sol alt köşe: Tarih ve Konum */}
-        <div className="absolute bottom-24 left-24 text-white text-sm bg-black bg-opacity-50 px-2 py-1 rounded-lg shadow-lg">
-          <p>{formattedDate}</p>
+        <div className="absolute bottom-24 left-24 text-white text-xl px-2 py-1 rounded-lg" style={{ fontFamily: "TanNimbus" }}>
+          <p>{getFormattedDate(latestEventDetails.date)}</p>
           <p>{latestEventDetails.location}</p>
         </div>
 
@@ -55,7 +45,7 @@ export default function Home() {
 
       <div className="w-screen bg-zinc-800 h-40"></div>
       
-      <div className="text-center py-8 text-xl max-w-lg m-auto">
+      <div className="text-center p-8 text-xl max-w-lg m-auto">
         <p className="text-2xl font italic">{latestEventDetails.title}</p>
         <p className="text-4xl">{latestEventDetails.subTitle}</p>
         <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
@@ -63,6 +53,8 @@ export default function Home() {
         </p>
       </div>
       <div className="w-screen bg-zinc-800 h-40"></div>
+      <h2 className="text-2xl font-bold text-center my-4">Etkinlik Akışı</h2>
+      <SessionContainer event={latestEventDetails} />
     </>
   );
 }
