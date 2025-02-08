@@ -2,6 +2,7 @@
 
 import CountdownTimer from "@/components/countdown-timer";
 import FAQ from "@/components/faq";
+import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
 import { getFormattedDate, getLatestEvent } from "@/lib/event-utils";
@@ -60,13 +61,12 @@ export default function Home() {
           {latestEventDetails.description}
         </p>
       </div>
-
+      <Heading>Konuşmacılar</Heading>
       <SpeakerCarousel speakers={latestEventDetails.speakers} />
       <div className="w-screen bg-zinc-800 h-40"></div>
-      <h2 id="#etkinlik-akisi" className="text-2xl font-bold text-center my-4">
-        Etkinlik Akışı
-      </h2>
+      <Heading>Etkinlik Akışı</Heading>
       <SessionContainer event={latestEventDetails} />
+      <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />
     </>
   );
