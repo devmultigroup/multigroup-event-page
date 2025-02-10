@@ -95,8 +95,6 @@ export function generateCalendarFile(event: Event): void {
 
     const fileName = `${event.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`;
     saveAs(blob, fileName);
-
-    console.log('Calendar file generated successfully');
   } catch (error) {
     console.error("Failed to generate calendar file:", error);
     throw new Error("Failed to generate calendar file");

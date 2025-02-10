@@ -24,8 +24,6 @@ export default function EventPage({
     notFound();
   }
 
-  console.log(eventDetails.afterMetrics)
-
   return (
     <>
       <div

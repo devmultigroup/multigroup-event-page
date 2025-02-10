@@ -33,8 +33,6 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
   useEffect(() => {
     if (!afterMetrics) return;
 
-    console.log("afterMetrics received:", afterMetrics);
-
     const duration = 2000;
     const steps = 60;
     const interval = duration / steps;
