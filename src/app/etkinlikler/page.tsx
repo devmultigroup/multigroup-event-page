@@ -10,9 +10,13 @@ export default function Events() {
       }}
     >
       <div className="grid md:grid-cols-1 xl:grid-cols-2">
-        {events.map((event) => {
-          return <EventCard key={event.id} event={event} />;
-        })}
+        {events
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
+          .map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
       </div>
     </div>
   );
