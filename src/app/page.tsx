@@ -46,7 +46,7 @@ export default function Home() {
     
     {/* Countdown */}
     <div 
-      className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
+      className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-right w-full"
       style={{ fontFamily: "TanNimbus" }}
     >
       <CountdownTimer targetDate={latestEventDetails.date} />

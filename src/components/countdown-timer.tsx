@@ -15,7 +15,7 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
   }
 
   return (
-    <div className="text-center">
+    <div className="text-center sm:text-right">
       <p className="text-2xl">
         {days === 0 && hours === 0 && minutes === 0 && seconds === 0
           ? "Katıldığınız için teşekkürler"
