@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Speaker } from "@/types";
+import { slugify } from "@/lib/slugify";
 
 interface SpeakerCarouselProps {
   speakers: Speaker[];
@@ -42,7 +43,7 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                 <Card key={speaker.fullName}>
                   <CardContent className="p-4 flex flex-col items-center text-center">
                     <img
-                      src={`/api/placeholder/200/200`}
+                      src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
                       alt={speaker.fullName}
                       className="w-24 h-24 rounded-full object-cover mb-3"
                     />
