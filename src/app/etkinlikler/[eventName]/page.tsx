@@ -11,6 +11,7 @@ import SpeakerCarousel from "@/components/speaker-carousel";
 import Location from "@/components/location";
 import { getFormattedDate, getEventBySlug } from "@/lib/event-utils";
 import MetricsGrid from "@/components/metrics-grid";
+import EventImageGallery from "@/components/event-gallery";
 
 export default function EventPage({
   params: paramsPromise,
@@ -81,6 +82,7 @@ export default function EventPage({
       <span id="konum"></span>
       <Heading>Konum</Heading>
       {/* <Location location={eventDetails.location}/> */}
+      <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />
     </>

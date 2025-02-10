@@ -3,16 +3,13 @@ import { Event } from "@/types";
 import { slugify } from "./slugify";
 
 export function getFormattedDate(date: string) {
-  const formattedDate = new Date(date).toLocaleDateString(
-    "tr-TR",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }
-  );
+  const formattedDate = new Date(date).toLocaleDateString("tr-TR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
-  return formattedDate
+  return formattedDate;
 }
 
 export function sortEventsByDate(events: Event[]): Event[] {
@@ -25,7 +22,9 @@ export function getUpcomingEvent(): Event | null {
   const now = new Date().getTime();
 
   // Filter events to get upcoming ones (events happening in the future)
-  const upcomingEvents = events.filter(event => new Date(event.date).getTime() > now);
+  const upcomingEvents = events.filter(
+    (event) => new Date(event.date).getTime() > now
+  );
 
   if (upcomingEvents.length > 0) {
     // Sort upcoming events and return the closest one
@@ -43,10 +42,17 @@ export function getLatestEvent(): Event {
 }
 
 export function getEventBySlug(slug: string) {
-  return events.find(event => slugify(event.name) === slug) || null;
+  return events.find((event) => slugify(event.name) === slug) || null;
 }
 
 export function getLatestEventLink(): string {
   const latestEvent = getLatestEvent();
   return latestEvent.registerLink;
+}
+
+export function getSecondLatestEvent(): Event {
+  const sortedEvents = sortEventsByDate(events);
+
+  // Return the second latest event
+  return sortedEvents[sortedEvents.length - 2];
 }

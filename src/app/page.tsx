@@ -6,7 +6,13 @@ import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
 import Location from "@/components/location";
-import { getFormattedDate, getLatestEvent } from "@/lib/event-utils";
+import {
+  getFormattedDate,
+  getLatestEvent,
+  getSecondLatestEvent,
+} from "@/lib/event-utils";
+import EventImageGallery from "@/components/event-gallery";
+import { slugify } from "@/lib/slugify";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
@@ -18,6 +24,9 @@ export default function Home() {
       </div>
     );
   }
+
+  const secondLatest = getSecondLatestEvent();
+  console.log(secondLatest);
 
   return (
     <>
@@ -72,6 +81,7 @@ export default function Home() {
       <span id="konum"></span>
       <Heading>Konum</Heading>
       {/* <Location location={latestEventDetails.location}/> */}
+      <EventImageGallery event={secondLatest} />
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />
     </>
