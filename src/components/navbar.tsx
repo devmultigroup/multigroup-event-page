@@ -33,7 +33,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
         setIsExpanded(false);
       }
     };
-  
+    
     window.addEventListener('scroll', handleScrollClose);
     
     return () => {
@@ -49,15 +49,15 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   ];
 
   return (
-    <header className="absolute w-full z-50 px-24 bg-zinc-900 border-b-2 border-zinc-100 rounded-bl-full rounded-br-full">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="absolute w-full z-50 px-6 sm:px-12 bg-zinc-900 border-b-2 border-zinc-100 rounded-bl-full rounded-br-full">
+      <div className="mx-auto px-8 sm:px-6 lg:px-16">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">
             <a href="/">
               <img className="h-12 w-auto" src="/dmg-logo.png" alt="DMG Logo" />
             </a>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <NavigationMenu className="flex-1">
               <NavigationMenuList className="flex gap-8 group">
                 {navigationItems.map((item) => (
@@ -85,10 +85,10 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button variant="outline" className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out">
-              <a href={eventLink} target="blank">
-                <div className="absolute inset-0 bg-orange-500 translate-x-0 translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
+              <a href={eventLink} target="_blank">
+                <div className="absolute inset-0 bg-orange-500 transition-transform duration-300 ease-in-out rounded-md" />
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                   <span className="relative z-10 font-medium text-sm">Kayıt Ol</span>
                 </div>
@@ -96,35 +96,39 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button className="text-white" variant="ghost" size="icon" aria-label="Open menu" onClick={() => setIsExpanded(!isExpanded)}>
               <Menu className="h-6 w-6 hover:bg-none" />
             </Button>
           </div>
         </div>
-        {isExpanded && (
-          <div className="w-full bg-none p-4 mt-2 rounded-b-lg flex flex-col items-center space-y-4">
-            {navigationItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-lg font-medium text-white hover:text-orange-500"
-                onClick={(e) => {
-                  if (item.isScroll) {
-                    e.preventDefault();
-                    handleScroll(item.href);
-                    setIsExpanded(false);
-                  }
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-            <Button variant="outline" className="mt-4 border-2 rounded-lg font-medium text-lg">
-              <a href={eventLink} target="blank">Kayıt Ol</a>
-            </Button>
-          </div>
-        )}
+        <div
+          className={`w-full bg-none transition-all duration-300 overflow-hidden ${isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} rounded-b-lg flex flex-col items-center space-y-4`}
+        >
+          {isExpanded && (
+            <div className="flex flex-col items-center space-y-4 p-4">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-lg font-medium text-white hover:text-orange-500"
+                  onClick={(e) => {
+                    if (item.isScroll) {
+                      e.preventDefault();
+                      handleScroll(item.href);
+                      setIsExpanded(false);
+                    }
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <Button variant="outline" className="mt-4 rounded-lg font-medium text-lg">
+                <a href={eventLink} target="_blank">Kayıt Ol</a>
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
