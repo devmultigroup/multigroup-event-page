@@ -75,7 +75,7 @@ export function generateCalendarFile(event: Event): void {
           `DTEND:${endDate}`,
           `SUMMARY:${sanitizeICSField(session.topic)}`,
           `DESCRIPTION:${sanitizeICSField(`Speaker: ${session.speakerName}\n${event.description || ''}`)}`,
-          `LOCATION:${sanitizeICSField(event.location)}`,
+          `LOCATION:${sanitizeICSField(event.location.name)}`,
           "END:VEVENT"
         );
       } catch (error) {
