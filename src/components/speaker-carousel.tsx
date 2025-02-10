@@ -20,23 +20,29 @@ interface SpeakerCarouselProps {
 const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   return (
     <Carousel
-      className="w-full max-w-6xl mx-auto relative mb-4"
+      className="w-full max-w-6xl mx-auto relative mb-8"
       plugins={[
         Autoplay({
           delay: 3000,
+          stopOnMouseEnter: true,
+          stopOnInteraction: false,
         }),
       ]}
+      opts={{
+        align: "start",
+        loop: true,
+      }}
     >
       <CarouselContent className="backface-hidden -ml-4">
-        {speakers.map((speaker, index) => (
+        {speakers.map((speaker) => (
           <CarouselItem
             key={speaker.fullName}
-            className="pl-4 
+            className="p-4 pl-8
               basis-full 
               sm:basis-1/2 
               lg:basis-1/3"
           >
-            <Card>
+            <Card className="hover:shadow-md hover:-translate-y-2 transition-all">
               <CardContent className="p-4 flex flex-col items-center text-center">
                 <img
                   src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
