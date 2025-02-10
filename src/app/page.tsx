@@ -22,36 +22,37 @@ export default function Home() {
   return (
     <>
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/dmg-main-bg.png')`,
-        }}
-      >
-        {/* Sol üst köşe: Etkinlik Adı */}
-        <div
-          className="absolute top-24 left-24 text-white text-6xl font-bold px-2 pt-8 space-y-6 max-w-2xl leading-[64px]"
-          style={{ fontFamily: "TanNimbus" }}
-        >
-          {latestEventDetails.name}
-        </div>
-
-        {/* Sol alt köşe: Tarih ve Konum */}
-        <div
-          className="absolute bottom-24 left-24 text-white text-xl px-2 py-1 rounded-lg"
-          style={{ fontFamily: "TanNimbus" }}
-        >
-          <p>{getFormattedDate(latestEventDetails.date)}</p>
-          <p>{latestEventDetails.location.name}</p>
-        </div>
-
-        {/* Sağ alt köşe: Orijinal Tarih Nesnesi */}
-        <div
-          className="absolute bottom-24 right-24 text-white text-xl px-2 py-1 rounded-lg"
-          style={{ fontFamily: "TanNimbus" }}
-        >
-          <CountdownTimer targetDate={latestEventDetails.date} />
-        </div>
-      </div>
+ className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-6 sm:px-12"
+ style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
+>
+  {/* Event Name (Top Left) */}
+  <div
+    className="absolute top-16 left-6 sm:top-24 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
+    style={{ fontFamily: "TanNimbus" }}
+  >
+    {latestEventDetails.name}
+  </div>
+  
+  {/* Bottom Section (Vertical on Mobile/Tablet) */}
+  <div className="absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8">
+    {/* Location */}
+    <div 
+      className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
+      style={{ fontFamily: "TanNimbus" }}
+    >
+      <p>{getFormattedDate(latestEventDetails.date)}</p>
+      <p>{latestEventDetails.location.name}</p>
+    </div>
+    
+    {/* Countdown */}
+    <div 
+      className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
+      style={{ fontFamily: "TanNimbus" }}
+    >
+      <CountdownTimer targetDate={latestEventDetails.date} />
+    </div>
+  </div>
+</div>
 
       <div className="w-screen bg-zinc-800 h-40"></div>
 
