@@ -13,7 +13,7 @@ export default function EventPage({ params }: { params: { eventName: string } })
         <div className="min-h-screen flex flex-col justify-center items-center">
             <h1 className="text-2xl font-bold">{eventDetails.name}</h1>
             <p>{eventDetails.date}</p>
-            <p>{eventDetails.location}</p>
+            <p>{eventDetails.location.name}</p>
         </div>
     );
 }
