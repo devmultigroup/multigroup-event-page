@@ -1,13 +1,7 @@
 "use client"
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -19,22 +13,33 @@ import { Menu } from "lucide-react";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
   const pathname = usePathname();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleScroll = (href: string) => {
-    // Extract the ID from the href (everything after #)
     const id = href.split('#')[1];
-    
-    // If we're not on the homepage, redirect to homepage with hash
     if (pathname !== "/") {
       window.location.href = `/#${id}`;
       return;
     }
-    // If we're already on homepage, smooth scroll
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const handleScrollClose = () => {
+      if (isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScrollClose);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScrollClose);
+    };
+  }, [isExpanded]);
 
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
@@ -47,14 +52,11 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
     <header className="absolute w-full z-50 px-24 bg-zinc-900 border-b-2 border-zinc-100 rounded-bl-full rounded-br-full">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/">
               <img className="h-12 w-auto" src="/dmg-logo.png" alt="DMG Logo" />
             </a>
           </div>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <NavigationMenu className="flex-1">
               <NavigationMenuList className="flex gap-8 group">
@@ -83,66 +85,46 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-
-          {/* Register Button */}
           <div className="hidden md:block">
-            <Button
-              variant="outline"
-              className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
-            >
+            <Button variant="outline" className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out">
               <a href={eventLink} target="blank">
                 <div className="absolute inset-0 bg-orange-500 translate-x-0 translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
-
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
-                  <span className="relative z-10 font-medium text-sm">
-                    Kayıt Ol
-                  </span>
+                  <span className="relative z-10 font-medium text-sm">Kayıt Ol</span>
                 </div>
               </a>
-
               <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
-
-          {/* Mobile Navigation */}
           <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent>
-                <SheetTitle>MultiGroup Events</SheetTitle>
-                <div className="flex flex-col gap-4 mt-8">
-                  {navigationItems.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="text-lg font-medium text-gray-800 hover:text-black"
-                      onClick={(e) => {
-                        if (item.isScroll) {
-                          e.preventDefault();
-                          handleScroll(item.href);
-                        }
-                      }}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                  <Button
-                    variant="outline"
-                    className="mt-4 border-2 font-medium text-lg"
-                  >
-                    <a href={eventLink} target="blank">
-                      Kayıt Ol
-                    </a>
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <Button className="text-white" variant="ghost" size="icon" aria-label="Open menu" onClick={() => setIsExpanded(!isExpanded)}>
+              <Menu className="h-6 w-6 hover:bg-none" />
+            </Button>
           </div>
         </div>
+        {isExpanded && (
+          <div className="w-full bg-none p-4 mt-2 rounded-b-lg flex flex-col items-center space-y-4">
+            {navigationItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-lg font-medium text-white hover:text-orange-500"
+                onClick={(e) => {
+                  if (item.isScroll) {
+                    e.preventDefault();
+                    handleScroll(item.href);
+                    setIsExpanded(false);
+                  }
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <Button variant="outline" className="mt-4 border-2 rounded-lg font-medium text-lg">
+              <a href={eventLink} target="blank">Kayıt Ol</a>
+            </Button>
+          </div>
+        )}
       </div>
     </header>
   );
