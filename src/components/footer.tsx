@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowUp, Instagram, Twitter, Youtube } from 'lucide-react';
+import { ArrowUp, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,14 +30,17 @@ export default function Footer() {
           <Link href="/etkinlikler" className="hover:text-gray-400">Önceki Etkinlikler</Link>
         </nav>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <Link href="https://instagram.com" target="_blank">
+          <Link href="https://instagram.com/devmultigroup" target="_blank">
             <Instagram className="text-xl text-pink-500 hover:text-pink-400" />
           </Link>
-          <Link href="https://x.com" target="_blank">
+          <Link href="https://x.com/devmultigroup" target="_blank">
             <Twitter className="text-xl text-gray-400 hover:text-gray-300" />
           </Link>
-          <Link href="https://youtube.com" target="_blank">
+          <Link href="https://www.youtube.com/@devmultigroup" target="_blank">
             <Youtube className="text-xl text-red-600 hover:text-red-500" />
+          </Link>
+          <Link href="https://www.linkedin.com/company/devmultigroup/posts/?feedView=all" target="_blank">
+            <Linkedin className="text-xl text-blue-600 hover:text-blue-500" />
           </Link>
         </div>
       </div>
