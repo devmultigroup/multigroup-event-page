@@ -12,6 +12,7 @@ import {
   getSecondLatestEvent,
 } from "@/lib/event-utils";
 import EventImageGallery from "@/components/event-gallery";
+import SponsorSlider from "@/components/sponsors-slider";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
@@ -24,7 +25,6 @@ export default function Home() {
       </div>
     );
   }
-
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-screen bg-zinc-800 h-40"></div>
+      <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <div className="text-center p-8 text-xl max-w-lg m-auto">
         <p className="text-2xl font italic">{latestEventDetails.title}</p>

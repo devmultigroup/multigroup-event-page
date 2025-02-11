@@ -4,8 +4,8 @@ const events: Event[] = [
   {
     id: 1,
     name: "Mobile Developer Summit 2024",
-    subTitle: "Summit For",
-    title: "Who're interested in MoDe",
+    title: "Summit For",
+    subTitle: "Who're interested in MoDe",
     description: "A detailed event on mobile development trends.",
     location: {
       latitude: 41.085660366250444,
@@ -46,6 +46,7 @@ const events: Event[] = [
         speakerName: "Jane Smith",
       },
     ],
+    sponsors: ["all-done", "perseva", "softtech", "adesso"],
     afterMetrics: {
       applications: "500",
       vipGuests: "100+",
@@ -139,6 +140,7 @@ const events: Event[] = [
         speakerName: "Bob Williams",
       },
     ],
+    sponsors: ["all-done", "perseva", "softtech", "adesso"],
     afterMetrics: {
       applications: "700",
       vipGuests: "200+",

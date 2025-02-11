@@ -41,5 +41,6 @@ export type Event = {
   date: string; // ISO formatta tarih
   speakers: Speaker[];
   sessions: Session[];
+  sponsors: string[];
   afterMetrics?: AfterMetrics;
 };
