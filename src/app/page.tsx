@@ -12,10 +12,10 @@ import {
   getSecondLatestEvent,
 } from "@/lib/event-utils";
 import EventImageGallery from "@/components/event-gallery";
-import { slugify } from "@/lib/slugify";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
+  const secondLatest = getSecondLatestEvent();
 
   if (!latestEventDetails) {
     return (
@@ -25,8 +25,6 @@ export default function Home() {
     );
   }
 
-  const secondLatest = getSecondLatestEvent();
-  console.log(secondLatest);
 
   return (
     <>
