@@ -69,6 +69,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                       <button
                         onClick={() => handleScroll(item.href)}
                         className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                        data-umami-event="Kayıt Linki"
                       >
                         {item.label}
                       </button>
