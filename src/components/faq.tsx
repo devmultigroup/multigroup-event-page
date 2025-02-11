@@ -7,7 +7,7 @@ import {
 
 export default function FAQ() {
   return (
-    <Accordion type="single" collapsible className="w-5/6 md:w-1/3 m-auto my-8">
+    <Accordion type="single" collapsible className="w-5/6 lg:w-2/3 xl:w-5/12 m-auto my-8">
       <AccordionItem value="item-1">
         <AccordionTrigger className="font-bold">Biz Kimiz?</AccordionTrigger>
         <AccordionContent>

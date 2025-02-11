@@ -11,7 +11,7 @@ import {
   getLatestEvent,
   getSecondLatestEvent,
 } from "@/lib/event-utils";
-import EventImageGallery from "@/components/event-gallery";
+import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 
 export default function Home() {

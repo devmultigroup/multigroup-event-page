@@ -35,7 +35,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
         </Heading>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto max-w-4xl p-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto max-w-4xl px-8 md:px-0">
         {images.map((image, index) => (
           <div key={index} className="flex justify-center">
             <img

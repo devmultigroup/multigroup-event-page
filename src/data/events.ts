@@ -139,6 +139,24 @@ const events: Event[] = [
         endTime: "11:30",
         speakerName: "Bob Williams",
       },
+      {
+        topic: "Building Smart Apps with AI",
+        startTime: "11:30",
+        endTime: "12:30",
+        speakerName: "Bob Williams",
+      },
+      {
+        topic: "Building Smartest Apps with AI",
+        startTime: "12:30",
+        endTime: "13:30",
+        speakerName: "Bob Williams",
+      },
+      {
+        topic: "Building test Apps with AI",
+        startTime: "13:30",
+        endTime: "14:30",
+        speakerName: "Bob Williams",
+      },
     ],
     sponsors: ["all-done", "perseva", "softtech", "adesso"],
     afterMetrics: {

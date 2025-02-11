@@ -11,7 +11,7 @@ import SpeakerCarousel from "@/components/speaker-carousel";
 import Location from "@/components/location";
 import { getFormattedDate, getEventBySlug } from "@/lib/event-utils";
 import MetricsGrid from "@/components/metrics-grid";
-import EventImageGallery from "@/components/event-gallery";
+import EventImageGallery from "@/components/event-image-gallery";
 
 export default function EventPage({
   params: paramsPromise,
