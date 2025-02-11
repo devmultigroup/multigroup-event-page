@@ -81,7 +81,7 @@ export default function EventPage({
       <SessionContainer event={eventDetails} />
       <span id="konum"></span>
       <Heading>Konum</Heading>
-      {/* <Location location={eventDetails.location}/> */}
+      <Location location={eventDetails.location} />
       <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />

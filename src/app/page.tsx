@@ -80,7 +80,7 @@ export default function Home() {
       <SessionContainer event={latestEventDetails} />
       <span id="konum"></span>
       <Heading>Konum</Heading>
-      {/* <Location location={latestEventDetails.location}/> */}
+      <Location location={latestEventDetails.location} />
       <EventImageGallery event={secondLatest} />
       <Heading>Sıkça Sorulan Sorular</Heading>
       <FAQ />

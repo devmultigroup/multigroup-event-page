@@ -8,8 +8,8 @@ const events: Event[] = [
     title: "Who're interested in MoDe",
     description: "A detailed event on mobile development trends.",
     location: {
-      latitude: 37.7749,
-      longitude: 122.4194,
+      latitude: 41.085660366250444,
+      longitude: 28.950240039927138,
       name: "Tech İstanbul | Şişhane",
       subtext:
         "Located at Moscone Center, easily accessible via public transport.",
@@ -65,8 +65,8 @@ const events: Event[] = [
     description:
       "Mobile, Web, Data Science ve Cloud tutkunlarının sabırsızlıkla beklediği etkinliğimiz #multitechsum24 için gerisayım başladı! Heyecan dorukta! Peki, bu etkinlikte seni neler bekliyor?\n\n🎙️ Sektörün öncülerinden ilham verici konuşmalar ve etkileşimli panellerle yepyeni bilgiler edinme fırsatı!\n\n🌟 Birbirinden değerli ve eşsiz network imkanları!\n\n☕ Enerji dolu kahve molalarıyla dinamik bir atmosfer!",
     location: {
-      latitude: 37.7749,
-      longitude: 122.4194,
+      latitude: 41.085660366250444,
+      longitude: 28.950240039927138,
       name: "Tech İstanbul | Şişhane",
       subtext:
         "Located at Moscone Center, easily accessible via public transport.",
