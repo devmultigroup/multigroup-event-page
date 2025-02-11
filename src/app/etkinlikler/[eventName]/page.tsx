@@ -23,7 +23,7 @@ export default function EventPage({
 
   if (!eventDetails) {
     notFound();
-  }
+  }  
 
   return (
     <>

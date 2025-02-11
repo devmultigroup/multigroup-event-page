@@ -1,5 +1,12 @@
 import EventCard from "@/components/event-card";
 import events from "@/data/events";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Etkinlikler | Developer MultiGroup",
+  description: "Developer MultiGroup'un düzenlediği tüm etkinlikleri keşfedin. Her ay düzenlenen ilham verici etkinlikler ile bilgi ve deneyimlerinizi artırın."
+};
+
 
 export default function Events() {
   return (
