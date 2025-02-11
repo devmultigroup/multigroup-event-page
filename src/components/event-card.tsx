@@ -2,7 +2,7 @@
 
 import { Event } from "@/types";
 import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { slugify } from "@/lib/slugify";
 import { useRouter } from "next/navigation";
 import { getFormattedDate } from "@/lib/event-utils";

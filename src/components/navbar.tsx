@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import { Menu } from "lucide-react";
+import { List } from "@phosphor-icons/react";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
   const pathname = usePathname();
@@ -99,7 +99,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
           </div>
           <div className="lg:hidden">
             <Button className="text-white" variant="ghost" size="icon" aria-label="Open menu" onClick={() => setIsExpanded(!isExpanded)}>
-              <Menu className="h-6 w-6 hover:bg-none" />
+              <List className="h-6 w-6 hover:bg-none" />
             </Button>
           </div>
         </div>
