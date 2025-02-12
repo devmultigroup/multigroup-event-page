@@ -17,10 +17,6 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
 
   const handleScroll = (href: string) => {
     const id = href.split('#')[1];
-    if (pathname !== "/") {
-      window.location.href = `/#${id}`;
-      return;
-    }
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -41,11 +37,12 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
     };
   }, [isExpanded]);
 
+  // Updated navigationItems array with hash links
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
-    { href: "/#konuşmacılar", label: "Konuşmacılar", isScroll: true },
-    { href: "/#konum", label: "Konum", isScroll: true },
+    { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
+    { href: "#konum", label: "Konum", isScroll: true },
   ];
 
   return (
