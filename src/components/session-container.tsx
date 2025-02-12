@@ -2,6 +2,7 @@ import { generateCalendarFile } from "@/lib/generateCalendar";
 import type { Event } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Calendar } from "@phosphor-icons/react";
 
 interface SessionContainerProps {
   event: Event;
@@ -9,12 +10,12 @@ interface SessionContainerProps {
 
 export default function SessionContainer({ event }: SessionContainerProps) {
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:my-8">
+    <div className="max-w-4xl mx-auto md:w-5/6 pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {event.sessions.map((session) => (
           <Card
             key={session.topic}
-            className="bg-white shadow-lg  w-5/6 md:w-full mx-auto"
+            className="bg-white shadow-lg w-5/6 md:w-full mx-auto"
           >
             <CardContent className="p-6 flex items-center">
               <div className="flex flex-col items-center justify-center w-24">
@@ -35,11 +36,12 @@ export default function SessionContainer({ event }: SessionContainerProps) {
           </Card>
         ))}
       </div>
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center md:justify-start pt-8">
         <Button
           onClick={() => generateCalendarFile(event)}
-          className="bg-orange-500 hover:bg-orange-600"
+          className="bg-orange-500 hover:bg-orange-600 font-bold shadow-lg hover:shadow-xl transition-all"
         >
+          <Calendar />
           Takvime Ekle
         </Button>
       </div>

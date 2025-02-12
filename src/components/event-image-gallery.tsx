@@ -26,7 +26,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
       ) : (
         <Heading>
           <a
-            className="underline hover:text-orange-500 hover:italic ease-in-out transition-all"
+            className="underline hover:text-orange-500 hover:italic ease-in-out transition-all leading-loose"
             href={`/etkinlikler/${slug}`}
           >
             {event.name}
@@ -35,7 +35,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
         </Heading>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto max-w-4xl px-8 md:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto md:w-5/6 max-w-4xl px-8 md:px-0">
         {images.map((image, index) => (
           <div key={index} className="flex justify-center">
             <img

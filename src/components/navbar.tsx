@@ -49,7 +49,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   ];
 
   return (
-    <header className="absolute w-full z-50 px-6 sm:px-12 bg-zinc-900 border-b-2 border-zinc-100 rounded-bl-full rounded-br-full">
+    <header className="absolute w-full z-50 px-6 sm:px-12 bg-zinc-900 border-b-2 border-zinc-100 rounded-bl-3xl md:rounded-bl-full rounded-br-3xl md:rounded-br-full">
       <div className="mx-auto px-8 sm:px-6 lg:px-16">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">

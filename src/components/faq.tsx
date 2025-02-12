@@ -7,8 +7,12 @@ import {
 
 export default function FAQ() {
   return (
-    <Accordion type="single" collapsible className="w-5/6 lg:w-2/3 xl:w-5/12 m-auto my-8">
-      <AccordionItem value="item-1">
+    <Accordion
+      type="single"
+      collapsible
+      className="w-5/6 lg:w-2/3 xl:w-5/12 m-auto pb-8"
+    >
+      <AccordionItem value="item-1" className="border-zinc-900/30">
         <AccordionTrigger className="font-bold">Biz Kimiz?</AccordionTrigger>
         <AccordionContent>
           MultiGroup, 2020 yılında teknolojiye olan tutku ve merakını
@@ -30,8 +34,10 @@ export default function FAQ() {
           yolculuklarında yeni kapılar açmayı amaçlıyoruz.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger className="font-bold">Ekibe üye olmak için ne yapmalıyım?</AccordionTrigger>
+      <AccordionItem value="item-2" className="border-zinc-900/30">
+        <AccordionTrigger className="font-bold">
+          Ekibe üye olmak için ne yapmalıyım?
+        </AccordionTrigger>
         <AccordionContent>
           MultiGroup yeni üyelere her zaman fırsat sunmayı amaçlayan gelişerek
           büyümeyi hedefleyen kar amacı gütmeyen ve her zaman heyecanlı üyeler
@@ -45,11 +51,18 @@ export default function FAQ() {
           edilmesi ile üyeliğiniz onaylanır ve etkinliklerden, ağ oluşturma
           fırsatlarından faydalanmaya başlayabilirsiniz. Başvuru süreci online
           başvuru, değerlendirme ve görüşme, üyelik onayı aşamalarından oluşur.
-          Başvuru için bu linki ziyaret edebilirsiniz. Seni aramızda görmek için
-          sabırsızlanıyoruz!
+          Başvuru için{" "}
+          <a
+            href="https://forms.gle/i2wGonLF3kBCRucv6"
+            target="blank"
+            className="underline text-orange-500 hover:text-orange-600"
+          >
+            bu linki
+          </a>{" "}
+          ziyaret edebilirsiniz. Seni aramızda görmek için sabırsızlanıyoruz!
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem value="item-3" className="border-zinc-900/30">
         <AccordionTrigger className="font-bold">
           Etkinliklerde konuşmacı olmak için ne yapmalıyım?
         </AccordionTrigger>
@@ -57,19 +70,22 @@ export default function FAQ() {
           MultiGroup alanında uzman kişiler ile sektör meraklılarını buluşturmak
           için sabırsızlanan bir yazılım topluluğudur. Etkinliklerimizde
           konuşmacı olmak için uzmanlık alanınızda ilgi çekici bir konu
-          belirlemek ve bizim ile iletişime geçmek yeterli. Başvuru için:
-          hello@multigroup.dev
+          belirlemek ve bizim ile iletişime geçmek yeterli. Başvuru için{" "}
+          <a href="mailto:hello@multigroup.dev" className="text-orange-500 underline hover:text-orange-600">hello@multigroup.dev</a>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-4">
-        <AccordionTrigger className="font-bold">Partnerlik için ne yapmalıyım?</AccordionTrigger>
+      <AccordionItem value="item-4" className="border-zinc-900/30">
+        <AccordionTrigger className="font-bold">
+          Partnerlik için ne yapmalıyım?
+        </AccordionTrigger>
         <AccordionContent>
           MultiGroup, sektöre karşılıklı fayda sağlamak amacıyla partnerlik
           süreçlerini benimseyen bir yazılım topluluğudur. Faydayı maksimize
           edebileceğimiz her etkinlik, konferans ve projede işbirliğine önem
           veriyor, hayata geçirmek istediğiniz yeni fikirlerin bir parçası
           olmayı değerli bir fırsat olarak görüyoruz. Fikir ve önerileriniz için
-          bizimle … aracılığıyla iletişime geçebilirsiniz.
+          bizimle <a href="mailto:hello@multigroup.dev" className="text-orange-500 underline hover:text-orange-600">hello@multigroup.dev</a>{" "}
+          mail adresi aracılığıyla iletişime geçebilirsiniz.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

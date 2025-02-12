@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Map, Marker } from "pigeon-maps";
 import { Location } from "@/types";
+import { MapTrifold } from "@phosphor-icons/react";
 
 interface LocationComponentProps {
   location: Location;
@@ -51,7 +52,7 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 md:px-16 py-8 w-full lg:w-5/6 xl:w-2/3 mx-auto">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 md:px-16 w-full lg:w-5/6 xl:w-2/3 mx-auto">
       {/* Left: Map */}
       <div className="w-full h-96 rounded-lg overflow-hidden relative shadow-lg">
         <Map
@@ -68,8 +69,9 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
         <p className="text-lg text-gray-600">{location.subtext}</p>
         <button
           onClick={openMap}
-          className="px-6 py-3 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 transition"
+          className="px-6 py-3 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 transition flex align-baseline justify-center gap-2"
         >
+          <MapTrifold className="my-auto" />
           Haritada Aç
         </button>
       </div>
