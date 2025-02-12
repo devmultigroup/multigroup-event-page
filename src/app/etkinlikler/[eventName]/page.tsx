@@ -96,14 +96,7 @@ export default function EventPage({
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <SponsorSlider sponsors={eventDetails.sponsors} />
-      </motion.div>
+      <SponsorSlider sponsors={eventDetails.sponsors} />
 
       {eventDetails.afterMetrics && (
         <MetricsGrid afterMetrics={eventDetails.afterMetrics} />
@@ -134,14 +127,7 @@ export default function EventPage({
         <SpeakerCarousel speakers={eventDetails.speakers} />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <SponsorSlider reverse sponsors={eventDetails.sponsors} />
-      </motion.div>
+      <SponsorSlider reverse sponsors={eventDetails.sponsors} />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

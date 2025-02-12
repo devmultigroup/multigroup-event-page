@@ -20,7 +20,7 @@ interface SpeakerCarouselProps {
 const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   return (
     <Carousel
-      className="w-full max-w-4xl mx-auto relative mb-8"
+      className="select-none w-full max-w-4xl mx-auto relative mb-8"
       plugins={[
         Autoplay({
           delay: 3000,

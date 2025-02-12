@@ -48,7 +48,7 @@ export default function Home() {
       >
         {/* Event Name (Top Left) */}
         <motion.div
-          className="absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
+          className="select-none absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
           style={{ fontFamily: "TanNimbus" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -59,14 +59,14 @@ export default function Home() {
 
         {/* Bottom Section */}
         <motion.div
-          className="absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
+          className="select-none absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
           {/* Location */}
           <motion.div
-            className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
+            className="select-none text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
             style={{ fontFamily: "TanNimbus" }}
             variants={fadeInUp}
           >
@@ -85,14 +85,7 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <SponsorSlider sponsors={latestEventDetails.sponsors} />
-      </motion.div>
+      <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <motion.div
         className="text-center p-8 text-xl max-w-lg m-auto"
@@ -129,14 +122,7 @@ export default function Home() {
         <SessionContainer event={latestEventDetails} />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
-      </motion.div>
+      <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
 
       <span id="konum"></span>
       <motion.div

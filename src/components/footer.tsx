@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LinkedinLogo, InstagramLogo, TwitterLogo, YoutubeLogo, ArrowUp } from "@phosphor-icons/react";
+import { LinkedinLogo, InstagramLogo, TwitterLogo, YoutubeLogo, ArrowUp, GithubLogo } from "@phosphor-icons/react";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,6 +41,9 @@ export default function Footer() {
           </Link>
           <Link href="https://www.linkedin.com/company/devmultigroup/posts/?feedView=all" target="_blank">
             <LinkedinLogo className="text-xl text-blue-600 hover:text-blue-500" />
+          </Link>
+          <Link href="https://github.com/Developer-MultiGroup" target="_blank">
+            <GithubLogo className="text-xl text-white hover:text-gray-300" />
           </Link>
         </div>
       </div>

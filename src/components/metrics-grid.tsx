@@ -69,7 +69,7 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
   }, [afterMetrics]);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-12">
+    <div className="select-none w-full max-w-7xl mx-auto px-4 py-12">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {metricsData.map(({ key, label, suffix }) => (
           <div
