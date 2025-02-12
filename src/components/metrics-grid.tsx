@@ -74,7 +74,7 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
         {metricsData.map(({ key, label, suffix }) => (
           <div
             key={key}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center"
+            className="bg-transparent backdrop-blur-sm rounded-lg p-6 text-center"
           >
             <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
               {counts[key]}

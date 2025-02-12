@@ -29,15 +29,15 @@ export default function Home() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6 },
   };
 
   const staggerChildren = {
     animate: {
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   return (
@@ -58,7 +58,7 @@ export default function Home() {
         </motion.div>
 
         {/* Bottom Section */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
           variants={staggerChildren}
           initial="initial"
@@ -101,7 +101,7 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-2xl font italic">{latestEventDetails.title}</p>
+        <p className="text-2xl font-bold italic">{latestEventDetails.title}</p>
         <p className="text-4xl">{latestEventDetails.subTitle}</p>
         <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
           {latestEventDetails.description}
@@ -137,8 +137,6 @@ export default function Home() {
       >
         <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
       </motion.div>
-
-      
 
       <span id="konum"></span>
       <motion.div
