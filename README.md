@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![screenshot](public/opengraph-image.png)
 
-## Getting Started
+# MultiGroup Etkinlik Sayfası
+[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/furkanunsalan/TravelMap.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
-First, run the development server:
+## Genel Bakış
+
+Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz için tasarlandı. Daha önceden yapılmış veya en yakın zamanda yapılacak olan etkinlikleri buradan inceleyebilir, katkıda bulunmak isterseniz `issues` kısmına göz atarak bizlere destek olabilirsiniz.
+
+## Özellikler
+
+- **Dinamik Tasarım:** 
+- **Custom Markers:** 
+- **Dynamic Tabs:** 
+- **Rating System:** 
+- **Responsive Design:** 
+
+## Kullanılan Teknolojiler
+
+- **Next.js:** Kullanıcı arayüzünün geliştirilmesi.
+- **Shadcn/ui:** Kullanılan hazır bileşenler (components).
+- **Tailwind CSS:** Stil ve cihaza duyarlı tasarımlar.
+- **Pigeon Maps:** Etkinlik lokasyonlarının dinamik şekilde gösterilmesi.
+- **Vercel:** Kod dağıtımı.
+- **Framer:** Bileşen ve sayfa animasyonları.
+
+## Kurulum Talimatları
+
+### Ön Gereklilikler
+
+- Node.js (version 16.x or later)
+- npm or yarn
+
+### Lokal Ortamda Çalıştırma
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
+$ cd multigroup-event-page
+$ npm install
+$ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Geliştirme versiyonunu görmek için tarayıcınızda `http://localhost:3000` adresine gidin.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Etkinlik Dosyalarının Yönetimi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Event Type Yapısı
 
-## Learn More
+### Fotoğraf Klasörleri
 
-To learn more about Next.js, take a look at the following resources:
+#### Etkinlik Fotoğrafları
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Konuşmacı Fotoğrafları
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Sponsor Fotoğrafları
 
-## Deploy on Vercel
+## Yeni Etkinlik Oluşturma
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Kurulum talimatları](#kurulum-talimatları)'ndaki aşamaları uygulayarak projeyi lokal ortamınızda ayağa kaldırdıktan sonra istediğiniz değişiklikleri yapabilir ve istediğiniz hataları düzelterek `Pull Request` gönderebilirsiniz. PR göndermek için aşağıdaki adımları takip edin:
+
+1. **Projenin bir `Fork`'unu oluşturun**
+
+2. **Yeni bir `Branch` oluşturun**
+
+    ```bash
+    git checkout -b feature/your-feature
+    # or
+    git git checkout -b fix/your-fix
+    ```
+
+3. **Değişikliklerinizi yapın**
+
+4. **Değişikliklerinizi `Commit` olarak gönderin**
+
+    ```bash
+    git add .
+    git commit -m "feat: Add a descriptive commit message"
+    # or 
+    git commit -m "fix: Add a descriptive commit message"
+    ```
+
+5. **Değişikliklerinizi `Repository`'ye yollayın**
+
+    ```bash
+    git push origin feature/your-feature
+    ```
+
+6. **`Pull Request` açın**
+    Profilinizdeki bu projenin kendi `Fork`'undan ana `Repository`'ye bir PR oluşturun
+
+## Repo Aktivitesi
+
+<!-- ![Alt](https://repobeats.axiom.co/api/embed/94a2829520bc7e0ee83043b228c0db765d31cf5b.svg "Repobeats analytics image") -->
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Developer-MultiGroup/multigroup-event-page&type=Timeline)](https://star-history.com/#fDeveloper-MultiGroup/multigroup-event-page)
+
+## License
+Bu projenin [lisansına](LICENSE) göz atın.
+## Contact
+If you have any questions, feel free to reach out to me at `me@furkanunsalan.dev`.
