@@ -1,39 +1,39 @@
 ![screenshot](public/opengraph-image.png)
 
-# MultiGroup Etkinlik Sayfası
+# MultiGroup Event Page
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/furkanunsalan/TravelMap.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
-## Genel Bakış
+## Overview
 
-Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz için tasarlandı. Daha önceden yapılmış veya en yakın zamanda yapılacak olan etkinlikleri buradan inceleyebilir, katkıda bulunmak isterseniz `issues` kısmına göz atarak bizlere destek olabilirsiniz.
+This repository is designed to help you easily access Developer MultiGroup's events. You can review previous or upcoming events here, and if you'd like to contribute, you can check out the `issues` section to support us. 
 
-[English Documentation](/README-ENG.md)
+[Türkçe Dökümantasyon](/README.md)
 
-## Özellikler
+## Features
 
-- **Dinamik Tasarım:** 
+- **Dynamic Design:** 
 - **Custom Markers:** 
 - **Dynamic Tabs:** 
 - **Rating System:** 
 - **Responsive Design:** 
 
-## Kullanılan Teknolojiler
+## Technologies Used
 
-- **Next.js:** Kullanıcı arayüzünün geliştirilmesi.
-- **Shadcn/ui:** Kullanılan hazır bileşenler (components).
-- **Tailwind CSS:** Stil ve cihaza duyarlı tasarımlar.
-- **Pigeon Maps:** Etkinlik lokasyonlarının dinamik şekilde gösterilmesi.
-- **Vercel:** Kod dağıtımı.
-- **Framer:** Bileşen ve sayfa animasyonları.
+- **Next.js:** User interface development.
+- **Shadcn/ui:** Ready-to-use components.
+- **Tailwind CSS:** Styling and responsive designs.
+- **Pigeon Maps:** Dynamic display of event locations.
+- **Vercel:** Code deployment.
+- **Framer:** Component and page animations.
 
-## Kurulum Talimatları
+## Installation Instructions
 
-### Ön Gereklilikler
+### Prerequisites
 
 - Node.js (version 16.x or later)
 - npm or yarn
 
-### Lokal Ortamda Çalıştırma
+### Running Locally
 
 ```bash
 $ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
@@ -42,11 +42,11 @@ $ npm install
 $ npm run dev
 ```
 
-Geliştirme versiyonunu görmek için tarayıcınızda `http://localhost:3000` adresine gidin.
+Visit `http://localhost:3000` in your browser to see the development version.
 
-## Etkinlik Dosyalarının Yönetimi
+## Event File Management
 
-### Event Type Yapısı
+### Event Type Structure
 
 ```mermaid
 classDiagram
@@ -105,44 +105,41 @@ classDiagram
     Event *-- AfterMetrics : tracks
 ```
 
-
-
-### Fotoğraf Klasörleri
+### Photo Folders
 
 ```bash
 /public/images
     ├── events
-    │   └── etkinlik-adi
+    │   └── event-name
     ├── speakers
     └── sponsors
 ```
 
-Projenin fotoğraf depolama yapısı yukarıdaki gibidir. 
+The project's photo storage structure is as shown above.
 
+#### Event Photos
 
-#### Etkinlik Fotoğrafları
+Each event has 3 photos with specified names under its own name (slugified name).
 
-Her etkinliğin kendisiyle alakalı 3 adet fotoğraf belirtilen isimlerde kendi isminin altında (slugify edilmiş isim) bulunur. 
+#### Speaker Photos
 
-#### Konuşmacı Fotoğrafları
+All speaker photos are kept in this folder with slugified names, and when adding a speaker to any event, the photos are automatically taken from this folder when added with that name.
 
-Tüm konuşmacıların fotoğrafları slugify edilmiş isimler ile bu klasörde tutulur ve herhangi bir etkinliğe konuşmacı eklenirken o isimle eklendiğinde fotoğraflar otomatik olarak bu klasörden alınır
+#### Sponsor Photos
 
-#### Sponsor Fotoğrafları
+The logic for sponsor photos is the same as speakers. Sponsor logos are kept in this folder with a slugified name, and this name is added to the array structure in the event object when needed.
 
-Sponsor fotoğraflarının mantığı da konuşmacılarla aynıdır. Slugify edilmiş bir isim ile sponsorların logoları bu klasörün içerisinde tutulur ve gerektiğinde etkinlik objesindeki array yapısına bu isim eklenir.
+## Creating a New Event
 
-## Yeni Etkinlik Oluşturma
-
-Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts` dosyasında yeni bir obje oluşturup yazmak yeterlidir. Sadece dikkat edilmesi gerek konu fotoğrafların isimleri ve koyuldukları yerlerdir.
+To create a new event, it's sufficient to create a new object in the `data/events.ts` file and write the fields specified above. The only thing to pay attention to is the names of the photos and where they are placed.
 
 ## Contributing
 
-[Kurulum talimatları](#kurulum-talimatları)'ndaki aşamaları uygulayarak projeyi lokal ortamınızda ayağa kaldırdıktan sonra istediğiniz değişiklikleri yapabilir ve istediğiniz hataları düzelterek `Pull Request` gönderebilirsiniz. PR göndermek için aşağıdaki adımları takip edin:
+After setting up the project in your local environment by following the [Installation Instructions](#installation-instructions), you can make any changes you want and fix any bugs by sending a `Pull Request`. Follow these steps to send a PR:
 
-1. **Projenin bir `Fork`'unu oluşturun**
+1. **Create a `Fork` of the project**
 
-2. **Yeni bir `Branch` oluşturun**
+2. **Create a new `Branch`**
 
     ```bash
     git checkout -b feature/your-feature
@@ -150,9 +147,9 @@ Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts`
     git git checkout -b fix/your-fix
     ```
 
-3. **Değişikliklerinizi yapın**
+3. **Make your changes**
 
-4. **Değişikliklerinizi `Commit` olarak gönderin**
+4. **Commit your changes**
 
     ```bash
     git add .
@@ -161,22 +158,23 @@ Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts`
     git commit -m "fix: Add a descriptive commit message"
     ```
 
-5. **Değişikliklerinizi `Repository`'ye yollayın**
+5. **Push your changes to the `Repository`**
 
     ```bash
     git push origin feature/your-feature
     ```
 
-6. **`Pull Request` açın**
-    Profilinizdeki bu projenin kendi `Fork`'undan ana `Repository`'ye bir PR oluşturun
+6. **Open a `Pull Request`**
+    Create a PR from your own `Fork` of this project in your profile to the main `Repository`
 
-## Repo Aktivitesi
+## Repo Activity
 
 <!-- ![Alt](https://repobeats.axiom.co/api/embed/94a2829520bc7e0ee83043b228c0db765d31cf5b.svg "Repobeats analytics image") -->
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Developer-MultiGroup/multigroup-event-page&type=Timeline)](https://star-history.com/#fDeveloper-MultiGroup/multigroup-event-page)
 
 ## License
-Bu projenin [lisansına](LICENSE) göz atın.
+Check out the [license](LICENSE) of this project.
+
 ## Contact
 If you have any questions, feel free to reach out to me at `me@furkanunsalan.dev`.
