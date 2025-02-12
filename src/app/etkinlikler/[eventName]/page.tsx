@@ -10,7 +10,11 @@ import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
 import Location from "@/components/location";
-import { getFormattedDate, getEventBySlug } from "@/lib/event-utils";
+import {
+  getFormattedDate,
+  getEventBySlug,
+  getLatestEvent,
+} from "@/lib/event-utils";
 import MetricsGrid from "@/components/metrics-grid";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
@@ -24,6 +28,12 @@ export default function EventPage({
   const eventDetails: Event | null = getEventBySlug(params.eventName);
 
   if (!eventDetails) {
+    notFound();
+  }
+
+  const latestEvent = getLatestEvent();
+
+  if (!eventDetails || eventDetails.id === latestEvent.id) {
     notFound();
   }
 
@@ -160,7 +170,7 @@ export default function EventPage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler"/>
+        <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
       </motion.div>
 
       <motion.div
