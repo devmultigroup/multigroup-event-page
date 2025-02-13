@@ -3,6 +3,7 @@ import type { Event } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar } from "@phosphor-icons/react";
+import { slugify } from "@/lib/slugify";
 
 interface SessionContainerProps {
   event: Event;
@@ -27,10 +28,21 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 </p>
               </div>
               <div className="flex-1 pl-6">
-                <p className="text-xl font-bold text-gray-900">
-                  {session.speakerName}
+                {/* First line: Speaker image and name */}
+                <div className="flex items-center">
+                  <img
+                    src={`/images/speakers/${slugify(session.speakerName)}.jpg`}
+                    alt={session.speakerName}
+                    className="w-8 h-8 rounded-full object-cover mr-4"
+                  />
+                  <p className="text-xl font-bold text-gray-900">
+                    {session.speakerName}
+                  </p>
+                </div>
+                {/* Second line: Session topic */}
+                <p className="text-gray-700 text-sm mt-1">
+                  {session.topic}
                 </p>
-                <p className="text-gray-700 text-sm mt-1">{session.topic}</p>
               </div>
             </CardContent>
           </Card>
@@ -39,9 +51,9 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       <div className="flex justify-center md:justify-start pt-8">
         <Button
           onClick={() => generateCalendarFile(event)}
-          className="bg-orange-500 hover:bg-orange-600 font-bold shadow-lg hover:shadow-xl transition-all"
+          className="bg-orange-500 hover:bg-orange-600 font-bold shadow-lg hover:shadow-xl transition-all flex items-center"
         >
-          <Calendar />
+          <Calendar className="mr-2" />
           Takvime Ekle
         </Button>
       </div>

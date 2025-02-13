@@ -66,8 +66,8 @@ export default function Home() {
         >
           {/* Location */}
           <motion.div
-            className="select-none text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
-            style={{ fontFamily: "TanNimbus" }}
+            className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
+            style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <p>{getFormattedDate(latestEventDetails.date)}</p>
@@ -76,8 +76,8 @@ export default function Home() {
 
           {/* Countdown */}
           <motion.div
-            className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-right w-full"
-            style={{ fontFamily: "TanNimbus" }}
+            className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
+            style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={latestEventDetails.date} />
@@ -88,14 +88,39 @@ export default function Home() {
       <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <motion.div
-        className="text-center p-8 text-xl max-w-lg m-auto"
+        className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-2 gap-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-2xl font-bold italic">{latestEventDetails.title}</p>
-        <p className="text-4xl">{latestEventDetails.subTitle}</p>
+        {/* Left Column */}
+        <div className="space-y-6 my-auto">
+          <div
+            className="font-extrabold text-left"
+            style={{ fontFamily: "Montserrat" }}
+          >
+            <p className="text-2xl italic">{latestEventDetails.title}</p>
+            <p className="text-4xl">{latestEventDetails.subTitle}</p>
+          </div>
+          {/* New creative grid with stats */}
+          <div className="grid grid-cols-3 gap-4 pt-12">
+            <div className="bg-white shadow-md rounded-lg p-4">
+              <p className="text-lg font-bold">Katılımcı Sayısı</p>
+              <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+            </div>
+            <div className="bg-white shadow-md rounded-lg p-4">
+              <p className="text-lg font-bold">Konuşmacı Sayısı</p>
+              <p className="text-3xl font-extrabold text-orange-500">20</p>
+            </div>
+            <div className="bg-white shadow-md rounded-lg p-4">
+              <p className="text-lg font-bold">Sponsor Sayısı</p>
+              <p className="text-3xl font-extrabold text-orange-500">10</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column */}
         <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
           {latestEventDetails.description}
         </p>
@@ -131,7 +156,7 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Heading>Konum</Heading>
+        
         <Location location={latestEventDetails.location} />
       </motion.div>
 

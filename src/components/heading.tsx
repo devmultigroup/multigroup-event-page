@@ -13,10 +13,10 @@ const Heading: React.FC<HeadingProps> = ({ children, className }) => {
   return (
     <p
       className={clsx(
-        "font-bold text-gray-900 text-3xl text-center pb-8 pt-16 max-w-2xl mx-auto",
+        "font-extrabold text-gray-900 text-4xl text-center pb-8 pt-16 max-w-2xl mx-auto",
         className
       )}
-      style={{ fontFamily: "TanNimbus" }}
+      style={{ fontFamily: "Montserrat" }}
     >
       {children}
     </p>

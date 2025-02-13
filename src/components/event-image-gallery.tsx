@@ -26,7 +26,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
       ) : (
         <Heading>
           <a
-            className="underline hover:text-orange-500 hover:italic ease-in-out transition-all leading-loose"
+            className="underline hover:opacity-80 ease-in-out transition-all leading-normal"
             href={`/etkinlikler/${slug}`}
           >
             {event.name}
