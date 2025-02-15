@@ -11,11 +11,10 @@ This repository is designed to help you easily access Developer MultiGroup's eve
 
 ## Features
 
-- **Dynamic Design:** 
-- **Custom Markers:** 
-- **Dynamic Tabs:** 
-- **Rating System:** 
-- **Responsive Design:** 
+- **Dynamic Structure:** Create and publish new events without the need for any database and storage service.
+- **Add to Calendar:** Easily add event sessions to your calendar and stay in the flow.
+- **Access Locations:** Easily access the event area with the map application suitable for your platform.
+- **Responsive Design:** A fully dynamic design so you can follow our events from every platform.
 
 ## Technologies Used
 

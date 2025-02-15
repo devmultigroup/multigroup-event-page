@@ -11,11 +11,10 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 
 ## Özellikler
 
-- **Dinamik Tasarım:** 
-- **Custom Markers:** 
-- **Dynamic Tabs:** 
-- **Rating System:** 
-- **Responsive Design:** 
+- **Dinamik Yapı:** Hiçbir veritabanı ve depolama servisine gerek duymadan yeni etkinlikler oluşturun ve yayınlayın
+- **Takvime Ekle:** Etkinlik oturumlarını takviminize kolayca ekleyin ve akıştan geri kalmayın.
+- **Konumlara Erişin:** Platformunuza uygun harita uygulaması ile etkinlik alanına kolayca ulaşın.
+- **Duyarlı Tasarım:** Etkinliklerimizi her platformdan takip edebilmeniz için tamamen dinamik bir tasarım.
 
 ## Kullanılan Teknolojiler
 
