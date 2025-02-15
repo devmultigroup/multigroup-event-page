@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -16,7 +16,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleScroll = (href: string) => {
-    const id = href.split('#')[1];
+    const id = href.split("#")[1];
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -29,11 +29,11 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
         setIsExpanded(false);
       }
     };
-    
-    window.addEventListener('scroll', handleScrollClose);
-    
+
+    window.addEventListener("scroll", handleScrollClose);
+
     return () => {
-      window.removeEventListener('scroll', handleScrollClose);
+      window.removeEventListener("scroll", handleScrollClose);
     };
   }, [isExpanded]);
 
@@ -84,48 +84,73 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             </NavigationMenu>
           </div>
           <div className="hidden lg:block">
-            <Button variant="outline" className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out">
+            <Button
+              variant="outline"
+              className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
+            >
               <a href={eventLink} target="_blank">
                 <div className="absolute inset-0 bg-orange-500 transition-transform duration-300 ease-in-out rounded-md" />
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
-                  <span className="relative z-10 font-medium text-sm">Kayıt Ol</span>
+                  <span className="relative z-10 font-medium text-sm">
+                    Kayıt Ol
+                  </span>
                 </div>
               </a>
               <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
           <div className="lg:hidden">
-            <Button className="text-white" variant="ghost" size="icon" aria-label="Open menu" onClick={() => setIsExpanded(!isExpanded)}>
+            <Button
+              className="text-white"
+              variant="ghost"
+              size="icon"
+              aria-label="Open menu"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
               <List className="h-6 w-6 hover:bg-none" />
             </Button>
           </div>
         </div>
         <div
-          className={`w-full bg-none transition-all duration-300 overflow-hidden ${isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} rounded-b-lg flex flex-col items-center space-y-4`}
+          className={`fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-transform duration-300 ${
+            isExpanded
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0"
+          }`}
         >
-          {isExpanded && (
-            <div className="flex flex-col items-center space-y-4 p-4">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-lg font-medium text-white hover:text-orange-500"
-                  onClick={(e) => {
-                    if (item.isScroll) {
-                      e.preventDefault();
-                      handleScroll(item.href);
-                      setIsExpanded(false);
-                    }
-                  }}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <Button variant="outline" className="mt-4 rounded-lg font-medium text-lg">
-                <a href={eventLink} target="_blank">Kayıt Ol</a>
-              </Button>
-            </div>
-          )}
+          <button
+            className="absolute top-6 right-6 text-black text-3xl"
+            onClick={() => setIsExpanded(false)}
+          >
+            &times;
+          </button>
+
+          <div className="flex flex-col items-center space-y-6">
+            {navigationItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-2xl font-medium text-black hover:text-orange-500 transition-colors"
+                onClick={(e) => {
+                  if (item.isScroll) {
+                    e.preventDefault();
+                    handleScroll(item.href);
+                    setIsExpanded(false);
+                  }
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <Button
+              variant="outline"
+              className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
+            >
+              <a href={eventLink} target="_blank">
+                Kayıt Ol
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </header>
