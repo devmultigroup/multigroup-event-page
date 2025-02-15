@@ -53,7 +53,7 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 py-8 md:px-16 w-full lg:w-5/6 xl:w-2/3 mx-auto mt-16 bg-white shadow-xl rounded-lg">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 py-8 md:px-16 w-full lg:w-5/6 xl:w-2/3 mx-auto mt-16 bg-[#BDF5F2] shadow-xl rounded-lg">
       {/* Left: Map */}
       <div className="w-full h-96 rounded-lg overflow-hidden relative shadow-lg">
         <Map

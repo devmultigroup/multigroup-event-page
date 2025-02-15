@@ -44,7 +44,7 @@ export default function Home() {
     <>
       <div
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-6 sm:px-12"
-        style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
+        // style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
       >
         {/* Event Name (Top Left) */}
         <motion.div
@@ -87,65 +87,67 @@ export default function Home() {
 
       <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
-      <motion.div
-        className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-2 gap-8"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Left Column */}
-        <div className="space-y-6 my-auto">
-          <div
-            className="font-extrabold text-left"
-            style={{ fontFamily: "Montserrat" }}
-          >
-            <p className="text-2xl italic">{latestEventDetails.title}</p>
-            <p className="text-4xl">{latestEventDetails.subTitle}</p>
+      <div className="bg-[#F2F4F0] pt-16">
+        <motion.div
+          className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#BDF5F2] rounded-xl shadow-lg"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Left Column */}
+          <div className="space-y-6 my-auto">
+            <div
+              className="font-extrabold text-left"
+              style={{ fontFamily: "Montserrat" }}
+            >
+              <p className="text-2xl italic">{latestEventDetails.title}</p>
+              <p className="text-4xl">{latestEventDetails.subTitle}</p>
+            </div>
+            {/* New creative grid with stats */}
+            <div className="grid grid-cols-3 gap-4 pt-12">
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Katılımcı Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+              </div>
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Konuşmacı Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">20</p>
+              </div>
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Sponsor Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">10</p>
+              </div>
+            </div>
           </div>
-          {/* New creative grid with stats */}
-          <div className="grid grid-cols-3 gap-4 pt-12">
-            <div className="bg-white shadow-md rounded-lg p-4">
-              <p className="text-lg font-bold">Katılımcı Sayısı</p>
-              <p className="text-3xl font-extrabold text-orange-500">1000+</p>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-4">
-              <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-              <p className="text-3xl font-extrabold text-orange-500">20</p>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-4">
-              <p className="text-lg font-bold">Sponsor Sayısı</p>
-              <p className="text-3xl font-extrabold text-orange-500">10</p>
-            </div>
-          </div>
-        </div>
 
-        {/* Right Column */}
-        <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
-          {latestEventDetails.description}
-        </p>
-      </motion.div>
+          {/* Right Column */}
+          <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
+            {latestEventDetails.description}
+          </p>
+        </motion.div>
 
-      <span id="konuşmacılar"></span>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Heading>Konuşmacılar</Heading>
-        <SpeakerCarousel speakers={latestEventDetails.speakers} />
-      </motion.div>
+        <span id="konuşmacılar"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading dark >Konuşmacılar</Heading>
+          <SpeakerCarousel speakers={latestEventDetails.speakers} />
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Heading>Etkinlik Akışı</Heading>
-        <SessionContainer event={latestEventDetails} />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading dark >Etkinlik Akışı</Heading>
+          <SessionContainer event={latestEventDetails} />
+        </motion.div>
+      </div>
 
       <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
 
@@ -156,7 +158,6 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        
         <Location location={latestEventDetails.location} />
       </motion.div>
 

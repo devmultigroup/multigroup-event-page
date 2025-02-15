@@ -16,8 +16,8 @@ const SponsorSlider = ({
   ];
 
   return (
-    <div className="w-full bg-zinc-800">
-      <div className="relative flex overflow-hidden h-32">
+    <div className="w-full bg-[#F6DA29]">
+      <div className="relative flex overflow-hidden h-40">
         {/* Main track */}
         <div
           className={`flex items-center ${
@@ -33,7 +33,7 @@ const SponsorSlider = ({
                 draggable={false}
                 src={`/images/sponsors/${sponsor}.png`}
                 alt={`${sponsor} logo`}
-                className="h-14 w-auto object-contain  opacity-70 hover:opacity-100 select-none brightness-0 invert hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
+                className="h-14 w-auto object-contain  opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
               />
             </div>
           ))}

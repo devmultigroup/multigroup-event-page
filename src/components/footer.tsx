@@ -18,7 +18,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-zinc-900 text-white py-6 px-4 md:px-12 flex flex-col items-center justify-center min-h-40">
+    <footer className="relative bg-transparent text-white py-6 px-4 md:px-12 flex flex-col items-center justify-center min-h-60">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl">
         <div className="flex items-center gap-3">
           <Image src="/dmg-logo.png" alt="MultiGroup Logo" width={200} height={200} />
