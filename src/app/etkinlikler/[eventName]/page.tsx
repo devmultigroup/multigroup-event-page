@@ -59,7 +59,7 @@ export default function EventPage({
       >
         {/* Event Name (Top Left) */}
         <motion.div
-          className="select-none absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
+          className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center sm:text-left"
           style={{ fontFamily: "TanNimbus" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}

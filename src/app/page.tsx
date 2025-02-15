@@ -48,7 +48,7 @@ export default function Home() {
       >
         {/* Event Name (Top Left) */}
         <motion.div
-          className="select-none absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
+          className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center sm:text-left"
           style={{ fontFamily: "TanNimbus" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ export default function Home() {
               <p className="text-4xl">{latestEventDetails.subTitle}</p>
             </div>
             {/* New creative grid with stats */}
-            <div className="grid grid-cols-3 gap-4 pt-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-12">
               <div className="bg-white shadow-md rounded-lg p-4">
                 <p className="text-lg font-bold">Katılımcı Sayısı</p>
                 <p className="text-3xl font-extrabold text-orange-500">1000+</p>
@@ -122,7 +122,7 @@ export default function Home() {
           </div>
 
           {/* Right Column */}
-          <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
+          <p className="text-justify pt-4 my-auto" style={{ whiteSpace: "pre-line" }}>
             {latestEventDetails.description}
           </p>
         </motion.div>
