@@ -46,7 +46,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   ];
 
   return (
-    <header className="absolute w-full z-50 px-6 sm:px-12 bg-transparent">
+    <header className="absolute w-full z-50 px-6 sm:px-12 bg-transparent py-2">
       <div className="mx-auto px-8 sm:px-6 lg:px-16">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">

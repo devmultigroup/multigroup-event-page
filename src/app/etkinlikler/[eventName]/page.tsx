@@ -55,11 +55,11 @@ export default function EventPage({
     <>
       <div
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-6 sm:px-12"
-        style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
+        // style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
       >
         {/* Event Name (Top Left) */}
         <motion.div
-          className="absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
+          className="select-none absolute top-24 left-6 sm:top-32 sm:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-tight sm:leading-[64px] text-center sm:text-left"
           style={{ fontFamily: "TanNimbus" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -70,15 +70,15 @@ export default function EventPage({
 
         {/* Bottom Section */}
         <motion.div
-          className="absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
+          className="select-none absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
           {/* Location */}
           <motion.div
-            className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-left w-full"
-            style={{ fontFamily: "TanNimbus" }}
+            className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
+            style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <p>{getFormattedDate(eventDetails.date)}</p>
@@ -87,8 +87,8 @@ export default function EventPage({
 
           {/* Countdown */}
           <motion.div
-            className="text-white text-lg sm:text-xl px-2 py-1 rounded-lg text-center sm:text-right w-full"
-            style={{ fontFamily: "TanNimbus" }}
+            className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
+            style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={eventDetails.date} />
@@ -102,42 +102,69 @@ export default function EventPage({
         <MetricsGrid afterMetrics={eventDetails.afterMetrics} />
       )}
 
-      <motion.div
-        className="text-center p-8 text-xl max-w-lg m-auto"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="text-2xl font-bold italic">{eventDetails.title}</p>
-        <p className="text-4xl">{eventDetails.subTitle}</p>
-        <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
-          {eventDetails.description}
-        </p>
-      </motion.div>
+      <div className="bg-[#F2F4F0] pt-16">
+        <motion.div
+          className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#BDF5F2] rounded-xl shadow-inset-all"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Left Column */}
+          <div className="space-y-6 my-auto">
+            <div
+              className="font-extrabold text-left"
+              style={{ fontFamily: "Montserrat" }}
+            >
+              <p className="text-2xl italic">{eventDetails.title}</p>
+              <p className="text-4xl">{eventDetails.subTitle}</p>
+            </div>
+            {/* New creative grid with stats */}
+            <div className="grid grid-cols-3 gap-4 pt-12">
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Katılımcı Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+              </div>
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Konuşmacı Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">20</p>
+              </div>
+              <div className="bg-white shadow-md rounded-lg p-4">
+                <p className="text-lg font-bold">Sponsor Sayısı</p>
+                <p className="text-3xl font-extrabold text-orange-500">10</p>
+              </div>
+            </div>
+          </div>
 
-      <span id="konuşmacılar"></span>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Heading>Konuşmacılar</Heading>
-        <SpeakerCarousel speakers={eventDetails.speakers} />
-      </motion.div>
+          {/* Right Column */}
+          <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
+            {eventDetails.description}
+          </p>
+        </motion.div>
+
+        <span id="konuşmacılar"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading dark >Konuşmacılar</Heading>
+          <SpeakerCarousel speakers={eventDetails.speakers} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading dark >Etkinlik Akışı</Heading>
+          <SessionContainer event={eventDetails} />
+        </motion.div>
+      </div>
 
       <SponsorSlider reverse sponsors={eventDetails.sponsors} />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Heading>Etkinlik Akışı</Heading>
-        <SessionContainer event={eventDetails} />
-      </motion.div>
 
       <span id="konum"></span>
       <motion.div
@@ -146,7 +173,6 @@ export default function EventPage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Heading>Konum</Heading>
         <Location location={eventDetails.location} />
       </motion.div>
 
@@ -156,7 +182,7 @@ export default function EventPage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
+        <EventImageGallery event={eventDetails} />
       </motion.div>
 
       <motion.div

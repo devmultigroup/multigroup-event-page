@@ -80,7 +80,14 @@ export default {
         marquee: "marquee 15s linear infinite",
         "marquee-reverse": "marquee-reverse 15s linear infinite",
       },
+      boxShadow: {
+        // Custom inset shadow
+        'inset-all': 'inset 0 0 4px rgba(0, 0, 0, 0.3)',
+      },
     },
+  },
+  variants: {
+    boxShadow: ['responsive', 'hover', 'focus'],
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

@@ -17,7 +17,7 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
   return (
     <div className="flex justify-end items-center">
       {days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? (
-        <p className="text-4xl font-extrabold text-right" style={{ fontFamily: "Montserrat"}}>Katıldığınız için teşekkürler</p>
+        <p className="text-4xl font-extrabold text-center md:text-right" style={{ fontFamily: "Montserrat"}}>Katıldığınız için teşekkürler</p>
       ) : (
         <>
           {/* Days */}

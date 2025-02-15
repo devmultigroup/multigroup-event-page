@@ -14,20 +14,30 @@ export default function Events() {
   const filteredEvents = events.filter((event) => event.id !== latestEvent.id);
 
   return (
-    <div
-      className="min-h-screen flex flex-col justify-center items-center"
-      style={{
-        backgroundImage: `url('../../dmg-main-bg.png')`,
-      }}
-    >
-      <div className="grid md:grid-cols-1 xl:grid-cols-2">
+    <div className="min-h-screen flex flex-col items-center bg-[#012B28]">
+      {/* The grid now has padding-top set to 50vh, ensuring it starts halfway down the viewport. */}
+      <div className="pt-[25vh] grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4">
         {filteredEvents
           .sort(
             (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
           )
-          .map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+          .map((event, index) => {
+            // Check if this is the last item in an odd-length list.
+            const isLastOddItem =
+              filteredEvents.length % 2 !== 0 &&
+              index === filteredEvents.length - 1;
+            return (
+              <div
+                key={event.id}
+                // If it's a lone item in its row, span both columns and center its content.
+                className={
+                  isLastOddItem ? "col-span-2 flex justify-center" : ""
+                }
+              >
+                <EventCard event={event} />
+              </div>
+            );
+          })}
       </div>
     </div>
   );
