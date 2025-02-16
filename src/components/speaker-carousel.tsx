@@ -18,6 +18,8 @@ interface SpeakerCarouselProps {
 }
 
 const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
+  const isScrollable = speakers.length > 3; // Default for large screens
+
   return (
     <Carousel
       className="select-none w-full max-w-4xl mx-auto relative mb-8"
@@ -30,14 +32,20 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
       ]}
       opts={{
         align: "start",
-        loop: true,
+        loop: isScrollable, // Disable loop if not scrollable
       }}
     >
-      <CarouselContent className="backface-hidden -ml-4">
+      <CarouselContent
+        className={`backface-hidden -ml-4 flex ${
+          (speakers.length < 3 && "lg:justify-center") ||
+          (speakers.length < 2 && "md:justify-center") ||
+          "justify-start"
+        }`}
+      >
         {speakers.map((speaker) => (
           <CarouselItem
             key={speaker.fullName}
-            className="p-4 pl-8
+            className="p-4 pl-8 
               basis-full 
               sm:basis-1/2 
               lg:basis-1/3"
@@ -56,8 +64,14 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="hidden md:flex" />
-      <CarouselNext className="hidden md:flex" />
+
+      {/* Hide buttons if the carousel is not scrollable */}
+      {isScrollable && (
+        <>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </>
+      )}
     </Carousel>
   );
 };
