@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -13,31 +13,24 @@ import { List } from "@phosphor-icons/react";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleScroll = (href: string) => {
-    const id = href.split("#")[1];
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+  const handleScrollOrRedirect = (href: string) => {
+    if (pathname === "/etkinlikler" && href.startsWith("#")) {
+      router.push(`/${href}`);
+    } else {
+      const id = href.split("#")[1];
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push(href);
+      }
     }
+    setIsExpanded(false); // Close navbar after clicking a link
   };
 
-  useEffect(() => {
-    const handleScrollClose = () => {
-      if (isExpanded) {
-        setIsExpanded(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScrollClose);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrollClose);
-    };
-  }, [isExpanded]);
-
-  // Updated navigationItems array with hash links
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
@@ -46,7 +39,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   ];
 
   return (
-    <header className="absolute w-full z-50 px-6 sm:px-12 bg-transparent">
+    <header className="absolute w-full z-50 px-6 sm:px-12 bg-transparent py-2">
       <div className="mx-auto px-8 sm:px-6 lg:px-16">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">
@@ -62,22 +55,12 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                     key={item.href}
                     className="transition-opacity duration-300 group-hover:opacity-50 hover:!opacity-100"
                   >
-                    {item.isScroll ? (
-                      <button
-                        onClick={() => handleScroll(item.href)}
-                        className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
-                        data-umami-event="Kayıt Linki"
-                      >
-                        {item.label}
-                      </button>
-                    ) : (
-                      <NavigationMenuLink
-                        href={item.href}
-                        className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
-                      >
-                        {item.label}
-                      </NavigationMenuLink>
-                    )}
+                    <button
+                      onClick={() => handleScrollOrRedirect(item.href)}
+                      className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                    >
+                      {item.label}
+                    </button>
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -100,31 +83,19 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             </Button>
           </div>
           <div className="lg:hidden">
-            <Button
-              className="text-white"
-              variant="ghost"
-              size="icon"
-              aria-label="Open menu"
-              onClick={() => setIsExpanded(!isExpanded)}
-            >
+            <Button className="text-white" variant="ghost" size="icon" aria-label="Open menu" onClick={() => setIsExpanded(!isExpanded)}>
               <List className="h-6 w-6 hover:bg-none" />
             </Button>
           </div>
         </div>
         <div
           className={`fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-transform duration-300 ${
-            isExpanded
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-full opacity-0"
+            isExpanded ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
           }`}
         >
-          <button
-            className="absolute top-6 right-6 text-black text-3xl"
-            onClick={() => setIsExpanded(false)}
-          >
+          <button className="absolute top-12 right-16 text-black text-3xl" onClick={() => setIsExpanded(false)}>
             &times;
           </button>
-
           <div className="flex flex-col items-center space-y-6">
             {navigationItems.map((item) => (
               <a
@@ -132,23 +103,15 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                 href={item.href}
                 className="text-2xl font-medium text-black hover:text-orange-500 transition-colors"
                 onClick={(e) => {
-                  if (item.isScroll) {
-                    e.preventDefault();
-                    handleScroll(item.href);
-                    setIsExpanded(false);
-                  }
+                  e.preventDefault();
+                  handleScrollOrRedirect(item.href);
                 }}
               >
                 {item.label}
               </a>
             ))}
-            <Button
-              variant="outline"
-              className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
-            >
-              <a href={eventLink} target="_blank">
-                Kayıt Ol
-              </a>
+            <Button variant="outline" className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3">
+              <a href={eventLink} target="_blank">Kayıt Ol</a>
             </Button>
           </div>
         </div>

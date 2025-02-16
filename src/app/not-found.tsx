@@ -13,16 +13,13 @@ export default function NotFound() {
     return (
         <div
         className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/dmg-main-bg.png')`,
-        }}
       >
-        <p style={{ fontFamily: "TanNimbus" }} className="flex justify-center align-middle text-white text-4xl text-center">
+        <p style={{ fontFamily: "TanNimbus" }} className="flex justify-center align-middle text-white text-4xl text-center leading-relaxed">
             404
             <br/>
             Öyle bir etkinlik olsa da gitsek!
         </p>
-        <Button onClick={handleRoute} className="mt-16">Anasayfaya Dön</Button>
+        <Button onClick={handleRoute} className="mt-16 bg-orange-600 hover:bg-orange-800">Anasayfaya Dön</Button>
       </div>
     )
 }
