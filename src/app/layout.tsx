@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { getLatestEventLink } from "@/lib/event-utils";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/toaster"
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({
       >
         <Navbar eventLink={latestEventLink} />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

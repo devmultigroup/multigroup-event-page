@@ -4,12 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar } from "@phosphor-icons/react";
 import { slugify } from "@/lib/slugify";
+import { useToast } from "@/hooks/use-toast";
 
 interface SessionContainerProps {
   event: Event;
 }
 
 export default function SessionContainer({ event }: SessionContainerProps) {
+  const { toast } = useToast();
+
+  const handleCalendarDownload = async () => {
+    await generateCalendarFile(event);
+    toast({
+      title: "Takvim dosyası indirildi",
+      description: "Etkinlik takviminize eklendi.",
+      className: "bg-green-500 text-white",
+      duration: 3000,
+    });
+  };
+
   return (
     <div className="max-w-4xl mx-auto md:w-5/6 pb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -28,7 +41,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 </p>
               </div>
               <div className="flex-1 pl-6">
-                {/* First line: Speaker image and name */}
                 <div className="flex items-center">
                   <img
                     src={`/images/speakers/${slugify(session.speakerName)}.jpg`}
@@ -39,7 +51,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                     {session.speakerName}
                   </p>
                 </div>
-                {/* Second line: Session topic */}
                 <p className="text-gray-700 text-sm mt-1">
                   {session.topic}
                 </p>
@@ -50,7 +61,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       </div>
       <div className="flex justify-center md:justify-start pt-8">
         <Button
-          onClick={() => generateCalendarFile(event)}
+          onClick={handleCalendarDownload}
           className="bg-orange-500 hover:bg-orange-600 active:bg-orange-800 font-bold shadow-lg hover:shadow-xl transition-all flex items-center p-6"
         >
           <Calendar className="mr-2" />
@@ -59,4 +70,4 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       </div>
     </div>
   );
-};
+}
