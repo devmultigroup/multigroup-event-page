@@ -67,8 +67,19 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             </NavigationMenu>
           </div>
           <div className="hidden lg:block">
-            <Button variant="outline" className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out">
-              <a href={eventLink} target="_blank">Kayıt Ol</a>
+            <Button
+              variant="outline"
+              className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
+            >
+              <a href={eventLink} target="_blank">
+                <div className="absolute inset-0 bg-orange-500 transition-transform duration-300 ease-in-out rounded-md" />
+                <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
+                  <span className="relative z-10 font-medium text-sm">
+                    Kayıt Ol
+                  </span>
+                </div>
+              </a>
+              <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
           <div className="lg:hidden">

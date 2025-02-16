@@ -34,7 +34,7 @@ export default function EventCard({ event }: { event: Event }) {
       <div className="flex justify-between items-center py-4 text-gray-700">
         <Button
           onClick={handleNavigation}
-          className="hover:bg-orange-600 hover:text-white mt-4"
+          className="hover:bg-orange-600 hover:text-white mt-4 active:bg-orange-800 active:text-white"
           variant="outline"
         >
           Daha Fazla <ArrowRight />

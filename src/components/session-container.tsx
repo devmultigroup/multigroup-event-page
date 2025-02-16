@@ -51,7 +51,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       <div className="flex justify-center md:justify-start pt-8">
         <Button
           onClick={() => generateCalendarFile(event)}
-          className="bg-orange-500 hover:bg-orange-600 font-bold shadow-lg hover:shadow-xl transition-all flex items-center p-6"
+          className="bg-orange-500 hover:bg-orange-600 active:bg-orange-800 font-bold shadow-lg hover:shadow-xl transition-all flex items-center p-6"
         >
           <Calendar className="mr-2" />
           Takvime Ekle

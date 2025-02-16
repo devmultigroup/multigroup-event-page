@@ -18,7 +18,7 @@ const Heading: React.FC<HeadingProps> = ({ children, className, dark }) => {
         className,
         dark ? "text-emerald-950" : "text-white"
       )}
-      style={{ fontFamily: "Montserrat" }}
+      // style={{ fontFamily: "Montserrat" }}
     >
       {children}
     </p>

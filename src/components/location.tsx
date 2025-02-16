@@ -66,12 +66,17 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
       </div>
       {/* Right: Event Info */}
       <div className="flex flex-col space-y-4 p-4">
-        <p className="font-extrabold text-gray-900 text-4xl text-left  max-w-2xl" style={{fontFamily: "montserrat"}}>Konum</p>
+        <p
+          className="font-extrabold text-gray-900 text-4xl text-left  max-w-2xl"
+          // style={{ fontFamily: "montserrat" }}
+        >
+          Konum
+        </p>
         <h2 className="text-3xl font-bold">{location.name}</h2>
         <p className="text-lg text-gray-600">{location.subtext}</p>
         <button
           onClick={openMap}
-          className="px-6 py-3 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 transition flex align-baseline justify-center gap-2"
+          className="px-6 py-3 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 active:bg-orange-800 transition flex align-baseline justify-center gap-2"
         >
           <MapPin className="my-auto" />
           Haritada Aç

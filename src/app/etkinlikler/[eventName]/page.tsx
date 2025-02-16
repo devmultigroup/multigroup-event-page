@@ -78,7 +78,7 @@ export default function EventPage({
           {/* Location */}
           <motion.div
             className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
-            style={{ fontFamily: "Montserrat" }}
+            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <p>{getFormattedDate(eventDetails.date)}</p>
@@ -88,7 +88,7 @@ export default function EventPage({
           {/* Countdown */}
           <motion.div
             className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
-            style={{ fontFamily: "Montserrat" }}
+            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={eventDetails.date} />
@@ -114,7 +114,7 @@ export default function EventPage({
           <div className="space-y-6 my-auto">
             <div
               className="font-extrabold text-left"
-              style={{ fontFamily: "Montserrat" }}
+              // style={{ fontFamily: "Montserrat" }}
             >
               <p className="text-2xl italic">{eventDetails.title}</p>
               <p className="text-4xl">{eventDetails.subTitle}</p>

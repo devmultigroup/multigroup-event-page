@@ -67,7 +67,7 @@ export default function Home() {
           {/* Location */}
           <motion.div
             className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
-            style={{ fontFamily: "Montserrat" }}
+            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <p>{getFormattedDate(latestEventDetails.date)}</p>
@@ -77,7 +77,7 @@ export default function Home() {
           {/* Countdown */}
           <motion.div
             className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
-            style={{ fontFamily: "Montserrat" }}
+            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={latestEventDetails.date} />
@@ -99,7 +99,7 @@ export default function Home() {
           <div className="space-y-6 my-auto">
             <div
               className="font-extrabold text-left"
-              style={{ fontFamily: "Montserrat" }}
+              // style={{ fontFamily: "Montserrat" }}
             >
               <p className="text-2xl italic">{latestEventDetails.title}</p>
               <p className="text-4xl">{latestEventDetails.subTitle}</p>
