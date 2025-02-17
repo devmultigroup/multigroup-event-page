@@ -31,13 +31,10 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto md:w-5/6 max-w-4xl px-8 md:px-0">
         {event.images.map((image, index) => (
           <div key={index} className="flex justify-center relative h-60">
-            <Image
+            <img
               src={image}
               alt={`${event.name} - Image ${index + 1}`}
-              fill
-              className="object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
-              sizes="(max-width: 768px) 100vw, 33vw"
-              priority={index === 0}
+              className="w-full h-60 object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
             />
           </div>
         ))}
