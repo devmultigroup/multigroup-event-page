@@ -14,6 +14,10 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
   heading,
 }) => {
   const slug = slugify(event.name);
+
+  // Log the slug to make sure it's what you expect in production
+  console.log("Generated slug:", slug);
+
   const images = [
     `/images/events/${slug}/1.jpg`,
     `/images/events/${slug}/2.jpg`,
@@ -44,6 +48,8 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
               fill
               className="object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
               sizes="(max-width: 768px) 100vw, 33vw"
+              // Add unoptimized for testing; remove it if you find a different issue.
+              unoptimized
             />
           </div>
         ))}
