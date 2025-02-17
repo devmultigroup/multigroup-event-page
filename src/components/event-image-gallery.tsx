@@ -1,6 +1,7 @@
 import { slugify } from "@/lib/slugify";
 import { Event } from "@/types";
 import React from "react";
+import Image from "next/image";
 import Heading from "./heading";
 
 interface EventImageGalleryProps {
@@ -22,7 +23,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
   return (
     <>
       {heading ? (
-        <Heading> {heading} </Heading>
+        <Heading>{heading}</Heading>
       ) : (
         <Heading>
           <a
@@ -34,14 +35,15 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
           Nasıldı?
         </Heading>
       )}
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto md:w-5/6 max-w-4xl px-8 md:px-0">
         {images.map((image, index) => (
-          <div key={index} className="flex justify-center">
-            <img
+          <div key={index} className="flex justify-center relative h-60">
+            <Image
               src={image}
               alt={`Event ${index + 1}`}
-              className="w-full h-60 object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
+              fill
+              className="object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
         ))}

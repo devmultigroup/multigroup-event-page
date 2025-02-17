@@ -182,7 +182,7 @@ export default function EventPage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <EventImageGallery event={eventDetails} />
+        <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
       </motion.div>
 
       <motion.div
