@@ -47,6 +47,11 @@ const events: Event[] = [
       },
     ],
     sponsors: ["all-done", "perseva", "softtech", "adesso"],
+    images: [
+      "/images/events/mobile-developer-summit-2024/1.jpg",
+      "/images/events/mobile-developer-summit-2024/2.jpg",
+      "/images/events/mobile-developer-summit-2024/3.jpg",
+    ],
     afterMetrics: {
       applications: "500",
       vipGuests: "100+",
@@ -159,6 +164,11 @@ const events: Event[] = [
       },
     ],
     sponsors: ["all-done", "perseva", "softtech", "adesso"],
+    images: [
+      "/images/events/mobile-developer-summit-2024/1.jpg",
+      "/images/events/mobile-developer-summit-2024/2.jpg",
+      "/images/events/mobile-developer-summit-2024/3.jpg",
+    ],
     afterMetrics: {
       applications: "700",
       vipGuests: "200+",

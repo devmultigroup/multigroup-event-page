@@ -42,5 +42,6 @@ export type Event = {
   speakers: Speaker[];
   sessions: Session[];
   sponsors: string[];
+  images: string[];
   afterMetrics?: AfterMetrics;
 };

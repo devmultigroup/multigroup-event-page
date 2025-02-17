@@ -1,8 +1,8 @@
-import { slugify } from "@/lib/slugify";
 import { Event } from "@/types";
 import React from "react";
 import Image from "next/image";
 import Heading from "./heading";
+import { slugify } from "@/lib/slugify";
 
 interface EventImageGalleryProps {
   event: Event;
@@ -13,17 +13,6 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
   event,
   heading,
 }) => {
-  const slug = slugify(event.name);
-
-  // Log the slug to make sure it's what you expect in production
-  console.log("Generated slug:", slug);
-
-  const images = [
-    `/images/events/${slug}/1.jpg`,
-    `/images/events/${slug}/2.jpg`,
-    `/images/events/${slug}/3.jpg`,
-  ];
-
   return (
     <>
       {heading ? (
@@ -32,7 +21,7 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
         <Heading>
           <a
             className="underline hover:opacity-80 ease-in-out transition-all leading-normal"
-            href={`/etkinlikler/${slug}`}
+            href={`/etkinlikler/${slugify(event.name)}`}
           >
             {event.name}
           </a>{" "}
@@ -40,16 +29,15 @@ const EventImageGallery: React.FC<EventImageGalleryProps> = ({
         </Heading>
       )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto md:w-5/6 max-w-4xl px-8 md:px-0">
-        {images.map((image, index) => (
+        {event.images.map((image, index) => (
           <div key={index} className="flex justify-center relative h-60">
             <Image
               src={image}
-              alt={`Event ${index + 1}`}
+              alt={`${event.name} - Image ${index + 1}`}
               fill
               className="object-cover rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
               sizes="(max-width: 768px) 100vw, 33vw"
-              // Add unoptimized for testing; remove it if you find a different issue.
-              unoptimized
+              priority={index === 0}
             />
           </div>
         ))}
