@@ -1,5 +1,5 @@
-import { AfterMetrics } from '@/types';
-import React, { useEffect, useState } from 'react';
+import { AfterMetrics } from "@/types";
+import React, { useEffect, useState } from "react";
 
 type MetricItem = {
   key: keyof AfterMetrics;
@@ -16,18 +16,18 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
     workingParticipant: 0,
     jobSeeker: 0,
     jobProvider: 0,
-    satisfaction: 0
+    satisfaction: 0,
   });
 
   const metricsData: MetricItem[] = [
-    { key: 'applications', label: 'Başvuru', suffix: '' },
-    { key: 'vipGuests', label: 'VIP Konuk', suffix: '+' },
-    { key: 'supporter', label: 'Destekçi', suffix: '+' },
-    { key: 'speakers', label: 'Konuşmacı', suffix: '' },
-    { key: 'workingParticipant', label: 'Çalışan Katılımcı', suffix: '%' },
-    { key: 'jobSeeker', label: 'İş Arayan', suffix: '%' },
-    { key: 'jobProvider', label: 'İş Veren', suffix: '%' },
-    { key: 'satisfaction', label: 'Memnuniyet', suffix: '%' }
+    { key: "applications", label: "Başvuru", suffix: "" },
+    { key: "vipGuests", label: "VIP Konuk", suffix: "+" },
+    { key: "supporter", label: "Destekçi", suffix: "+" },
+    { key: "speakers", label: "Konuşmacı", suffix: "" },
+    { key: "workingParticipant", label: "Çalışan Katılımcı", suffix: "%" },
+    { key: "jobSeeker", label: "İş Arayan", suffix: "%" },
+    { key: "jobProvider", label: "İş Veren", suffix: "%" },
+    { key: "satisfaction", label: "Memnuniyet", suffix: "%" },
   ];
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
     const timers: NodeJS.Timeout[] = [];
 
     metricsData.forEach(({ key }) => {
-      const rawValue = afterMetrics[key]?.replace(/\D/g, '') || '0';
+      const rawValue = afterMetrics[key]?.replace(/\D/g, "") || "0";
       const targetValue = parseInt(rawValue, 10);
 
       if (isNaN(targetValue)) return;
@@ -48,9 +48,12 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
       let currentStep = 0;
 
       const timer = setInterval(() => {
-        setCounts(prev => ({
+        setCounts((prev) => ({
           ...prev,
-          [key]: currentStep < steps ? Math.round(increment * currentStep) : targetValue
+          [key]:
+            currentStep < steps
+              ? Math.round(increment * currentStep)
+              : targetValue,
         }));
 
         if (currentStep >= steps) {
@@ -64,13 +67,13 @@ const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics }) => {
     });
 
     return () => {
-      timers.forEach(timer => clearInterval(timer));
+      timers.forEach((timer) => clearInterval(timer));
     };
   }, [afterMetrics]);
 
   return (
     <div className="select-none px-4 py-12 bg-[#F2F4F0]">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">
         {metricsData.map(({ key, label, suffix }) => (
           <div
             key={key}

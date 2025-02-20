@@ -18,6 +18,7 @@ import {
 import MetricsGrid from "@/components/metrics-grid";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
+import Sponsors from "@/components/sponsors";
 
 export default function EventPage({
   params: paramsPromise,
@@ -104,43 +105,46 @@ export default function EventPage({
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
-          className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#BDF5F2] rounded-xl shadow-inset-all"
+          className="text-center p-8 max-w-6xl mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Left Column */}
-          <div className="space-y-6 my-auto">
-            <div
-              className="font-extrabold text-left"
-              // style={{ fontFamily: "Montserrat" }}
-            >
-              <p className="text-2xl italic">{eventDetails.title}</p>
-              <p className="text-4xl">{eventDetails.subTitle}</p>
-            </div>
-            {/* New creative grid with stats */}
-            <div className="grid grid-cols-3 gap-4 pt-12">
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Katılımcı Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">1000+</p>
-              </div>
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">20</p>
-              </div>
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Sponsor Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">10</p>
-              </div>
-            </div>
+          <div className="space-y-4">
+            <h2 className="text-3xl italic text-gray-800">
+              {eventDetails.title}
+            </h2>
+            <h3 className="text-5xl font-extrabold text-gray-800 leading-tight">
+              {eventDetails.subTitle}
+            </h3>
           </div>
 
-          {/* Right Column */}
-          <p className="text-justify pt-4" style={{ whiteSpace: "pre-line" }}>
+          <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
+
+          <p
+            className="text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto"
+            style={{ whiteSpace: "pre-line" }}
+          >
             {eventDetails.description}
           </p>
         </motion.div>
+
+        {/* New creative grid with stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Katılımcı Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Konuşmacı Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">20+</p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Sponsor Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">10+</p>
+          </div>
+        </div>
 
         <span id="konuşmacılar"></span>
         <motion.div
@@ -149,7 +153,7 @@ export default function EventPage({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading dark >Konuşmacılar</Heading>
+          <Heading dark>Konuşmacılar</Heading>
           <SpeakerCarousel speakers={eventDetails.speakers} />
         </motion.div>
 
@@ -159,9 +163,11 @@ export default function EventPage({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading dark >Etkinlik Akışı</Heading>
+          <Heading dark>Etkinlik Akışı</Heading>
           <SessionContainer event={eventDetails} />
         </motion.div>
+
+        <Sponsors sponsors={eventDetails.sponsors} />
       </div>
 
       <SponsorSlider reverse sponsors={eventDetails.sponsors} />
@@ -182,7 +188,7 @@ export default function EventPage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <EventImageGallery event={eventDetails} heading="Etkinlikten Kareler" />
+        <EventImageGallery event={latestEvent} />
       </motion.div>
 
       <motion.div

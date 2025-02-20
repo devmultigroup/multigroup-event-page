@@ -24,12 +24,12 @@ export default function SessionContainer({ event }: SessionContainerProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto md:w-5/6 pb-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="max-w-6xl mx-auto md:w-5/6 pb-16 md:px-0 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {event.sessions.map((session) => (
           <Card
             key={session.topic}
-            className="bg-white shadow-lg w-5/6 md:w-full mx-auto"
+            className="bg-white shadow-lg w-full mx-auto"
           >
             <CardContent className="p-6 flex items-center">
               <div className="flex flex-col items-center justify-center w-24">
@@ -51,9 +51,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                     {session.speakerName}
                   </p>
                 </div>
-                <p className="text-gray-700 text-sm mt-1">
-                  {session.topic}
-                </p>
+                <p className="text-gray-700 text-sm mt-1">{session.topic}</p>
               </div>
             </CardContent>
           </Card>

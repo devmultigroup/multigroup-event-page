@@ -90,26 +90,25 @@ export default function Home() {
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
-          className="text-center p-8 text-xl max-w-4xl m-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#BDF5F2] rounded-xl shadow-inset-all"
+          className="text-center p-8 max-w-6xl mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Left Column */}
-          <div className="space-y-6 my-auto">
-            <div
-              className="font-extrabold text-left"
-              // style={{ fontFamily: "Montserrat" }}
-            >
-              <p className="text-2xl italic">{latestEventDetails.title}</p>
-              <p className="text-4xl">{latestEventDetails.subTitle}</p>
-            </div>
+          <div className="space-y-4">
+            <h2 className="text-3xl italic text-gray-800">
+              {latestEventDetails.title}
+            </h2>
+            <h3 className="text-5xl font-extrabold text-gray-800 leading-tight">
+              {latestEventDetails.subTitle}
+            </h3>
           </div>
 
-          {/* Right Column */}
+          <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
+
           <p
-            className="text-justify my-auto"
+            className="text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto"
             style={{ whiteSpace: "pre-line" }}
           >
             {latestEventDetails.description}
@@ -117,7 +116,7 @@ export default function Home() {
         </motion.div>
 
         {/* New creative grid with stats */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-12 max-w-4xl mx-auto w-5/6 xl:w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
             <p className="text-3xl font-extrabold text-orange-500">1000+</p>

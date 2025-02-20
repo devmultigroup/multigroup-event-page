@@ -42,7 +42,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="container mx-auto py-8 max-w-6xl md:px-0 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {sortedTiers.map((tier) => (
           <motion.div
@@ -56,7 +56,8 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-center">
-                  {formatTierName(tier)} Sponsor{sponsorsByTier[tier].length > 1 ? "lar" : ""}
+                  {formatTierName(tier)} Sponsor
+                  {sponsorsByTier[tier].length > 1 ? "lar" : ""}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -80,7 +81,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
                               : tier.toLowerCase() === "altın"
                               ? "230px"
                               : "180px"
-                          })`
+                          })`,
                         }}
                       />
                     </motion.div>
