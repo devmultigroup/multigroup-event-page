@@ -13,6 +13,7 @@ import {
 } from "@/lib/event-utils";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
+import Sponsors from "@/components/sponsors";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
@@ -151,8 +152,8 @@ export default function Home() {
           <Heading dark>Etkinlik Akışı</Heading>
           <SessionContainer event={latestEventDetails} />
         </motion.div>
-        <Heading dark>Etkinlik Sponsorları</Heading>
 
+        <Sponsors sponsors={latestEventDetails.sponsors} />
       </div>
 
       <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />

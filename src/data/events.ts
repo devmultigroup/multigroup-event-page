@@ -48,19 +48,19 @@ const events: Event[] = [
     ],
     sponsors: [
       {
-        tier: "platinum",
+        tier: "platin",
         sponsorSlug: "all-done"
       },
       {
-        tier: "gold",
+        tier: "altın",
         sponsorSlug: "perseva"
       },
       {
-        tier: "silver",
+        tier: "gümüş",
         sponsorSlug: "softtech"
       },
       {
-        tier: "bronze",
+        tier: "bronz",
         sponsorSlug: "adesso"
       }
     ],
@@ -183,19 +183,19 @@ const events: Event[] = [
     ],
     sponsors: [
       {
-        tier: "platinum",
+        tier: "platin",
         sponsorSlug: "all-done"
       },
       {
-        tier: "gold",
+        tier: "altın",
         sponsorSlug: "perseva"
       },
       {
-        tier: "silver",
+        tier: "gümüş",
         sponsorSlug: "softtech"
       },
       {
-        tier: "bronze",
+        tier: "bronz",
         sponsorSlug: "adesso"
       }
     ],

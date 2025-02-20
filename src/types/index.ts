@@ -31,7 +31,7 @@ export type Location = {
 }
 
 export type Sponsor = {
-  tier: string;
+  tier: "platin" | "altın" | "gümüş" | "bronz";
   sponsorSlug: string;
 }
 
