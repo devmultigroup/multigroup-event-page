@@ -50,15 +50,40 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
               sm:basis-1/2 
               lg:basis-1/3"
           >
-            <Card className="hover:shadow-md hover:-translate-y-2 transition-all">
-              <CardContent className="p-4 flex flex-col items-center text-center">
+            <Card className="hover:shadow-md hover:-translate-y-2 transition-all h-full">
+              <CardContent
+                className={`p-4 flex flex-col text-center h-full ${
+                  !speaker.phrase
+                    ? "justify-center items-center"
+                    : "items-center"
+                }`}
+              >
                 <img
                   src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
                   alt={speaker.fullName}
                   className="w-24 h-24 rounded-full object-cover mb-3"
                 />
-                <h3 className="text-lg font-semibold">{speaker.fullName}</h3>
-                <p className="text-sm text-gray-500">{speaker.title}</p>
+
+                {/* When there is no phrase, the content is centered */}
+                {speaker.phrase ? (
+                  <>
+                    <h3 className="text-lg font-semibold">
+                      {speaker.fullName}
+                    </h3>
+                    <p className="text-sm text-gray-500">{speaker.title}</p>
+                    <p className="text-sm pt-2 text-gray-500">
+                      {speaker.phrase}
+                    </p>
+                    <div className="mt-auto" />
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-lg font-semibold">
+                      {speaker.fullName}
+                    </h3>
+                    <p className="text-sm text-gray-500">{speaker.title}</p>
+                  </>
+                )}
               </CardContent>
             </Card>
           </CarouselItem>

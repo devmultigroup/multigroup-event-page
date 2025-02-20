@@ -104,28 +104,32 @@ export default function Home() {
               <p className="text-2xl italic">{latestEventDetails.title}</p>
               <p className="text-4xl">{latestEventDetails.subTitle}</p>
             </div>
-            {/* New creative grid with stats */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-12">
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Katılımcı Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">1000+</p>
-              </div>
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">20</p>
-              </div>
-              <div className="bg-white shadow-md rounded-lg p-4">
-                <p className="text-lg font-bold">Sponsor Sayısı</p>
-                <p className="text-3xl font-extrabold text-orange-500">10</p>
-              </div>
-            </div>
           </div>
 
           {/* Right Column */}
-          <p className="text-justify pt-4 my-auto" style={{ whiteSpace: "pre-line" }}>
+          <p
+            className="text-justify my-auto"
+            style={{ whiteSpace: "pre-line" }}
+          >
             {latestEventDetails.description}
           </p>
         </motion.div>
+
+        {/* New creative grid with stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-12 max-w-4xl mx-auto w-5/6 xl:w-full">
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Katılımcı Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Konuşmacı Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">20+</p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg font-bold">Sponsor Sayısı</p>
+            <p className="text-3xl font-extrabold text-orange-500">10+</p>
+          </div>
+        </div>
 
         <span id="konuşmacılar"></span>
         <motion.div
@@ -134,7 +138,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading dark >Konuşmacılar</Heading>
+          <Heading dark>Konuşmacılar</Heading>
           <SpeakerCarousel speakers={latestEventDetails.speakers} />
         </motion.div>
 
@@ -144,9 +148,11 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading dark >Etkinlik Akışı</Heading>
+          <Heading dark>Etkinlik Akışı</Heading>
           <SessionContainer event={latestEventDetails} />
         </motion.div>
+        <Heading dark>Etkinlik Sponsorları</Heading>
+
       </div>
 
       <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />

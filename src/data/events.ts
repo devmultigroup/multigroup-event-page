@@ -46,7 +46,24 @@ const events: Event[] = [
         speakerName: "Jane Smith",
       },
     ],
-    sponsors: ["all-done", "perseva", "softtech", "adesso"],
+    sponsors: [
+      {
+        tier: "platinum",
+        sponsorSlug: "all-done"
+      },
+      {
+        tier: "gold",
+        sponsorSlug: "perseva"
+      },
+      {
+        tier: "silver",
+        sponsorSlug: "softtech"
+      },
+      {
+        tier: "bronze",
+        sponsorSlug: "adesso"
+      }
+    ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.jpg",
       "/images/events/mobile-developer-summit-2024/2.jpg",
@@ -93,6 +110,7 @@ const events: Event[] = [
         photoUrl:
           "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "CTO at MobileTech",
+        phrase: "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!"
       },
       {
         fullName: "Alice Johnson2",
@@ -163,7 +181,24 @@ const events: Event[] = [
         speakerName: "Özcan Zafer Ayan",
       },
     ],
-    sponsors: ["all-done", "perseva", "softtech", "adesso"],
+    sponsors: [
+      {
+        tier: "platinum",
+        sponsorSlug: "all-done"
+      },
+      {
+        tier: "gold",
+        sponsorSlug: "perseva"
+      },
+      {
+        tier: "silver",
+        sponsorSlug: "softtech"
+      },
+      {
+        tier: "bronze",
+        sponsorSlug: "adesso"
+      }
+    ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.jpg",
       "/images/events/mobile-developer-summit-2024/2.jpg",

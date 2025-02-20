@@ -2,6 +2,7 @@ export type Speaker = {
   fullName: string;
   photoUrl: string;
   title: string;
+  phrase?: string;
 };
 
 export type Session = {
@@ -29,6 +30,11 @@ export type Location = {
   subtext: string;
 }
 
+export type Sponsor = {
+  tier: string;
+  sponsorSlug: string;
+}
+
 export type Event = {
   id: number;
   name: string;
@@ -41,7 +47,7 @@ export type Event = {
   date: string; // ISO formatta tarih
   speakers: Speaker[];
   sessions: Session[];
-  sponsors: string[];
+  sponsors: Sponsor[];
   images: string[];
   afterMetrics?: AfterMetrics;
 };
