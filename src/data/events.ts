@@ -38,12 +38,14 @@ const events: Event[] = [
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "John Doe",
+        room: "Ana Salon"
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "11:30",
         endTime: "12:30",
         speakerName: "Jane Smith",
+        room: "Yan Salon"
       },
     ],
     sponsors: [
@@ -155,30 +157,52 @@ const events: Event[] = [
         startTime: "09:00",
         endTime: "10:00",
         speakerName: "Özcan Zafer Ayan",
+        room: "Yan Salon"
       },
       {
         topic: "Building Smarter Apps with AI",
         startTime: "10:30",
         endTime: "11:30",
         speakerName: "Özcan Zafer Ayan",
+        room: "Yan Salon"
       },
       {
         topic: "Building Smart Apps with AI",
         startTime: "11:30",
         endTime: "12:30",
         speakerName: "Özcan Zafer Ayan",
+        room: "Ana Salon"
       },
       {
         topic: "Building Smartest Apps with AI",
         startTime: "12:30",
         endTime: "13:30",
         speakerName: "Özcan Zafer Ayan",
+        room: "Ana Salon"
       },
       {
-        topic: "Building test Apps with AI",
-        startTime: "13:30",
-        endTime: "14:30",
         speakerName: "Özcan Zafer Ayan",
+        room: "Network"
+      },
+      {
+        speakerName: "Özcan ZaferAyan2",
+        room: "Network"
+      },
+      {
+        speakerName: "Özcan ZaferAyan3",
+        room: "Network"
+      },
+      {
+        speakerName: "Özcan ZaferAyan4",
+        room: "Network"
+      },
+      {
+        speakerName: "Özcan ZaferAyan5",
+        room: "Network"
+      },
+      {
+        speakerName: "Özcan ZaferAyan6",
+        room: "Network"
       },
     ],
     sponsors: [
