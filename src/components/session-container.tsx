@@ -17,6 +17,9 @@ interface SessionContainerProps {
 export default function SessionContainer({ event }: SessionContainerProps) {
   const { toast } = useToast();
 
+  // Check if event date has passed; if so, disable download and selection UI.
+  const isPastEvent = new Date(event.date) < new Date();
+
   // Extract unique room names from sessions
   const [rooms, setRooms] = useState<string[]>([]);
   const [activeRoom, setActiveRoom] = useState<string>("");
@@ -24,12 +27,10 @@ export default function SessionContainer({ event }: SessionContainerProps) {
 
   useEffect(() => {
     if (event.sessions && event.sessions.length > 0) {
-      // Extract unique rooms
       const uniqueRooms = Array.from(
         new Set(event.sessions.map((session) => session.room))
       );
       setRooms(uniqueRooms);
-      // Set first room as active by default
       if (uniqueRooms.length > 0 && !activeRoom) {
         setActiveRoom(uniqueRooms[0]);
       }
@@ -60,25 +61,19 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     });
   };
 
-  // Helper function to convert time string to minutes since midnight
-  // Fixed to handle potential undefined values
   const timeToMinutes = (timeStr: string | undefined): number => {
-    if (!timeStr) return 0; // Default to 0 if undefined
-
+    if (!timeStr) return 0;
     const parts = timeStr.split(":");
     if (parts.length !== 2) return 0;
-
     const hours = parseInt(parts[0], 10);
     const minutes = parseInt(parts[1], 10);
-
     if (isNaN(hours) || isNaN(minutes)) return 0;
     return hours * 60 + minutes;
   };
 
-  // Check if session has time conflict with already selected sessions
+  // Only allow for session selection if event is upcoming.
   const hasTimeConflict = (session: Session): boolean => {
     return selectedSessions.some((selected) => {
-      // Don't compare the session with itself when it's already selected
       if (
         selected.speakerName === session.speakerName &&
         selected.topic === session.topic &&
@@ -86,14 +81,10 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       ) {
         return false;
       }
-
-      // Convert times to comparable format (assume format like "10:00")
       const sessionStart = timeToMinutes(session.startTime);
       const sessionEnd = timeToMinutes(session.endTime);
       const selectedStart = timeToMinutes(selected.startTime);
       const selectedEnd = timeToMinutes(selected.endTime);
-
-      // Check for overlap
       return (
         (sessionStart >= selectedStart && sessionStart < selectedEnd) ||
         (sessionEnd > selectedStart && sessionEnd <= selectedEnd) ||
@@ -102,8 +93,9 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     });
   };
 
-  // Toggle session selection
   const toggleSessionSelection = (session: Session) => {
+    if (isPastEvent) return; // disable toggling for past events
+
     const isSelected = selectedSessions.some(
       (s) =>
         s.speakerName === session.speakerName &&
@@ -112,7 +104,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     );
 
     if (isSelected) {
-      // Remove from selection
       setSelectedSessions(
         selectedSessions.filter(
           (s) =>
@@ -124,7 +115,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
         )
       );
     } else {
-      // Check for time conflicts
       if (hasTimeConflict(session)) {
         toast({
           title: "Zaman Çakışması",
@@ -133,8 +123,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
           duration: 3000,
         });
       }
-
-      // Add to selection anyway (user can choose to ignore the warning)
       setSelectedSessions([...selectedSessions, session]);
     }
   };
@@ -144,23 +132,24 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     (session) => session.room === activeRoom
   );
 
-  // Check if current room is Network room
+  // Check if the current room is "Network"
   const isNetworkRoom = activeRoom === "Network";
 
   return (
     <div className="max-w-6xl mx-auto md:w-5/6 pb-16 md:px-0 px-4">
-      {rooms.length > 0 &&
+      {rooms.length > 1 &&
         (() => {
-          // Sort all rooms except "Network"
           const sortedRooms = [
             ...rooms.filter((room) => room !== "Network").sort(),
             ...rooms.filter((room) => room === "Network"),
           ];
-
           return (
             <Tabs
               value={activeRoom}
-              onValueChange={setActiveRoom}
+              onValueChange={(value) => {
+                // Allow room change always for viewing purposes.
+                setActiveRoom(value);
+              }}
               className="mb-8 flex flex-col items-center"
             >
               <TabsList className="gap-2 flex justify-center items-center">
@@ -178,8 +167,8 @@ export default function SessionContainer({ event }: SessionContainerProps) {
           );
         })()}
 
-      {/* Selected Sessions Section */}
-      {selectedSessions.length > 0 && (
+      {/* Show selected sessions section only if event is upcoming */}
+      {!isPastEvent && selectedSessions.length > 0 && (
         <div className="mb-8 p-4 bg-orange-50 rounded-lg border border-orange-200">
           <div className="flex flex-col md:flex-row justify-between items-start gap-2 md:items-center mb-4">
             <h3 className="text-lg font-bold text-orange-700">
@@ -214,7 +203,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       )}
 
       {isNetworkRoom ? (
-        // Special layout for Network room - just speaker photos
+        // For Network room, show speaker photos without interactive elements
         <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
           {filteredSessions.map((session) => {
             const speaker = event.speakers.find(
@@ -245,7 +234,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
           })}
         </div>
       ) : (
-        // Regular layout for standard sessions with selection functionality
+        // For regular rooms, show sessions without interactive controls if event is past.
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {filteredSessions.map((session) => {
             const isSelected = selectedSessions.some(
@@ -255,7 +244,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 s.room === session.room
             );
             const hasConflict = hasTimeConflict(session) && !isSelected;
-
             return (
               <Card
                 key={`session-card-${session.room}-${session.speakerName}-${session.topic}`}
@@ -265,7 +253,12 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                     : ""
                 }`}
               >
-                <CardContent className="p-6 flex items-start justify-between relative hover:cursor-pointer" onClick={() => toggleSessionSelection(session)}>
+                <CardContent
+                  className="p-6 flex items-start justify-between relative hover:cursor-pointer"
+                  onClick={() => {
+                    if (!isPastEvent) toggleSessionSelection(session);
+                  }}
+                >
                   <div className="flex items-start">
                     <div className="flex flex-col items-center justify-center w-24 my-auto">
                       <p className="text-lg font-semibold text-gray-800">
@@ -293,34 +286,27 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                       </p>
                     </div>
                   </div>
-
-                  {/* Controls moved to the right side */}
-                  <div className="flex flex-col items-center ml-4 gap-2">
-                    <div className="flex items-center gap-2">
-                      {hasConflict && (
-                        <Warning size={16} className="text-red-500" />
+                  {!isPastEvent && (
+                    <div className="flex flex-col items-center ml-4 gap-2">
+                      <div className="flex items-center gap-2">
+                        {hasConflict && (
+                          <Warning size={16} className="text-red-500" />
+                        )}
+                        <Checkbox
+                          checked={isSelected}
+                          onCheckedChange={() => toggleSessionSelection(session)}
+                          className={`${
+                            isSelected
+                              ? "bg-orange-500 text-white"
+                              : "border-orange-500"
+                          } ${hasConflict ? "border-red-500" : ""}`}
+                        />
+                      </div>
+                      {isSelected && (
+                        <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full p-1">
+                          <Check size={16} weight="bold" />
+                        </div>
                       )}
-                      <Checkbox
-                        checked={isSelected}
-                        onCheckedChange={() => toggleSessionSelection(session)}
-                        className={`${
-                          isSelected
-                            ? "bg-orange-500 text-white"
-                            : "border-orange-500"
-                        } ${hasConflict ? "border-red-500" : ""}`}
-                      />
-                    </div>
-                    {/* <Button
-                      onClick={() => handleCalendarDownload([session])}
-                      className="rounded-full w-8 h-8 p-0 bg-orange-500 hover:bg-orange-600 active:bg-orange-800 shadow-lg"
-                    >
-                      <Calendar size={16} />
-                    </Button> */}
-                  </div>
-
-                  {isSelected && (
-                    <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full p-1">
-                      <Check size={16} weight="bold" />
                     </div>
                   )}
                 </CardContent>
@@ -330,14 +316,15 @@ export default function SessionContainer({ event }: SessionContainerProps) {
         </div>
       )}
 
-      {!isNetworkRoom && (
+      {/* Only show the download button if event is upcoming */}
+      {!isNetworkRoom && !isPastEvent && (
         <div className="flex justify-center pt-8">
           <Button
             onClick={() => handleCalendarDownload(filteredSessions)}
             className="bg-orange-500 hover:bg-orange-600 active:bg-orange-800 font-bold shadow-lg hover:shadow-xl transition-all flex items-center p-6"
           >
             <Calendar className="mr-2" />
-            Bölümün Tamamını İndir
+            Tüm Konuşmaları Ekle
           </Button>
         </div>
       )}
