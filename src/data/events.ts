@@ -168,7 +168,7 @@ const events: Event[] = [
       },
       {
         topic: "Building Smart Apps with AI",
-        startTime: "11:30",
+        startTime: "10:30",
         endTime: "12:30",
         speakerName: "Özcan Zafer Ayan",
         room: "Ana Salon"
