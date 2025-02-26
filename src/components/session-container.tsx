@@ -181,7 +181,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       {/* Selected Sessions Section */}
       {selectedSessions.length > 0 && (
         <div className="mb-8 p-4 bg-orange-50 rounded-lg border border-orange-200">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-2 md:items-center mb-4">
             <h3 className="text-lg font-bold text-orange-700">
               Seçilen Oturumlar ({selectedSessions.length})
             </h3>
@@ -267,7 +267,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
               >
                 <CardContent className="p-6 flex items-start justify-between relative hover:cursor-pointer" onClick={() => toggleSessionSelection(session)}>
                   <div className="flex items-start">
-                    <div className="flex flex-col items-center justify-center w-24">
+                    <div className="flex flex-col items-center justify-center w-24 my-auto">
                       <p className="text-lg font-semibold text-gray-800">
                         {session.startTime}
                       </p>
@@ -297,6 +297,9 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                   {/* Controls moved to the right side */}
                   <div className="flex flex-col items-center ml-4 gap-2">
                     <div className="flex items-center gap-2">
+                      {hasConflict && (
+                        <Warning size={16} className="text-red-500" />
+                      )}
                       <Checkbox
                         checked={isSelected}
                         onCheckedChange={() => toggleSessionSelection(session)}
@@ -306,9 +309,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                             : "border-orange-500"
                         } ${hasConflict ? "border-red-500" : ""}`}
                       />
-                      {hasConflict && (
-                        <Warning size={16} className="text-red-500" />
-                      )}
                     </div>
                     {/* <Button
                       onClick={() => handleCalendarDownload([session])}
