@@ -66,7 +66,7 @@ export default function Home() {
           style={{ fontFamily: "TanNimbus, sans-serif" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }} // removed extra delay for faster render
+          transition={{ duration: 0.4}} // removed extra delay for faster render
         >
           {latestEventDetails.name}
         </motion.div>

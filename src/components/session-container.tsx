@@ -300,6 +300,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                           <Warning size={16} className="text-red-500" />
                         )}
                         <Checkbox
+                        aria-label="checkbox"
                           checked={isSelected}
                           onCheckedChange={() => toggleSessionSelection(session)}
                           className={`${
