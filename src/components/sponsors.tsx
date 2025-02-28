@@ -66,6 +66,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
                   className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                   width={200}
                   height={64}
+                  loading="lazy"
                 />
               </motion.div>
             ))}
