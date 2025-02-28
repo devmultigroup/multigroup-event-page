@@ -239,7 +239,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
         </div>
       ) : (
         // For regular rooms, show sessions without interactive controls if event is past.
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
           {filteredSessions.map((session) => {
             const isSelected = selectedSessions.some(
               (s) =>

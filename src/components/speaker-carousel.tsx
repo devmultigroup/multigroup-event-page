@@ -11,7 +11,7 @@ interface SpeakerCarouselProps {
 
 const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   return (
-    <section className="max-w-6xl mx-auto md:px-0 px-4">
+    <section className="max-w-6xl sm:w-5/6 mx-auto md:px-0 px-4">
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {speakers.map((speaker) => (
           <Card

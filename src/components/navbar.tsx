@@ -57,7 +57,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
           </div>
           <div className="hidden lg:flex items-center space-x-8 ml-auto">
             <NavigationMenu className="flex-1">
-              <NavigationMenuList className="flex gap-8 group">
+              <NavigationMenuList className="flex gap-4 xl:gap-8 group">
                 {navigationItems.map((item) => (
                   <NavigationMenuItem
                     key={item.href}
