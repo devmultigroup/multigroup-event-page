@@ -1,5 +1,8 @@
 "use client";
+
 import { motion } from "framer-motion";
+import Head from "next/head";
+import Image from "next/image";
 import CountdownTimer from "@/components/countdown-timer";
 import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
@@ -27,6 +30,7 @@ export default function Home() {
     );
   }
 
+  // Animation Variants
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -36,24 +40,33 @@ export default function Home() {
   const staggerChildren = {
     animate: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15, // slightly faster than original
       },
     },
   };
 
   return (
     <>
-      <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-6 sm:px-12"
-        // style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
-      >
+      <Head>
+        {/* Preload key fonts */}
+        <link
+          rel="preload"
+          href="/fonts/TanNimbus.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </Head>
+
+      {/* Background Section with optimized Image */}
+      <div className="relative min-h-screen flex items-center justify-center px-6 sm:px-12">
         {/* Event Name (Top Left) */}
         <motion.div
           className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center sm:text-left"
-          style={{ fontFamily: "TanNimbus" }}
+          style={{ fontFamily: "TanNimbus, sans-serif" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }} // removed extra delay for faster render
         >
           {latestEventDetails.name}
         </motion.div>
@@ -68,7 +81,6 @@ export default function Home() {
           {/* Location */}
           <motion.div
             className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
-            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <p>{getFormattedDate(latestEventDetails.date)}</p>
@@ -78,7 +90,6 @@ export default function Home() {
           {/* Countdown */}
           <motion.div
             className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
-            // style={{ fontFamily: "Montserrat" }}
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={latestEventDetails.date} />
@@ -115,7 +126,6 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* New creative grid with stats */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
