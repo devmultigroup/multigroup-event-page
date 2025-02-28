@@ -17,10 +17,12 @@ import {
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
   const secondLatest = getSecondLatestEvent();
+  const [minHeight, setMinHeight] = useState("100vh");
 
   if (!latestEventDetails) {
     return (
@@ -29,6 +31,22 @@ export default function Home() {
       </div>
     );
   }
+
+  useEffect(() => {
+    const updateMinHeight = () => {
+      const screenHeight = window.innerHeight;
+      if (screenHeight < 700) {
+        setMinHeight("600px");
+      } else {
+        setMinHeight("100vh");
+      }
+    };
+  
+    updateMinHeight();
+    window.addEventListener("resize", updateMinHeight);
+    return () => window.removeEventListener("resize", updateMinHeight);
+  }, []);
+  
 
   // Animation Variants
   const fadeInUp = {
@@ -59,14 +77,17 @@ export default function Home() {
       </Head>
 
       {/* Background Section with optimized Image */}
-      <div className="relative min-h-screen flex items-center justify-center px-6 sm:px-12">
+      <div
+        className="relative flex items-center justify-center px-6 sm:px-12"
+        style={{ minHeight }}
+      >
         {/* Event Name (Top Left) */}
         <motion.div
           className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center sm:text-left"
           style={{ fontFamily: "TanNimbus, sans-serif" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4}} // removed extra delay for faster render
+          transition={{ duration: 0.4 }} // removed extra delay for faster render
         >
           {latestEventDetails.name}
         </motion.div>
