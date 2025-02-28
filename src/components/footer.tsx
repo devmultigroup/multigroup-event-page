@@ -29,7 +29,7 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl">
         <div className="flex items-center gap-3">
           <Image
-            src="/dmg-logo.png"
+            src="/dmg-logo.webp"
             alt="MultiGroup Logo"
             width={200}
             height={200}

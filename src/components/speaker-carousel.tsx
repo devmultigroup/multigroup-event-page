@@ -25,7 +25,7 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
             >
               <div className="relative w-24 h-24 mb-3">
                 <Image
-                  src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
+                  src={`/images/speakers/${slugify(speaker.fullName)}.webp`}
                   alt={speaker.fullName}
                   className="rounded-full object-cover"
                   

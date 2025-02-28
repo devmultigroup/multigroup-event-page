@@ -224,9 +224,9 @@ const events: Event[] = [
       }
     ],
     images: [
-      "/images/events/mobile-developer-summit-2024/1.jpg",
-      "/images/events/mobile-developer-summit-2024/2.jpg",
-      "/images/events/mobile-developer-summit-2024/3.jpg",
+      "/images/events/mobile-developer-summit-2024/1.webp",
+      "/images/events/mobile-developer-summit-2024/2.webp",
+      "/images/events/mobile-developer-summit-2024/3.webp",
     ],
     afterMetrics: {
       applications: "700",

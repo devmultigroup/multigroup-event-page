@@ -20,7 +20,7 @@ export default function EventCard({ event }: { event: Event }) {
       <p
         className="text-xl text-center font-bold italic py-8 bg-cover bg-center text-zinc-900 rounded-lg break-words w-full p-4 whitespace-normal"
         style={{
-          backgroundImage: `url('../../bg-2.png')`,
+          backgroundImage: `url('../../bg-2.webp')`,
         }}
       >
         {event.name}

@@ -84,7 +84,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
                   whileHover={{ scale: 1.05 }}
                 >
                   <img
-                    src={`/images/sponsors/${sponsor.sponsorSlug}.png`}
+                    src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
                     alt={sponsor.sponsorSlug || `${tier} Sponsor`}
                     className={`${config.logoHeight} w-auto object-contain opacity-80 hover:opacity-100 transition-opacity`}
                   />

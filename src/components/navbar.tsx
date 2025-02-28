@@ -46,7 +46,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
           <div className="flex-shrink-0">
             <a href="/">
               <Image
-                src="/dmg-logo.png"
+                src="/dmg-logo.webp"
                 alt="DMG Logo"
                 width={196}
                 height={196}

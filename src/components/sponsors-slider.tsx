@@ -32,7 +32,7 @@ const SponsorSlider = ({
             >
               <img
                 draggable={false}
-                src={`/images/sponsors/${sponsor.sponsorSlug}.png`}
+                src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
                 alt={`${sponsor.sponsorSlug} logo`}
                 className="h-14 w-auto object-contain  opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
               />
