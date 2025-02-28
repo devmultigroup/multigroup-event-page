@@ -1,7 +1,17 @@
-import { useCountdown } from "@/lib/useCounter";
-import React, { useState, useEffect } from "react";
+"use client";
 
-export default function CountdownTimer({ targetDate }: { targetDate: string }) {
+import { useCountdown } from "@/lib/useCounter";
+import { useState, useEffect } from "react";
+
+interface CountdownTimerProps {
+  targetDate: string;
+  center?: boolean;
+}
+
+export default function CountdownTimer({
+  targetDate,
+  center = false,
+}: CountdownTimerProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -14,11 +24,17 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
     return <p className="text-2xl">Yükleniyor...</p>; // Avoid rendering dynamic content on SSR
   }
 
+  const containerClasses = `flex ${
+    center ? "justify-center" : "justify-center lg:justify-end"
+  } items-center`;
+
   return (
-    <div className="flex justify-center lg:justify-end items-center">
+    <div className={containerClasses}>
       {days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? (
         <p
-          className="text-4xl font-extrabold text-center md:text-right"
+          className={`text-4xl font-extrabold ${
+            center ? "text-center" : "text-center md:text-right"
+          }`}
           // style={{ fontFamily: "Montserrat" }}
         >
           Katıldığınız için teşekkürler
