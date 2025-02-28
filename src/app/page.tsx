@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Head from "next/head";
-import Image from "next/image";
 import CountdownTimer from "@/components/countdown-timer";
 import FAQ from "@/components/faq";
 import Heading from "@/components/heading";

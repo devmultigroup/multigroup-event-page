@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
+import Head from "next/head";
 import type { Event } from "@/types";
 import { notFound } from "next/navigation";
 import CountdownTimer from "@/components/countdown-timer";
@@ -27,6 +28,7 @@ export default function EventPage({
 }) {
   const params = use(paramsPromise);
   const eventDetails: Event | null = getEventBySlug(params.eventName);
+  const [minHeight, setMinHeight] = useState("100vh");
 
   if (!eventDetails) {
     notFound();
@@ -38,6 +40,21 @@ export default function EventPage({
     notFound();
   }
 
+  useEffect(() => {
+    const updateMinHeight = () => {
+      const screenHeight = window.innerHeight;
+      if (screenHeight < 700) {
+        setMinHeight("600px");
+      } else {
+        setMinHeight("100vh");
+      }
+    };
+
+    updateMinHeight();
+    window.addEventListener("resize", updateMinHeight);
+    return () => window.removeEventListener("resize", updateMinHeight);
+  }, []);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -47,39 +64,50 @@ export default function EventPage({
   const staggerChildren = {
     animate: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
 
   return (
     <>
+      <Head>
+        {/* Preload key fonts */}
+        <link
+          rel="preload"
+          href="/fonts/TanNimbus.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </Head>
+
+      {/* Background Section with optimized Image */}
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-6 sm:px-12"
-        // style={{ backgroundImage: `url('/dmg-main-bg.png')` }}
+        className="relative flex items-center justify-center px-6 sm:px-12"
+        style={{ minHeight }}
       >
         {/* Event Name (Top Left) */}
         <motion.div
-          className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center sm:text-left"
-          style={{ fontFamily: "TanNimbus" }}
+          className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
+          style={{ fontFamily: "TanNimbus, sans-serif" }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4 }} // removed extra delay for faster render
         >
           {eventDetails.name}
         </motion.div>
 
         {/* Bottom Section */}
         <motion.div
-          className="select-none absolute bottom-16 sm:bottom-24 w-full px-6 sm:px-24 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
+          className="select-none absolute bottom-16 lg:bottom-24 w-full px-6 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-8"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
           {/* Location */}
           <motion.div
-            className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-left w-full font-extrabold"
-            // style={{ fontFamily: "Montserrat" }}
+            className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
             variants={fadeInUp}
           >
             <p>{getFormattedDate(eventDetails.date)}</p>
@@ -88,8 +116,7 @@ export default function EventPage({
 
           {/* Countdown */}
           <motion.div
-            className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center sm:text-right w-full font-extrabold"
-            // style={{ fontFamily: "Montserrat" }}
+            className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-right w-full font-extrabold"
             variants={fadeInUp}
           >
             <CountdownTimer targetDate={eventDetails.date} />
@@ -105,17 +132,17 @@ export default function EventPage({
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
-          className="text-center p-8 max-w-6xl mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
+          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="space-y-4">
-            <h2 className="text-3xl italic text-gray-800">
+            <h2 className="text-xl md:text-3xl italic text-gray-800">
               {eventDetails.title}
             </h2>
-            <h3 className="text-5xl font-extrabold text-gray-800 leading-tight">
+            <h3 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight">
               {eventDetails.subTitle}
             </h3>
           </div>
@@ -123,26 +150,25 @@ export default function EventPage({
           <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
 
           <p
-            className="text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto"
+            className="text-md md:text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto"
             style={{ whiteSpace: "pre-line" }}
           >
             {eventDetails.description}
           </p>
         </motion.div>
 
-        {/* New creative grid with stats */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+            <p className="text-3xl font-extrabold text-orange-600">1000+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">20+</p>
+            <p className="text-3xl font-extrabold text-orange-600">20+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">10+</p>
+            <p className="text-3xl font-extrabold text-orange-600">10+</p>
           </div>
         </div>
 
