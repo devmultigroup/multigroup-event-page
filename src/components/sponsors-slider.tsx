@@ -1,5 +1,6 @@
 import { Sponsor } from "@/types";
 import React from "react";
+import Image from "next/image";
 
 const SponsorSlider = ({
   sponsors,
@@ -30,11 +31,14 @@ const SponsorSlider = ({
               key={`first-${sponsor.sponsorSlug}-${index}`}
               className="mx-8 flex-shrink-0"
             >
-              <img
-                draggable={false}
+              <Image
                 src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
                 alt={`${sponsor.sponsorSlug} logo`}
-                className="h-14 w-auto object-contain  opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
+                width={160}      // Adjust the width as needed
+                height={56}      // Adjust the height as needed
+                className="object-contain opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
+                draggable={false}
+                loading="lazy"
               />
             </div>
           ))}
