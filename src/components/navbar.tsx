@@ -45,7 +45,14 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
         <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">
             <a href="/">
-              <img className="h-12 w-auto" src="/dmg-logo.png" alt="DMG Logo" />
+              <Image
+                src="/dmg-logo.png"
+                alt="DMG Logo"
+                width={196}
+                height={196}
+                priority
+                className="object-contain my-auto"
+              />
             </a>
           </div>
           <div className="hidden lg:flex items-center space-x-8 ml-auto">

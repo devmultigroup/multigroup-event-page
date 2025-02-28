@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface SessionContainerProps {
   event: Event;
@@ -215,10 +216,13 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 className="flex flex-col items-center w-[calc(100%/2-1.5rem)] sm:w-[calc(100%/3-1.5rem)] md:w-[calc(100%/4-1.5rem)] lg:w-[calc(100%/5-1.5rem)]"
               >
                 <div className="relative">
-                  <img
+                  <Image
                     src={`/images/speakers/${slugify(session.speakerName)}.jpg`}
                     alt={session.speakerName}
-                    className="w-32 h-32 rounded-full object-cover mx-auto shadow-lg"
+                    width={128}
+                    height={128}
+                    className="rounded-full object-cover mx-auto shadow-lg"
+                    loading="lazy"
                   />
                 </div>
                 <p className="text-lg font-bold text-center mt-3">
@@ -270,12 +274,15 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                     </div>
                     <div className="flex-1 pl-4">
                       <div className="flex items-center">
-                        <img
+                        <Image
                           src={`/images/speakers/${slugify(
                             session.speakerName
                           )}.jpg`}
                           alt={session.speakerName}
-                          className="w-8 h-8 rounded-full object-cover mr-4"
+                          width={32}
+                          height={32}
+                          className="rounded-full object-cover mr-4"
+                          loading="lazy"
                         />
                         <p className="text-xl font-bold text-gray-900">
                           {session.speakerName}

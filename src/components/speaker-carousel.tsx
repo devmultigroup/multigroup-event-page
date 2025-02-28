@@ -3,6 +3,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Speaker } from "@/types";
 import { slugify } from "@/lib/slugify";
+import Image from "next/image";
 
 interface SpeakerCarouselProps {
   speakers: Speaker[];
@@ -22,11 +23,17 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                 !speaker.phrase ? "justify-center items-center" : "items-center"
               }`}
             >
-              <img
-                src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
-                alt={speaker.fullName}
-                className="w-24 h-24 rounded-full object-cover mb-3"
-              />
+              <div className="relative w-24 h-24 mb-3">
+                <Image
+                  src={`/images/speakers/${slugify(speaker.fullName)}.jpg`}
+                  alt={speaker.fullName}
+                  className="rounded-full object-cover"
+                  
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                />
+              </div>
               <h3 className="text-lg font-semibold">{speaker.fullName}</h3>
               <p className="text-sm text-gray-500">{speaker.title}</p>
               {speaker.phrase && (
