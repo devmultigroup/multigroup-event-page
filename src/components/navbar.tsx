@@ -10,6 +10,7 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { List } from "@phosphor-icons/react";
+import Image from "next/image";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
   const pathname = usePathname();

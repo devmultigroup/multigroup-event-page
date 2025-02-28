@@ -119,15 +119,15 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">1000+</p>
+            <p className="text-3xl font-extrabold text-orange-600">1000+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">20+</p>
+            <p className="text-3xl font-extrabold text-orange-600">20+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-500">10+</p>
+            <p className="text-3xl font-extrabold text-orange-600">10+</p>
           </div>
         </div>
 

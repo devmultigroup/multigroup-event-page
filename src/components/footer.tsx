@@ -36,33 +36,62 @@ export default function Footer() {
           />
         </div>
         <nav className="mt-4 lg:mt-0 flex flex-col md:flex-row gap-6 text-sm items-center justify-center w-full text-center align-middle">
-          <Link href="/#konusmacilar" className="hover:text-gray-400">
+          <Link
+            aria-label="Konuşmacılar sayfası"
+            href="/#konusmacilar"
+            className="hover:text-gray-400"
+          >
             Konuşmacılar
           </Link>
-          <Link href="/#etkinlik-akisi" className="hover:text-gray-400">
+          <Link
+            aria-label="Etkinlik akışı"
+            href="/#etkinlik-akisi"
+            className="hover:text-gray-400"
+          >
             Etkinlik Akışı
           </Link>
-          <Link href="/etkinlikler" className="hover:text-gray-400">
+          <Link
+            aria-label="Önceki etkinlikler sayfası"
+            href="/etkinlikler"
+            className="hover:text-gray-400"
+          >
             Önceki Etkinlikler
           </Link>
         </nav>
         <div className="flex gap-4 mt-4 lg:mt-0">
-          <Link href="https://instagram.com/devmultigroup" target="_blank">
+          <Link
+            aria-label="DMG Instagram Hesabı"
+            href="https://instagram.com/devmultigroup"
+            target="_blank"
+          >
             <InstagramLogo className="text-xl text-pink-500 hover:text-pink-400" />
           </Link>
-          <Link href="https://x.com/devmultigroup" target="_blank">
+          <Link
+            aria-label="DMG X Hesabı"
+            href="https://x.com/devmultigroup"
+            target="_blank"
+          >
             <XLogo className="text-xl text-white hover:text-gray-300" />
           </Link>
-          <Link href="https://www.youtube.com/@devmultigroup" target="_blank">
+          <Link
+            aria-label="DMG Youtube Hesabı"
+            href="https://www.youtube.com/@devmultigroup"
+            target="_blank"
+          >
             <YoutubeLogo className="text-xl text-red-600 hover:text-red-500" />
           </Link>
           <Link
+            aria-label="DMG Linkedin Hesabı"
             href="https://www.linkedin.com/company/devmultigroup/posts/?feedView=all"
             target="_blank"
           >
             <LinkedinLogo className="text-xl text-blue-600 hover:text-blue-500" />
           </Link>
-          <Link href="https://github.com/Developer-MultiGroup" target="_blank">
+          <Link
+            aria-label="DMG Github Hesabı"
+            href="https://github.com/Developer-MultiGroup"
+            target="_blank"
+          >
             <GithubLogo className="text-xl text-white hover:text-gray-300" />
           </Link>
         </div>
