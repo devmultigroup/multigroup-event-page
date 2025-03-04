@@ -1,14 +1,15 @@
 import { generateCalendarFile } from "@/lib/generateCalendar";
 import type { Event, Session } from "@/types";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Check, Warning } from "@phosphor-icons/react";
+import { Card } from "@/components/ui/card";
+import { Calendar, Warning } from "@phosphor-icons/react";
 import { slugify } from "@/lib/slugify";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { formatIsoDate } from "@/lib/event-utils";
 
 interface SessionContainerProps {
   event: Event;
@@ -18,7 +19,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
   const { toast } = useToast();
 
   // Check if event date has passed; if so, disable download and selection UI.
-  
 
   const [selectedSessions, setSelectedSessions] = useState<Session[]>([]);
 
@@ -43,8 +43,8 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     if (!timeStr) return 0;
     const parts = timeStr.split(":");
     if (parts.length !== 2) return 0;
-    const hours = parseInt(parts[0], 10);
-    const minutes = parseInt(parts[1], 10);
+    const hours = Number.parseInt(parts[0], 10);
+    const minutes = Number.parseInt(parts[1], 10);
     if (isNaN(hours) || isNaN(minutes)) return 0;
     return hours * 60 + minutes;
   };
@@ -71,11 +71,8 @@ export default function SessionContainer({ event }: SessionContainerProps) {
   };
 
   const toggleSessionSelection = (session: Session) => {
-
     const isSelected = selectedSessions.some(
-      (s) =>
-        s.speakerName === session.speakerName &&
-        s.topic === session.topic
+      (s) => s.speakerName === session.speakerName && s.topic === session.topic
     );
 
     if (isSelected) {
@@ -83,8 +80,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
         selectedSessions.filter(
           (s) =>
             !(
-              s.speakerName === session.speakerName &&
-              s.topic === session.topic
+              s.speakerName === session.speakerName && s.topic === session.topic
             )
         )
       );
@@ -102,9 +98,11 @@ export default function SessionContainer({ event }: SessionContainerProps) {
   };
 
   // Check if it's a networking event based on speaker info
-  const isNetworkingEvent = event.sessions.some(session => 
-    session.topic.toLowerCase().includes("network") || 
-    session.speakerName.toLowerCase().includes("network"));
+  const isNetworkingEvent = event.sessions.some(
+    (session) =>
+      session.topic.toLowerCase().includes("network") ||
+      session.speakerName.toLowerCase().includes("network")
+  );
 
   return (
     <div className="max-w-6xl mx-auto md:w-5/6 pb-16 md:px-0 px-4">
@@ -189,49 +187,45 @@ export default function SessionContainer({ event }: SessionContainerProps) {
             return (
               <Card
                 key={`session-card-${session.speakerName}-${session.topic}`}
-                className={`bg-white shadow-lg w-full mx-auto transition-all ${
-                  isSelected
-                    ? "border-2 border-blue-500 ring-2 ring-blue-200"
-                    : ""
+                className={`select-none bg-white shadow-lg w-full mx-auto transition-all overflow-hidden ${
+                  isSelected ? "ring-2 ring-blue-500" : ""
                 }`}
               >
-                <CardContent
-                  className="p-6 flex items-start justify-between relative hover:cursor-pointer"
-                  onClick={() => {
-                    toggleSessionSelection(session);
-                  }}
-                >
-                  <div className="flex items-start">
-                    <div className="flex flex-col items-center justify-center w-24 my-auto">
-                      <p className="text-lg font-semibold text-gray-800">
-                        {session.startTime}
-                      </p>
-                      <p className="text-lg font-semibold text-gray-800">
-                        {session.endTime}
-                      </p>
-                    </div>
-                    <div className="flex-1 pl-4">
+                <div className="flex h-full">
+                  <div className="relative w-1/4 min-w-[120px] bg-indigo-900">
+                    <Image
+                      src={`/images/speakers/${slugify(
+                        session.speakerName
+                      )}.webp`}
+                      alt={session.speakerName}
+                      fill
+                      className="object-cover opacity-80"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div
+                    className={`flex-1 p-6 flex items-start justify-between relative hover:cursor-pointer ${
+                      isSelected ? "bg-blue-50" : "bg-white"
+                    }`}
+                    onClick={() => {
+                      toggleSessionSelection(session);
+                    }}
+                  >
+                    <div className="flex-1">
                       <div className="flex items-center">
-                        <Image
-                          src={`/images/speakers/${slugify(
-                            session.speakerName
-                          )}.jpg`}
-                          alt={session.speakerName}
-                          width={32}
-                          height={32}
-                          className="rounded-full object-cover mr-4"
-                          loading="lazy"
-                        />
-                        <p className="text-xl font-bold text-gray-900">
-                          {session.speakerName}
+                        <p className="text-sm font-medium text-gray-500">
+                          {formatIsoDate(session.date)} {session.startTime} -{" "}
+                          {session.endTime}
                         </p>
                       </div>
-                      <p className="text-gray-700 text-sm mt-1">
+                      <p className="text-xl font-bold text-gray-900 mt-1">
+                        {session.speakerName}
+                      </p>
+                      <p className="text-blue-600 text-sm mt-1">
                         {session.topic}
                       </p>
                     </div>
-                  </div>
-                  
+
                     <div className="flex flex-col items-center ml-4 gap-2">
                       <div className="flex items-center gap-2">
                         {hasConflict && (
@@ -240,7 +234,9 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                         <Checkbox
                           aria-label="checkbox"
                           checked={isSelected}
-                          onCheckedChange={() => toggleSessionSelection(session)}
+                          onCheckedChange={() =>
+                            toggleSessionSelection(session)
+                          }
                           className={`${
                             isSelected
                               ? "bg-blue-500 text-white"
@@ -248,14 +244,9 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                           } ${hasConflict ? "border-red-500" : ""}`}
                         />
                       </div>
-                      {isSelected && (
-                        <div className="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full p-1">
-                          <Check size={16} weight="bold" />
-                        </div>
-                      )}
                     </div>
-                  
-                </CardContent>
+                  </div>
+                </div>
               </Card>
             );
           })}

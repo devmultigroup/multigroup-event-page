@@ -34,8 +34,8 @@ const Navbar = () => {
 
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
-    
-    { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
+    { href: "/#konuşmacılar", label: "Konuşmacılar", isScroll: true },
+    { href: "/#takvim", label: "Takvim", isScroll: true },
     
   ];
 
@@ -132,7 +132,7 @@ const Navbar = () => {
               className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
             >
               <a href="https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN" target="_blank">
-                Yayınları
+                Yayınlar
               </a>
             </Button>
           </div>

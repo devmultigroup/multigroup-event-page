@@ -12,20 +12,25 @@ export function getFormattedDate(date: string) {
   return formattedDate;
 }
 
-export function sortEventsByDate(events: Event[]): Event[] {
-  return events
-    .slice()
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-}
-
 export function getLatestEvent(): Event {
-  const sortedEvents = sortEventsByDate(events);
-  return sortedEvents[sortedEvents.length - 1];
+  return events[0]
 }
 
-export function getEventBySlug(slug: string) {
-  return events.find((event) => slugify(event.name) === slug) || null;
+export function formatIsoDate(isoDate: string): string {
+  const date = new Date(isoDate);
+
+  if (isNaN(date.getTime())) {
+    throw new Error("Invalid ISO date provided.");
+  }
+
+  const day = date.getDate();
+  const year = date.getFullYear();
+  // Using Turkish locale to get a long month name (e.g., "Mart")
+  const month = date.toLocaleString("tr-TR", { month: "long" });
+
+  return `${day} ${month} ${year}`;
 }
+
 
 /**
  * Finds the closest session to the current time in GMT+3 timezone

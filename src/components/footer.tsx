@@ -38,14 +38,14 @@ export default function Footer() {
         <nav className="mt-4 lg:mt-0 flex flex-col md:flex-row gap-6 text-sm items-center justify-center w-full text-center align-middle">
           <Link
             aria-label="Konuşmacılar sayfası"
-            href="/#konusmacilar"
+            href="/#konuşmacılar"
             className="hover:text-gray-400"
           >
             Konuşmacılar
           </Link>
           <Link
-            aria-label="Etkinlik akışı"
-            href="/#etkinlik-akisi"
+            aria-label="yayınlar"
+            href="/#yayınlar"
             className="hover:text-gray-400"
           >
             Yayınlar
@@ -92,7 +92,7 @@ export default function Footer() {
       {showButton && (
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-400 transition"
+          className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-400 transition"
         >
           <ArrowUp />
         </motion.button>

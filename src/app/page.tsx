@@ -7,21 +7,17 @@ import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
-import {
-  getClosestSession,
-  getLatestEvent,
-} from "@/lib/event-utils";
+import { getClosestSession, getLatestEvent } from "@/lib/event-utils";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
-  const closestSessionDate = getClosestSession(latestEventDetails)
+  const closestSessionDate = getClosestSession(latestEventDetails);
 
   console.log(closestSessionDate);
-  
-  
+
   const [minHeight, setMinHeight] = useState("100vh");
 
   if (!latestEventDetails) {
@@ -75,50 +71,58 @@ export default function Home() {
         />
       </Head>
 
-      {/* Background Section with optimized Image */}
+      {/* Background Section with black background and centered content */}
       <div
-        className="relative flex items-center justify-center px-6 sm:px-12"
-        style={{ minHeight }}
+        className="relative flex flex-col items-center justify-center px-6 sm:px-12 bg-black text-white"
+        style={{ minHeight: "100vh" }}
       >
-        {/* Event Name (Top Left) */}
+        {/* Main Title - Centered */}
         <motion.div
-          className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
-          style={{ fontFamily: "TanNimbus, sans-serif" }}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }} // removed extra delay for faster render
+          className="select-none text-white text-4xl sm:text-6xl font-extrabold text-center max-w-3xl mx-auto mb-16 relative z-10"
+          style={{ fontFamily: "Montserrat, sans-serif" }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          GenAI Fundamentals with{" "}
+          GenAI Fundamentals
+          <br />
+          With{" "}
           <span className="bg-gradient-to-r from-[#4794E5] to-[#C4687D] bg-clip-text text-transparent">
             Gemini
           </span>
         </motion.div>
 
-        {/* Bottom Section */}
+        {/* Blue Diamond/Star Shape - adjust positioning here */}
         <motion.div
-          className="select-none absolute bottom-16 lg:bottom-24 w-full px-6 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-8"
-          variants={staggerChildren}
-          initial="initial"
-          animate="animate"
+          className="absolute"
+          style={{
+            top: "30%", // moved a bit higher compared to 50%
+            left: "65%", // moved a bit more to the right compared to 50%
+            transform: "translate(-50%, 0%)", // horizontal centering while removing vertical translate
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
         >
-          {/* Location */}
-          <motion.div
-            className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
-            variants={fadeInUp}
-          >
-            <p>3 Mart - 15 Nisan</p>
-            <a href="https://youtube.com/@devmultigroup">
-              <p>Developer MultiGroup @ Youtube</p>
-            </a>
-          </motion.div>
+          <img
+            src="/images/gemini-icon.svg"
+            alt="Gemini Logo"
+            className="w-48 h-48 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
+          />
+        </motion.div>
 
-          {/* Countdown */}
-          <motion.div
-            className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-right w-full font-extrabold"
-            variants={fadeInUp}
-          >
-            <CountdownTimer targetDate={closestSessionDate} />
-          </motion.div>
+        <CountdownTimer targetDate={closestSessionDate} />
+
+        {/* MultiGroup Logo at Bottom */}
+        <motion.div
+          className="absolute bottom-16 flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <div className="text-white text-sm opacity-80 text-center">
+            3 Mart - 15 Nisan • Developer MultiGroup @ Youtube
+          </div>
         </motion.div>
       </div>
 
@@ -149,38 +153,33 @@ export default function Home() {
             Fundamentals with Gemini bootcamp'inde, yapay zeka dünyasına güçlü
             bir giriş yapacak, Gemini ile üretken yapay zekanın temellerini
             öğreneceksin.
-            <br/>
-            <br/>
-             🚀 Bu eğitimde: 
-             <br/>
-             ✅ Generative AI'nin temel
-            kavramlarını keşfedeceksin. 
-            <br/>
-            ✅ Google Gemini'nin gücünü ve kullanım
-            alanlarını öğreneceksin. 
-            <br/>
-            ✅ Gerçek dünya senaryoları ve
-            uygulamalarla yetkinlik kazanacaksın. 
-            <br/>
-            ✅ Alanında uzman global
-            konuşmacılardan ilham alacaksın. 
-            <br/>
-            <br/>
-            Eğitim sonunda katılım sertifikası
-            ve başarılı olanlara başarım sertifikası verilecektir. 🌟 Yeni
-            teknolojilere hakim olmak ve yapay zeka ile geleceği şekillendirmek
-            için bu fırsatı kaçırma!
+            <br />
+            <br />
+            🚀 Bu eğitimde:
+            <br />
+            ✅ Generative AI'nin temel kavramlarını keşfedeceksin.
+            <br />
+            ✅ Google Gemini'nin gücünü ve kullanım alanlarını öğreneceksin.
+            <br />
+            ✅ Gerçek dünya senaryoları ve uygulamalarla yetkinlik kazanacaksın.
+            <br />
+            ✅ Alanında uzman global konuşmacılardan ilham alacaksın.
+            <br />
+            <br />
+            Eğitim sonunda katılım sertifikası ve başarılı olanlara başarım
+            sertifikası verilecektir. 🌟 Yeni teknolojilere hakim olmak ve yapay
+            zeka ile geleceği şekillendirmek için bu fırsatı kaçırma!
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-blue-600">1000+</p>
+            <p className="text-lg font-bold">Kayıt Sayısı</p>
+            <p className="text-3xl font-extrabold text-blue-600">500+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-blue-600">20+</p>
+            <p className="text-lg font-bold">Eğitmen Sayısı</p>
+            <p className="text-3xl font-extrabold text-blue-600">10+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
@@ -188,7 +187,7 @@ export default function Home() {
           </div>
         </div>
 
-        <span id="konuşmacılar"></span>
+        <span id="konuşmacılar" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -199,12 +198,14 @@ export default function Home() {
           <SpeakerCarousel speakers={latestEventDetails.speakers} />
         </motion.div>
 
+        <span id="takvim" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <span id="yayınlar" />
           <Heading dark>Yayın Takvimi</Heading>
           <SessionContainer event={latestEventDetails} />
         </motion.div>
