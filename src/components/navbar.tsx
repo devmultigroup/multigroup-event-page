@@ -12,7 +12,7 @@ import {
 import { List } from "@phosphor-icons/react";
 import Image from "next/image";
 
-const Navbar = ({ eventLink }: { eventLink: string }) => {
+const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,9 +34,9 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
 
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
-    { href: "/etkinlikler", label: "Etkinlikler" },
+    
     { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
-    { href: "#konum", label: "Konum", isScroll: true },
+    
   ];
 
   return (
@@ -65,7 +65,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                   >
                     <button
                       onClick={() => handleScrollOrRedirect(item.href)}
-                      className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                      className="text-lg font-bold text-white hover:text-blue-500 transition-colors"
                     >
                       {item.label}
                     </button>
@@ -77,11 +77,11 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               variant="outline"
               className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
             >
-              <a href={eventLink} target="_blank">
-                <div className="absolute inset-0 bg-orange-500 transition-transform duration-300 ease-in-out rounded-md" />
+              <a href="https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN" target="_blank">
+                <div className="absolute inset-0 bg-blue-500 transition-transform duration-300 ease-in-out rounded-md" />
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                   <span className="relative z-10 font-medium text-sm">
-                    Kayıt Ol
+                    Yayınlar
                   </span>
                 </div>
               </a>
@@ -131,8 +131,8 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               variant="outline"
               className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
             >
-              <a href={eventLink} target="_blank">
-                Kayıt Ol
+              <a href="https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN" target="_blank">
+                Yayınları
               </a>
             </Button>
           </div>

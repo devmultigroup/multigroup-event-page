@@ -4,9 +4,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { getLatestEventLink } from "@/lib/event-utils";
 import Script from "next/script";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -28,12 +27,22 @@ export const metadata: Metadata = {
   title: "Developer MultiGroup",
   description:
     "Official event page of Developer MultiGroup where you can discover and attend insightful events every month! ",
-    robots: {
-      index: true,
-      follow: true
-    },
-    keywords: ['Developer', 'MultiGroup', 'Developer MultiGroup', 'DMG', 'Etkinlik', 'Yazılım', 'Yazılım Etkinliği', 'Topluluk', 'Yazılım Topluluğu'],
-    // metadataBase: new URL("https://furkanunsalan.dev"),
+  robots: {
+    index: true,
+    follow: true,
+  },
+  keywords: [
+    "Developer",
+    "MultiGroup",
+    "Developer MultiGroup",
+    "DMG",
+    "Etkinlik",
+    "Yazılım",
+    "Yazılım Etkinliği",
+    "Topluluk",
+    "Yazılım Topluluğu",
+  ],
+  // metadataBase: new URL("https://furkanunsalan.dev"),
 };
 
 export default function RootLayout({
@@ -41,7 +50,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const latestEventLink = getLatestEventLink();
   return (
     <html lang="en">
       <head>
@@ -51,10 +59,8 @@ export default function RootLayout({
           data-website-id="13873dc5-f94b-4d7f-9399-781076df22f6"
         ></Script>
       </head>
-      <body
-        className={montserrat.variable}
-      >
-        <Navbar eventLink={latestEventLink} />
+      <body className={montserrat.variable}>
+        <Navbar />
         {children}
         <Toaster />
         <Footer />

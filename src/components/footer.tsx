@@ -48,14 +48,7 @@ export default function Footer() {
             href="/#etkinlik-akisi"
             className="hover:text-gray-400"
           >
-            Etkinlik Akışı
-          </Link>
-          <Link
-            aria-label="Önceki etkinlikler sayfası"
-            href="/etkinlikler"
-            className="hover:text-gray-400"
-          >
-            Önceki Etkinlikler
+            Yayınlar
           </Link>
         </nav>
         <div className="flex gap-4 mt-4 lg:mt-0">

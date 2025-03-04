@@ -7,20 +7,21 @@ import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
-import Location from "@/components/location";
 import {
-  getFormattedDate,
+  getClosestSession,
   getLatestEvent,
-  getSecondLatestEvent,
 } from "@/lib/event-utils";
-import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
-  const secondLatest = getSecondLatestEvent();
+  const closestSessionDate = getClosestSession(latestEventDetails)
+
+  console.log(closestSessionDate);
+  
+  
   const [minHeight, setMinHeight] = useState("100vh");
 
   if (!latestEventDetails) {
@@ -40,12 +41,11 @@ export default function Home() {
         setMinHeight("100vh");
       }
     };
-  
+
     updateMinHeight();
     window.addEventListener("resize", updateMinHeight);
     return () => window.removeEventListener("resize", updateMinHeight);
   }, []);
-  
 
   // Animation Variants
   const fadeInUp = {
@@ -88,7 +88,10 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }} // removed extra delay for faster render
         >
-          {latestEventDetails.name}
+          GenAI Fundamentals with{" "}
+          <span className="bg-gradient-to-r from-[#4794E5] to-[#C4687D] bg-clip-text text-transparent">
+            Gemini
+          </span>
         </motion.div>
 
         {/* Bottom Section */}
@@ -103,8 +106,10 @@ export default function Home() {
             className="select-none text-white text-xl sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
             variants={fadeInUp}
           >
-            <p>{getFormattedDate(latestEventDetails.date)}</p>
-            <p>{latestEventDetails.location.name}</p>
+            <p>3 Mart - 15 Nisan</p>
+            <a href="https://youtube.com/@devmultigroup">
+              <p>Developer MultiGroup @ Youtube</p>
+            </a>
           </motion.div>
 
           {/* Countdown */}
@@ -112,7 +117,7 @@ export default function Home() {
             className="text-white text-lg sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-right w-full font-extrabold"
             variants={fadeInUp}
           >
-            <CountdownTimer targetDate={latestEventDetails.date} />
+            <CountdownTimer targetDate={closestSessionDate} />
           </motion.div>
         </motion.div>
       </div>
@@ -121,7 +126,7 @@ export default function Home() {
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
-          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
+          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-blue-200 rounded-2xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -129,35 +134,57 @@ export default function Home() {
         >
           <div className="space-y-4">
             <h2 className="text-xl md:text-3xl italic text-gray-800">
-              {latestEventDetails.title}
+              Generative AI Fundamentals with Gemini
             </h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-              {latestEventDetails.subTitle}
-            </h3>
           </div>
 
           <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
 
           <p
-            className="text-md md:text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto"
+            className="text-md md:text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto text-left"
             style={{ whiteSpace: "pre-line" }}
           >
-            {latestEventDetails.description}
+            Geleceğin yapay zeka teknolojilerine adım atmaya hazır mısın? 💡
+            Tamamen ücretsiz ve online olarak gerçekleşecek Generative AI
+            Fundamentals with Gemini bootcamp'inde, yapay zeka dünyasına güçlü
+            bir giriş yapacak, Gemini ile üretken yapay zekanın temellerini
+            öğreneceksin.
+            <br/>
+            <br/>
+             🚀 Bu eğitimde: 
+             <br/>
+             ✅ Generative AI'nin temel
+            kavramlarını keşfedeceksin. 
+            <br/>
+            ✅ Google Gemini'nin gücünü ve kullanım
+            alanlarını öğreneceksin. 
+            <br/>
+            ✅ Gerçek dünya senaryoları ve
+            uygulamalarla yetkinlik kazanacaksın. 
+            <br/>
+            ✅ Alanında uzman global
+            konuşmacılardan ilham alacaksın. 
+            <br/>
+            <br/>
+            Eğitim sonunda katılım sertifikası
+            ve başarılı olanlara başarım sertifikası verilecektir. 🌟 Yeni
+            teknolojilere hakim olmak ve yapay zeka ile geleceği şekillendirmek
+            için bu fırsatı kaçırma!
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">1000+</p>
+            <p className="text-3xl font-extrabold text-blue-600">1000+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">20+</p>
+            <p className="text-3xl font-extrabold text-blue-600">20+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">10+</p>
+            <p className="text-3xl font-extrabold text-blue-600">10+</p>
           </div>
         </div>
 
@@ -178,7 +205,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading dark>Etkinlik Akışı</Heading>
+          <Heading dark>Yayın Takvimi</Heading>
           <SessionContainer event={latestEventDetails} />
         </motion.div>
 
@@ -186,25 +213,6 @@ export default function Home() {
       </div>
 
       <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
-
-      <span id="konum"></span>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Location location={latestEventDetails.location} />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <EventImageGallery event={secondLatest} />
-      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

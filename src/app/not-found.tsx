@@ -43,10 +43,7 @@ export default function NotFound() {
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        background: "linear-gradient(to top, #002B28, #0f172a)",
-      }}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-blue-950 to-black"
     >
       {/* Animated stars background */}
       {stars.map((star) => (
@@ -83,27 +80,27 @@ export default function NotFound() {
           404
         </p>
         {clickCount > 0 && 5 - clickCount > 0 && (
-          <div className="absolute -top-4 -right-4 bg-orange-600 rounded-full w-8 h-8 flex items-center justify-center text-white text-xs font-bold">
+          <div className="absolute -top-4 -right-4 bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-white text-xs font-bold">
             {5 - clickCount}
           </div>
         )}
         <Sparkles
-          className="absolute -top-6 -left-6 text-orange-500 animate-spin"
+          className="absolute -top-6 -left-6 text-blue-500 animate-spin"
           style={{ animationDuration: "8s" }}
         />
         <Sparkles
-          className="absolute -bottom-6 -right-6 text-orange-500 animate-spin"
+          className="absolute -bottom-6 -right-6 text-blue-500 animate-spin"
           style={{ animationDuration: "8s", animationDirection: "reverse" }}
         />
       </div>
 
       <p className="text-2xl md:text-4xl py-4 md:py-6 text-white font-extrabold text-center max-w-xl mx-auto px-4">
-        Öyle bir etkinlik olsa da gitsek!
+        Öyle bir yayın olsa da izlesek!
       </p>
 
       <div className="mt-6 md:mt-8 text-white bg-black/20 p-4 md:p-6 rounded-xl backdrop-blur-sm mx-4 w-[90%] max-w-md">
-        <p className="text-center mb-2 text-orange-400 font-semibold text-sm md:text-base">
-          Bir sonraki etkinliğe kalan süre:
+        <p className="text-center mb-2 text-blue-400 font-semibold text-sm md:text-base">
+          Bir sonraki yayına kalan süre:
         </p>
 
         <CountdownTimer center targetDate={latestEventDetails.date} />
@@ -111,7 +108,7 @@ export default function NotFound() {
 
       <Button
         onClick={handleRoute}
-        className="mt-10 md:mt-16 bg-orange-600 hover:bg-orange-800 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg flex items-center gap-2 animate-pulse"
+        className="mt-10 md:mt-16 bg-blue-600 hover:bg-blue-800 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg flex items-center gap-2 animate-pulse"
         style={{ animationDuration: "3s" }}
       >
         <Home size={18} />
@@ -128,7 +125,7 @@ export default function NotFound() {
             <div className="relative">
               <Coffee
                 size={100}
-                className="text-orange-500 animate-bounce"
+                className="text-blue-500 animate-bounce"
                 style={{
                   animationDuration: "2s",
                 }}
@@ -137,7 +134,7 @@ export default function NotFound() {
             <p className="text-2xl md:text-4xl text-white font-bold mt-8 text-center px-4">
               Kahve molası verelim mi? 🤫
             </p>
-            <p className="text-base md:text-xl text-orange-400 mt-4 text-center max-w-md px-6">
+            <p className="text-base md:text-xl text-blue-400 mt-4 text-center max-w-md px-6">
               404 sayfasını buldun, gizli easter egg'i keşfettin... Şimdi bir
               kave molası vermeyi hak ettin!
             </p>
@@ -146,7 +143,7 @@ export default function NotFound() {
                 e.stopPropagation();
                 setShowEasterEgg(false);
               }}
-              className="mt-8 bg-orange-600 hover:bg-orange-800"
+              className="mt-8 bg-blue-600 hover:bg-blue-800"
             >
               Geri Dön
             </Button>

@@ -1,29 +1,17 @@
 export type Speaker = {
   fullName: string;
-  photoUrl: string;
   title: string;
   phrase?: string;
 };
 
-export type Session =
-  | {
-      // For sessions that are NOT in the network room,
-      // topic, startTime, and endTime are required.
-      room: Exclude<string, "Network">;
-      topic: string;
-      startTime: string; // start time for session
-      endTime: string; // end time for session
-      speakerName: string;
-    }
-  | {
-      // For sessions in the network room:
-      // topic, startTime, and endTime become optional.
-      room: "Network";
-      speakerName: string;
-      topic?: string;
-      startTime?: string;
-      endTime?: string;
-    };
+export type Session = {
+  topic: string;
+  date: string;
+  dateTime?: string;
+  startTime: string; // start time for session
+  endTime: string; // end time for session
+  speakerName: string;
+};
 
 export type AfterMetrics = {
   applications: string;
@@ -49,18 +37,8 @@ export type Sponsor = {
 };
 
 export type Event = {
-  id: number;
-  name: string;
-  subTitle: string;
-  title: string;
-  description: string;
-  location: Location;
-  registerLink: string;
-  videoUrl?: string;
-  date: string; // ISO formatta tarih
   speakers: Speaker[];
   sessions: Session[];
   sponsors: Sponsor[];
-  images: string[];
   afterMetrics?: AfterMetrics;
 };
