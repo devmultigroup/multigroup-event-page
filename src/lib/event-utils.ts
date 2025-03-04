@@ -90,7 +90,11 @@ function combineDateTime(dateStr: string, timeStr: string): string {
   // Replace the timezone part with +03:00 for GMT+3
   // The format will be: YYYY-MM-DDTHH:MM:SS.sssZ
   // We want: YYYY-MM-DDTHH:MM:SS.sss+03:00
-  isoString = isoString.replace("Z", "+03:00");
+  
+  //isoString = isoString.replace("Z", "+03:00");
+
+  console.log("isoString: ", isoString);
+  
 
   return isoString;
 }

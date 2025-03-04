@@ -15,6 +15,8 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const latestEventDetails = getLatestEvent();
   const closestSessionDate = getClosestSession(latestEventDetails);
+  console.log(closestSessionDate);
+  
 
   console.log(closestSessionDate);
 
