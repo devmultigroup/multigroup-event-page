@@ -118,7 +118,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
               className="bg-blue-500 hover:bg-blue-600 active:bg-blue-800 shadow-md"
             >
               <Calendar className="mr-2" size={16} />
-              Seçilenleri İndir
+              Seçilenleri Ekle
             </Button>
           </div>
           <div className="flex flex-wrap gap-2">
