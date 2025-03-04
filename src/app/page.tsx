@@ -107,7 +107,7 @@ export default function Home() {
           <img
             src="/images/gemini-icon.svg"
             alt="Gemini Logo"
-            className="w-48 h-48 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
+            className="w-48 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
           />
         </motion.div>
 
