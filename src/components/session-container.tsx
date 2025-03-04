@@ -2,7 +2,7 @@ import { generateCalendarFile } from "@/lib/generateCalendar";
 import type { Event, Session } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Calendar, Warning } from "@phosphor-icons/react";
+import { Calendar } from "@phosphor-icons/react";
 import { slugify } from "@/lib/slugify";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -17,8 +17,6 @@ interface SessionContainerProps {
 
 export default function SessionContainer({ event }: SessionContainerProps) {
   const { toast } = useToast();
-
-  // Check if event date has passed; if so, disable download and selection UI.
 
   const [selectedSessions, setSelectedSessions] = useState<Session[]>([]);
 
@@ -39,37 +37,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
     });
   };
 
-  const timeToMinutes = (timeStr: string | undefined): number => {
-    if (!timeStr) return 0;
-    const parts = timeStr.split(":");
-    if (parts.length !== 2) return 0;
-    const hours = Number.parseInt(parts[0], 10);
-    const minutes = Number.parseInt(parts[1], 10);
-    if (isNaN(hours) || isNaN(minutes)) return 0;
-    return hours * 60 + minutes;
-  };
-
-  // Only allow for session selection if event is upcoming.
-  const hasTimeConflict = (session: Session): boolean => {
-    return selectedSessions.some((selected) => {
-      if (
-        selected.speakerName === session.speakerName &&
-        selected.topic === session.topic
-      ) {
-        return false;
-      }
-      const sessionStart = timeToMinutes(session.startTime);
-      const sessionEnd = timeToMinutes(session.endTime);
-      const selectedStart = timeToMinutes(selected.startTime);
-      const selectedEnd = timeToMinutes(selected.endTime);
-      return (
-        (sessionStart >= selectedStart && sessionStart < selectedEnd) ||
-        (sessionEnd > selectedStart && sessionEnd <= selectedEnd) ||
-        (sessionStart <= selectedStart && sessionEnd >= selectedEnd)
-      );
-    });
-  };
-
   const toggleSessionSelection = (session: Session) => {
     const isSelected = selectedSessions.some(
       (s) => s.speakerName === session.speakerName && s.topic === session.topic
@@ -79,20 +46,10 @@ export default function SessionContainer({ event }: SessionContainerProps) {
       setSelectedSessions(
         selectedSessions.filter(
           (s) =>
-            !(
-              s.speakerName === session.speakerName && s.topic === session.topic
-            )
+            !(s.speakerName === session.speakerName && s.topic === session.topic)
         )
       );
     } else {
-      if (hasTimeConflict(session)) {
-        toast({
-          title: "Zaman Çakışması",
-          description: "Bu oturum, seçtiğiniz diğer oturumlarla çakışıyor.",
-          variant: "destructive",
-          duration: 3000,
-        });
-      }
       setSelectedSessions([...selectedSessions, session]);
     }
   };
@@ -183,7 +140,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 s.speakerName === session.speakerName &&
                 s.topic === session.topic
             );
-            const hasConflict = hasTimeConflict(session) && !isSelected;
             return (
               <Card
                 key={`session-card-${session.speakerName}-${session.topic}`}
@@ -227,23 +183,16 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                     </div>
 
                     <div className="flex flex-col items-center ml-4 gap-2">
-                      <div className="flex items-center gap-2">
-                        {hasConflict && (
-                          <Warning size={16} className="text-red-500" />
-                        )}
-                        <Checkbox
-                          aria-label="checkbox"
-                          checked={isSelected}
-                          onCheckedChange={() =>
-                            toggleSessionSelection(session)
-                          }
-                          className={`${
-                            isSelected
-                              ? "bg-blue-500 text-white"
-                              : "border-blue-500"
-                          } ${hasConflict ? "border-red-500" : ""}`}
-                        />
-                      </div>
+                      <Checkbox
+                        aria-label="checkbox"
+                        checked={isSelected}
+                        onCheckedChange={() => toggleSessionSelection(session)}
+                        className={`${
+                          isSelected
+                            ? "bg-blue-500 text-white"
+                            : "border-blue-500"
+                        }`}
+                      />
                     </div>
                   </div>
                 </div>

@@ -55,7 +55,7 @@ export default function FAQ() {
           <a
             href="https://forms.gle/i2wGonLF3kBCRucv6"
             target="blank"
-            className="underline text-orange-500 hover:text-orange-600"
+            className="underline text-[#C55E85]"
           >
             bu linki
           </a>{" "}
@@ -71,7 +71,7 @@ export default function FAQ() {
           için sabırsızlanan bir yazılım topluluğudur. Etkinliklerimizde
           konuşmacı olmak için uzmanlık alanınızda ilgi çekici bir konu
           belirlemek ve bizim ile iletişime geçmek yeterli. Başvuru için{" "}
-          <a href="mailto:hello@multigroup.dev" className="text-orange-500 underline hover:text-orange-600">hello@multigroup.dev</a>
+          <a href="mailto:hello@multigroup.dev" className="text-[#C55E85]">hello@multigroup.dev</a>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-4" className="border-zinc-400/30">
@@ -84,7 +84,7 @@ export default function FAQ() {
           edebileceğimiz her etkinlik, konferans ve projede işbirliğine önem
           veriyor, hayata geçirmek istediğiniz yeni fikirlerin bir parçası
           olmayı değerli bir fırsat olarak görüyoruz. Fikir ve önerileriniz için
-          bizimle <a href="mailto:hello@multigroup.dev" className="text-orange-500 underline hover:text-orange-600">hello@multigroup.dev</a>{" "}
+          bizimle <a href="mailto:hello@multigroup.dev" className="text-[#C55E85]">hello@multigroup.dev</a>{" "}
           mail adresi aracılığıyla iletişime geçebilirsiniz.
         </AccordionContent>
       </AccordionItem>
