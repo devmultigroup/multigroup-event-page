@@ -13,24 +13,6 @@ export type Session = {
   speakerName: string;
 };
 
-export type AfterMetrics = {
-  applications: string;
-  vipGuests: string;
-  supporter: string;
-  speakers: string;
-  workingParticipant: string;
-  jobSeeker: string;
-  jobProvider: string;
-  satisfaction: string;
-};
-
-export type Location = {
-  latitude: number;
-  longitude: number;
-  name: string;
-  subtext: string;
-};
-
 export type Sponsor = {
   tier: "platin" | "altın" | "gümüş" | "bronz";
   sponsorSlug: string;
@@ -40,5 +22,4 @@ export type Event = {
   speakers: Speaker[];
   sessions: Session[];
   sponsors: Sponsor[];
-  afterMetrics?: AfterMetrics;
 };

@@ -9,7 +9,7 @@ interface SpeakerCarouselProps {
   speakers: Speaker[];
 }
 
-const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
+const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   return (
     <section className="max-w-6xl sm:w-5/6 mx-auto md:px-0 px-4">
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -48,4 +48,4 @@ const SpeakerCarousel: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   );
 };
 
-export default SpeakerCarousel;
+export default Speakers;

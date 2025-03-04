@@ -6,7 +6,7 @@ import CountdownTimer from "@/components/countdown-timer";
 import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
-import SpeakerCarousel from "@/components/speaker-carousel";
+import Speakers from "@/components/speakers";
 import { getClosestSession, getLatestEvent } from "@/lib/event-utils";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
@@ -195,7 +195,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
         >
           <Heading dark>Konuşmacılar</Heading>
-          <SpeakerCarousel speakers={latestEventDetails.speakers} />
+          <Speakers speakers={latestEventDetails.speakers} />
         </motion.div>
 
         <span id="takvim" />
