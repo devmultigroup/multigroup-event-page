@@ -14,7 +14,7 @@ export type Session = {
 };
 
 export type Sponsor = {
-  tier: "platin" | "altın" | "gümüş" | "bronz";
+  tier: "platin" | "altın" | "gümüş" | "bronz" | "";
   sponsorSlug: string;
 };
 

@@ -19,7 +19,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
   }, {});
 
   // Sort tiers by importance
-  const tierOrder = ["Platin", "Altın", "Gümüş", "Bronz"];
+  const tierOrder = ["Platin", "Altın", "Gümüş", "Bronz", "Default"];
   const sortedTiers = Object.keys(sponsorsByTier).sort(
     (a, b) => tierOrder.indexOf(a) - tierOrder.indexOf(b)
   );
@@ -30,6 +30,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
       Altın: "ALTIN SPONSORLARIMIZ",
       Gümüş: "GÜMÜŞ SPONSORLARIMIZ",
       Bronz: "BRONZ SPONSORLARIMIZ",
+      "": "SPONSORLARIMIZ"
     };
     return tierMap[tier] || `${tier.toUpperCase()} SPONSORLARIMIZ`;
   };

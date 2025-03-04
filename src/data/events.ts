@@ -156,20 +156,36 @@ const events: Event[] = [
     ],
     sponsors: [
       {
-        tier: "platin",
-        sponsorSlug: "all-done",
+        tier: "",
+        sponsorSlug: "codeway",
       },
       {
-        tier: "altın",
-        sponsorSlug: "perseva",
+        tier: "",
+        sponsorSlug: "deepset",
       },
       {
-        tier: "gümüş",
+        tier: "",
+        sponsorSlug: "dogus-teknoloji",
+      },
+      {
+        tier: "",
+        sponsorSlug: "fibabanka",
+      },
+      {
+        tier: "",
+        sponsorSlug: "microsoft",
+      },
+      {
+        tier: "",
         sponsorSlug: "softtech",
       },
       {
-        tier: "bronz",
-        sponsorSlug: "adesso",
+        tier: "",
+        sponsorSlug: "teknasyon",
+      },
+      {
+        tier: "",
+        sponsorSlug: "turkish-airlines",
       },
     ],
   },
