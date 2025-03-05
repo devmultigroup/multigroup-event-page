@@ -63,7 +63,7 @@ const events: Event[] = [
         speakerName: "Kardel Rüveyda Çetin",
       },
       {
-        topic: "What is Google AI studio and prompt?",
+        topic: "What is Google AI Studio and Prompt?",
         date: "2025-03-12",
         startTime: "20:00",
         endTime: "22:00",
