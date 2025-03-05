@@ -94,8 +94,8 @@ export default function Home() {
         <motion.div
           className="absolute"
           style={{
-            top: "30%", // moved a bit higher compared to 50%
-            left: "65%", // moved a bit more to the right compared to 50%
+            top: "35%", // moved a bit higher compared to 50%
+            left: "60%", // moved a bit more to the right compared to 50%
             transform: "translate(-50%, 0%)", // horizontal centering while removing vertical translate
           }}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -109,7 +109,7 @@ export default function Home() {
           />
         </motion.div>
 
-        <CountdownTimer targetDate={closestSessionDate} />
+        {/* <CountdownTimer targetDate={closestSessionDate} /> */}
 
         {/* MultiGroup Logo at Bottom */}
         <motion.div

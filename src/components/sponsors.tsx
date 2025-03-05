@@ -30,7 +30,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
       Altın: "ALTIN SPONSORLARIMIZ",
       Gümüş: "GÜMÜŞ SPONSORLARIMIZ",
       Bronz: "BRONZ SPONSORLARIMIZ",
-      "": "SPONSORLARIMIZ"
+      "": "KATILIMCI ŞİRKETLER",
     };
     return tierMap[tier] || `${tier.toUpperCase()} SPONSORLARIMIZ`;
   };
@@ -54,21 +54,22 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
             {sponsorsByTier[tier].map((sponsor) => (
               <motion.div
                 key={sponsor.sponsorSlug}
-                className="flex items-center justify-center mb-4"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
                 whileHover={{ scale: 1.05 }}
+                className="w-[200px] h-[100px] flex items-center justify-center"
               >
-                <Image
-                  src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
-                  alt={sponsor.sponsorSlug || `${tier} Sponsor`}
-                  className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  width={200}
-                  height={64}
-                  loading="lazy"
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
+                    alt={sponsor.sponsorSlug || `${tier} Sponsor`}
+                    className="opacity-80 hover:opacity-100 transition-opacity object-contain"
+                    fill={true}
+                    sizes="200px"
+                  />
+                </div>
               </motion.div>
             ))}
           </div>
