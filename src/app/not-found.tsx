@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import CountdownTimer from "@/components/countdown-timer";
-import { getLatestEvent } from "@/lib/event-utils";
+import { getLatestEvent, getClosestSession } from "@/lib/event-utils";
 import { Sparkles, Ghost, Home, Coffee } from "lucide-react";
 
 export default function NotFound() {
@@ -40,6 +40,8 @@ export default function NotFound() {
       setShowEasterEgg(true);
     }
   };
+
+  const closestSessionDate = getClosestSession(latestEventDetails);
 
   return (
     <div
@@ -103,7 +105,7 @@ export default function NotFound() {
           Bir sonraki yayına kalan süre:
         </p>
 
-        <CountdownTimer center targetDate={latestEventDetails.date} />
+        <CountdownTimer center targetDate={closestSessionDate} />
       </div>
 
       <Button
