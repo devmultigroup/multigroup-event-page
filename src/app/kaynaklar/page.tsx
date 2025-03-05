@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 interface Resource {
   name: string;
   link: string;
-  category?: string;
+  description: string;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -50,7 +50,7 @@ export default function ResourcePage() {
             <Input
               type="text"
               placeholder="Kaynakları arayın..."
-              className="pl-10 bg-gray-900 border-gray-800 text-gray-300 placeholder:text-gray-500 focus-visible:ring-gray-700"
+              className="pl-10 bg-white border-gray-800 text-gray-500 placeholder:text-gray-500 focus-visible:ring-gray-700"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -70,21 +70,15 @@ export default function ResourcePage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources?.map((resource, index) => (
-              <Card
-                key={index}
-                className="bg-[#4794E5] border-gray-800 hover:border-[#C4687D] transition-all duration-300 group overflow-hidden"
-              >
+              <Card className="bg-gradient-to-br from-[#3682F1] to-[#3682F1]/90 border border-[#3682F1]/30 hover:-translate-y-2 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-white group-hover:text-primary-foreground transition-colors">
+                  <CardTitle className="text-white group-hover:text-white/90 transition-colors text-xl font-bold">
                     {resource.name}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="text-white text-sm">
-                  <p>
-                    A valuable resource for developers looking to enhance their
-                    skills and knowledge.
-                  </p>
+                <CardContent className="text-white/90 text-sm">
+                  <p className="line-clamp-3">{resource.description}</p>
                 </CardContent>
 
                 <CardFooter className="flex justify-between items-center pt-2">
@@ -92,9 +86,11 @@ export default function ResourcePage() {
                     href={resource.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/90 font-medium text-sm transition-colors"
+                    className="inline-flex items-center gap-1.5 text-white hover:text-white/90 font-medium text-sm transition-colors"
                   >
-                    <Button className="bg-[#C4687D] hover:bg-[#C55E85]">Open Resource</Button>
+                    <Button className="bg-[#C55E85] hover:bg-[#C55E85]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 border border-[#C55E85]/30">
+                      İncele
+                    </Button>
                   </a>
                 </CardFooter>
               </Card>

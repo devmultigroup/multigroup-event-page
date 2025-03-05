@@ -26,15 +26,16 @@ export async function GET() {
     // Adjust spreadsheetId and range as needed.
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: 'A2:B',
+      range: 'A2:C',
     });
 
     const resources = (response.data.values || [])
-      .map(([name, link]) => ({
+      .map(([name, link, description]) => ({
         name: name?.toString().trim() || '',
         link: link?.toString().trim() || '',
+        description: description?.toString().trim() || '',
       }))
-      .filter((resource) => resource.name && resource.link);
+      .filter((resource) => resource.name && resource.link && resource.description);
 
     // Return a JSON response and set caching headers.
     return NextResponse.json(resources, {
