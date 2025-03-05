@@ -56,7 +56,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://cloud.umami.is/script.js"
-          data-website-id="13873dc5-f94b-4d7f-9399-781076df22f6"
+          data-website-id="0e38a8ee-602c-475c-a68a-cb7111a22e9e"
         ></Script>
       </head>
       <body className={montserrat.variable}>

@@ -37,6 +37,13 @@ export default function Footer() {
         </div>
         <nav className="mt-4 lg:mt-0 flex flex-col md:flex-row gap-6 text-sm items-center justify-center w-full text-center align-middle">
           <Link
+            aria-label="Kaynaklar sayfası"
+            href="/kaynaklar"
+            className="hover:text-gray-400"
+          >
+            Kaynaklar
+          </Link>
+          <Link
             aria-label="Konuşmacılar sayfası"
             href="/#konuşmacılar"
             className="hover:text-gray-400"

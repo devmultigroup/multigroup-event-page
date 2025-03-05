@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { List } from "@phosphor-icons/react";
 import Image from "next/image";
@@ -34,6 +33,7 @@ const Navbar = () => {
 
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
+    { href: "/kaynaklar", label: "Kaynaklar" },
     { href: "/#konuşmacılar", label: "Konuşmacılar", isScroll: true },
     { href: "/#takvim", label: "Takvim", isScroll: true },
     
