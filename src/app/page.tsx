@@ -11,6 +11,7 @@ import { getClosestSession, getLatestEvent } from "@/lib/event-utils";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
 import { useEffect, useState } from "react";
+import WhyJoinSection from "@/components/why-join";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
@@ -82,10 +83,12 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
+          {/* <span className="text-xl text-left"><span className="text-[#3682F1]">500+</span> Katılımcım <span className="text-[#3682F1]">10+</span> Konuşmacı</span>
+          <br/> */}
           GenAI Fundamentals
           <br />
           With{" "}
-          <span className="bg-gradient-to-r from-[#4794E5] to-[#C4687D] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
             Gemini
           </span>
         </motion.div>
@@ -105,7 +108,7 @@ export default function Home() {
           <img
             src="/images/gemini-icon.svg"
             alt="Gemini Logo"
-            className="w-48 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
+            className="w-96 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
           />
         </motion.div>
 
@@ -119,7 +122,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <div className="text-white text-sm opacity-80 text-center">
-            3 Mart - 15 Nisan • Developer MultiGroup @ Youtube
+            3 Mart - 22 Nisan • Developer MultiGroup @ Youtube
           </div>
         </motion.div>
       </div>
@@ -127,50 +130,10 @@ export default function Home() {
       <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <div className="bg-[#F2F4F0] pt-16">
-        <motion.div
-          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-blue-200 rounded-2xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="space-y-4">
-            <h2 className="text-xl md:text-3xl italic text-gray-800">
-              Generative AI Fundamentals with Gemini
-            </h2>
-          </div>
+        
+        <WhyJoinSection />
 
-          <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
-
-          <p
-            className="text-md md:text-lg text-gray-700 leading-relaxed w-full md:w-2/3 mx-auto text-left"
-            style={{ whiteSpace: "pre-line" }}
-          >
-            Geleceğin yapay zeka teknolojilerine adım atmaya hazır mısın? 💡
-            Tamamen ücretsiz ve online olarak gerçekleşecek Generative AI
-            Fundamentals with Gemini bootcamp'inde, yapay zeka dünyasına güçlü
-            bir giriş yapacak, Gemini ile üretken yapay zekanın temellerini
-            öğreneceksin.
-            <br />
-            <br />
-            🚀 Bu eğitimde:
-            <br />
-            ✅ Generative AI'nin temel kavramlarını keşfedeceksin.
-            <br />
-            ✅ Google Gemini'nin gücünü ve kullanım alanlarını öğreneceksin.
-            <br />
-            ✅ Gerçek dünya senaryoları ve uygulamalarla yetkinlik kazanacaksın.
-            <br />
-            ✅ Alanında uzman global konuşmacılardan ilham alacaksın.
-            <br />
-            <br />
-            Eğitim sonunda katılım sertifikası ve başarılı olanlara başarım
-            sertifikası verilecektir. 🌟 Yeni teknolojilere hakim olmak ve yapay
-            zeka ile geleceği şekillendirmek için bu fırsatı kaçırma!
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Kayıt Sayısı</p>
             <p className="text-3xl font-extrabold text-blue-600">500+</p>
@@ -183,7 +146,7 @@ export default function Home() {
             <p className="text-lg font-bold">Sponsor Sayısı</p>
             <p className="text-3xl font-extrabold text-blue-600">10+</p>
           </div>
-        </div>
+        </div> */}
 
         <span id="konuşmacılar" />
         <motion.div

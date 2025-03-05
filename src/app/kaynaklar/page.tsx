@@ -70,7 +70,10 @@ export default function ResourcePage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources?.map((resource, index) => (
-              <Card className="bg-gradient-to-br from-[#3682F1] to-[#3682F1]/90 border border-[#3682F1]/30 hover:-translate-y-2 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl">
+              <Card
+                className="bg-gradient-to-br from-[#3682F1] to-[#3682F1]/90 border border-[#3682F1]/30 hover:-translate-y-2 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl"
+                key={index}
+              >
                 <CardHeader className="pb-2">
                   <CardTitle className="text-white group-hover:text-white/90 transition-colors text-xl font-bold">
                     {resource.name}

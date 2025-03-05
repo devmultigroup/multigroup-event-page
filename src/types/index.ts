@@ -2,6 +2,7 @@ export type Speaker = {
   fullName: string;
   title: string;
   phrase?: string;
+  company?: string;
 };
 
 export type Session = {

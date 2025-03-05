@@ -6,45 +6,55 @@ const events: Event[] = [
       {
         fullName: "Daron Yöndem",
         title: "Tech Lead for Application Innovation, Microsoft",
+        company: "Microsoft"
       },
       {
         fullName: "Kardel Rüveyda Çetin ",
-        title: "Software Development Lead, Doğuş Teknoloji",
+        title: "Software Development Lead",
         // phrase:
         //   "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        company: "Doğuş Teknoloji"
       },
       {
         fullName: "Bilge Yücel ",
-        title: "DevRel Engineer, Deepset",
+        title: "DevRel Engineer",
+        company: "Deepset"
       },
       {
         fullName: "Fatih Kadir Akın",
-        title: "DevRel Manager, Teknasyon",
+        title: "DevRel Manager",
+        company: "Teknasyon"
       },
       {
         fullName: "Şeyma Sarıgil",
-        title: "Senior Software Engineer, Softtech",
+        title: "Senior Software Engineer",
+        company: "Softtech"
       },
       {
         fullName: "Tolga Kurtuluş ",
-        title: "Revenue Management R&D Specialist, Turkish Airlines",
+        title: "Revenue Management R&D Specialist",
+        company: "Turkish Airlines"
       },
       {
         fullName: "Göker Güner",
-        title: "AI Platform Engineer, Codeway",
+        title: "AI Platform Engineer",
+        company: "Codeway"
       },
       {
         fullName: "Emrah Mete",
         title:
-          "Senior Cloud Solution Architect - AI and Data Analytics, Microsoft",
+          "Senior Cloud Solution Architect - AI and Data Analytics",
+          company: "Microsoft"
       },
       {
         fullName: "Selin Çıldam",
-        title: "Data Scientist, Pazarama",
+        title: "Data Scientist",
+        company: "Pazarama"
       },
       {
         fullName: "Enes Fehmi Manan",
-        title: "Risk Analytics & Data Science Intern, Fibabanka",
+        title: "Risk Analytics & Data Science Intern",
+        company: "Fibabanka"
       },
     ],
     sessions: [
@@ -186,6 +196,10 @@ const events: Event[] = [
       {
         tier: "",
         sponsorSlug: "turkish-airlines",
+      },
+      {
+        tier: "",
+        sponsorSlug: "pazarama",
       },
     ],
   },
