@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
-import Masonry from 'react-masonry-css';
+import Masonry from "react-masonry-css";
 import {
   Card,
   CardContent,
@@ -12,13 +12,16 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ResourceProvider, useResourceContext } from '@/context/ResourceContext';
+import {
+  ResourceProvider,
+  useResourceContext,
+} from "@/context/ResourceContext";
 
 // Breakpoint object for masonry grid
 const breakpointColumnsObj = {
   default: 3,
   1100: 2,
-  700: 1
+  700: 1,
 };
 
 export default function ResourcePage() {
@@ -35,15 +38,15 @@ const InnerResourcePage = () => {
   const [visibleItems, setVisibleItems] = useState(6);
 
   // Filter resources based on search query
-  const filteredResources = resources
-    ?.filter((resource) =>
-      resource.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+  const filteredResources = resources?.filter((resource) =>
+    resource.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const visibleResources = filteredResources?.slice(0, visibleItems);
-  
+
   // Check if there are more resources to load
-  const hasMoreResources = filteredResources && visibleItems < filteredResources.length;
+  const hasMoreResources =
+    filteredResources && visibleItems < filteredResources.length;
 
   const handleLoadMore = () => {
     setVisibleItems((prev) => prev + 6);
@@ -58,7 +61,7 @@ const InnerResourcePage = () => {
     <div className="min-h-screen flex flex-col">
       {/* Fixed top spacing */}
       <div className="h-[30vh]"></div>
-      
+
       {/* Content container */}
       <div className="w-11/12 md:w-5/6 max-w-5xl mx-auto">
         <header className="mb-12 md:mb-16 text-center">
@@ -101,7 +104,7 @@ const InnerResourcePage = () => {
             >
               {visibleResources?.map((resource, index) => (
                 <Card
-                  className="mb-6 bg-[#3682F1] bg-opacity-70 border border-[#3682F1]/30 hover:bg-opacity-80 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl will-change-transform"
+                  className="mb-6 bg-gray-800/70 backdrop-blur-sm border border-gray-600/30 hover:border-[#C55E85] hover:bg-gray-800/80 hover:shadow-lg hover:shadow-gray-900/20 transition-all duration-300 group overflow-hidden rounded-xl will-change-transform"
                   key={index}
                 >
                   <CardHeader className="pb-2">
@@ -111,7 +114,9 @@ const InnerResourcePage = () => {
                   </CardHeader>
 
                   <CardContent className="text-white/90 text-sm md:text-base">
-                    <p className="whitespace-pre-wrap">{resource.description}</p>
+                    <p className="whitespace-pre-wrap">
+                      {resource.description}
+                    </p>
                   </CardContent>
 
                   <CardFooter className="flex justify-between items-center pt-2">
@@ -121,7 +126,7 @@ const InnerResourcePage = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-white hover:text-white/90 font-medium text-sm md:text-base transition-colors"
                     >
-                      <Button className="bg-[#C55E85] hover:bg-[#C55E85]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 border border-[#C55E85]/30">
+                      <Button className="bg-gray-700/90 hover:bg-gray-600/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 border border-gray-500/30">
                         İncele
                       </Button>
                     </a>
