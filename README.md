@@ -146,4 +146,4 @@ Sponsor fotoğraflarının mantığı da konuşmacılarla aynıdır. Slugify edi
 ## License
 Bu projenin [lisansına](LICENSE) göz atın.
 ## Contact
-If you have any questions, feel free to reach out to me at `me@furkanunsalan.dev`.
+Eğer bir sorununuz varsa `me@furkanunsalan.dev` mail adresinden benimle iletişime geçebilirsiniz.
