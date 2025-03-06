@@ -9,7 +9,7 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 
 [English Documentation](/README-ENG.md)
 
-Ayrıca daha fazla kaynak için [Data Science Awesome Repo'muzu] da ziyeret etmeyi unutmayın!
+Ayrıca daha fazla kaynak için [Data Science Awesome Repo'muzu](https://github.com/Developer-MultiGroup/DMG-Data-Science-Awesome) da ziyaret etmeyi unutmayın!
 
 ## Özellikler
 
