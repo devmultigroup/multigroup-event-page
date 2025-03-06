@@ -1,5 +1,5 @@
 import { Sponsor } from "@/types";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const SponsorSlider = ({
@@ -9,40 +9,61 @@ const SponsorSlider = ({
   sponsors: Sponsor[];
   reverse?: boolean;
 }) => {
-  // Duplicate sponsors array once to ensure enough content for the loop
-  const duplicatedSponsors = [
-    ...sponsors,
-    ...sponsors,
-    ...sponsors,
-    ...sponsors,
-  ];
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const firstItem = container.firstElementChild as HTMLElement;
+    if (!firstItem) return;
+
+    const scroll = () => {
+      if (!container) return;
+      
+      if (reverse) {
+        if (container.scrollLeft === 0) {
+          container.scrollLeft = container.scrollWidth / 2;
+        }
+        container.scrollLeft -= 2;
+      } else {
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+        container.scrollLeft += 2;
+      }
+    };
+
+    const animation = setInterval(scroll, 10);
+    return () => clearInterval(animation);
+  }, [reverse]);
+
+  // Create two sets of sponsors for seamless looping
+  const duplicatedSponsors = [...sponsors, ...sponsors];
 
   return (
     <div className="w-full bg-blue-500">
-      <div className="relative flex overflow-hidden h-40">
-        {/* Main track */}
-        <div
-          className={`flex items-center ${
-            reverse ? "animate-marquee-reverse" : "animate-marquee"
-          }`}
-        >
-          {duplicatedSponsors.map((sponsor, index) => (
-            <div
-              key={`first-${sponsor.sponsorSlug}-${index}`}
-              className="mx-8 flex-shrink-0"
-            >
-              <Image
-                src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
-                alt={`${sponsor.sponsorSlug} logo`}
-                width={160}      // Adjust the width as needed
-                height={56}      // Adjust the height as needed
-                className="object-contain opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
-                draggable={false}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+      <div 
+        ref={containerRef}
+        className="flex items-center h-40 overflow-hidden"
+        style={{ scrollBehavior: 'auto' }}
+      >
+        {duplicatedSponsors.map((sponsor, index) => (
+          <div
+            key={`${sponsor.sponsorSlug}-${index}`}
+            className="mx-8 flex-shrink-0"
+          >
+            <Image
+              src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
+              alt={`${sponsor.sponsorSlug} logo`}
+              width={160}
+              height={56}
+              className="object-contain opacity-70 hover:opacity-100 select-none brightness-0 hover:brightness-100 hover:invert-0 ease-in-out duration-200 transition-all"
+              draggable={false}
+              loading="lazy"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
