@@ -23,7 +23,9 @@ const events: Event[] = [
       {
         fullName: "Fatih Kadir Akın",
         title: "DevRel Manager",
-        company: "Teknasyon"
+        company: "Teknasyon",
+        twitter: "https://x.com/fkadev",
+        linkedin: "https://www.linkedin.com/in/fatihkadirakin"
       },
       {
         fullName: "Şeyma Sarıgil",

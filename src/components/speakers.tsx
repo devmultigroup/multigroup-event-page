@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Speaker } from "@/types";
 import { slugify } from "@/lib/slugify";
 import Image from "next/image";
+import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 interface SpeakerCarouselProps {
   speakers: Speaker[];
@@ -53,6 +54,45 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
               <Card className="absolute w-full h-full flex flex-col items-center justify-center p-4 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                 <h3 className="text-lg font-semibold text-center mb-2">{speaker.fullName}</h3>
                 <p className="text-sm text-gray-500 text-center mb-4">{speaker.title}</p>
+                
+                {/* Social Media Icons */}
+                <div className="flex space-x-3 mb-4">
+                  {speaker.instagram && (
+                    <a 
+                      href={speaker.instagram} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-pink-600 hover:text-pink-700 transition-colors"
+                    >
+                      <FaInstagram size={20} />
+                    </a>
+                  )}
+                  
+                  {speaker.linkedin && (
+                    <a 
+                      href={speaker.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-blue-600 hover:text-blue-700 transition-colors"
+                    >
+                      <FaLinkedin size={20} />
+                    </a>
+                  )}
+                  
+                  {speaker.twitter && (
+                    <a 
+                      href={speaker.twitter} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-blue-400 hover:text-blue-500 transition-colors"
+                    >
+                      <FaTwitter size={20} />
+                    </a>
+                  )}
+                </div>
                 
                 {/* Company Logo */}
                 {speaker.company && (

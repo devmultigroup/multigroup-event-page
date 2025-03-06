@@ -3,6 +3,9 @@ export type Speaker = {
   title: string;
   phrase?: string;
   company?: string;
+  instagram?: string;
+  linkedin?: string;
+  twitter?: string;
 };
 
 export type Session = {
