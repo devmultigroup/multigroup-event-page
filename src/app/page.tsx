@@ -138,7 +138,7 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <DottedNav 
+      {/* <DottedNav 
         sections={[
           { id: "hero", label: "Ana Sayfa" },
           { id: "why-join", label: "Neden Katılmalı" },
@@ -146,7 +146,7 @@ export default function Home() {
           { id: "takvim", label: "Takvim" },
           { id: "faq", label: "SSS" }
         ]}
-      />
+      /> */}
 
       <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
