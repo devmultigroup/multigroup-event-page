@@ -47,7 +47,7 @@ export default function WhyJoinSection() {
   ]
 
   return (
-    <section className="text-black py-16 md:py-12">
+    <section className="text-black py-16 md:py-12 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

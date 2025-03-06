@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Speaker } from "@/types";
 import { slugify } from "@/lib/slugify";
 import Image from "next/image";
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { InstagramLogo, LinkedinLogo, XLogo } from "@phosphor-icons/react";
 
 interface SpeakerCarouselProps {
   speakers: Speaker[];
@@ -65,7 +65,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       onClick={(e) => e.stopPropagation()}
                       className="text-pink-600 hover:text-pink-700 transition-colors"
                     >
-                      <FaInstagram size={20} />
+                      <InstagramLogo size={20} weight="fill" />
                     </a>
                   )}
                   
@@ -77,7 +77,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       onClick={(e) => e.stopPropagation()}
                       className="text-blue-600 hover:text-blue-700 transition-colors"
                     >
-                      <FaLinkedin size={20} />
+                      <LinkedinLogo size={20} weight="fill" />
                     </a>
                   )}
                   
@@ -87,9 +87,9 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="text-blue-400 hover:text-blue-500 transition-colors"
+                      className="text-black hover:text-gray-700 transition-colors"
                     >
-                      <FaTwitter size={20} />
+                      <XLogo size={20} weight="fill" />
                     </a>
                   )}
                 </div>

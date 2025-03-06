@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@phosphor-icons/react": "github:phosphor-icons/react",
+    "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-checkbox": "^1.1.4",
     "@radix-ui/react-dialog": "^1.1.5",

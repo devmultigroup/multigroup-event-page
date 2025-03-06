@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Head from "next/head";
-import CountdownTimer from "@/components/countdown-timer";
+// import CountdownTimer from "@/components/countdown-timer";
 import FAQ from "@/components/faq";
 import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
@@ -15,7 +15,7 @@ import WhyJoinSection from "@/components/why-join";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
-  const closestSessionDate = getClosestSession(latestEventDetails);
+  // const closestSessionDate = getClosestSession(latestEventDetails);
 
   const [minHeight, setMinHeight] = useState("100vh");
 
@@ -83,14 +83,23 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* <span className="text-xl text-left"><span className="text-[#3682F1]">500+</span> Katılımcım <span className="text-[#3682F1]">10+</span> Konuşmacı</span>
-          <br/> */}
+          {/* Participant info - hidden on mobile, shown above main text on larger screens */}
+          <div className="hidden sm:block text-left mb-4">
+            <span className="text-2xl"><span className="text-[#3682F1]">500+</span> Katılımcı <span className="text-[#3682F1]">10+</span> Konuşmacı</span>
+          </div>
+          
           GenAI Fundamentals
           <br />
           With{" "}
           <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
             Gemini
           </span>
+          
+          {/* Participant info - shown on mobile below main text, hidden on larger screens */}
+          <div className="block sm:hidden text-center mt-8">
+            <div className="text-2xl"><span className="text-[#3682F1]">500+</span> Katılımcı</div>
+            <div className="text-2xl"><span className="text-[#3682F1]">10+</span> Konuşmacı</div>
+          </div>
         </motion.div>
 
         {/* Blue Diamond/Star Shape - adjust positioning here */}
@@ -98,7 +107,7 @@ export default function Home() {
           className="absolute"
           style={{
             top: "35%", // moved a bit higher compared to 50%
-            left: "60%", // moved a bit more to the right compared to 50%
+            left: "70%", // moved a bit more to the right compared to 50%
             transform: "translate(-50%, 0%)", // horizontal centering while removing vertical translate
           }}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -108,13 +117,13 @@ export default function Home() {
           <img
             src="/images/gemini-icon.svg"
             alt="Gemini Logo"
-            className="w-96 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
+            className="w-124 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
           />
         </motion.div>
 
         {/* <CountdownTimer targetDate={closestSessionDate} /> */}
 
-        {/* MultiGroup Logo at Bottom */}
+        
         <motion.div
           className="absolute bottom-16 flex flex-col items-center"
           initial={{ opacity: 0, y: 20 }}
@@ -154,6 +163,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="min-h-screen lg:flex lg:flex-col lg:items-center"
         >
           <Heading dark>Konuşmacılar</Heading>
           <Speakers speakers={latestEventDetails.speakers} />
