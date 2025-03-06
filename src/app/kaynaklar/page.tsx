@@ -55,13 +55,17 @@ const InnerResourcePage = () => {
   }, [searchQuery]);
 
   return (
-    <div className="flex flex-col justify-center container mx-auto min-h-screen mt-32 md:mt-64">
-      <div className="w-5/6 max-w-5xl mx-auto">
-        <header className="mb-10 text-center">
-          <h1 className="text-3xl font-bold mb-4 text-white">
+    <div className="min-h-screen flex flex-col">
+      {/* Fixed top spacing */}
+      <div className="h-[30vh]"></div>
+      
+      {/* Content container */}
+      <div className="w-11/12 md:w-5/6 max-w-5xl mx-auto">
+        <header className="mb-12 md:mb-16 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-5 text-white">
             Kaynak Kütüphanesi
           </h1>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-sm md:text-base">
             Gelişim yolculuğunuzu zenginleştirecek araçlar, kılavuzlar ve
             referanslardan oluşan koleksiyonumuzu keşfedin.
           </p>
@@ -86,7 +90,7 @@ const InnerResourcePage = () => {
           </div>
         ) : isError ? (
           <div className="bg-red-900/20 border border-red-800 text-red-300 rounded-lg p-4 text-center">
-            Failed to load resources. Please try again later.
+            Kaynaklar yüklenirken hata oluştu. Lütfen daha sonra tekrar deneyin.
           </div>
         ) : (
           <>
@@ -101,12 +105,12 @@ const InnerResourcePage = () => {
                   key={index}
                 >
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-white group-hover:text-white/90 transition-colors text-xl font-bold">
+                    <CardTitle className="text-white group-hover:text-white/90 transition-colors text-xl md:text-2xl font-bold">
                       {resource.name}
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent className="text-white/90 text-sm">
+                  <CardContent className="text-white/90 text-sm md:text-base">
                     <p className="whitespace-pre-wrap">{resource.description}</p>
                   </CardContent>
 
@@ -115,7 +119,7 @@ const InnerResourcePage = () => {
                       href={resource.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white hover:text-white/90 font-medium text-sm transition-colors"
+                      className="inline-flex items-center gap-1.5 text-white hover:text-white/90 font-medium text-sm md:text-base transition-colors"
                     >
                       <Button className="bg-[#C55E85] hover:bg-[#C55E85]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 border border-[#C55E85]/30">
                         İncele
@@ -141,7 +145,7 @@ const InnerResourcePage = () => {
 
         {filteredResources?.length === 0 && (
           <div className="text-center py-12 text-gray-400">
-            No resources found matching your search.
+            Aramanızla eşleşen herhangi bir kaynak bulunamadı.
           </div>
         )}
       </div>
