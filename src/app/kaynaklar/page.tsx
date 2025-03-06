@@ -85,7 +85,7 @@ export default function ResourcePage() {
           >
             {filteredResources?.map((resource, index) => (
               <Card
-                className="mb-6 bg-[#3682F1] backdrop-filter backdrop-blur-md bg-opacity-70 border border-[#3682F1]/30 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl"
+                className="mb-6 bg-[#3682F1] bg-opacity-70 border border-[#3682F1]/30 hover:bg-opacity-80 hover:shadow-lg hover:shadow-[#3682F1]/20 transition-all duration-300 group overflow-hidden rounded-xl will-change-transform"
                 key={index}
               >
                 <CardHeader className="pb-2">
