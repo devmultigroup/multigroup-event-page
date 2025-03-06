@@ -1,6 +1,6 @@
 ![screenshot](public/opengraph-image.webp)
 
-# MultiGroup Etkinlik Sayfası
+# DMG Bootcamp | Generative AI Fundamentals with Gemini
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
 ## Genel Bakış
@@ -8,6 +8,8 @@
 Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz için tasarlandı. Daha önceden yapılmış veya en yakın zamanda yapılacak olan etkinlikleri buradan inceleyebilir, katkıda bulunmak isterseniz `issues` kısmına göz atarak bizlere destek olabilirsiniz.
 
 [English Documentation](/README-ENG.md)
+
+Ayrıca daha fazla kaynak için [Data Science Awesome Repo'muzu] da ziyeret etmeyi unutmayın!
 
 ## Özellikler
 
@@ -21,7 +23,6 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 - **Next.js:** Kullanıcı arayüzünün geliştirilmesi.
 - **Shadcn/ui:** Kullanılan hazır bileşenler (components).
 - **Tailwind CSS:** Stil ve cihaza duyarlı tasarımlar.
-- **Pigeon Maps:** Etkinlik lokasyonlarının dinamik şekilde gösterilmesi.
 - **Vercel:** Kod dağıtımı.
 - **Framer:** Bileşen ve sayfa animasyonları.
 
@@ -37,6 +38,7 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 ```bash
 $ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
 $ cd multigroup-event-page
+$ git branch genai-fund
 $ npm install
 $ npm run dev
 ```
@@ -52,88 +54,54 @@ classDiagram
     direction LR
     
     class Event {
-        +number id
-        +string name
-        +string subTitle
-        +string title
-        +string description
-        +Location location
-        +string registerLink
-        +string videoUrl
-        +string date
-        +string[] sponsors
         +Speaker[] speakers
         +Session[] sessions
-        +AfterMetrics? afterMetrics
-    }
-    
-    class Location {
-        +number latitude
-        +number longitude
-        +string name
-        +string subtext
+        +Sponsor[] sponsors
     }
     
     class Speaker {
         +string fullName
-        +string photoUrl
         +string title
+        +string phrase
+        +string company
     }
     
     class Session {
         +string topic
+        +string date
+        +string dateTime
         +string startTime
         +string endTime
         +string speakerName
     }
     
-    class AfterMetrics {
-        +string applications
-        +string vipGuests
-        +string supporter
-        +string speakers
-        +string workingParticipant
-        +string jobSeeker
-        +string jobProvider
-        +string satisfaction
+    class Sponsor {
+        +string tier
+        +string sponsorSlug
     }
 
-    Event *-- Location : has
     Event *-- Speaker : contains
     Event *-- Session : contains
-    Event *-- AfterMetrics : tracks
+    Event *-- Sponsor : contains
 ```
-
-
 
 ### Fotoğraf Klasörleri
 
 ```bash
 /public/images
-    ├── events
-    │   └── etkinlik-adi
     ├── speakers
     └── sponsors
 ```
 
 Projenin fotoğraf depolama yapısı yukarıdaki gibidir. 
 
-
-#### Etkinlik Fotoğrafları
-
-Her etkinliğin kendisiyle alakalı 3 adet fotoğraf belirtilen isimlerde kendi isminin altında (slugify edilmiş isim) bulunur. 
-
 #### Konuşmacı Fotoğrafları
 
 Tüm konuşmacıların fotoğrafları slugify edilmiş isimler ile bu klasörde tutulur ve herhangi bir etkinliğe konuşmacı eklenirken o isimle eklendiğinde fotoğraflar otomatik olarak bu klasörden alınır
 
-#### Sponsor Fotoğrafları
+#### Sponsor / Şirket Fotoğrafları
 
 Sponsor fotoğraflarının mantığı da konuşmacılarla aynıdır. Slugify edilmiş bir isim ile sponsorların logoları bu klasörün içerisinde tutulur ve gerektiğinde etkinlik objesindeki array yapısına bu isim eklenir.
-
-## Yeni Etkinlik Oluşturma
-
-Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts` dosyasında yeni bir obje oluşturup yazmak yeterlidir. Sadece dikkat edilmesi gerek konu fotoğrafların isimleri ve koyuldukları yerlerdir.
 
 ## Contributing
 
