@@ -205,7 +205,7 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Heading className="pt-16">Sıkça Sorulan Sorular</Heading>
+        <p className="font-extrabold text-4xl text-center pb-16 pt-16 max-w-2xl mx-auto text-white">Sıkça Sorulan Sorular</p>
         <FAQ />
       </motion.div>
     </>
