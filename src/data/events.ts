@@ -74,11 +74,20 @@ const events: Event[] = [
     ],
     sessions: [
       {
+        topic: "Kick-Off",
+        date: "2025-03-03",
+        startTime: "20:00",
+        endTime: "22:00",
+        speakerName: "Serkan Alc",
+        url: "https://www.youtube.com/watch?v=B-tTRvuMvH8&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=6&pp=iAQB"
+      },
+      {
         topic: "What Are the Basic GenAI Consepts?",
         date: "2025-03-05",
         startTime: "20:00",
         endTime: "22:00",
         speakerName: "Kardel Rüveyda Çetin",
+        url: "https://www.youtube.com/watch?v=B-tTRvuMvH8&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=6&pp=iAQB"
       },
       {
         topic: "Basic LLM Invoke From Gemini API",
@@ -86,13 +95,15 @@ const events: Event[] = [
         startTime: "20:00",
         endTime: "22:00",
         speakerName: "Kardel Rüveyda Çetin",
+        url: "https://www.youtube.com/watch?v=oWlaMUcOWYM&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=5&pp=iAQB"
       },
       {
-        topic: "What is Google AI Studio and Prompt?",
+        topic: "Fantastic Prompts and Where To Find Them?",
         date: "2025-03-12",
         startTime: "20:00",
         endTime: "22:00",
         speakerName: "Göker Güner",
+        url: "https://www.youtube.com/watch?v=jZbjJo8YxQg&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=4&pp=iAQB"
       },
       {
         topic: "Prompt Engineering Methods",
@@ -100,6 +111,7 @@ const events: Event[] = [
         startTime: "20:00",
         endTime: "22:00",
         speakerName: "Daron Yöndem",
+        url: "https://www.youtube.com/watch?v=-lLNMt_JU_4&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=3&pp=iAQB"
       },
       {
         topic: "Prompt Engineering Fundamentals",
@@ -116,7 +128,7 @@ const events: Event[] = [
         speakerName: "Tolga Kurtuluş",
       },
       {
-        topic: "",
+        topic: "Basic Chatbot Deployment & Final Project Details",
         date: "2025-03-21",
         startTime: "20:00",
         endTime: "22:00",
@@ -128,6 +140,7 @@ const events: Event[] = [
         startTime: "20:00",
         endTime: "22:00",
         speakerName: "Tolga Kurtuluş",
+        url: "https://www.youtube.com/watch?v=yRraDgrZees&list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN&index=2&pp=iAQB"
       },
       {
         topic: "What is RAG & Fine Tuning",
@@ -137,7 +150,7 @@ const events: Event[] = [
         speakerName: "Bilge Yücel",
       },
       {
-        topic: "",
+        topic: "Optimization Areas for RAG Applications",
         date: "2025-03-28",
         startTime: "20:00",
         endTime: "22:00",

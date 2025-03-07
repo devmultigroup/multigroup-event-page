@@ -4,7 +4,7 @@ import { generateCalendarFile } from "@/lib/generateCalendar"
 import type { Event, Session } from "@/types"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Calendar } from "@phosphor-icons/react"
+import { Calendar, ArrowUpRight, LinkSimpleHorizontal } from "@phosphor-icons/react"
 import { slugify } from "@/lib/slugify"
 import { useToast } from "@/hooks/use-toast"
 import { useState } from "react"
@@ -203,6 +203,19 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                       </div>
                       <p className="text-xl font-bold text-gray-900 mt-1">{session.speakerName}</p>
                       <p className="text-blue-600 text-sm mt-1">{session.topic}</p>
+                      {session.url && (
+                        <a
+                          href={session.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-2 text-sm font-medium"
+                          style={{ color: "#C55E85" }}
+                          aria-label={`Watch ${session.topic} by ${session.speakerName} on YouTube`}
+                        >
+                          <span className="hover:underline hover:cursor">Youtube'da İzle</span>
+                          <LinkSimpleHorizontal size={16}/>
+                        </a>
+                      )}
                     </div>
 
                     <div className="flex flex-col items-center ml-4 gap-2">

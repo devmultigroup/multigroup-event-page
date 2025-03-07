@@ -60,17 +60,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        {/* Preload key fonts */}
-        <link
-          rel="preload"
-          href="/fonts/TanNimbus.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </Head>
-
       {/* Background Section with black background and centered content */}
       <div
         id="hero"

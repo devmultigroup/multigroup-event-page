@@ -15,6 +15,7 @@ export type Session = {
   startTime: string; // start time for session
   endTime: string; // end time for session
   speakerName: string;
+  url?: string;
 };
 
 export type Sponsor = {
