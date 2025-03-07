@@ -6,57 +6,70 @@ const events: Event[] = [
       {
         fullName: "Daron Yöndem",
         title: "Tech Lead for Application Innovation, Microsoft",
-        company: "Microsoft"
+        company: "Microsoft",
+        linkedin: "https://www.linkedin.com/in/daronyondem/",
+        twitter: "https://x.com/daronyondem",
       },
       {
         fullName: "Kardel Rüveyda Çetin ",
         title: "Software Development Lead",
         // phrase:
         //   "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
-        company: "Doğuş Teknoloji"
+        company: "Doğuş Teknoloji",
+        linkedin: "https://www.linkedin.com/in/kardelruveydacetin/",
+        twitter: "https://x.com/kardelanite",
       },
       {
         fullName: "Bilge Yücel ",
         title: "DevRel Engineer",
-        company: "Deepset"
+        company: "Deepset",
+        linkedin: "https://www.linkedin.com/in/bilge-yucel/",
       },
       {
         fullName: "Fatih Kadir Akın",
         title: "DevRel Manager",
         company: "Teknasyon",
         twitter: "https://x.com/fkadev",
-        linkedin: "https://www.linkedin.com/in/fatihkadirakin"
+        linkedin: "https://www.linkedin.com/in/fatihkadirakin",
       },
       {
         fullName: "Şeyma Sarıgil",
         title: "Senior Software Engineer",
-        company: "Softtech"
+        company: "Softtech",
+        linkedin: "https://www.linkedin.com/in/seymasa/",
       },
       {
         fullName: "Tolga Kurtuluş ",
         title: "Revenue Management R&D Specialist",
-        company: "Turkish Airlines"
+        company: "Turkish Airlines",
+        linkedin: "https://www.linkedin.com/in/tolgakurtulus/",
       },
       {
         fullName: "Göker Güner",
         title: "AI Platform Engineer",
-        company: "Codeway"
+        company: "Codeway",
+        linkedin: "https://www.linkedin.com/in/gokerguner/",
+        twitter: "https://x.com/gokerguner",
       },
       {
         fullName: "Emrah Mete",
-        title:
-          "Senior Cloud Solution Architect - AI and Data Analytics",
-          company: "Microsoft"
+        title: "Senior Cloud Solution Architect - AI and Data Analytics",
+        company: "Microsoft",
+        linkedin: "https://www.linkedin.com/in/emrahmete/",
+        twitter: "https://x.com/emrahmete",
       },
       {
         fullName: "Selin Çıldam",
         title: "Data Scientist",
-        company: "Pazarama"
+        company: "Pazarama",
+        linkedin: "https://www.linkedin.com/in/selincildam/"
       },
       {
         fullName: "Enes Fehmi Manan",
         title: "Risk Analytics & Data Science Intern",
-        company: "Fibabanka"
+        company: "Fibabanka",
+        linkedin: "https://www.linkedin.com/in/enesfehmimanan/",
+        twitter: "https://x.com/enesfehmimanan"
       },
     ],
     sessions: [
