@@ -64,6 +64,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
                       className="text-pink-600 hover:text-pink-700 transition-colors"
+                      aria-label="kouşmacı instagram hesabı"
                     >
                       <InstagramLogo size={28} weight="fill" />
                     </a>
@@ -76,6 +77,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
                       className="text-blue-600 hover:text-blue-700 transition-colors"
+                      aria-label="konuşmacı linkedin hesabı"
                     >
                       <LinkedinLogo size={28} weight="fill" />
                     </a>
@@ -88,6 +90,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
                       className="text-black hover:text-gray-700 transition-colors"
+                      aria-label="konuşmacı x hesabı"
                     >
                       <XLogo size={28} />
                     </a>
