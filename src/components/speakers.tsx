@@ -65,7 +65,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       onClick={(e) => e.stopPropagation()}
                       className="text-pink-600 hover:text-pink-700 transition-colors"
                     >
-                      <InstagramLogo size={20} weight="fill" />
+                      <InstagramLogo size={28} weight="fill" />
                     </a>
                   )}
                   
@@ -77,7 +77,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       onClick={(e) => e.stopPropagation()}
                       className="text-blue-600 hover:text-blue-700 transition-colors"
                     >
-                      <LinkedinLogo size={20} weight="fill" />
+                      <LinkedinLogo size={28} weight="fill" />
                     </a>
                   )}
                   
@@ -89,7 +89,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                       onClick={(e) => e.stopPropagation()}
                       className="text-black hover:text-gray-700 transition-colors"
                     >
-                      <XLogo size={20} weight="fill" />
+                      <XLogo size={28} />
                     </a>
                   )}
                 </div>
