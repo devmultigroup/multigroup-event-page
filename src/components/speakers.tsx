@@ -42,7 +42,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                   <Image
                     src={`/images/speakers/${slugify(speaker.fullName)}.webp`}
                     alt={speaker.fullName}
-                    className="object-cover"
+                    className="object-cover object-[50%_25%]"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                     loading="lazy"
