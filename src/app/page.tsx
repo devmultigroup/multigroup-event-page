@@ -67,7 +67,7 @@ export default function Home() {
       >
         {/* Main Title - Centered */}
         <motion.div
-          className="select-none text-white text-4xl sm:text-6xl font-extrabold text-center max-w-3xl mx-auto mb-16 relative z-10"
+          className="select-none text-white text-4xl sm:text-6xl font-extrabold text-center max-w-3xl mx-auto mb-16 relative"
           style={{ fontFamily: "Montserrat, sans-serif" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,32 +80,34 @@ export default function Home() {
               <span className="text-[#3682F1]">10+</span> Konuşmacı
             </span>
           </div>
-          GenAI Fundamentals
-          <br />
-          With{" "}
-          <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
-            Gemini
-          </span>
+          
+          {/* Gemini icon positioned behind text */}
+          <motion.div
+            className="absolute z-0 right-[-5%] sm:right-[-10%]"
+            style={{
+              top: "10%",
+              transform: "translateY(-50%)",
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 0.8, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <img
+              src="/images/gemini-icon.svg"
+              alt="Gemini Logo"
+              className="w-24 sm:w-32 md:w-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
+            />
+          </motion.div>
+          
+          <div className="relative z-10">
+            GenAI Fundamentals
+            <br />
+            With{" "}
+            <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
+              Gemini
+            </span>
+          </div>
           {/* Participant info - shown on mobile below main text, hidden on larger screens */}
-        </motion.div>
-
-        {/* Blue Diamond/Star Shape - adjust positioning here */}
-        <motion.div
-          className="absolute"
-          style={{
-            top: "35%", // moved a bit higher compared to 50%
-            left: "70%", // moved a bit more to the right compared to 50%
-            transform: "translate(-50%, 0%)", // horizontal centering while removing vertical translate
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-        >
-          <img
-            src="/images/gemini-icon.svg"
-            alt="Gemini Logo"
-            className="w-124 sm:w-32 sm:h-32 md:w-40 md:h-40 rotate-[30deg] object-contain object-center max-w-full h-auto"
-          />
         </motion.div>
 
         <div className="block sm:hidden text-center mt-8">
