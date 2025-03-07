@@ -89,7 +89,7 @@ export function generateCalendarFile(event: Event): void {
         icsLines.push(`SUMMARY:${sanitizeICSField(session.topic)}`);
 
         // Append the YouTube link after the speaker info.
-        const descriptionContent = `Konuşmacı: ${session.speakerName}\nLink: https://www.youtube.com/@devmultigroup`;
+        const descriptionContent = `Konuşmacı: ${session.speakerName}\nLink: ${session.url ? session.url : "https://youtube.com/@devmultigroup"}`;
         icsLines.push(`DESCRIPTION:${sanitizeICSField(descriptionContent)}`);
         icsLines.push(`LOCATION:${sanitizeICSField("YouTube")}`);
         icsLines.push("END:VEVENT");
