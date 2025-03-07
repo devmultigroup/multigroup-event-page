@@ -12,7 +12,6 @@ import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
 import { useEffect, useState } from "react";
 import WhyJoinSection from "@/components/why-join";
-import DottedNav from "@/components/dotted-nav";
 
 export default function Home() {
   const latestEventDetails = getLatestEvent();
@@ -63,7 +62,7 @@ export default function Home() {
       {/* Background Section with black background and centered content */}
       <div
         id="hero"
-        className="relative flex flex-col items-center justify-center px-6 sm:px-12 bg-black text-white"
+        className="relative flex flex-col items-center justify-center px-6 sm:px-12 bg-black text-white overflow-x-hidden"
         style={{ minHeight: "100vh" }}
       >
         {/* Main Title - Centered */}
@@ -132,36 +131,11 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* <DottedNav 
-        sections={[
-          { id: "hero", label: "Ana Sayfa" },
-          { id: "why-join", label: "Neden Katılmalı" },
-          { id: "konuşmacılar", label: "Konuşmacılar" },
-          { id: "takvim", label: "Takvim" },
-          { id: "faq", label: "SSS" }
-        ]}
-      /> */}
-
       <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <div className="bg-[#F2F4F0] pt-16">
         <span id="why-join" />
         <WhyJoinSection />
-
-        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
-          <div className="bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg font-bold">Kayıt Sayısı</p>
-            <p className="text-3xl font-extrabold text-blue-600">500+</p>
-          </div>
-          <div className="bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg font-bold">Eğitmen Sayısı</p>
-            <p className="text-3xl font-extrabold text-blue-600">10+</p>
-          </div>
-          <div className="bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-blue-600">10+</p>
-          </div>
-        </div> */}
 
         <span id="konuşmacılar" />
         <motion.div
