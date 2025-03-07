@@ -5,6 +5,8 @@ export interface Resource {
   name: string;
   link: string;
   description: string;
+  lesson?: string;
+  tags?: string;
 }
 
 interface ResourceContextType {

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Search } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { Search, Plus } from "lucide-react";
 import Masonry from "react-masonry-css";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -36,12 +36,37 @@ export default function ResourcePage() {
 const InnerResourcePage = () => {
   const { resources, isLoading, isError } = useResourceContext();
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState("all");
   const [visibleItems, setVisibleItems] = useState(6);
 
-  // Filter resources based on search query
-  const filteredResources = resources?.filter((resource) =>
-    resource.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Tüm etiketleri toplayıp benzersiz hale getiriyoruz
+  const uniqueTags: string[] = useMemo(() => {
+    const tagsSet = new Set<string>();
+    resources?.forEach((resource) => {
+      if (resource.tags) {
+        resource.tags.split(",").forEach((tag) => {
+          tagsSet.add(tag.trim());
+        });
+      }
+    });
+    return Array.from(tagsSet);
+  }, [resources]);
+
+  // Filter resources based on search query and optionally on selected tag
+  const filteredResources = resources?.filter((resource) => {
+    const matchesSearch = resource.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesTag =
+      selectedTag === "all" ||
+      (resource.tags &&
+        resource.tags
+          .toLowerCase()
+          .split(",")
+          .map((tag) => tag.trim())
+          .includes(selectedTag.toLowerCase()));
+    return matchesSearch && matchesTag;
+  });
 
   const visibleResources = filteredResources?.slice(0, visibleItems);
 
@@ -53,10 +78,10 @@ const InnerResourcePage = () => {
     setVisibleItems((prev) => prev + 6);
   };
 
-  // Reset visible items when search query changes
+  // Reset visible items when search query or tag changes
   useEffect(() => {
     setVisibleItems(6);
-  }, [searchQuery]);
+  }, [searchQuery, selectedTag]);
 
   // Animation variants
   const containerVariants = {
@@ -129,7 +154,10 @@ const InnerResourcePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Kaynak Kütüphanesi
+            Kaynak{" "}
+            <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
+              Kütüphanesi
+            </span>
           </motion.h1>
           <motion.p
             className="text-gray-400 mb-8 max-w-2xl mx-auto text-sm md:text-base"
@@ -141,22 +169,65 @@ const InnerResourcePage = () => {
             referanslardan oluşan koleksiyonumuzu keşfedin.
           </motion.p>
 
+          {/* Search ve Tag Selector container */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 w-full">
+            <motion.div
+              className="relative w-full md:max-w-md flex-1"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 h-4 w-4" />
+              <Input
+                type="text"
+                placeholder="Kaynakları arayın..."
+                className="pl-10 bg-white bg-gray-800/70 border border-gray-600/30 text-gray-300 placeholder:text-gray-300 focus-visible:ring-[#C55E85] w-full"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </motion.div>
+
+            <motion.div
+              className="relative w-full md:max-w-[180px] flex-1"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <select
+                value={selectedTag}
+                onChange={(e) => setSelectedTag(e.target.value)}
+                className="w-full pl-3 pr-10 py-2 bg-gray-800/70 border border-gray-600/30 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C55E85]"
+              >
+                <option value="all">Tüm Etiketler</option>
+                {uniqueTags.map((tag, index) => (
+                  <option key={index} value={tag}>
+                    {tag}
+                  </option>
+                ))}
+              </select>
+            </motion.div>
+          </div>
+
+          {/* GitHub linkine yönlendiren + butonu */}
           <motion.div
-            className="relative max-w-md mx-auto mb-8"
+            className="flex justify-center mb-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
-            <Input
-              type="text"
-              placeholder="Kaynakları arayın..."
-              className="pl-10 bg-white border-gray-800 text-gray-500 placeholder:text-gray-500 focus-visible:ring-gray-700"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <motion.a
+              href="https://github.com/Developer-MultiGroup/DMG-Data-Science-Awesome"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={buttonVariants}
+              initial="initial"
+              whileHover="hover"
+              whileTap="tap"
+              className="flex items-center gap-1 bg-[#3682F1] hover:bg-[#3682F1]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 border border-[#3682F1]/30 rounded-full px-4 py-2"
+            >
+              <Plus className="h-5 w-5" />
+              <span>Yeni Kaynak Ekle</span>
+            </motion.a>
           </motion.div>
         </motion.header>
 
@@ -213,6 +284,11 @@ const InnerResourcePage = () => {
                   >
                     <Card className="mb-6 bg-gray-800/70 backdrop-blur-sm border border-gray-600/30 hover:border-[#C55E85] hover:bg-gray-800/80 hover:shadow-lg hover:shadow-gray-900/20 transition-all duration-300 group overflow-hidden rounded-xl will-change-transform">
                       <CardHeader className="pb-2">
+                        {resource.lesson && (
+                          <div className="text-[#3682F1] text-sm mt-1 mb-2">
+                            {resource.lesson}
+                          </div>
+                        )}
                         <CardTitle className="text-white group-hover:text-white/90 transition-colors text-xl md:text-2xl font-bold">
                           {resource.name}
                         </CardTitle>
@@ -222,6 +298,18 @@ const InnerResourcePage = () => {
                         <p className="whitespace-pre-wrap">
                           {resource.description}
                         </p>
+                        {resource.tags && (
+                          <div className="flex flex-wrap gap-2 mt-6">
+                            {resource.tags.split(",").map((tag, tagIndex) => (
+                              <span
+                                key={tagIndex}
+                                className="px-2 py-1 rounded-full bg-[#3682F1]/70 text-[#f0f8ff] text-xs font-medium"
+                              >
+                                {tag.trim()}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </CardContent>
 
                       <CardFooter className="flex justify-between items-center pt-2">
@@ -290,3 +378,5 @@ const InnerResourcePage = () => {
     </div>
   );
 };
+
+export { InnerResourcePage };

@@ -26,14 +26,16 @@ export async function GET() {
     // Adjust spreadsheetId and range as needed.
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: 'A2:C',
+      range: 'A2:E',
     });
 
     const resources = (response.data.values || [])
-      .map(([name, link, description]) => ({
+      .map(([name, link, description, lesson, tags]) => ({
         name: name?.toString().trim() || '',
         link: link?.toString().trim() || '',
         description: description?.toString().trim() || '',
+        lesson: lesson?.toString().trim() || null,
+        tags: tags?.toString().trim() || null,
       }))
       .filter((resource) => resource.name && resource.link && resource.description);
 
