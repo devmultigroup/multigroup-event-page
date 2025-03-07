@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sponsor } from "@/types";
 import Image from "next/image";
+import Heading from "./heading";
 
 interface SponsorGroups {
   [key: string]: Sponsor[];
@@ -36,21 +37,12 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
   };
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-32 px-4">
       {sortedTiers.map((tier) => (
         <div key={tier} className="mb-16">
-          <div className="relative flex items-center justify-center mb-10">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full md:w-2/3 border-t border-gray-400/30 mx-auto"></div>
-            </div>
-            <div className="relative z-10">
-              <span className="px-6 py-2 text-sm font-medium text-white bg-gray-800 dark:bg-gray-900 rounded-full">
-                {formatTierTitle(tier)}
-              </span>
-            </div>
-          </div>
+          <Heading dark>{formatTierTitle(tier)}</Heading>
 
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 pt-12">
             {sponsorsByTier[tier].map((sponsor) => (
               <motion.div
                 key={sponsor.sponsorSlug}
