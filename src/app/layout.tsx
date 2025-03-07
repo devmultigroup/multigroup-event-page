@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
+import { ResourceProvider } from "@/context/ResourceContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     "AI",
     "Yapay Zeka",
     "Generative AI",
-    "GenAI"
+    "GenAI",
   ],
   // metadataBase: new URL("https://furkanunsalan.dev"),
 };
@@ -56,10 +57,12 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={montserrat.variable}>
-        <Navbar />
-        {children}
-        <Toaster />
-        <Footer />
+        <ResourceProvider>
+          <Navbar />
+          {children}
+          <Toaster />
+          <Footer />
+        </ResourceProvider>
       </body>
     </html>
   );

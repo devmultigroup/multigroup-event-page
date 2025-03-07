@@ -26,14 +26,6 @@ const breakpointColumnsObj = {
 };
 
 export default function ResourcePage() {
-  return (
-    <ResourceProvider>
-      <InnerResourcePage />
-    </ResourceProvider>
-  );
-}
-
-const InnerResourcePage = () => {
   const { resources, isLoading, isError } = useResourceContext();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState("all");
@@ -378,5 +370,3 @@ const InnerResourcePage = () => {
     </div>
   );
 };
-
-export { InnerResourcePage };
