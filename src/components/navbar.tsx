@@ -120,7 +120,7 @@ const Navbar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-2xl font-medium text-white hover:text-orange-500 transition-colors"
+                className="text-2xl font-medium text-white hover:text-blue-500 transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   handleScrollOrRedirect(item.href);
