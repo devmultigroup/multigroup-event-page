@@ -13,7 +13,7 @@ export function getFormattedDate(date: string) {
 }
 
 export function getLatestEvent(): Event {
-  return events[0]
+  return events[0];
 }
 
 export function formatIsoDate(isoDate: string): string {
@@ -30,7 +30,6 @@ export function formatIsoDate(isoDate: string): string {
 
   return `${day} ${month} ${year}`;
 }
-
 
 /**
  * Finds the closest session to the current time in GMT+3 timezone
@@ -49,16 +48,20 @@ export function getClosestSession(event: Event): string {
   // Get current time in GMT+3
   const now = getCurrentTimeInGMT3();
 
-  // Find the session with the closest date to now
-  let closestSession = allSessions[0];
-  let closestDiff = Math.abs(
-    new Date(closestSession.dateTime).getTime() - now.getTime()
-  );
-
-  for (let i = 1; i < allSessions.length; i++) {
-    const session = allSessions[i];
+  // Filter sessions to only include future ones
+  const futureSessions = allSessions.filter((session) => {
     const sessionTime = new Date(session.dateTime).getTime();
-    const diff = Math.abs(sessionTime - now.getTime());
+    return sessionTime > now.getTime();
+  });
+
+  // Find the session with the closest date to now (among future sessions)
+  let closestSession = futureSessions[0];
+  let closestDiff = new Date(closestSession.dateTime).getTime() - now.getTime();
+
+  for (let i = 1; i < futureSessions.length; i++) {
+    const session = futureSessions[i];
+    const sessionTime = new Date(session.dateTime).getTime();
+    const diff = sessionTime - now.getTime();
 
     if (diff < closestDiff) {
       closestDiff = diff;

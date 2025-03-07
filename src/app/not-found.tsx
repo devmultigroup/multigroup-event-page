@@ -42,6 +42,8 @@ export default function NotFound() {
   };
 
   const closestSessionDate = getClosestSession(latestEventDetails);
+  console.log(closestSessionDate);
+  
 
   return (
     <div
