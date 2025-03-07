@@ -76,21 +76,18 @@ export default function Home() {
         >
           {/* Participant info - hidden on mobile, shown above main text on larger screens */}
           <div className="hidden sm:block text-left mb-4">
-            <span className="text-2xl"><span className="text-[#3682F1]">500+</span> Katılımcı <span className="text-[#3682F1]">10+</span> Konuşmacı</span>
+            <span className="text-2xl">
+              <span className="text-[#3682F1]">500+</span> Katılımcı{" "}
+              <span className="text-[#3682F1]">10+</span> Konuşmacı
+            </span>
           </div>
-          
           GenAI Fundamentals
           <br />
           With{" "}
           <span className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] bg-clip-text text-transparent">
             Gemini
           </span>
-          
           {/* Participant info - shown on mobile below main text, hidden on larger screens */}
-          <div className="block sm:hidden text-center mt-8">
-            <div className="text-2xl"><span className="text-[#3682F1]">500+</span> Katılımcı</div>
-            <div className="text-2xl"><span className="text-[#3682F1]">10+</span> Konuşmacı</div>
-          </div>
         </motion.div>
 
         {/* Blue Diamond/Star Shape - adjust positioning here */}
@@ -112,9 +109,17 @@ export default function Home() {
           />
         </motion.div>
 
+        <div className="block sm:hidden text-center mt-8">
+          <div className="text-2xl">
+            <span className="text-[#3682F1]">500+</span> Katılımcı
+          </div>
+          <div className="text-2xl">
+            <span className="text-[#3682F1]">10+</span> Konuşmacı
+          </div>
+        </div>
+
         {/* <CountdownTimer targetDate={closestSessionDate} /> */}
 
-        
         <motion.div
           className="absolute bottom-16 flex flex-col items-center"
           initial={{ opacity: 0, y: 20 }}
@@ -166,7 +171,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="min-h-screen lg:flex lg:flex-col lg:items-center"
         >
-          <Heading dark>Konuşmacılar</Heading>
+          <Heading dark>Konuşmacılarımız Kimler?</Heading>
           <Speakers speakers={latestEventDetails.speakers} />
         </motion.div>
 
@@ -178,7 +183,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
         >
           <span id="yayınlar" />
-          <Heading dark>Yayın Takvimi</Heading>
+          <Heading dark>Bootcamp Eğitim Takvimi</Heading>
           <SessionContainer event={latestEventDetails} />
         </motion.div>
 
@@ -194,7 +199,9 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="font-extrabold text-4xl text-center pb-16 pt-16 max-w-2xl mx-auto text-white">Sıkça Sorulan Sorular</p>
+        <p className="font-extrabold text-4xl text-center pb-16 pt-16 max-w-2xl mx-auto text-white">
+          Sıkça Sorulan Sorular
+        </p>
         <FAQ />
       </motion.div>
     </>

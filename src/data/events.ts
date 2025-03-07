@@ -195,11 +195,11 @@ const events: Event[] = [
     sponsors: [
       {
         tier: "",
-        sponsorSlug: "codeway",
+        sponsorSlug: "microsoft",
       },
       {
         tier: "",
-        sponsorSlug: "deepset",
+        sponsorSlug: "turkish-airlines",
       },
       {
         tier: "",
@@ -211,23 +211,23 @@ const events: Event[] = [
       },
       {
         tier: "",
-        sponsorSlug: "microsoft",
-      },
-      {
-        tier: "",
-        sponsorSlug: "softtech",
-      },
-      {
-        tier: "",
         sponsorSlug: "teknasyon",
       },
       {
         tier: "",
-        sponsorSlug: "turkish-airlines",
+        sponsorSlug: "codeway",
       },
       {
         tier: "",
         sponsorSlug: "pazarama",
+      },
+      {
+        tier: "",
+        sponsorSlug: "deepset",
+      },
+      {
+        tier: "",
+        sponsorSlug: "softtech",
       },
     ],
   },

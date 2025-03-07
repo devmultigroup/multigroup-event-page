@@ -213,7 +213,6 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                           aria-label={`Watch ${session.topic} by ${session.speakerName} on YouTube`}
                         >
                           <span className="hover:underline hover:cursor">Youtube'da İzle</span>
-                          <LinkSimpleHorizontal size={16}/>
                         </a>
                       )}
                     </div>

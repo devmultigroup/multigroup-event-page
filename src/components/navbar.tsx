@@ -43,10 +43,11 @@ const Navbar = () => {
     <header className="absolute w-full z-50 px-6 sm:px-12 bg-transparent py-2">
       <div className="mx-auto px-8 sm:px-6 lg:px-16">
         <div className="flex h-20 items-center justify-between">
-          <div className="flex-shrink-0">
+          {/* Logo - Mobilde daha sola alındı */}
+          <div className="flex-shrink-0 -ml-2 sm:ml-0">
             <a href="/">
               <Image
-                src="/dmg-logo.webp"
+                src="/multigroup.webp"
                 alt="DMG Logo"
                 width={196}
                 height={196}
@@ -88,7 +89,8 @@ const Navbar = () => {
               <span className="invisible font-medium text-sm">Kayıt Ol</span>
             </Button>
           </div>
-          <div className="lg:hidden">
+          {/* Hamburger - Mobilde daha sağa alındı */}
+          <div className="lg:hidden -mr-2 sm:mr-0">
             <Button
               className="text-white"
               variant="ghost"
@@ -101,14 +103,14 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-transform duration-300 ${
+          className={`fixed inset-0 bg-black z-50 flex flex-col items-center justify-center transition-transform duration-300 ${
             isExpanded
               ? "translate-y-0 opacity-100"
               : "-translate-y-full opacity-0"
           }`}
         >
           <button
-            className="absolute top-12 right-16 text-black text-3xl"
+            className="absolute top-12 right-16 text-white text-3xl"
             onClick={() => setIsExpanded(false)}
           >
             &times;
@@ -118,7 +120,7 @@ const Navbar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-2xl font-medium text-black hover:text-orange-500 transition-colors"
+                className="text-2xl font-medium text-white hover:text-orange-500 transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   handleScrollOrRedirect(item.href);
@@ -129,7 +131,7 @@ const Navbar = () => {
             ))}
             <Button
               variant="outline"
-              className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
+              className="mt-6 rounded-lg text-lg text-black border-white px-8 py-3"
             >
               <a href="https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN" target="_blank">
                 Yayınlar
