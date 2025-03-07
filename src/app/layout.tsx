@@ -7,16 +7,6 @@ import Footer from "@/components/footer";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
@@ -26,7 +16,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Developer MultiGroup",
   description:
-    "Official event page of Developer MultiGroup where you can discover and attend insightful events every month! ",
+    "Generative AI Fundamentals with Gemini Bootcamp Sayfası! Sen de AI hakkında daha fazla bilgiye erişmek istiyorsan seni sitemize alalım.",
   robots: {
     index: true,
     follow: true,
@@ -37,10 +27,16 @@ export const metadata: Metadata = {
     "Developer MultiGroup",
     "DMG",
     "Etkinlik",
+    "Bootcamp",
     "Yazılım",
     "Yazılım Etkinliği",
     "Topluluk",
     "Yazılım Topluluğu",
+    "Eğitim",
+    "AI",
+    "Yapay Zeka",
+    "Generative AI",
+    "GenAI"
   ],
   // metadataBase: new URL("https://furkanunsalan.dev"),
 };
@@ -56,7 +52,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://cloud.umami.is/script.js"
-          data-website-id="0e38a8ee-602c-475c-a68a-cb7111a22e9e"
+          data-website-id={process.env.UMAMI_PROJECT_ID}
         ></Script>
       </head>
       <body className={montserrat.variable}>
