@@ -25,7 +25,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-transparent text-white py-6 px-2 md:px-12 flex flex-col items-center justify-center min-h-60">
+    <footer className="relative text-white py-6 px-2 md:px-12 flex flex-col items-center justify-center min-h-60 bg-black">
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl">
         <div className="flex items-center gap-3">
           <Image
@@ -38,14 +38,14 @@ export default function Footer() {
         <nav className="mt-4 lg:mt-0 flex flex-col md:flex-row gap-6 text-sm items-center justify-center w-full text-center align-middle">
           <Link
             aria-label="Konuşmacılar sayfası"
-            href="/#konusmacilar"
+            href="#konusmacilar"
             className="hover:text-gray-400"
           >
             Konuşmacılar
           </Link>
           <Link
             aria-label="Etkinlik akışı"
-            href="/#etkinlik-akisi"
+            href="#etkinlik-akisi"
             className="hover:text-gray-400"
           >
             Etkinlik Akışı

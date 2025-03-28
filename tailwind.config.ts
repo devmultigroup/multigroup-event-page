@@ -10,6 +10,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Global color palette that can be dynamically changed
+        'color-primary': 'hsl(var(--color-primary))',
+        'color-secondary': 'hsl(var(--color-secondary))',
+        'color-background': 'hsl(var(--color-background))',
+        'color-text': 'hsl(var(--color-text))',
+        
+        // Existing Tailwind color configuration
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -81,7 +88,6 @@ export default {
         "marquee-reverse": "marquee-reverse 15s linear infinite",
       },
       boxShadow: {
-        // Custom inset shadow
         'inset-all': 'inset 0 0 4px rgba(0, 0, 0, 0.3)',
       },
     },

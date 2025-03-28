@@ -81,6 +81,12 @@ const events: Event[] = [
       jobProvider: "65%",
       satisfaction: "83%",
     },
+    colorPalette: {
+      primary: '214 83.7% 51%',   // Blue
+      secondary: '214 83.7% 65%', 
+      background: '214 83.7% 95%',
+      text: '214 83.7% 20%'
+    }
   },
   {
     id: 2,
@@ -238,6 +244,12 @@ const events: Event[] = [
       jobProvider: "75%",
       satisfaction: "90%",
     },
+    colorPalette: {
+      primary: '160 81.1% 45.1%', // Green
+      secondary: '160 81.1% 55.1%',
+      background: '160 81.1% 95%',
+      text: '160 81.1% 20%'
+    }
   },
 ];
 

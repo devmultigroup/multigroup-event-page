@@ -18,7 +18,7 @@ const SponsorSlider = ({
   ];
 
   return (
-    <div className="w-full bg-[#FFC107]">
+    <div className="w-full bg-color-secondary">
       <div className="relative flex overflow-hidden h-40">
         {/* Main track */}
         <div

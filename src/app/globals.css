@@ -42,7 +42,7 @@ html, body {
 
 body {
   font-family: Montserrat, sans-serif;
-  background-color: #012B28;
+  /* background-color: #012B28; */
 }
 
 @layer base {

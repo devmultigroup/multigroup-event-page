@@ -63,4 +63,10 @@ export type Event = {
   sponsors: Sponsor[];
   images: string[];
   afterMetrics?: AfterMetrics;
+  colorPalette: {
+    primary: string;
+    secondary: string;
+    background: string;
+    text: string;
+  };
 };

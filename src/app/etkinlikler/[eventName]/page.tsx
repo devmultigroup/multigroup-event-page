@@ -20,6 +20,7 @@ import MetricsGrid from "@/components/metrics-grid";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
+import { useEventColor } from "@/context/EventColorContext";
 
 export default function EventPage({
   params: paramsPromise,
@@ -29,6 +30,7 @@ export default function EventPage({
   const params = use(paramsPromise);
   const eventDetails: Event | null = getEventBySlug(params.eventName);
   const [minHeight, setMinHeight] = useState("100vh");
+  const { setCurrentEvent } = useEventColor();
 
   if (!eventDetails) {
     notFound();
@@ -39,6 +41,12 @@ export default function EventPage({
   if (!eventDetails || eventDetails.id === latestEvent.id) {
     notFound();
   }
+
+  useEffect(() => {
+    if (eventDetails) {
+      setCurrentEvent(eventDetails);
+    }
+  }, [eventDetails])
 
   useEffect(() => {
     const updateMinHeight = () => {
@@ -84,7 +92,7 @@ export default function EventPage({
 
       {/* Background Section with optimized Image */}
       <div
-        className="relative flex items-center justify-center px-6 sm:px-12"
+        className="relative flex items-center justify-center px-6 sm:px-12 bg-color-primary"
         style={{ minHeight }}
       >
         {/* Event Name (Top Left) */}
@@ -125,10 +133,6 @@ export default function EventPage({
       </div>
 
       <SponsorSlider sponsors={eventDetails.sponsors} />
-
-      {eventDetails.afterMetrics && (
-        <MetricsGrid afterMetrics={eventDetails.afterMetrics} />
-      )}
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
@@ -198,34 +202,36 @@ export default function EventPage({
 
       <SponsorSlider reverse sponsors={eventDetails.sponsors} />
 
-      <span id="konum"></span>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Location location={eventDetails.location} />
-      </motion.div>
+      <div className="bg-gradient-to-b from-color-primary to-black">
+        <span id="konum"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Location location={eventDetails.location} />
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <EventImageGallery event={latestEvent} />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <EventImageGallery event={latestEvent} />
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <Heading className="pt-16">Sıkça Sorulan Sorular</Heading>
-        <FAQ />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading className="pt-16">Sıkça Sorulan Sorular</Heading>
+          <FAQ />
+        </motion.div>
+      </div>
     </>
   );
 }
