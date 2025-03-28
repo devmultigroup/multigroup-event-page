@@ -66,7 +66,7 @@ export type Event = {
   colorPalette: {
     primary: string;
     secondary: string;
-    background: string;
+    tertiary: string;
     text: string;
   };
 };

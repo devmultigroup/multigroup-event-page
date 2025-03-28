@@ -84,7 +84,7 @@ const events: Event[] = [
     colorPalette: {
       primary: '214 83.7% 51%',   // Blue
       secondary: '214 83.7% 65%', 
-      background: '214 83.7% 95%',
+      tertiary: '214 83.7% 95%',
       text: '214 83.7% 20%'
     }
   },
@@ -245,10 +245,10 @@ const events: Event[] = [
       satisfaction: "90%",
     },
     colorPalette: {
-      primary: '160 81.1% 45.1%', // Green
-      secondary: '160 81.1% 55.1%',
-      background: '160 81.1% 95%',
-      text: '160 81.1% 20%'
+      primary: '0 80% 35%', // Green
+      secondary: '0 85% 45%',
+      tertiary: '0 90% 60%',
+      text: '5 77% 64%'
     }
   },
 ];

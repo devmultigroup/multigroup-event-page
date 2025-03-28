@@ -54,7 +54,7 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
 
   return (
     <div className="pt-16">
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 py-16 md:px-16 w-full lg:w-5/6 max-w-6xl md:w-5/6 mx-auto bg-[#BDF5F2] shadow-inset-all rounded-lg">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-8 py-16 md:px-16 w-full lg:w-5/6 max-w-6xl md:w-5/6 mx-auto bg-color-tertiary shadow-inset-all rounded-lg">
         {/* Left: Map */}
         <div className="w-full h-96 rounded-lg overflow-hidden relative shadow-lg">
           <Map
@@ -80,7 +80,7 @@ const LocationComponent: React.FC<LocationComponentProps> = ({ location }) => {
           <p className="text-lg text-gray-600">{location.subtext}</p>
           <button
             onClick={openMap}
-            className="px-6 py-3 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 active:bg-orange-800 transition flex align-baseline justify-center gap-2"
+            className="px-6 py-3 bg-color-secondary text-white rounded-lg shadow-md hover:bg-orange-600 active:bg-orange-800 transition flex align-baseline justify-center gap-2"
           >
             <MapPin className="my-auto" />
             Haritada Aç

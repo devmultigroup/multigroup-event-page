@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* Background Section with optimized Image */}
       <div
-        className="relative flex items-center justify-center px-6 sm:px-12 bg-color-primary"
+        className="relative flex items-center justify-center px-6 sm:px-12 bg-gradient-to-b from-color-primary to-color-secondary"
         style={{ minHeight }}
       >
         {/* Event Name (Top Left) */}
@@ -128,7 +128,7 @@ export default function Home() {
 
       <div className="bg-[#F2F4F0] pt-16">
         <motion.div
-          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-gradient-to-b from-[#BDF5F2] to-[#A0E7E4] rounded-2xl shadow-lg"
+          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-color-tertiary rounded-2xl shadow-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -156,15 +156,15 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">1000+</p>
+            <p className="text-3xl font-extrabold text-color-tertiary">1000+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">20+</p>
+            <p className="text-3xl font-extrabold text-color-tertiary">20+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-orange-600">10+</p>
+            <p className="text-3xl font-extrabold text-color-tertiary">10+</p>
           </div>
         </div>
 
@@ -192,7 +192,7 @@ export default function Home() {
         <Sponsors sponsors={latestEventDetails.sponsors} />
       </div>
 
-      <SponsorSlider reverse sponsors={latestEventDetails.sponsors} />
+      <SponsorSlider sponsors={latestEventDetails.sponsors} />
 
       <div className="bg-gradient-to-b from-color-primary to-black">
         <span id="konum"></span>

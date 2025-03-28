@@ -83,7 +83,7 @@ const SponsorSlider = ({
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors]
 
   return (
-    <div className="w-full bg-[#2f82ff] overflow-hidden">
+    <div className="w-full bg-color-tertiary overflow-hidden">
       <div ref={containerRef} className="relative h-40 overflow-hidden">
         <div ref={innerRef} className="flex items-center absolute h-full" style={{ willChange: "transform" }}>
           {duplicatedSponsors.map((sponsor, index) => (
