@@ -179,9 +179,9 @@ const events: Event[] = [
       satisfaction: "90%",
     },
     colorPalette: {
-      primary: '26, 89%, 53%', // Green
-      secondary: '210, 75%, 45%',
-      tertiary: '16, 85%, 50%',
+      primary: '17, 85%, 58%', // Green
+      secondary: '54, 89%, 69%',
+      tertiary: '229, 41%, 45%',
       text: '5 77% 64%'
     }
   },
