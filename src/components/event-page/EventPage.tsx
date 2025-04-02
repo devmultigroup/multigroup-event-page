@@ -17,6 +17,7 @@ import MetricsGrid from "@/components/metrics-grid";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 import Sponsors from "@/components/sponsors";
+import EventBadge from "../event-badge";
 
 interface EventPageProps {
   event: Event;
@@ -78,6 +79,7 @@ export default function EventPage({
         className="relative flex items-center justify-center px-6 sm:px-12 bg-gradient-to-b from-color-primary to-color-secondary"
         style={{ minHeight }}
       >
+        {/* <EventBadge /> */}
         {/* Event Name (Top Left) */}
         <motion.div
           className="select-none absolute top-24 sm:top-32 lg:left-24 text-white text-4xl sm:text-6xl font-bold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
