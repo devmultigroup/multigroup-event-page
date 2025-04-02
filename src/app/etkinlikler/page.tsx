@@ -14,7 +14,7 @@ export default function Events() {
   const filteredEvents = events.filter((event) => event.id !== latestEvent.id);
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center" style={{background: "linear-gradient(to top, #000000, #002B28, #0f172a)",}}>
       {/* The grid now has padding-top set to 50vh, ensuring it starts halfway down the viewport. */}
       <div className="pt-[25vh] grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4">
         {filteredEvents
