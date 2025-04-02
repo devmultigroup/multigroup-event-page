@@ -65,7 +65,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                   >
                     <button
                       onClick={() => handleScrollOrRedirect(item.href)}
-                      className="text-lg font-bold text-white hover:text-orange-500 transition-colors"
+                      className="text-lg font-bold text-white transition-colors"
                     >
                       {item.label}
                     </button>
@@ -78,7 +78,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
             >
               <a href={eventLink} target="_blank">
-                <div className="absolute inset-0 bg-orange-500 transition-transform duration-300 ease-in-out rounded-md" />
+                <div className="absolute inset-0 bg-color-secondary transition-transform duration-300 ease-in-out rounded-md" />
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                   <span className="relative z-10 font-medium text-sm">
                     Kayıt Ol
@@ -118,7 +118,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-2xl font-medium text-black hover:text-orange-500 transition-colors"
+                className="text-2xl font-medium text-black transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   handleScrollOrRedirect(item.href);

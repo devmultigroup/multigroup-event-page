@@ -1,93 +1,118 @@
-"use client"
+"use client";
 
-import type { Sponsor } from "@/types"
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import type { Sponsor } from "@/types";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const SponsorSlider = ({
   sponsors,
   reverse = false,
   speed = 1, // Pixels per animation frame
 }: {
-  sponsors: Sponsor[]
-  reverse?: boolean
-  speed?: number
+  sponsors: Sponsor[];
+  reverse?: boolean;
+  speed?: number;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const innerRef = useRef<HTMLDivElement>(null)
-  const [initialized, setInitialized] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    const container = containerRef.current
-    const inner = innerRef.current
-    if (!container || !inner || sponsors.length === 0) return
+    const container = containerRef.current;
+    const inner = innerRef.current;
+    if (!container || !inner || sponsors.length === 0) return;
 
     // Wait for images to load to get accurate measurements
     const timer = setTimeout(() => {
-      setInitialized(true)
-    }, 100)
+      setInitialized(true);
+    }, 100);
 
-    return () => clearTimeout(timer)
-  }, [sponsors])
+    return () => clearTimeout(timer);
+  }, [sponsors]);
 
   useEffect(() => {
-    if (!initialized) return
+    if (!initialized) return;
 
-    const container = containerRef.current
-    const inner = innerRef.current
-    if (!container || !inner || sponsors.length === 0) return
+    const container = containerRef.current;
+    const inner = innerRef.current;
+    if (!container || !inner || sponsors.length === 0) return;
 
     // Get all sponsor items
-    const items = Array.from(inner.querySelectorAll(".sponsor-item"))
-    if (items.length === 0) return
+    const items = Array.from(inner.querySelectorAll(".sponsor-item"));
+    if (items.length === 0) return;
 
     // Calculate the total width of all original sponsor items
     const totalWidth = items.slice(0, sponsors.length).reduce((sum, item) => {
-      const style = window.getComputedStyle(item)
-      const marginLeft = Number.parseFloat(style.marginLeft || "0")
-      const marginRight = Number.parseFloat(style.marginRight || "0")
-      return sum + item.getBoundingClientRect().width + marginLeft + marginRight
-    }, 0)
+      const style = window.getComputedStyle(item);
+      const marginLeft = Number.parseFloat(style.marginLeft || "0");
+      const marginRight = Number.parseFloat(style.marginRight || "0");
+      return (
+        sum + item.getBoundingClientRect().width + marginLeft + marginRight
+      );
+    }, 0);
 
     // Set the initial position
-    let position = 0
+    let position = 0;
 
     const animate = () => {
       // Move in the specified direction
-      position += reverse ? speed : -speed
+      position += reverse ? speed : -speed;
 
       // Check if we need to reset position
       if (!reverse && position <= -totalWidth) {
         // If scrolling left (normal), reset when first set is completely scrolled out
-        position += totalWidth
+        position += totalWidth;
       } else if (reverse && position >= totalWidth) {
         // If scrolling right (reverse), reset when first set is completely scrolled out
-        position -= totalWidth
+        position -= totalWidth;
       }
 
       // Apply the transform
-      inner.style.transform = `translateX(${position}px)`
+      inner.style.transform = `translateX(${position}px)`;
 
-      requestAnimationFrame(animate)
-    }
+      requestAnimationFrame(animate);
+    };
 
-    const animationId = requestAnimationFrame(animate)
+    const animationId = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationId)
-    }
-  }, [sponsors, reverse, speed, initialized])
+      cancelAnimationFrame(animationId);
+    };
+  }, [sponsors, reverse, speed, initialized]);
 
   // Create enough duplicates to ensure continuous scrolling
   // We need at least 3 sets to ensure there's always content visible
-  const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors]
+  const duplicatedSponsors = [
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+    ...sponsors,
+  ];
 
   return (
     <div className="w-full bg-color-tertiary overflow-hidden">
       <div ref={containerRef} className="relative h-40 overflow-hidden">
-        <div ref={innerRef} className="flex items-center absolute h-full" style={{ willChange: "transform" }}>
+        <div
+          ref={innerRef}
+          className="flex items-center absolute h-full"
+          style={{ willChange: "transform" }}
+        >
           {duplicatedSponsors.map((sponsor, index) => (
-            <div key={`${sponsor.sponsorSlug}-${index}`} className="mx-8 flex-shrink-0 sponsor-item">
+            <div
+              key={`${sponsor.sponsorSlug}-${index}`}
+              className="mx-8 flex-shrink-0 sponsor-item"
+            >
               <Image
                 src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
                 alt={`${sponsor.sponsorSlug} logo`}
@@ -102,8 +127,7 @@ const SponsorSlider = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SponsorSlider
-
+export default SponsorSlider;

@@ -1,8 +1,11 @@
 export type Speaker = {
   fullName: string;
-  photoUrl: string;
   title: string;
   phrase?: string;
+  company?: string;
+  instagram?: string;
+  linkedin?: string;
+  twitter?: string;
 };
 
 export type Session =
@@ -48,6 +51,13 @@ export type Sponsor = {
   sponsorSlug: string;
 };
 
+export type ColorPalette = {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  text: string;
+}
+
 export type Event = {
   id: number;
   name: string;
@@ -63,10 +73,5 @@ export type Event = {
   sponsors: Sponsor[];
   images: string[];
   afterMetrics?: AfterMetrics;
-  colorPalette: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-    text: string;
-  };
+  colorPalette: ColorPalette;
 };
