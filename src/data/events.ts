@@ -10,9 +10,9 @@ const events: Event[] = [
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
-      name: "Tech İstanbul | Şişhane",
+      name: "Adesso Office",
       subtext:
-        "Located at Moscone Center, easily accessible via public transport.",
+        "Adesso Türkiye Maslak Ofisi",
     }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
@@ -24,8 +24,12 @@ const events: Event[] = [
         title: "Senior Developer",
       },
       {
-        fullName: "Jane Smith",
-        title: "Lead Mobile Architect",
+        fullName: "Özcan Zafer Ayan",
+        title: "CTO at MobileTech",
+        phrase: "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        company: "Trendyol",
+        linkedin: "https://www.linkedin.com/in/daronyondem/",
+        twitter: "https://x.com/daronyondem",
       },
     ],
     sessions: [

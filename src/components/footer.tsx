@@ -99,7 +99,7 @@ export default function Footer() {
       {showButton && (
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-400 transition"
+          className="fixed bottom-8 right-8 bg-color-primary text-white p-3 rounded-full shadow-lg hover:bg-orange-400 transition"
         >
           <ArrowUp />
         </motion.button>

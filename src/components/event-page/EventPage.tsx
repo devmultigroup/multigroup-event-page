@@ -122,7 +122,7 @@ export default function EventPage({
       <div className="bg-[#F2F4F0] pt-16">
         {hero == false && <MetricsGrid afterMetrics={event.afterMetrics} />}
         <motion.div
-          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-color-tertiary rounded-2xl shadow-xl"
+          className="text-center p-8 max-w-6xl sm:w-5/6 mx-auto flex flex-col gap-8 bg-color-secondary rounded-2xl shadow-xl mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,19 +150,19 @@ export default function EventPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-16 max-w-6xl mx-auto w-5/6 xl:w-full">
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Katılımcı Sayısı</p>
-            <p className="text-3xl font-extrabold text-color-tertiary">1000+</p>
+            <p className="text-3xl font-extrabold text-color-primary">1000+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Konuşmacı Sayısı</p>
-            <p className="text-3xl font-extrabold text-color-tertiary">20+</p>
+            <p className="text-3xl font-extrabold text-color-primary">20+</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-4">
             <p className="text-lg font-bold">Sponsor Sayısı</p>
-            <p className="text-3xl font-extrabold text-color-tertiary">10+</p>
+            <p className="text-3xl font-extrabold text-color-primary">10+</p>
           </div>
         </div>
 
-        <span id="konuşmacılar"></span>
+        <span id="konusmacilar"></span>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -179,6 +179,7 @@ export default function EventPage({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <span id="etkinlik-akisi" />
           <Heading dark>Etkinlik Akışı</Heading>
           <SessionContainer event={event} />
         </motion.div>
