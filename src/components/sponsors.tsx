@@ -21,7 +21,7 @@ const Sponsors = ({ sponsors }: { sponsors: Sponsor[] }) => {
   // Sort tiers by importance
   const tierOrder = ["Platin", "Altın", "Gümüş", "Bronz"];
   const sortedTiers = Object.keys(sponsorsByTier).sort(
-    (a, b) => tierOrder.indexOf(a) - tierOrder.indexOf(b)
+    (a, b) => tierOrder.indexOf(a) - tierOrder.indexOf(b),
   );
 
   const formatTierTitle = (tier: string): string => {

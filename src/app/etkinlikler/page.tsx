@@ -31,7 +31,7 @@ export default function Events() {
   // Filter out the latest event from the rest of the events.
   // Ensure that events array items conform to the Event type.
   const filteredEvents: Event[] = events.filter(
-    (event: Event) => event.id !== latestEvent.id
+    (event: Event) => event.id !== latestEvent.id,
   );
 
   return (
@@ -40,7 +40,7 @@ export default function Events() {
       <div className="pt-[25vh] grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4">
         {filteredEvents
           .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
           )
           .map((event, index) => {
             // If there is an odd number of events and this is the last item,
@@ -51,7 +51,9 @@ export default function Events() {
             return (
               <div
                 key={event.id}
-                className={isLastOddItem ? "col-span-2 flex justify-center" : ""}
+                className={
+                  isLastOddItem ? "col-span-2 flex justify-center" : ""
+                }
               >
                 <EventCard event={event} />
               </div>

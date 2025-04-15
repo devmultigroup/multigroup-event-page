@@ -68,7 +68,7 @@ export function generateCalendarFile(event: Event): void {
         .getMinutes()
         .toString()
         .padStart(2, "0")}`,
-      now.toISOString()
+      now.toISOString(),
     );
 
     event.sessions.forEach((session: Session) => {
@@ -77,7 +77,7 @@ export function generateCalendarFile(event: Event): void {
       if (session.room !== "Network") {
         if (!session.topic || !session.startTime || !session.endTime) {
           console.error(
-            `Skipping session "${session.topic}" - missing required fields for non-network room.`
+            `Skipping session "${session.topic}" - missing required fields for non-network room.`,
           );
           return;
         }
@@ -85,7 +85,7 @@ export function generateCalendarFile(event: Event): void {
         // For network sessions, if any key field is missing, we choose to skip the event.
         if (!session.topic || !session.startTime || !session.endTime) {
           console.warn(
-            `Skipping network session (speaker: ${session.speakerName}) due to missing fields.`
+            `Skipping network session (speaker: ${session.speakerName}) due to missing fields.`,
           );
           return;
         }
@@ -97,27 +97,33 @@ export function generateCalendarFile(event: Event): void {
 
         // Use session.topic (or a default for UID) after removing non-alphanumeric characters
         const topicForUID = (session.topic || "network").replace(/\W+/g, "");
-  
+
         icsLines.push("BEGIN:VEVENT");
-        icsLines.push(`UID:${event.id}-${topicForUID}-${Date.now()}@myeventapp.com`);
+        icsLines.push(
+          `UID:${event.id}-${topicForUID}-${Date.now()}@myeventapp.com`,
+        );
         icsLines.push(`DTSTAMP:${timestamp}`);
         icsLines.push(`DTSTART:${startDate}`);
         icsLines.push(`DTEND:${endDate}`);
-        icsLines.push(`SUMMARY:${sanitizeICSField(session.topic || "Session")}`);
+        icsLines.push(
+          `SUMMARY:${sanitizeICSField(session.topic || "Session")}`,
+        );
         icsLines.push(
           `DESCRIPTION:${sanitizeICSField(
-            `Konuşmacı: ${session.speakerName}\n\n${event.description || ""}`
-          )}`
+            `Konuşmacı: ${session.speakerName}\n\n${event.description || ""}`,
+          )}`,
         );
         // Set event location based on session.room
         icsLines.push(`LOCATION:${sanitizeICSField(session.room)}`);
         // Add the GEO field from event.location to allow calendar apps to display a map.
-        icsLines.push(`GEO:${event.location.latitude};${event.location.longitude}`);
+        icsLines.push(
+          `GEO:${event.location.latitude};${event.location.longitude}`,
+        );
         icsLines.push("END:VEVENT");
       } catch (error) {
         console.error(
           `Error creating event for session: ${session.topic || "Session"}`,
-          error
+          error,
         );
       }
     });

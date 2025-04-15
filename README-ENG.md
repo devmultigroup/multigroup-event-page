@@ -1,11 +1,12 @@
 ![screenshot](public/opengraph-image.webp)
 
 # MultiGroup Event Page
+
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/furkanunsalan/TravelMap.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
 ## Overview
 
-This repository is designed to help you easily access Developer MultiGroup's events. You can review previous or upcoming events here, and if you'd like to contribute, you can check out the `issues` section to support us. 
+This repository is designed to help you easily access Developer MultiGroup's events. You can review previous or upcoming events here, and if you'd like to contribute, you can check out the `issues` section to support us.
 
 [Türkçe Dökümantasyon](/README.md)
 
@@ -50,7 +51,7 @@ Visit `http://localhost:3000` in your browser to see the development version.
 ```mermaid
 classDiagram
     direction LR
-    
+
     class Event {
         +number id
         +string name
@@ -66,27 +67,27 @@ classDiagram
         +Session[] sessions
         +AfterMetrics? afterMetrics
     }
-    
+
     class Location {
         +number latitude
         +number longitude
         +string name
         +string subtext
     }
-    
+
     class Speaker {
         +string fullName
         +string photoUrl
         +string title
     }
-    
+
     class Session {
         +string topic
         +string startTime
         +string endTime
         +string speakerName
     }
-    
+
     class AfterMetrics {
         +string applications
         +string vipGuests
@@ -140,31 +141,31 @@ After setting up the project in your local environment by following the [Install
 
 2. **Create a new `Branch`**
 
-    ```bash
-    git checkout -b feature/your-feature
-    # or
-    git git checkout -b fix/your-fix
-    ```
+   ```bash
+   git checkout -b feature/your-feature
+   # or
+   git git checkout -b fix/your-fix
+   ```
 
 3. **Make your changes**
 
 4. **Commit your changes**
 
-    ```bash
-    git add .
-    git commit -m "feat: Add a descriptive commit message"
-    # or 
-    git commit -m "fix: Add a descriptive commit message"
-    ```
+   ```bash
+   git add .
+   git commit -m "feat: Add a descriptive commit message"
+   # or
+   git commit -m "fix: Add a descriptive commit message"
+   ```
 
 5. **Push your changes to the `Repository`**
 
-    ```bash
-    git push origin feature/your-feature
-    ```
+   ```bash
+   git push origin feature/your-feature
+   ```
 
 6. **Open a `Pull Request`**
-    Create a PR from your own `Fork` of this project in your profile to the main `Repository`
+   Create a PR from your own `Fork` of this project in your profile to the main `Repository`
 
 ## Repo Activity
 
@@ -173,7 +174,9 @@ After setting up the project in your local environment by following the [Install
 [![Star History Chart](https://api.star-history.com/svg?repos=Developer-MultiGroup/multigroup-event-page&type=Timeline)](https://star-history.com/#fDeveloper-MultiGroup/multigroup-event-page)
 
 ## License
+
 Check out the [license](LICENSE) of this project.
 
 ## Contact
+
 If you have any questions, feel free to reach out to me at `me@furkanunsalan.dev`.

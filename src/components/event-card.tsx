@@ -15,13 +15,15 @@ import Image from "next/image";
 
 export default function EventCard({ event }: { event: Event }) {
   const router = useRouter();
-  
+
   // Get the first image from the event's images array, or fall back to default
   const eventImage =
-    event.images && event.images.length > 0 
-      ? (event.images[0].startsWith('/') ? event.images[0] : `/${event.images[0]}`)
+    event.images && event.images.length > 0
+      ? event.images[0].startsWith("/")
+        ? event.images[0]
+        : `/${event.images[0]}`
       : "/bg-2.webp";
-  
+
   const handleNavigation = () => {
     const route = `/etkinlikler/${slugify(event.name)}`;
     router.push(route);
@@ -41,21 +43,25 @@ export default function EventCard({ event }: { event: Event }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/20" />
       </div>
-      
+
       {/* Card Content */}
       <div className="p-6">
         {/* Event Title */}
         <h3 className="text-xl font-bold text-zinc-900 mb-4 border-b border-color-tertiary pb-3">
           {event.name}
         </h3>
-        
+
         <div className="flex flex-col justify-between items-start py-2 text-gray-700">
           <div className="flex items-center gap-2">
             <Calendar weight="fill" size={20} className="text-color-tertiary" />
             <p className="font-semibold">{getFormattedDate(event.date)}</p>
           </div>
           <div className="flex items-center gap-2 mt-2">
-            <UsersThree weight="fill" size={20} className="text-color-tertiary" />
+            <UsersThree
+              weight="fill"
+              size={20}
+              className="text-color-tertiary"
+            />
             <p>{event.afterMetrics?.speakers}+ Konuşmacı</p>
           </div>
           {/* For mobile: Show location and satisfaction together */}

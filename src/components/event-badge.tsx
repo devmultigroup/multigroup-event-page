@@ -14,16 +14,16 @@ export default function EventBadge() {
         duration: 2,
         repeat: Infinity,
         repeatType: "mirror",
-        ease: "easeInOut"
-      }
+        ease: "easeInOut",
+      },
     },
     click: {
       y: [0, -5, 0],
       transition: {
         duration: 0.3,
-        type: "tween"
-      }
-    }
+        type: "tween",
+      },
+    },
   };
 
   // Update tilt based on the mouse position relative to the badge center.
@@ -67,7 +67,7 @@ export default function EventBadge() {
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
             animate={{
               x: tilt !== 0 ? "100%" : "-100%",
-              opacity: tilt !== 0 ? 0.7 : 0
+              opacity: tilt !== 0 ? 0.7 : 0,
             }}
             transition={{ duration: 0.8 }}
           />
@@ -88,7 +88,7 @@ export default function EventBadge() {
                 lineHeight: "1.1",
                 fontWeight: "800",
                 fontStyle: "normal",
-                transform: "scaleY(1.05)"
+                transform: "scaleY(1.05)",
               }}
             >
               <span className="block mb-1">MOBILE</span>

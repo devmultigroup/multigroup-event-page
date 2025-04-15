@@ -33,12 +33,12 @@ html {
 }
 
 /* General reset for body and html */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-y: scroll; /* Ensure vertical scrolling is enabled */
 }
-
 
 body {
   font-family: Montserrat, sans-serif;
@@ -110,8 +110,6 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-
 
 @layer base {
   * {

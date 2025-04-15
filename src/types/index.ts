@@ -56,7 +56,7 @@ export type ColorPalette = {
   secondary: string;
   tertiary: string;
   text: string;
-}
+};
 
 export type Event = {
   id: number;

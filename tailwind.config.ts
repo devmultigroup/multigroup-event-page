@@ -11,11 +11,11 @@ export default {
     extend: {
       colors: {
         // Global color palette that can be dynamically changed
-        'color-primary': 'hsl(var(--color-primary))',
-        'color-secondary': 'hsl(var(--color-secondary))',
-        'color-tertiary': 'hsl(var(--color-tertiary))',
-        'color-text': 'hsl(var(--color-text))',
-        
+        "color-primary": "hsl(var(--color-primary))",
+        "color-secondary": "hsl(var(--color-secondary))",
+        "color-tertiary": "hsl(var(--color-tertiary))",
+        "color-text": "hsl(var(--color-text))",
+
         // Existing Tailwind color configuration
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -93,12 +93,12 @@ export default {
         loading: "loading 1.5s linear infinite",
       },
       boxShadow: {
-        'inset-all': 'inset 0 0 4px rgba(0, 0, 0, 0.3)',
+        "inset-all": "inset 0 0 4px rgba(0, 0, 0, 0.3)",
       },
     },
   },
   variants: {
-    boxShadow: ['responsive', 'hover', 'focus'],
+    boxShadow: ["responsive", "hover", "focus"],
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

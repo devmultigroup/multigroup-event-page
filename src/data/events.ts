@@ -11,8 +11,7 @@ const events: Event[] = [
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
       name: "Adesso Office",
-      subtext:
-        "Adesso Türkiye Maslak Ofisi",
+      subtext: "Adesso Türkiye Maslak Ofisi",
     }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
@@ -26,7 +25,8 @@ const events: Event[] = [
       {
         fullName: "Özcan Zafer Ayan",
         title: "CTO at MobileTech",
-        phrase: "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        phrase:
+          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
         company: "Trendyol",
         linkedin: "https://www.linkedin.com/in/daronyondem/",
         twitter: "https://x.com/daronyondem",
@@ -38,33 +38,33 @@ const events: Event[] = [
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "John Doe",
-        room: "Ana Salon"
+        room: "Ana Salon",
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "11:30",
         endTime: "12:30",
         speakerName: "Jane Smith",
-        room: "Yan Salon"
+        room: "Yan Salon",
       },
     ],
     sponsors: [
       {
         tier: "platin",
-        sponsorSlug: "all-done"
+        sponsorSlug: "all-done",
       },
       {
         tier: "altın",
-        sponsorSlug: "perseva"
+        sponsorSlug: "perseva",
       },
       {
         tier: "gümüş",
-        sponsorSlug: "softtech"
+        sponsorSlug: "softtech",
       },
       {
         tier: "bronz",
-        sponsorSlug: "adesso"
-      }
+        sponsorSlug: "adesso",
+      },
     ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.jpg",
@@ -82,11 +82,11 @@ const events: Event[] = [
       satisfaction: "83%",
     },
     colorPalette: {
-      primary: '214 83.7% 51%',   // Blue
-      secondary: '214 83.7% 65%', 
-      tertiary: '214 83.7% 95%',
-      text: '214 83.7% 20%'
-    }
+      primary: "214 83.7% 51%", // Blue
+      secondary: "214 83.7% 65%",
+      tertiary: "214 83.7% 95%",
+      text: "214 83.7% 20%",
+    },
   },
   {
     id: 2,
@@ -114,7 +114,8 @@ const events: Event[] = [
       {
         fullName: "Özcan Zafer Ayan",
         title: "CTO at MobileTech",
-        phrase: "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        phrase:
+          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
         company: "Trendyol",
         linkedin: "https://www.linkedin.com/in/daronyondem/",
         twitter: "https://x.com/daronyondem",
@@ -150,22 +151,21 @@ const events: Event[] = [
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "Özcan Zafer Ayan",
-        room: "Ana Salon"
+        room: "Ana Salon",
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "11:30",
         endTime: "12:30",
         speakerName: "Jane Smith",
-        room: "Yan Salon"
+        room: "Yan Salon",
       },
     ],
     sponsors: [
       {
         tier: "platin",
-        sponsorSlug: "trendyol"
+        sponsorSlug: "trendyol",
       },
-      
     ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.webp",
@@ -183,11 +183,11 @@ const events: Event[] = [
       satisfaction: "90%",
     },
     colorPalette: {
-      primary: '17, 85%, 58%', // Green
-      secondary: '54, 89%, 69%',
-      tertiary: '229, 41%, 45%',
-      text: '5 77% 64%'
-    }
+      primary: "17, 85%, 58%", // Green
+      secondary: "54, 89%, 69%",
+      tertiary: "229, 41%, 45%",
+      text: "5 77% 64%",
+    },
   },
 ];
 

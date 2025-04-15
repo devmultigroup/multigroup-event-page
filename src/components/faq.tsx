@@ -71,7 +71,12 @@ export default function FAQ() {
           için sabırsızlanan bir yazılım topluluğudur. Etkinliklerimizde
           konuşmacı olmak için uzmanlık alanınızda ilgi çekici bir konu
           belirlemek ve bizim ile iletişime geçmek yeterli. Başvuru için{" "}
-          <a href="mailto:developermultigroup@gmail.com" className="text-color-primary underline hover:text-color-secondary transition-all duration-300">developermultigroup@gmail.com</a>
+          <a
+            href="mailto:developermultigroup@gmail.com"
+            className="text-color-primary underline hover:text-color-secondary transition-all duration-300"
+          >
+            developermultigroup@gmail.com
+          </a>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-4" className="border-zinc-400/30">
@@ -84,7 +89,13 @@ export default function FAQ() {
           edebileceğimiz her etkinlik, konferans ve projede işbirliğine önem
           veriyor, hayata geçirmek istediğiniz yeni fikirlerin bir parçası
           olmayı değerli bir fırsat olarak görüyoruz. Fikir ve önerileriniz için
-          bizimle <a href="mailto:developermultigroup@gmail.com" className="text-color-primary underline hover:text-color-secondary transition-all duration-300">developermultigroup@gmail.com</a>{" "}
+          bizimle{" "}
+          <a
+            href="mailto:developermultigroup@gmail.com"
+            className="text-color-primary underline hover:text-color-secondary transition-all duration-300"
+          >
+            developermultigroup@gmail.com
+          </a>{" "}
           mail adresi aracılığıyla iletişime geçebilirsiniz.
         </AccordionContent>
       </AccordionItem>

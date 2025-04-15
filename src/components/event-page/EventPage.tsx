@@ -10,9 +10,7 @@ import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
 import Location from "@/components/location";
-import {
-  getFormattedDate,
-} from "@/lib/event-utils";
+import { getFormattedDate } from "@/lib/event-utils";
 import MetricsGrid from "@/components/metrics-grid";
 import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
@@ -206,7 +204,11 @@ export default function EventPage({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {hero ? <EventImageGallery event={previousEvent} /> : <EventImageGallery event={event} heading="Etkinlikten Kareler" />}
+          {hero ? (
+            <EventImageGallery event={previousEvent} />
+          ) : (
+            <EventImageGallery event={event} heading="Etkinlikten Kareler" />
+          )}
         </motion.div>
 
         <motion.div

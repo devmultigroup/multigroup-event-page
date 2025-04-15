@@ -7,7 +7,11 @@ type MetricItem = {
   suffix: string;
 };
 
-const MetricsGrid = ({ afterMetrics }: { afterMetrics: AfterMetrics | undefined }) => {
+const MetricsGrid = ({
+  afterMetrics,
+}: {
+  afterMetrics: AfterMetrics | undefined;
+}) => {
   const [counts, setCounts] = useState<Record<keyof AfterMetrics, number>>({
     applications: 0,
     vipGuests: 0,

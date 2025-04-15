@@ -1,9 +1,9 @@
 // src/context/EventColorContext.tsx
 "use client";
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import events from '@/data/events';
-import { Event } from '@/types';
+import React, { createContext, useState, useContext, ReactNode } from "react";
+import events from "@/data/events";
+import { Event } from "@/types";
 
 type EventColorContextType = {
   currentEvent: Event | null;
@@ -22,20 +22,20 @@ export const EventColorProvider = ({ children }: { children: ReactNode }) => {
   React.useEffect(() => {
     if (currentEvent) {
       document.documentElement.style.setProperty(
-        '--color-primary', 
-        currentEvent.colorPalette.primary
+        "--color-primary",
+        currentEvent.colorPalette.primary,
       );
       document.documentElement.style.setProperty(
-        '--color-secondary', 
-        currentEvent.colorPalette.secondary
+        "--color-secondary",
+        currentEvent.colorPalette.secondary,
       );
       document.documentElement.style.setProperty(
-        '--color-tertiary', 
-        currentEvent.colorPalette.tertiary
+        "--color-tertiary",
+        currentEvent.colorPalette.tertiary,
       );
       document.documentElement.style.setProperty(
-        '--color-text', 
-        currentEvent.colorPalette.text
+        "--color-text",
+        currentEvent.colorPalette.text,
       );
     }
   }, [currentEvent]);
