@@ -21,7 +21,10 @@ interface SessionContainerProps {
   color: string; // Now expecting an HSL value like "214 83.7% 51%"
 }
 
-export default function SessionContainer({ event, color }: SessionContainerProps) {
+export default function SessionContainer({
+  event,
+  color,
+}: SessionContainerProps) {
   const { toast } = useToast();
   const router = useRouter();
   const [selectedSessions, setSelectedSessions] = useState<Session[]>([]);
@@ -233,9 +236,10 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                 key={`room-tab-${room}`}
                 value={room}
                 className="px-4 py-2 text-sm md:text-base font-medium"
-                style={{ 
-                  backgroundColor: room === activeRoom ? primaryColor : 'transparent',
-                  color: room === activeRoom ? 'white' : 'inherit'
+                style={{
+                  backgroundColor:
+                    room === activeRoom ? primaryColor : "transparent",
+                  color: room === activeRoom ? "white" : "inherit",
                 }}
               >
                 {room}
@@ -255,9 +259,9 @@ export default function SessionContainer({ event, color }: SessionContainerProps
             className="overflow-hidden"
           >
             <motion.div
-              style={{ 
+              style={{
                 backgroundColor: bgLight,
-                borderColor: lightColor 
+                borderColor: lightColor,
               }}
               className="p-4 rounded-lg border"
               initial={{ opacity: 0 }}
@@ -271,10 +275,10 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                 <Button
                   data-umami-event="Generate Custom Calendar"
                   onClick={() => handleCalendarDownload(selectedSessions)}
-                  style={{ 
+                  style={{
                     backgroundColor: primaryColor,
-                    color: 'white',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                    color: "white",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                   }}
                   className="hover:opacity-90 active:opacity-80 shadow-md"
                 >
@@ -299,9 +303,9 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                       layout
                     >
                       <Badge
-                        style={{ 
+                        style={{
                           backgroundColor: lightColor,
-                          color: textColor
+                          color: textColor,
                         }}
                         className="cursor-pointer flex items-center gap-1 p-2 hover:opacity-90"
                         onClick={() => toggleSessionSelection(session)}
@@ -376,12 +380,19 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                 className="select-none bg-white shadow-lg w-full mx-auto transition-all overflow-hidden"
                 style={
                   isSelected
-                    ? { borderColor: primaryColor, outline: `2px solid ${primaryColor}`, outlineOffset: "0px" }
+                    ? {
+                        borderColor: primaryColor,
+                        outline: `2px solid ${primaryColor}`,
+                        outlineOffset: "0px",
+                      }
                     : {}
                 }
               >
                 <div className="flex h-full">
-                  <div className="relative w-1/4 min-w-[120px]" style={{ backgroundColor: darkestColor }}>
+                  <div
+                    className="relative w-1/4 min-w-[120px]"
+                    style={{ backgroundColor: darkestColor }}
+                  >
                     <Image
                       src={`/images/speakers/${slugify(session.speakerName)}.webp`}
                       alt={session.speakerName}
@@ -409,7 +420,10 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                       <p className="text-xl font-bold text-gray-900 mt-1">
                         {session.speakerName}
                       </p>
-                      <p className="text-sm mt-1" style={{ color: primaryColor }}>
+                      <p
+                        className="text-sm mt-1"
+                        style={{ color: primaryColor }}
+                      >
                         {session.topic}
                       </p>
                     </div>
@@ -425,10 +439,12 @@ export default function SessionContainer({ event, color }: SessionContainerProps
                           onCheckedChange={() =>
                             toggleSessionSelection(session)
                           }
-                          style={{ 
-                            backgroundColor: isSelected ? primaryColor : 'transparent',
-                            borderColor: hasConflict ? 'red' : primaryColor,
-                            color: isSelected ? 'white' : 'transparent'
+                          style={{
+                            backgroundColor: isSelected
+                              ? primaryColor
+                              : "transparent",
+                            borderColor: hasConflict ? "red" : primaryColor,
+                            color: isSelected ? "white" : "transparent",
                           }}
                         />
                       </div>
