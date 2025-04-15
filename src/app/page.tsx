@@ -4,6 +4,7 @@ import { getLatestEvent, getSecondLatestEvent } from "@/lib/event-utils";
 import { useEffect } from "react";
 import { useEventColor } from "@/context/EventColorContext";
 import EventPage from "@/components/event-page/EventPage";
+import { LanyardCard } from "@/components/lanyard-badge";
 
 export default function HeroPage() {
   const latestEventDetails = getLatestEvent();
@@ -25,6 +26,9 @@ export default function HeroPage() {
   }, [latestEventDetails]);
 
   return (
-    <EventPage event={latestEventDetails} previousEvent={secondLatest} hero />
+    <>
+      <LanyardCard className="rounded-lg shadow-xl" height="80vh" />
+      <EventPage event={latestEventDetails} previousEvent={secondLatest} hero />
+    </>
   );
 }
