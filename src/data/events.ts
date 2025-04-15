@@ -155,7 +155,7 @@ const events: Event[] = [
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
-        startTime: "11:30",
+        startTime: "10:00",
         endTime: "12:30",
         speakerName: "Jane Smith",
         room: "Yan Salon",

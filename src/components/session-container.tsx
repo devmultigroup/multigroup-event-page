@@ -18,9 +18,10 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface SessionContainerProps {
   event: Event;
+  color: string; // Now expecting an HSL value like "214 83.7% 51%"
 }
 
-export default function SessionContainer({ event }: SessionContainerProps) {
+export default function SessionContainer({ event, color }: SessionContainerProps) {
   const { toast } = useToast();
   const router = useRouter();
   const [selectedSessions, setSelectedSessions] = useState<Session[]>([]);
@@ -28,6 +29,20 @@ export default function SessionContainer({ event }: SessionContainerProps) {
   // New state for room-based filtering
   const [rooms, setRooms] = useState<string[]>([]);
   const [activeRoom, setActiveRoom] = useState<string>("");
+
+  // Parse the HSL value
+  const hsl = color.split(" ");
+  const h = hsl[0];
+  const s = hsl[1];
+  const l = hsl[2];
+
+  // Create color variations
+  const primaryColor = `hsl(${h} ${s} ${l})`;
+  const lightColor = `hsl(${h} ${s} 90%)`; // Light version
+  const darkerColor = `hsl(${h} ${s} ${parseInt(l) * 0.7}%)`; // Darker version
+  const darkestColor = `hsl(${h} ${s} ${parseInt(l) * 0.5}%)`; // Darkest version
+  const bgLight = `hsl(${h} ${s} 95%)`; // Very light background
+  const textColor = `hsl(${h} ${s} 25%)`; // Dark text color that matches the hue
 
   // Check if event date has passed
   const isPastEvent = new Date(event.date) < new Date();
@@ -218,6 +233,10 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                 key={`room-tab-${room}`}
                 value={room}
                 className="px-4 py-2 text-sm md:text-base font-medium"
+                style={{ 
+                  backgroundColor: room === activeRoom ? primaryColor : 'transparent',
+                  color: room === activeRoom ? 'white' : 'inherit'
+                }}
               >
                 {room}
               </TabsTrigger>
@@ -236,19 +255,28 @@ export default function SessionContainer({ event }: SessionContainerProps) {
             className="overflow-hidden"
           >
             <motion.div
-              className="p-4 bg-blue-50 rounded-lg border border-blue-200"
+              style={{ 
+                backgroundColor: bgLight,
+                borderColor: lightColor 
+              }}
+              className="p-4 rounded-lg border"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
               <div className="flex flex-col md:flex-row justify-between items-start gap-2 md:items-center mb-4">
-                <h3 className="text-lg font-bold text-blue-700">
+                <h3 className="text-lg font-bold" style={{ color: textColor }}>
                   Seçilen Oturumlar ({selectedSessions.length})
                 </h3>
                 <Button
                   data-umami-event="Generate Custom Calendar"
                   onClick={() => handleCalendarDownload(selectedSessions)}
-                  className="bg-blue-500 hover:bg-blue-600 active:bg-blue-800 shadow-md"
+                  style={{ 
+                    backgroundColor: primaryColor,
+                    color: 'white',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                  }}
+                  className="hover:opacity-90 active:opacity-80 shadow-md"
                 >
                   <Calendar className="mr-2" size={16} />
                   Seçilenleri Ekle
@@ -271,7 +299,11 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                       layout
                     >
                       <Badge
-                        className="bg-blue-200 text-blue-800 hover:bg-blue-300 cursor-pointer flex items-center gap-1 p-2"
+                        style={{ 
+                          backgroundColor: lightColor,
+                          color: textColor
+                        }}
+                        className="cursor-pointer flex items-center gap-1 p-2 hover:opacity-90"
                         onClick={() => toggleSessionSelection(session)}
                       >
                         <span className="font-medium">{session.startTime}</span>
@@ -280,7 +312,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                         {session.room && (
                           <span className="text-xs ml-1">({session.room})</span>
                         )}
-                        <button className="ml-1 text-blue-700 hover:text-blue-900">
+                        <button className="ml-1" style={{ color: darkerColor }}>
                           ×
                         </button>
                       </Badge>
@@ -341,12 +373,15 @@ export default function SessionContainer({ event }: SessionContainerProps) {
             return (
               <Card
                 key={`session-card-${session.speakerName}-${session.topic}-${session.room || ""}`}
-                className={`select-none bg-white shadow-lg w-full mx-auto transition-all overflow-hidden ${
-                  isSelected ? "ring-2 ring-blue-500" : ""
-                }`}
+                className="select-none bg-white shadow-lg w-full mx-auto transition-all overflow-hidden"
+                style={
+                  isSelected
+                    ? { borderColor: primaryColor, outline: `2px solid ${primaryColor}`, outlineOffset: "0px" }
+                    : {}
+                }
               >
                 <div className="flex h-full">
-                  <div className="relative w-1/4 min-w-[120px] bg-indigo-900">
+                  <div className="relative w-1/4 min-w-[120px]" style={{ backgroundColor: darkestColor }}>
                     <Image
                       src={`/images/speakers/${slugify(session.speakerName)}.webp`}
                       alt={session.speakerName}
@@ -374,7 +409,7 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                       <p className="text-xl font-bold text-gray-900 mt-1">
                         {session.speakerName}
                       </p>
-                      <p className="text-blue-600 text-sm mt-1">
+                      <p className="text-sm mt-1" style={{ color: primaryColor }}>
                         {session.topic}
                       </p>
                     </div>
@@ -390,11 +425,11 @@ export default function SessionContainer({ event }: SessionContainerProps) {
                           onCheckedChange={() =>
                             toggleSessionSelection(session)
                           }
-                          className={`${
-                            isSelected
-                              ? "bg-blue-500 text-white"
-                              : "border-blue-500"
-                          } ${hasConflict ? "border-red-500" : ""}`}
+                          style={{ 
+                            backgroundColor: isSelected ? primaryColor : 'transparent',
+                            borderColor: hasConflict ? 'red' : primaryColor,
+                            color: isSelected ? 'white' : 'transparent'
+                          }}
                         />
                       </div>
                     )}

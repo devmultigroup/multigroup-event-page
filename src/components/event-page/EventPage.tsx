@@ -179,7 +179,7 @@ export default function EventPage({
         >
           <span id="etkinlik-akisi" />
           <Heading dark>Etkinlik Akışı</Heading>
-          <SessionContainer event={event} />
+          <SessionContainer event={event} color={event.colorPalette.primary} />
         </motion.div>
 
         <Sponsors sponsors={event.sponsors} />
