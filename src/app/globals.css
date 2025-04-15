@@ -119,3 +119,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Add this to your existing globals.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -20%
+    ); /* This will be 1/5 of the total content since we repeat 5 times */
+  }
+}
+
+.animate-scroll {
+  animation: scroll linear infinite;
+}
