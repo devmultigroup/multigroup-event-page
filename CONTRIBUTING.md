@@ -1,4 +1,5 @@
 # Projeye Katkı Sağlayın
+
 //TODO: DÜZENLENECEK
 
 ## Kurulum Talimatları

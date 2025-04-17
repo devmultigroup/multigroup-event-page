@@ -42,4 +42,3 @@ Bu davranış kuralları [Contributor Covenant](https://www.contributor-covenant
 ---
 
 **Topluluğunuzu daha iyi hale getirmeye yardımcı olduğunuz için teşekkür ederiz!**
-
