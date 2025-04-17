@@ -2,7 +2,7 @@
 
 # MultiGroup Etkinlik Sayfası
 
-[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
+[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)  [![License: GNU 3.0](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
 ## Genel Bakış
 
@@ -25,24 +25,6 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 - **Pigeon Maps:** Etkinlik lokasyonlarının dinamik şekilde gösterilmesi.
 - **Vercel:** Kod dağıtımı.
 - **Framer:** Bileşen ve sayfa animasyonları.
-
-## Kurulum Talimatları
-
-### Ön Gereklilikler
-
-- Node.js (version 16.x or later)
-- npm or yarn
-
-### Lokal Ortamda Çalıştırma
-
-```bash
-$ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
-$ cd multigroup-event-page
-$ npm install
-$ npm run dev
-```
-
-Geliştirme versiyonunu görmek için tarayıcınızda `http://localhost:3000` adresine gidin.
 
 ## Etkinlik Dosyalarının Yönetimi
 
@@ -132,40 +114,6 @@ Sponsor fotoğraflarının mantığı da konuşmacılarla aynıdır. Slugify edi
 ## Yeni Etkinlik Oluşturma
 
 Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts` dosyasında yeni bir obje oluşturup yazmak yeterlidir. Sadece dikkat edilmesi gerek konu fotoğrafların isimleri ve koyuldukları yerlerdir.
-
-## Contributing
-
-[Kurulum talimatları](#kurulum-talimatları)'ndaki aşamaları uygulayarak projeyi lokal ortamınızda ayağa kaldırdıktan sonra istediğiniz değişiklikleri yapabilir ve istediğiniz hataları düzelterek `Pull Request` gönderebilirsiniz. PR göndermek için aşağıdaki adımları takip edin:
-
-1. **Projenin bir `Fork`'unu oluşturun**
-
-2. **Yeni bir `Branch` oluşturun**
-
-   ```bash
-   git checkout -b feature/your-feature
-   # or
-   git git checkout -b fix/your-fix
-   ```
-
-3. **Değişikliklerinizi yapın**
-
-4. **Değişikliklerinizi `Commit` olarak gönderin**
-
-   ```bash
-   git add .
-   git commit -m "feat: Add a descriptive commit message"
-   # or
-   git commit -m "fix: Add a descriptive commit message"
-   ```
-
-5. **Değişikliklerinizi `Repository`'ye yollayın**
-
-   ```bash
-   git push origin feature/your-feature
-   ```
-
-6. **`Pull Request` açın**
-   Profilinizdeki bu projenin kendi `Fork`'undan ana `Repository`'ye bir PR oluşturun
 
 ## Repo Aktivitesi
 

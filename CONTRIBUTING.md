@@ -1,71 +1,108 @@
-# Contributing to [Project Name] - This documentation will be refactored, this is a template
+# Projeye Katkı Sağlayın
+//TODO: DÜZENLENECEK
 
-Thank you for your interest in contributing to our project! This document outlines the process for contributing and our expectations for contributors.
+## Kurulum Talimatları
 
-## Code of Conduct
+### Ön Gereklilikler
 
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to keep our community respectful and inclusive.
+- Node.js (version 16.x or later)
+- npm or yarn
 
-## How to Contribute
+### Lokal Ortamda Çalıştırma
 
-### Reporting Bugs
+```bash
+$ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
+$ cd multigroup-event-page
+$ npm install
+$ npm run dev
+```
 
-- Check if the bug has already been reported in our [Issues](../issues)
-- Use our bug report template to create a detailed report
-- Include clear steps to reproduce the issue
-- Add screenshots if applicable
+Geliştirme versiyonunu görmek için tarayıcınızda `http://localhost:3000` adresine gidin.
 
-### Suggesting Features
+## Katkı
 
-- Check if the feature has already been suggested in our [Issues](../issues)
-- Use our feature request template to create a detailed suggestion
-- Explain the problem your feature would solve
-- Describe alternative solutions you've considered
+[Kurulum talimatları](#kurulum-talimatları)'ndaki aşamaları uygulayarak projeyi lokal ortamınızda ayağa kaldırdıktan sonra istediğiniz değişiklikleri yapabilir ve istediğiniz hataları düzelterek `Pull Request` gönderebilirsiniz. PR göndermek için aşağıdaki adımları takip edin:
 
-### Pull Requests
+1. **Projenin bir `Fork`'unu oluşturun**
 
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests if applicable
-5. Commit your changes (`git commit -m 'Add some amazing feature'`)
-6. Push to your branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request using our template
+2. **Yeni bir `Branch` oluşturun**
 
-## Development Process
+   ```bash
+   git checkout -b feature/your-feature
+   # or
+   git git checkout -b fix/your-fix
+   ```
 
-### Coding Standards
+3. **Değişikliklerinizi yapın**
 
-- Follow the existing code style and formatting
-- Write clear, commented, and testable code
-- Keep functions small and focused on a single task
-- Name variables and functions clearly and descriptively
+4. **Değişikliklerinizi `Commit` olarak gönderin**
 
-### Testing
+   ```bash
+   git add .
+   git commit -m "feat: Add a descriptive commit message"
+   # or
+   git commit -m "fix: Add a descriptive commit message"
+   ```
 
-- Add tests for new features
-- Ensure all tests pass before submitting a PR
-- Update existing tests if necessary
+5. **Değişikliklerinizi `Repository`'ye yollayın**
 
-### Documentation
+   ```bash
+   git push origin feature/your-feature
+   ```
 
-- Update documentation for any changed functionality
-- Document new features thoroughly
-- Use clear and concise language
+6. **`Pull Request` açın**
+   Profilinizdeki bu projenin kendi `Fork`'undan ana `Repository`'ye bir PR oluşturun
 
-## Review Process
+# Contribute to the Project
 
-1. At least one maintainer must review and approve all PRs
-2. Address all review comments before your PR will be merged
-3. Your PR may require changes before being accepted
-4. Once approved, a maintainer will merge your PR
+## Installation Instructions
 
-## Getting Help
+### Prerequisites
 
-If you need help with anything related to the contribution process:
+- Node.js (version 16.x or later)
+- npm or yarn
 
-- Comment on the relevant issue
-- Join our [community chat/forum] (if applicable)
-- Contact the maintainers at [email/contact info]
+### Running Locally
 
-Thank you for contributing to [Project Name]!
+```bash
+$ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
+$ cd multigroup-event-page
+$ npm install
+$ npm run dev
+```
+
+Visit `http://localhost:3000` in your browser to see the development version.
+
+## Contributing
+
+After setting up the project in your local environment by following the [Installation Instructions](#installation-instructions), you can make any changes you want and fix any bugs by sending a `Pull Request`. Follow these steps to send a PR:
+
+1. **Create a `Fork` of the project**
+
+2. **Create a new `Branch`**
+
+   ```bash
+   git checkout -b feature/your-feature
+   # or
+   git git checkout -b fix/your-fix
+   ```
+
+3. **Make your changes**
+
+4. **Commit your changes**
+
+   ```bash
+   git add .
+   git commit -m "feat: Add a descriptive commit message"
+   # or
+   git commit -m "fix: Add a descriptive commit message"
+   ```
+
+5. **Push your changes to the `Repository`**
+
+   ```bash
+   git push origin feature/your-feature
+   ```
+
+6. **Open a `Pull Request`**
+   Create a PR from your own `Fork` of this project in your profile to the main `Repository`

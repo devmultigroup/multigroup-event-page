@@ -2,7 +2,7 @@
 
 # MultiGroup Event Page
 
-[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/furkanunsalan/TravelMap.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
+[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)  [![License: GNU 3.0](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/furkanunsalan/TravelMap.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
 
 ## Overview
 
@@ -25,24 +25,6 @@ This repository is designed to help you easily access Developer MultiGroup's eve
 - **Pigeon Maps:** Dynamic display of event locations.
 - **Vercel:** Code deployment.
 - **Framer:** Component and page animations.
-
-## Installation Instructions
-
-### Prerequisites
-
-- Node.js (version 16.x or later)
-- npm or yarn
-
-### Running Locally
-
-```bash
-$ git clone https://github.com/Developer-MultiGroup/multigroup-event-page.git
-$ cd multigroup-event-page
-$ npm install
-$ npm run dev
-```
-
-Visit `http://localhost:3000` in your browser to see the development version.
 
 ## Event File Management
 
@@ -132,40 +114,6 @@ The logic for sponsor photos is the same as speakers. Sponsor logos are kept in 
 ## Creating a New Event
 
 To create a new event, it's sufficient to create a new object in the `data/events.ts` file and write the fields specified above. The only thing to pay attention to is the names of the photos and where they are placed.
-
-## Contributing
-
-After setting up the project in your local environment by following the [Installation Instructions](#installation-instructions), you can make any changes you want and fix any bugs by sending a `Pull Request`. Follow these steps to send a PR:
-
-1. **Create a `Fork` of the project**
-
-2. **Create a new `Branch`**
-
-   ```bash
-   git checkout -b feature/your-feature
-   # or
-   git git checkout -b fix/your-fix
-   ```
-
-3. **Make your changes**
-
-4. **Commit your changes**
-
-   ```bash
-   git add .
-   git commit -m "feat: Add a descriptive commit message"
-   # or
-   git commit -m "fix: Add a descriptive commit message"
-   ```
-
-5. **Push your changes to the `Repository`**
-
-   ```bash
-   git push origin feature/your-feature
-   ```
-
-6. **Open a `Pull Request`**
-   Create a PR from your own `Fork` of this project in your profile to the main `Repository`
 
 ## Repo Activity
 
