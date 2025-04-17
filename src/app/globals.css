@@ -33,16 +33,17 @@ html {
 }
 
 /* General reset for body and html */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-y: scroll; /* Ensure vertical scrolling is enabled */
 }
 
-
 body {
   font-family: Montserrat, sans-serif;
-  background-color: #012B28;
+  /* background-color: #012B28; */
+  background-color: black;
 }
 
 @layer base {
@@ -110,8 +111,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -119,4 +118,20 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Add this to your existing globals.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -20%
+    ); /* This will be 1/5 of the total content since we repeat 5 times */
+  }
+}
+
+.animate-scroll {
+  animation: scroll linear infinite;
 }

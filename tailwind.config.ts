@@ -10,6 +10,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Global color palette that can be dynamically changed
+        "color-primary": "hsl(var(--color-primary))",
+        "color-secondary": "hsl(var(--color-secondary))",
+        "color-tertiary": "hsl(var(--color-tertiary))",
+        "color-text": "hsl(var(--color-text))",
+
+        // Existing Tailwind color configuration
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -73,21 +80,25 @@ export default {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(0%)" },
         },
+        loading: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 15s linear infinite",
         "marquee-reverse": "marquee-reverse 15s linear infinite",
+        loading: "loading 1.5s linear infinite",
       },
       boxShadow: {
-        // Custom inset shadow
-        'inset-all': 'inset 0 0 4px rgba(0, 0, 0, 0.3)',
+        "inset-all": "inset 0 0 4px rgba(0, 0, 0, 0.3)",
       },
     },
   },
   variants: {
-    boxShadow: ['responsive', 'hover', 'focus'],
+    boxShadow: ["responsive", "hover", "focus"],
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

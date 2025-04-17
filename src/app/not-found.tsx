@@ -45,7 +45,7 @@ export default function NotFound() {
     <div
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{
-        background: "linear-gradient(to top, #002B28, #0f172a)",
+        background: "linear-gradient(to top, #000000, #002B28, #0f172a)",
       }}
     >
       {/* Animated stars background */}

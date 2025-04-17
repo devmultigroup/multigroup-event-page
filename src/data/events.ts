@@ -10,9 +10,8 @@ const events: Event[] = [
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
-      name: "Tech İstanbul | Şişhane",
-      subtext:
-        "Located at Moscone Center, easily accessible via public transport.",
+      name: "Adesso Office",
+      subtext: "Adesso Türkiye Maslak Ofisi",
     }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
@@ -21,15 +20,16 @@ const events: Event[] = [
     speakers: [
       {
         fullName: "John Doe",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "Senior Developer",
       },
       {
-        fullName: "Jane Smith",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
-        title: "Lead Mobile Architect",
+        fullName: "Özcan Zafer Ayan",
+        title: "CTO at MobileTech",
+        phrase:
+          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        company: "Trendyol",
+        linkedin: "https://www.linkedin.com/in/daronyondem/",
+        twitter: "https://x.com/daronyondem",
       },
     ],
     sessions: [
@@ -38,33 +38,33 @@ const events: Event[] = [
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "John Doe",
-        room: "Ana Salon"
+        room: "Ana Salon",
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "11:30",
         endTime: "12:30",
         speakerName: "Jane Smith",
-        room: "Yan Salon"
+        room: "Yan Salon",
       },
     ],
     sponsors: [
       {
         tier: "platin",
-        sponsorSlug: "all-done"
+        sponsorSlug: "all-done",
       },
       {
         tier: "altın",
-        sponsorSlug: "perseva"
+        sponsorSlug: "perseva",
       },
       {
         tier: "gümüş",
-        sponsorSlug: "softtech"
+        sponsorSlug: "softtech",
       },
       {
         tier: "bronz",
-        sponsorSlug: "adesso"
-      }
+        sponsorSlug: "adesso",
+      },
     ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.jpg",
@@ -81,10 +81,16 @@ const events: Event[] = [
       jobProvider: "65%",
       satisfaction: "83%",
     },
+    colorPalette: {
+      primary: "214 83.7% 51%", // Blue
+      secondary: "214 83.7% 65%",
+      tertiary: "214 83.7% 95%",
+      text: "214 83.7% 20%",
+    },
   },
   {
     id: 2,
-    name: "AI in Mobile Development Conference 2024",
+    name: "Trendyol Meetup",
     title: "Summit For",
     subTitle: "Who're interested in MoDe",
     description:
@@ -92,136 +98,74 @@ const events: Event[] = [
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
-      name: "Tech İstanbul | Şişhane",
+      name: "Trendyol Maslak Ofis",
       subtext:
         "Located at Moscone Center, easily accessible via public transport.",
     }, // San Francisco coordinates
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "https://example.com/ai-event-video",
-    date: "2025-03-02T13:00:00+03:00",
+    date: "2025-04-26T13:00:00+03:00",
     speakers: [
       {
         fullName: "Alice Johnson",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "AI Research Lead",
       },
       {
         fullName: "Özcan Zafer Ayan",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "CTO at MobileTech",
-        phrase: "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!"
+        phrase:
+          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
+        company: "Trendyol",
+        linkedin: "https://www.linkedin.com/in/daronyondem/",
+        twitter: "https://x.com/daronyondem",
       },
       {
         fullName: "Alice Johnson2",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "AI Research Lead",
       },
       {
         fullName: "Bob William2",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "CTO at MobileTech",
       },
       {
         fullName: "Alice Johnson3",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "AI Research Lead",
       },
       {
         fullName: "Bob Williams3",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "CTO at MobileTech",
       },
       {
         fullName: "Alice Johnson4",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "AI Research Lead",
       },
       {
         fullName: "Bob Williams4",
-        photoUrl:
-          "https://media.licdn.com/dms/image/v2/D4D03AQFvuXyysfGAyg/profile-displayphoto-shrink_800_800/B4DZNqs8.gHcAc-/0/1732661989869?e=1744243200&v=beta&t=zUWagjrMnuz26tTT2cFiFifmOv0Evk1Fd-Cq3usDpME",
         title: "CTO at MobileTech",
       },
     ],
     sessions: [
       {
-        topic: "AI-Driven App Personalization",
-        startTime: "09:00",
-        endTime: "10:00",
+        topic: "Future of Android Development",
+        startTime: "10:00", // Hour only
+        endTime: "11:00", // Hour only
         speakerName: "Özcan Zafer Ayan",
-        room: "Yan Salon"
+        room: "Ana Salon",
       },
       {
-        topic: "Building Smarter Apps with AI",
-        startTime: "10:30",
-        endTime: "11:30",
-        speakerName: "Özcan Zafer Ayan",
-        room: "Yan Salon"
-      },
-      {
-        topic: "Building Smart Apps with AI",
-        startTime: "10:30",
+        topic: "Cross-Platform Mobile Frameworks",
+        startTime: "10:00",
         endTime: "12:30",
-        speakerName: "Özcan Zafer Ayan",
-        room: "Ana Salon"
-      },
-      {
-        topic: "Building Smartest Apps with AI",
-        startTime: "12:30",
-        endTime: "13:30",
-        speakerName: "Özcan Zafer Ayan",
-        room: "Ana Salon"
-      },
-      {
-        speakerName: "Özcan Zafer Ayan",
-        room: "Network"
-      },
-      {
-        speakerName: "Özcan ZaferAyan2",
-        room: "Network"
-      },
-      {
-        speakerName: "Özcan ZaferAyan3",
-        room: "Network"
-      },
-      {
-        speakerName: "Özcan ZaferAyan4",
-        room: "Network"
-      },
-      {
-        speakerName: "Özcan ZaferAyan5",
-        room: "Network"
-      },
-      {
-        speakerName: "Özcan ZaferAyan6",
-        room: "Network"
+        speakerName: "Jane Smith",
+        room: "Yan Salon",
       },
     ],
     sponsors: [
       {
         tier: "platin",
-        sponsorSlug: "all-done"
+        sponsorSlug: "trendyol",
       },
-      {
-        tier: "altın",
-        sponsorSlug: "perseva"
-      },
-      {
-        tier: "gümüş",
-        sponsorSlug: "softtech"
-      },
-      {
-        tier: "bronz",
-        sponsorSlug: "adesso"
-      }
     ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.webp",
@@ -237,6 +181,12 @@ const events: Event[] = [
       jobSeeker: "45%",
       jobProvider: "75%",
       satisfaction: "90%",
+    },
+    colorPalette: {
+      primary: "17, 85%, 58%", // Green
+      secondary: "54, 89%, 69%",
+      tertiary: "229, 41%, 45%",
+      text: "5 77% 64%",
     },
   },
 ];
