@@ -36,13 +36,13 @@ export type Session =
 export type InitialMetric = {
   title: string;
   value: number;
-}
+};
 
 // Allow only up to 3 initial metrics for the hero section
 type MaxThreeInitialMetrics =
-  [InitialMetric] |
-  [InitialMetric, InitialMetric] |
-  [InitialMetric, InitialMetric, InitialMetric];
+  | [InitialMetric]
+  | [InitialMetric, InitialMetric]
+  | [InitialMetric, InitialMetric, InitialMetric];
 
 export type AfterMetrics = {
   applications: string;

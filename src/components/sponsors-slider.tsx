@@ -105,7 +105,7 @@ const SponsorSlider = ({
       <div className="w-2/3 relative">
         {/* Fading edge - left */}
         <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-color-background to-transparent z-10"></div>
-        
+
         {/* Carousel container */}
         <div ref={containerRef} className="relative h-40 overflow-hidden">
           <div
@@ -131,7 +131,7 @@ const SponsorSlider = ({
             ))}
           </div>
         </div>
-        
+
         {/* Fading edge - right */}
         <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-color-background to-transparent z-10"></div>
       </div>

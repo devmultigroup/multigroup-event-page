@@ -87,7 +87,9 @@ export default function EventPage({
           transition={{ duration: 0.4 }} // removed extra delay for faster render
         >
           {event.name}
-          <div className="text-xl font-normal pt-12">{event.heroDescription}</div>
+          <div className="text-xl font-normal pt-12">
+            {event.heroDescription}
+          </div>
         </motion.div>
 
         {/* Bottom Section */}
