@@ -13,7 +13,8 @@ export default {
         // Global color palette that can be dynamically changed
         "color-primary": "hsl(var(--color-primary))",
         "color-secondary": "hsl(var(--color-secondary))",
-        "color-tertiary": "hsl(var(--color-tertiary))",
+        "color-accent": "hsl(var(--color-accent))",
+        "color-background": "hsl(var(--color-background))",
         "color-text": "hsl(var(--color-text))",
 
         // Existing Tailwind color configuration

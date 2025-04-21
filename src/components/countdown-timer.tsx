@@ -49,7 +49,7 @@ export default function CountdownTimer({
 
           {/* Custom Divider */}
           <div className="mx-2">
-            <div className="w-px bg-white" style={{ height: "4rem" }}></div>
+            <div className="w-px bg-color-text" style={{ height: "4rem" }}></div>
           </div>
 
           {/* Hours */}
@@ -60,7 +60,7 @@ export default function CountdownTimer({
 
           {/* Custom Divider */}
           <div className="mx-2">
-            <div className="w-px bg-white" style={{ height: "4rem" }}></div>
+            <div className="w-px bg-color-text" style={{ height: "4rem" }}></div>
           </div>
 
           {/* Minutes */}
@@ -71,7 +71,7 @@ export default function CountdownTimer({
 
           {/* Custom Divider */}
           <div className="mx-2">
-            <div className="w-px bg-white" style={{ height: "4rem" }}></div>
+            <div className="w-px bg-color-text" style={{ height: "4rem" }}></div>
           </div>
 
           {/* Seconds */}

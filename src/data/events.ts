@@ -4,9 +4,10 @@ const events: Event[] = [
   {
     id: 1,
     name: "Mobile Developer Summit 2024",
-    title: "Summit For",
-    subTitle: "Who're interested in MoDe",
-    description: "A detailed event on mobile development trends.",
+    heroDescription:
+      "Seni yalnızca bir teknik konferansa değil, ilham verici bir mobil developer buluşmasına davet ediyoruz!",
+    cardDescription:
+      "Mobil development'a ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecana sen de ortak ol. Gelecek yıla kalma bu yıl tanışalım!",
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
@@ -17,6 +18,10 @@ const events: Event[] = [
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "https://example.com/event-video",
     date: "2024-01-29T13:00:00+03:00", // ISO date object
+    organizers: [
+      { fullName: "Furkan Ünsalan", title: "Pioneer Member" },
+      { fullName: "Serkan Alc", title: "Partner Manager" },
+    ],
     speakers: [
       {
         fullName: "John Doe",
@@ -71,6 +76,11 @@ const events: Event[] = [
       "/images/events/mobile-developer-summit-2024/2.jpg",
       "/images/events/mobile-developer-summit-2024/3.jpg",
     ],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 600 },
+      { title: "Etkinlik Kontenjan", value: 600 },
+      { title: "Etkinlik Kontenjan", value: 600 },
+    ],
     afterMetrics: {
       applications: "500",
       vipGuests: "100+",
@@ -84,17 +94,18 @@ const events: Event[] = [
     colorPalette: {
       primary: "214 83.7% 51%", // Blue
       secondary: "214 83.7% 65%",
-      tertiary: "214 83.7% 95%",
+      accent: "214 83.7% 95%",
+      background: "255 255% 255%",
       text: "214 83.7% 20%",
     },
   },
   {
     id: 2,
-    name: "Trendyol Meetup",
-    title: "Summit For",
-    subTitle: "Who're interested in MoDe",
-    description:
-      "Mobile, Web, Data Science ve Cloud tutkunlarının sabırsızlıkla beklediği etkinliğimiz #multitechsum24 için gerisayım başladı! Heyecan dorukta! Peki, bu etkinlikte seni neler bekliyor?\n\n🎙️ Sektörün öncülerinden ilham verici konuşmalar ve etkileşimli panellerle yepyeni bilgiler edinme fırsatı!\n\n🌟 Birbirinden değerli ve eşsiz network imkanları!\n\n☕ Enerji dolu kahve molalarıyla dinamik bir atmosfer!",
+    name: "Mobile Developer Conference",
+    heroDescription:
+      "Seni yalnızca bir teknik konferansa değil, ilham verici bir mobil developer buluşmasına davet ediyoruz!",
+    cardDescription:
+      "Mobil development'a ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecana sen de ortak ol. Gelecek yıla kalma bu yıl tanışalım!",
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
@@ -105,7 +116,11 @@ const events: Event[] = [
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "https://example.com/ai-event-video",
-    date: "2025-04-26T13:00:00+03:00",
+    date: "2025-05-31T13:00:00+03:00",
+    organizers: [
+      { fullName: "Furkan Ünsalan", title: "Pioneer Member" },
+      { fullName: "Serkan Alc", title: "Partner Manager" },
+    ],
     speakers: [
       {
         fullName: "Alice Johnson",
@@ -167,26 +182,48 @@ const events: Event[] = [
         sponsorSlug: "trendyol",
       },
     ],
+    tickets: [
+      {
+        type: "Community Supporter Ticket",
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+        price: 300,
+        link: "https://kommunity.com",
+      },
+      {
+        type: "VIP Supporter Ticket",
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+        price: 1500,
+        link: "https://kommunity.com",
+      },
+    ],
     images: [
       "/images/events/mobile-developer-summit-2024/1.webp",
       "/images/events/mobile-developer-summit-2024/2.webp",
       "/images/events/mobile-developer-summit-2024/3.webp",
     ],
-    afterMetrics: {
-      applications: "700",
-      vipGuests: "200+",
-      supporter: "250+",
-      speakers: "40",
-      workingParticipant: "70%",
-      jobSeeker: "45%",
-      jobProvider: "75%",
-      satisfaction: "90%",
-    },
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 600 },
+      { title: "Etkinlik Kontenjan", value: 600 },
+      { title: "Etkinlik Kontenjan", value: 600 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
     colorPalette: {
-      primary: "17, 85%, 58%", // Green
-      secondary: "54, 89%, 69%",
-      tertiary: "229, 41%, 45%",
-      text: "5 77% 64%",
+      primary: "244.29, 100%, 97.25%",
+      secondary: "250, 6.98%, 16.86%",
+      accent: "199.53, 75.44%, 77.65%",
+      background: "0, 0%, 100%",
+      text: "250, 6.98%, 16.86%",
     },
   },
 ];

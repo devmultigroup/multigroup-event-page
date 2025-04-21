@@ -54,7 +54,7 @@ export default function SessionContainer({
   useEffect(() => {
     if (event.sessions && event.sessions.length > 0) {
       const uniqueRooms = Array.from(
-        new Set(event.sessions.map((session) => session.room || "Main"))
+        new Set(event.sessions.map((session) => session.room || "Main")),
       );
       setRooms(uniqueRooms);
       if (uniqueRooms.length > 0 && !activeRoom) {
@@ -144,7 +144,7 @@ export default function SessionContainer({
       (s) =>
         s.speakerName === session.speakerName &&
         s.topic === session.topic &&
-        (s.room === session.room || (!s.room && !session.room))
+        (s.room === session.room || (!s.room && !session.room)),
     );
 
     if (isSelected) {
@@ -155,8 +155,8 @@ export default function SessionContainer({
               s.speakerName === session.speakerName &&
               s.topic === session.topic &&
               (s.room === session.room || (!s.room && !session.room))
-            )
-        )
+            ),
+        ),
       );
     } else {
       if (hasTimeConflict(session)) {
@@ -174,7 +174,7 @@ export default function SessionContainer({
   // Filter sessions for the current active room
   const filteredSessions = activeRoom
     ? event.sessions.filter(
-        (session) => (session.room || "Main") === activeRoom
+        (session) => (session.room || "Main") === activeRoom,
       )
     : event.sessions;
 
@@ -185,7 +185,7 @@ export default function SessionContainer({
       (session) =>
         session.room === "Network" ||
         session.topic?.toLowerCase().includes("network") ||
-        session.speakerName.toLowerCase().includes("network")
+        session.speakerName.toLowerCase().includes("network"),
     );
 
   // Animation variants for the session badges
@@ -212,7 +212,7 @@ export default function SessionContainer({
 
   const handleRoute = () => {
     router.push(
-      "https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN"
+      "https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN",
     );
   };
 
@@ -235,11 +235,12 @@ export default function SessionContainer({
               <TabsTrigger
                 key={`room-tab-${room}`}
                 value={room}
-                className={`px-4 py-2 text-sm md:text-base font-medium rounded transition-colors ${
-                  room === activeRoom
-                    ? "bg-color-accent text-color-text"
-                    : "bg-transparent text-inherit"
-                }`}
+                className="px-4 py-2 text-sm md:text-base font-medium"
+                style={{
+                  backgroundColor:
+                    room === activeRoom ? primaryColor : "transparent",
+                  color: room === activeRoom ? "white" : "inherit",
+                }}
               >
                 {room}
               </TabsTrigger>
@@ -333,7 +334,7 @@ export default function SessionContainer({
         <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
           {filteredSessions.map((session) => {
             const speaker = event.speakers.find(
-              (s) => s.fullName === session.speakerName
+              (s) => s.fullName === session.speakerName,
             );
             return (
               <div
@@ -370,54 +371,65 @@ export default function SessionContainer({
               (s) =>
                 s.speakerName === session.speakerName &&
                 s.topic === session.topic &&
-                (s.room === session.room || (!s.room && !session.room))
+                (s.room === session.room || (!s.room && !session.room)),
             );
             const hasConflict = hasTimeConflict(session) && !isSelected;
             return (
               <Card
                 key={`session-card-${session.speakerName}-${session.topic}-${session.room || ""}`}
-                className={`w-full mx-auto p-4 py-8 rounded-2xl select-none transition-all overflow-hidden ${
+                className="select-none bg-white shadow-lg w-full mx-auto transition-all overflow-hidden"
+                style={
                   isSelected
-                    ? "border-2 border-color-accent outline outline-2 outline-color-accent outline-offset-0"
-                    : ""
-                } bg-color-primary`}
+                    ? {
+                        borderColor: primaryColor,
+                        outline: `2px solid ${primaryColor}`,
+                        outlineOffset: "0px",
+                      }
+                    : {}
+                }
               >
-                <div
-                  className="flex items-center justify-between hover:cursor-pointer"
-                  onClick={() => {
-                    if (!isPastEvent) toggleSessionSelection(session);
-                  }}
-                >
-                  {/* Left Section: Image + Info */}
-                  <div className="flex items-center space-x-4">
-                    {/* Speaker Image */}
-                    <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden border-4 border-white shadow-md">
-                      <Image
-                        src={`/images/speakers/${slugify(session.speakerName)}.webp`}
-                        alt={session.speakerName}
-                        fill
-                        className="object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Text Info */}
-                    <div>
-                      <p className="font-bold text-color-text text-lg">
+                <div className="flex h-full">
+                  <div
+                    className="relative w-1/4 min-w-[120px]"
+                    style={{ backgroundColor: darkestColor }}
+                  >
+                    <Image
+                      src={`/images/speakers/${slugify(session.speakerName)}.webp`}
+                      alt={session.speakerName}
+                      fill
+                      className="object-cover opacity-80"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div
+                    className={`flex-1 p-6 flex items-start justify-between relative hover:cursor-pointer ${
+                      isSelected ? "bg-blue-50" : "bg-white"
+                    }`}
+                    onClick={() => {
+                      if (!isPastEvent) toggleSessionSelection(session);
+                    }}
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center">
+                        <p className="text-sm font-medium text-gray-500">
+                          {formatIsoDate(event.date)} {session.startTime} -{" "}
+                          {session.endTime}
+                          {session.room && ` (${session.room})`}
+                        </p>
+                      </div>
+                      <p className="text-xl font-bold text-gray-900 mt-1">
                         {session.speakerName}
                       </p>
-                      <p className="text-color-text text-sm">{session.topic}</p>
+                      <p
+                        className="text-sm mt-1"
+                        style={{ color: primaryColor }}
+                      >
+                        {session.topic}
+                      </p>
                     </div>
-                  </div>
-
-                  {/* Right Section: Time + Checkbox */}
-                  <div className="flex flex-col items-end gap-2">
-                    <p className="text-sm font-semibold text-color-text">
-                      {session.startTime} - {session.endTime}
-                    </p>
 
                     {!isPastEvent && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-col items-center ml-4 gap-2">
                         {hasConflict && (
                           <Warning size={16} className="text-red-500" />
                         )}
@@ -427,11 +439,13 @@ export default function SessionContainer({
                           onCheckedChange={() =>
                             toggleSessionSelection(session)
                           }
-                          className={`border rounded ${
-                            isSelected
-                              ? "bg-color-accent text-white"
-                              : "bg-transparent text-transparent"
-                          } ${hasConflict ? "border-red-500" : "border-color-accent"}`}
+                          style={{
+                            backgroundColor: isSelected
+                              ? primaryColor
+                              : "transparent",
+                            borderColor: hasConflict ? "red" : primaryColor,
+                            color: isSelected ? "white" : "transparent",
+                          }}
                         />
                       </div>
                     )}
@@ -444,7 +458,7 @@ export default function SessionContainer({
       )}
 
       {/* Only show the download button if event is upcoming */}
-      {/* {!isNetworkingEvent && (
+      {!isNetworkingEvent && (
         <div className="flex flex-col md:flex-row justify-center pt-8 gap-y-2 md:gap-x-4">
           {!isPastEvent && (
             <div className="bg-gradient-to-r from-[#3682F1] to-[#C55E85] p-[2px] rounded-2xl w-full md:w-1/3">
@@ -469,7 +483,7 @@ export default function SessionContainer({
             </Button>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 }

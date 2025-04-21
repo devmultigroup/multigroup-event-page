@@ -101,30 +101,39 @@ const SponsorSlider = ({
   ];
 
   return (
-    <div className="w-full bg-color-tertiary overflow-hidden">
-      <div ref={containerRef} className="relative h-40 overflow-hidden">
-        <div
-          ref={innerRef}
-          className="flex items-center absolute h-full"
-          style={{ willChange: "transform" }}
-        >
-          {duplicatedSponsors.map((sponsor, index) => (
-            <div
-              key={`${sponsor.sponsorSlug}-${index}`}
-              className="mx-8 flex-shrink-0 sponsor-item"
-            >
-              <Image
-                src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
-                alt={`${sponsor.sponsorSlug} logo`}
-                width={160}
-                height={56}
-                className="object-contain opacity-80 filter transition-all duration-200 ease-in-out grayscale brightness-[15%] contrast-[100%] hover:opacity-100 hover:grayscale-0 hover:brightness-110 hover:contrast-100"
-                draggable={false}
-                loading="lazy"
-              />
-            </div>
-          ))}
+    <div className="w-full flex justify-center bg-color-background overflow-hidden">
+      <div className="w-2/3 relative">
+        {/* Fading edge - left */}
+        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-color-background to-transparent z-10"></div>
+        
+        {/* Carousel container */}
+        <div ref={containerRef} className="relative h-40 overflow-hidden">
+          <div
+            ref={innerRef}
+            className="flex items-center absolute h-full"
+            style={{ willChange: "transform" }}
+          >
+            {duplicatedSponsors.map((sponsor, index) => (
+              <div
+                key={`${sponsor.sponsorSlug}-${index}`}
+                className="mx-8 flex-shrink-0 sponsor-item"
+              >
+                <Image
+                  src={`/images/sponsors/${sponsor.sponsorSlug}.webp`}
+                  alt={`${sponsor.sponsorSlug} logo`}
+                  width={160}
+                  height={56}
+                  className="object-contain opacity-80 filter transition-all duration-200 ease-in-out grayscale brightness-[15%] contrast-[100%] hover:opacity-100 hover:grayscale-0 hover:brightness-110 hover:contrast-100"
+                  draggable={false}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+        
+        {/* Fading edge - right */}
+        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-color-background to-transparent z-10"></div>
       </div>
     </div>
   );

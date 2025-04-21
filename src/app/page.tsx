@@ -27,7 +27,7 @@ export default function HeroPage() {
 
   return (
     <>
-      <LanyardCard className="rounded-lg shadow-xl" height="80vh" />
+      {/* <LanyardCard className="rounded-lg shadow-xl" height="80vh" /> */}
       <EventPage event={latestEventDetails} previousEvent={secondLatest} hero />
     </>
   );

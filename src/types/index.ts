@@ -8,6 +8,11 @@ export type Speaker = {
   twitter?: string;
 };
 
+export type Organizer = {
+  fullName: string;
+  title: string;
+};
+
 export type Session =
   | {
       // For sessions that are NOT in the network room,
@@ -27,6 +32,17 @@ export type Session =
       startTime?: string;
       endTime?: string;
     };
+
+export type InitialMetric = {
+  title: string;
+  value: number;
+}
+
+// Allow only up to 3 initial metrics for the hero section
+type MaxThreeInitialMetrics =
+  [InitialMetric] |
+  [InitialMetric, InitialMetric] |
+  [InitialMetric, InitialMetric, InitialMetric];
 
 export type AfterMetrics = {
   applications: string;
@@ -51,27 +67,38 @@ export type Sponsor = {
   sponsorSlug: string;
 };
 
+export type Ticket = {
+  type: string;
+  description: string;
+  price: number;
+  link: string;
+};
+
+// HSL String of Color
 export type ColorPalette = {
   primary: string;
   secondary: string;
-  tertiary: string;
+  accent: string;
+  background: string;
   text: string;
 };
 
 export type Event = {
   id: number;
   name: string;
-  subTitle: string;
-  title: string;
-  description: string;
+  heroDescription: string;
+  cardDescription: string;
   location: Location;
   registerLink: string;
   videoUrl?: string;
   date: string; // ISO formatta tarih
+  organizers: Organizer[];
   speakers: Speaker[];
   sessions: Session[];
   sponsors: Sponsor[];
+  tickets?: Ticket[];
   images: string[];
+  initialMetrics: MaxThreeInitialMetrics;
   afterMetrics?: AfterMetrics;
   colorPalette: ColorPalette;
 };

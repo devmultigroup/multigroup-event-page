@@ -86,7 +86,7 @@ export default function EventCard({ event }: { event: Event }) {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-4 gap-4 mt-2 border-t border-gray-100">
           <Button
             onClick={handleNavigation}
-            className="bg-color-tertiary text-white hover:bg-orange-600 hover:shadow-md active:bg-orange-700 transition-colors w-full md:w-auto"
+            className="bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-colors w-full md:w-auto"
           >
             Daha Fazla <ArrowRight className="ml-2" weight="bold" size={16} />
           </Button>

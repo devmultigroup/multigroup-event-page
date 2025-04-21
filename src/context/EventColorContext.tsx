@@ -30,8 +30,12 @@ export const EventColorProvider = ({ children }: { children: ReactNode }) => {
         currentEvent.colorPalette.secondary,
       );
       document.documentElement.style.setProperty(
-        "--color-tertiary",
-        currentEvent.colorPalette.tertiary,
+        "--color-accent",
+        currentEvent.colorPalette.accent,
+      );
+      document.documentElement.style.setProperty(
+        "--color-background",
+        currentEvent.colorPalette.background,
       );
       document.documentElement.style.setProperty(
         "--color-text",

@@ -35,7 +35,7 @@ export default function Events() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-color-primary to-black">
+    <div className="min-h-screen flex flex-col items-center bg-color-background">
       {/* The grid has padding-top set so that it starts roughly 25vh down */}
       <div className="pt-[25vh] grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4">
         {filteredEvents

@@ -110,7 +110,7 @@ export function generateCalendarFile(event: Event): void {
         );
         icsLines.push(
           `DESCRIPTION:${sanitizeICSField(
-            `Konuşmacı: ${session.speakerName}\n\n${event.description || ""}`,
+            `Konuşmacı: ${session.speakerName}\n\n${event.cardDescription || ""}`,
           )}`,
         );
         // Set event location based on session.room

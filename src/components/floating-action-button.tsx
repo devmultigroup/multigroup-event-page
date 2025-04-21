@@ -97,7 +97,7 @@ const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
       }`}
     >
       <div
-        className={`relative w-12 h-12 sm:w-14 sm:h-14 bg-color-primary rounded-full shadow-lg cursor-pointer transition-all duration-300 ${
+        className={`relative w-12 h-12 sm:w-14 sm:h-14 bg-color-accent rounded-full shadow-lg cursor-pointer transition-all duration-300 ${
           isActive ? "scale-105 shadow-xl" : "shadow-md"
         }`}
         onClick={() => setIsActive(!isActive)}
@@ -114,7 +114,7 @@ const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
         />
 
         <ul
-          className={`absolute bottom-14 sm:bottom-16 right-0 bg-[#1f2226] border-2 border-color-primary rounded-xl shadow-2xl p-3 sm:p-4 space-y-2 sm:space-y-3 min-w-[180px] sm:min-w-[220px] transition-all duration-300 ${
+          className={`absolute bottom-14 sm:bottom-16 right-0 bg-[#1f2226] border-2 border-color-accent rounded-xl shadow-2xl p-3 sm:p-4 space-y-2 sm:space-y-3 min-w-[180px] sm:min-w-[220px] transition-all duration-300 ${
             isActive
               ? "opacity-100 visible translate-y-0"
               : "opacity-0 invisible translate-y-2"
@@ -129,7 +129,7 @@ const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
                     color="white"
                     className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 transition-transform duration-200 group-hover:scale-110"
                   />
-                  <span className="text-[#ffffffdd] text-xs sm:text-sm group-hover:text-color-primary transition-colors duration-200">
+                  <span className="text-[#ffffffdd] text-xs sm:text-sm group-hover:text-color-accent transition-colors duration-200">
                     {item.label}
                   </span>
                 </li>

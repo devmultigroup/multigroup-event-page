@@ -52,7 +52,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                     loading="lazy"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-color-primary to-color-secondary opacity-20" />
+                  {/* <div className="absolute inset-0 bg-gradient-to-r from-color-accent to-color-primary opacity-40" /> */}
                 </div>
               </Card>
 
