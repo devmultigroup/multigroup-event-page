@@ -61,6 +61,7 @@ export function LanyardCard({
   width = "100%",
   height = "100vh",
 }: LanyardCardProps) {
+  
   return (
     <div className={`${className}`} style={{ width, height }}>
       <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>

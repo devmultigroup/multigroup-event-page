@@ -181,7 +181,7 @@ export default function SessionContainer({
   // Check if it's a networking event based on room or speaker info
   const isNetworkingEvent =
     activeRoom === "Network" ||
-    event.sessions.some(
+    filteredSessions.every(
       (session) =>
         session.room === "Network" ||
         session.topic?.toLowerCase().includes("network") ||
@@ -220,32 +220,42 @@ export default function SessionContainer({
     <div className="max-w-6xl mx-auto md:w-5/6 pb-16 md:px-0 px-4">
       {/* Room tabs */}
       {rooms.length > 1 && (
-        <Tabs
-          value={activeRoom}
-          onValueChange={(value) => {
-            setActiveRoom(value);
-          }}
-          className="mb-8 flex flex-col items-center"
-        >
-          <TabsList className="gap-2 flex justify-center items-center">
-            {[
-              ...rooms.filter((room) => room !== "Network").sort(),
-              ...rooms.filter((room) => room === "Network"),
-            ].map((room) => (
-              <TabsTrigger
-                key={`room-tab-${room}`}
-                value={room}
-                className={`px-4 py-2 text-sm md:text-base font-medium rounded transition-colors ${
-                  room === activeRoom
-                    ? "bg-color-accent text-color-text"
-                    : "bg-transparent text-inherit"
-                }`}
-              >
-                {room}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
+        <>
+          <h2 className="font-extrabold text-4xl mb-2 mt-24 text-center text-color-text">
+            Seni bekleyen
+          </h2>
+          <Tabs
+            value={activeRoom}
+            onValueChange={(value) => {
+              setActiveRoom(value);
+            }}
+            className="mb-8 flex flex-col items-center"
+          >
+            <TabsList className="border border-blue-200 rounded-lg p-0 overflow-hidden bg-color-accent shadow-sm">
+              {[
+                ...rooms.filter((room) => room !== "Network").sort(),
+                ...rooms.filter((room) => room === "Network"),
+              ].map((room, index) => (
+                <TabsTrigger
+                  key={`room-tab-${room}`}
+                  value={room}
+                  className={`px-8 py-3 text-4xl font-bold rounded-none transition-all duration-200 ${
+                    room === activeRoom
+                      ? "bg-color-white text-white"
+                      : "bg-color-white text-gray-800 hover:bg-gray-50"
+                  }`}
+                >
+                  {room}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+          <p className="text-lg text-center pb-16">
+            Sektörün önde gelen şirketleri hangi teknolojileri kullanıyor,
+            kararlarını neye göre alıyor, geleceği nasıl görüyor? Gelin,
+            doğrudan onların ağzından dinleyelim
+          </p>
+        </>
       )}
 
       <AnimatePresence>
@@ -330,7 +340,7 @@ export default function SessionContainer({
 
       {isNetworkingEvent ? (
         // For Networking events, show speaker photos without interactive elements
-        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-5/6 mx-auto bg-color-primary p-24 rounded-2xl">
           {filteredSessions.map((session) => {
             const speaker = event.speakers.find(
               (s) => s.fullName === session.speakerName,

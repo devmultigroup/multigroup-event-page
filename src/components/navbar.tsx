@@ -37,7 +37,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
     { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
-    { href: "#konum", label: "Konum", isScroll: true },
+    { href: "#biletler", label: "Biletler", isScroll: true },
   ];
 
   return (
@@ -80,10 +80,10 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               </NavigationMenu>
               <Button
                 variant="outline"
-                className="relative h-11 px-6 text-color-text group transition-all duration-300 ease-in-out"
+                className="relative h-11 px-6 text-color-black group transition-all duration-300 ease-in-out"
               >
                 <a href={eventLink} target="_blank" rel="noreferrer">
-                  <div className="absolute inset-0 bg-color-secondary transition-transform duration-300 ease-in-out rounded-md" />
+                  <div className="absolute inset-0 bg-color-accent transition-transform duration-300 ease-in-out rounded-md" />
                   <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                     <span className="relative z-10 font-medium text-sm">
                       Kayıt Ol
@@ -95,7 +95,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             </div>
             <div className="lg:hidden">
               <Button
-                className="text-white"
+                className="text-black"
                 variant="ghost"
                 size="icon"
                 aria-label="Open menu"

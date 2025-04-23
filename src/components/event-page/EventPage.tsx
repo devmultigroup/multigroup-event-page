@@ -5,17 +5,16 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import type { Event } from "@/types";
 import CountdownTimer from "@/components/countdown-timer";
-// import FAQ from "@/components/faq";
-import Heading from "@/components/heading";
 import SessionContainer from "@/components/session-container";
 import SpeakerCarousel from "@/components/speaker-carousel";
-// import Location from "@/components/location";
-import { getFormattedDate } from "@/lib/event-utils";
-// import MetricsGrid from "@/components/metrics-grid";
-// import EventImageGallery from "@/components/event-image-gallery";
 import SponsorSlider from "@/components/sponsors-slider";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
-// import Sponsors from "@/components/sponsors";
+import EventTickets from "../event-tickets";
+import HighlightHeading from "@/components/heading";
+import { Button } from "../ui/moving-border";
+import ActionCard from "../action-card";
+import IconDivider from "../dividers/icon-divider";
+import TextDivider from "../dividers/text-divider";
 // import EventBadge from "../event-badge";
 
 interface EventPageProps {
@@ -90,6 +89,23 @@ export default function EventPage({
           <div className="text-xl font-normal pt-12">
             {event.heroDescription}
           </div>
+
+          {/* CTA Button */}
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <a href="https://kommunity.com/devmultigroup">
+              <Button
+                borderRadius="0.75rem"
+                className="bg-transparent text-color-text"
+              >
+                Yerinizi Ayırtın
+              </Button>
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Bottom Section */}
@@ -104,16 +120,17 @@ export default function EventPage({
             className="select-none text-color-text text-xl sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
             variants={fadeInUp}
           >
-            <p>{getFormattedDate(event.date)}</p>
-            <p>{event.location.name}</p>
+            {/* <p>{getFormattedDate(event.date)}</p>
+            <p>{event.location.name}</p> */}
+            <CountdownTimer targetDate={event.date} />
           </motion.div>
 
           {/* Organizers */}
           <motion.div
-            className="text-color-text text-lg sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-right w-full font-extrabold"
+            className="flex flex-row justify-center items-center lg:justify-end mb-10 w-full"
             variants={fadeInUp}
           >
-            {/* <AnimatedTooltip items={event.organizers} /> */}
+            <AnimatedTooltip items={event.organizers} />
           </motion.div>
         </motion.div>
       </div>
@@ -124,16 +141,16 @@ export default function EventPage({
       <SponsorSlider sponsors={event.sponsors} />
 
       <div className="bg-color-background pt-16">
-        <span id="konusmacilar"></span>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <Heading dark>Konuşmacılar</Heading>
-          <SpeakerCarousel speakers={event.speakers} />
-        </motion.div>
+        {/* Card-1 */}
+        <ActionCard
+          variant="right-image"
+          name={event.name}
+          description={event.cardDescription}
+          image="/images/mockups/mode-conf.png"
+        />
+
+        {/* Divider-1 */}
+        <IconDivider />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -142,9 +159,58 @@ export default function EventPage({
           transition={{ duration: 0.6 }}
         >
           <span id="etkinlik-akisi" />
-          <Heading dark>Etkinlik Akışı</Heading>
-          <SessionContainer event={event} color={event.colorPalette.primary} />
+          <SessionContainer event={event} color={event.colorPalette.accent} />
         </motion.div>
+
+        <span id="konuşmacılar"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <HighlightHeading
+            beforeHighlight="Etkinlik"
+            highlightText="Konuşmacılarımızla"
+            afterHighlight="Tanışın!"
+          >
+            İşte konuklarımız hakkında biraz daha bilgi. Biz onları tanıdığımız
+            ve bu etkinlikte ağırladığımız için çok mutluyuz, siz de mutlaka bir
+            göz atın!
+          </HighlightHeading>
+
+          <SpeakerCarousel speakers={event.speakers} />
+        </motion.div>
+
+        {event.tickets && (
+          <>
+            <span id="biletler"></span>
+            <HighlightHeading
+              beforeHighlight="Bize"
+              highlightText="Destek Olmak"
+              afterHighlight="İster misiniz?"
+            >
+              Her zaman hayalimizdeki ilham verici etkinlikler için sponsor
+              bulamıyoruz, ama şimdiye dek etkinliklerimize katılmış ve memnun
+              kalmış 500’den fazla destekçimiz sayesinde hayalimize biraz daha
+              yakınız.
+            </HighlightHeading>
+            <EventTickets tickets={event.tickets} />
+          </>
+        )}
+
+        {/* Divider-2 */}
+        <TextDivider />
+
+        {/* Card-2 */}
+        <ActionCard
+          variant="left-image"
+          title="Sizi aramızda görmek için sabırsızlanıyoruz!"
+          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard "
+          buttonLabel="Aramıza Katıl"
+          buttonLink={event.registerLink}
+          image="/images/mockups/reserved.png"
+        />
       </div>
     </div>
   );

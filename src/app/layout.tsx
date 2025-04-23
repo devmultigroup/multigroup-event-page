@@ -53,6 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const latestEventLink = getLatestEventLink();
+
   return (
     <html lang="en">
       <head>
@@ -62,7 +63,7 @@ export default function RootLayout({
           data-website-id="13873dc5-f94b-4d7f-9399-781076df22f6"
         ></Script>
       </head>
-      <body className={montserrat.variable}>
+      <body className={`${montserrat.variable} bg-color-background`}>
         <EventColorProvider>
           <Navbar eventLink={latestEventLink} />
           {children}

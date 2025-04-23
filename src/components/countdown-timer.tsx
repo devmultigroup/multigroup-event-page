@@ -25,7 +25,7 @@ export default function CountdownTimer({
   }
 
   const containerClasses = `flex ${
-    center ? "justify-center" : "justify-center lg:justify-end"
+    center ? "justify-center" : "justify-center lg:justify-start"
   } items-center`;
 
   return (

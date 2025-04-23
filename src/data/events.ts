@@ -19,8 +19,18 @@ const events: Event[] = [
     videoUrl: "https://example.com/event-video",
     date: "2024-01-29T13:00:00+03:00", // ISO date object
     organizers: [
-      { fullName: "Furkan Ünsalan", title: "Pioneer Member" },
-      { fullName: "Serkan Alc", title: "Partner Manager" },
+      {
+        id: 1,
+        name: "Furkan Ünsalan",
+        designation: "Pioneer Member",
+        image: "/images/organizers/serkan-alc.webp",
+      },
+      {
+        id: 2,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
     ],
     speakers: [
       {
@@ -118,8 +128,18 @@ const events: Event[] = [
     videoUrl: "https://example.com/ai-event-video",
     date: "2025-05-31T13:00:00+03:00",
     organizers: [
-      { fullName: "Furkan Ünsalan", title: "Pioneer Member" },
-      { fullName: "Serkan Alc", title: "Partner Manager" },
+      {
+        id: 1,
+        name: "Furkan Ünsalan",
+        designation: "Pioneer Member",
+        image: "/images/organizers/furkan-unsalan.webp",
+      },
+      {
+        id: 2,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
     ],
     speakers: [
       {
@@ -166,14 +186,48 @@ const events: Event[] = [
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "Özcan Zafer Ayan",
-        room: "Ana Salon",
+        room: "Oturumlar",
       },
       {
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "10:00",
         endTime: "12:30",
         speakerName: "Jane Smith",
-        room: "Yan Salon",
+        room: "Network",
+      },
+      {
+        topic: "Cross-Platform Mobile Frameworks2",
+        startTime: "10:00",
+        endTime: "12:30",
+        speakerName: "Jane Smith",
+        room: "Network",
+      },
+      {
+        topic: "Cross-Platform Mobile Frameworks3",
+        endTime: "12:30",
+        speakerName: "Jane Smith",
+        room: "Network",
+      },
+      {
+        topic: "Cross-Platform Mobile Frameworks4",
+        startTime: "10:00",
+        endTime: "12:30",
+        speakerName: "Jane Smith",
+        room: "Network",
+      },
+      {
+        topic: "Cross-Platform Mobile Frameworks5",
+        startTime: "10:00",
+        endTime: "12:30",
+        speakerName: "Jane Smith",
+        room: "Network",
+      },
+      {
+        topic: "Cross-Platform Mobile Frameworks6",
+        startTime: "10:00",
+        endTime: "12:30",
+        speakerName: "Jane Smith",
+        room: "Network",
       },
     ],
     sponsors: [
@@ -186,16 +240,21 @@ const events: Event[] = [
       {
         type: "Community Supporter Ticket",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+          "Community Supporter bileti ile hem etkinliğin bir parçası olun hem de gelecek etkinliklerimize katkıda bulunun!",
         price: 300,
         link: "https://kommunity.com",
+        perks: [
+          "Supporterlara özel badge’lere sahip olun",
+          "Supporterlara özel supporter wall’a dahil olun",
+        ],
       },
       {
         type: "VIP Supporter Ticket",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+          "VIP Supporter Ticket ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
         price: 1500,
         link: "https://kommunity.com",
+        perks: ["test1", "test2", "test3", "test-4"],
       },
     ],
     images: [

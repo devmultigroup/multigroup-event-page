@@ -23,7 +23,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   };
 
   return (
-    <section className="max-w-7xl sm:w-5/6 mx-auto md:px-0 px-4">
+    <section className="w-5/6 mx-auto md:px-0 px-4">
       <div className="flex flex-wrap justify-center gap-4">
         {speakers.map((speaker) => (
           <div

@@ -9,8 +9,10 @@ export type Speaker = {
 };
 
 export type Organizer = {
-  fullName: string;
-  title: string;
+  id: number;
+  name: string;
+  designation: string;
+  image: string;
 };
 
 export type Session =
@@ -72,6 +74,7 @@ export type Ticket = {
   description: string;
   price: number;
   link: string;
+  perks: string[];
 };
 
 // HSL String of Color
