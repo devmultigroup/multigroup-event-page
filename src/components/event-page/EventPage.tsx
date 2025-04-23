@@ -205,8 +205,8 @@ export default function EventPage({
         {/* Card-2 */}
         <ActionCard
           variant="left-image"
-          title="Sizi aramızda görmek için sabırsızlanıyoruz!"
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard "
+          title="Sizi aramızda görmek için can atıyoruz!"
+          description="Eğer hala yerini ayırtmadıysan bu harika deneyimin bir parçası olmak 1 tık uzağında. Seni etkinlik sayfamıza alalım!"
           buttonLabel="Aramıza Katıl"
           buttonLink={event.registerLink}
           image="/images/mockups/reserved.png"

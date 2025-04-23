@@ -221,7 +221,7 @@ export default function SessionContainer({
       {/* Room tabs */}
       {rooms.length > 1 && (
         <>
-          <h2 className="font-extrabold text-4xl mb-2 mt-24 text-center text-color-text">
+          <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-2 mt-24 text-center text-color-text">
             Seni bekleyen
           </h2>
           <Tabs
@@ -229,7 +229,7 @@ export default function SessionContainer({
             onValueChange={(value) => {
               setActiveRoom(value);
             }}
-            className="mb-8 flex flex-col items-center"
+            className="mb-8 mt-4 flex flex-col items-center"
           >
             <TabsList className="border border-blue-200 rounded-lg p-0 overflow-hidden bg-color-accent shadow-sm">
               {[
@@ -239,7 +239,7 @@ export default function SessionContainer({
                 <TabsTrigger
                   key={`room-tab-${room}`}
                   value={room}
-                  className={`px-8 py-3 text-4xl font-bold rounded-none transition-all duration-200 ${
+                  className={`px-8 py-3 text-2xl sm:text-3xl md:text-4xl font-bold rounded-none transition-all duration-200 ${
                     room === activeRoom
                       ? "bg-color-white text-white"
                       : "bg-color-white text-gray-800 hover:bg-gray-50"

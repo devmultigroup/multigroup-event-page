@@ -30,7 +30,7 @@ const ActionCard: React.FC<ActionCardProps> = ({
       {variant === "right-image" ? (
         <>
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-4">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 lg:pt-0 pt-8">
               {name} Yaklaşıyor!
             </h2>
             <p className="text-gray-700 text-base lg:text-lg">{description}</p>
@@ -50,7 +50,7 @@ const ActionCard: React.FC<ActionCardProps> = ({
             <img
               src={image}
               alt="Image"
-              className="w-1/2 h-auto bottom-0 rounded-md mx-auto"
+              className="w-2/3 md:w-1/2 h-auto bottom-0 rounded-md mx-auto"
             />
           </div>
         </>
@@ -60,7 +60,7 @@ const ActionCard: React.FC<ActionCardProps> = ({
             <img
               src={image}
               alt="Image"
-              className="w-1/2 mx-auto h-auto rounded-md"
+              className="w-2/3 md:w-1/2 mx-auto h-auto rounded-md"
             />
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-4 p-6 lg:p-12">

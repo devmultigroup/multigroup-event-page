@@ -254,7 +254,12 @@ const events: Event[] = [
           "VIP Supporter Ticket ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
         price: 1500,
         link: "https://kommunity.com",
-        perks: ["test1", "test2", "test3", "test-4"],
+        perks: [
+          "Supporterlara özel badge’lere sahip olun",
+          "VIP Katılımcılarımıza özel network ve toplantı alanları",
+          "Etkinliği güzel hatırlatacak güzel ikramlar",
+          "Supporterlara özel supporter wall’a dahil olun",
+        ],
       },
     ],
     images: [
