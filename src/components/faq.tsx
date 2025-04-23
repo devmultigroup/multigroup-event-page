@@ -10,9 +10,9 @@ export default function FAQ() {
     <Accordion
       type="single"
       collapsible
-      className="w-5/6 lg:w-2/3 xl:w-5/12 m-auto pb-8 text-white"
+      className="w-5/6 lg:w-2/3 xl:w-5/12 m-auto pb-8 text-color-text"
     >
-      <AccordionItem value="item-1" className="border-zinc-400/30">
+      <AccordionItem value="item-1" className="border-color-text">
         <AccordionTrigger className="font-bold">Biz Kimiz?</AccordionTrigger>
         <AccordionContent>
           MultiGroup, 2020 yılında teknolojiye olan tutku ve merakını
@@ -34,7 +34,7 @@ export default function FAQ() {
           yolculuklarında yeni kapılar açmayı amaçlıyoruz.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2" className="border-zinc-400/30">
+      <AccordionItem value="item-2" className="border-color-text">
         <AccordionTrigger className="font-bold">
           Ekibe üye olmak için ne yapmalıyım?
         </AccordionTrigger>
@@ -55,14 +55,14 @@ export default function FAQ() {
           <a
             href="https://forms.gle/i2wGonLF3kBCRucv6"
             target="blank"
-            className="underline text-color-primary hover:text-color-secondary transition-all duration-300"
+            className="underline text-color-accent hover:text-color-secondary transition-all duration-300"
           >
             bu linki
           </a>{" "}
           ziyaret edebilirsiniz. Seni aramızda görmek için sabırsızlanıyoruz!
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3" className="border-zinc-400/30">
+      <AccordionItem value="item-3" className="border-color-text">
         <AccordionTrigger className="font-bold">
           Etkinliklerde konuşmacı olmak için ne yapmalıyım?
         </AccordionTrigger>
@@ -73,13 +73,13 @@ export default function FAQ() {
           belirlemek ve bizim ile iletişime geçmek yeterli. Başvuru için{" "}
           <a
             href="mailto:developermultigroup@gmail.com"
-            className="text-color-primary underline hover:text-color-secondary transition-all duration-300"
+            className="text-color-accent underline hover:text-color-secondary transition-all duration-300"
           >
             developermultigroup@gmail.com
           </a>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-4" className="border-zinc-400/30">
+      <AccordionItem value="item-4" className="border-color-text">
         <AccordionTrigger className="font-bold">
           Partnerlik için ne yapmalıyım?
         </AccordionTrigger>
@@ -92,7 +92,7 @@ export default function FAQ() {
           bizimle{" "}
           <a
             href="mailto:developermultigroup@gmail.com"
-            className="text-color-primary underline hover:text-color-secondary transition-all duration-300"
+            className="text-color-accent underline hover:text-color-secondary transition-all duration-300"
           >
             developermultigroup@gmail.com
           </a>{" "}

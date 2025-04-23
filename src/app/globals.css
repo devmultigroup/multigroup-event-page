@@ -43,7 +43,8 @@ body {
 body {
   font-family: Montserrat, sans-serif;
   /* background-color: #012B28; */
-  background-color: black;
+  /* background-color: black; */
+  background-color: var(--color-background);
 }
 
 @layer base {

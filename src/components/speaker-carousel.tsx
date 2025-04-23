@@ -23,7 +23,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
   };
 
   return (
-    <section className="max-w-7xl sm:w-5/6 mx-auto md:px-0 px-4">
+    <section className="w-5/6 mx-auto md:px-0 px-4">
       <div className="flex flex-wrap justify-center gap-4">
         {speakers.map((speaker) => (
           <div
@@ -52,7 +52,7 @@ const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
                     loading="lazy"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-color-primary to-color-secondary opacity-20" />
+                  {/* <div className="absolute inset-0 bg-gradient-to-r from-color-accent to-color-primary opacity-40" /> */}
                 </div>
               </Card>
 

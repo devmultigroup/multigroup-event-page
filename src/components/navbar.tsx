@@ -37,21 +37,21 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
     { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
-    { href: "#konum", label: "Konum", isScroll: true },
+    { href: "#biletler", label: "Biletler", isScroll: true },
   ];
 
   return (
     <>
       <AnnouncementBanner />
       <header
-        className={`${announcement.show ? "top-[40px] sm:top-[44px]" : "top-0"} absolute w-full z-50 px-6 sm:px-12 bg-transparent py-2`}
+        className={`${announcement.show ? "top-[40px] sm:top-[44px]" : "top-0"} absolute w-full z-50 px-6 sm:px-12 bg-color-primary py-2`}
       >
         <div className="mx-auto px-8 sm:px-6 lg:px-16">
           <div className="flex h-20 items-center justify-between">
             <div className="flex-shrink-0">
               <a href="/">
                 <Image
-                  src="/dmg-logo.webp"
+                  src="/logo-wide-dark.webp"
                   alt="DMG Logo"
                   width={196}
                   height={196}
@@ -70,7 +70,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                     >
                       <button
                         onClick={() => handleScrollOrRedirect(item.href)}
-                        className="text-lg font-bold text-white transition-colors"
+                        className="text-lg font-bold text-color-text transition-colors"
                       >
                         {item.label}
                       </button>
@@ -80,10 +80,10 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
               </NavigationMenu>
               <Button
                 variant="outline"
-                className="relative h-11 px-6 text-zinc-900 group transition-all duration-300 ease-in-out"
+                className="relative h-11 px-6 text-color-black group transition-all duration-300 ease-in-out"
               >
                 <a href={eventLink} target="_blank" rel="noreferrer">
-                  <div className="absolute inset-0 bg-color-secondary transition-transform duration-300 ease-in-out rounded-md" />
+                  <div className="absolute inset-0 bg-color-accent transition-transform duration-300 ease-in-out rounded-md" />
                   <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                     <span className="relative z-10 font-medium text-sm">
                       Kayıt Ol
@@ -95,7 +95,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             </div>
             <div className="lg:hidden">
               <Button
-                className="text-white"
+                className="text-black"
                 variant="ghost"
                 size="icon"
                 aria-label="Open menu"

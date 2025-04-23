@@ -1,3 +1,4 @@
+// Site wide announcement with configration
 export const announcement = {
   show: true,
   text: "Her salı 20.00'da Data Commit ve her perşembe 20.00'da HR Break yayınlarımız Youtube Kanalımızda!",
