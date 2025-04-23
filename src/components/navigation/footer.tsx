@@ -9,10 +9,9 @@ import {
   ArrowUp,
   GithubLogo,
 } from "@phosphor-icons/react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import FloatingActionButton from "./floating-action-button";
+import FloatingActionButton from "@/components/common/floating-action-button";
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
@@ -30,7 +29,7 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl gap-y-6">
         <div className="flex items-center gap-3">
           <Image
-            src="/dmg-logo.webp"
+            src="/images/logo/dmg-logo.webp"
             alt="MultiGroup Logo"
             width={200}
             height={200}

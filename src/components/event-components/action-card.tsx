@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link"; // Remove if not using Next.js
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 type Variant = "right-image" | "left-image";
 

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/navigation/navbar";
 import { getLatestEventLink } from "@/lib/event-utils";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 import { EventColorProvider } from "@/context/EventColorContext";
+import Footer from "@/components/navigation/footer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",

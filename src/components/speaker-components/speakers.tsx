@@ -6,11 +6,11 @@ import { slugify } from "@/lib/slugify";
 import Image from "next/image";
 import { InstagramLogo, LinkedinLogo, XLogo } from "@phosphor-icons/react";
 
-interface SpeakerCarouselProps {
+interface SpeakerProps {
   speakers: Speaker[];
 }
 
-const Speakers: React.FC<SpeakerCarouselProps> = ({ speakers }) => {
+const Speakers: React.FC<SpeakerProps> = ({ speakers }) => {
   // State to track which cards are flipped on mobile
   const [flippedCards, setFlippedCards] = useState<Record<string, boolean>>({});
 

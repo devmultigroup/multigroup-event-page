@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import CountdownTimer from "@/components/countdown-timer";
+import CountdownTimer from "@/components/common/countdown-timer";
 import { getLatestEvent } from "@/lib/event-utils";
 import { Sparkles, Ghost, Home, Coffee } from "lucide-react";
 

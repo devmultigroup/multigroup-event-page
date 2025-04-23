@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Event } from "@/types";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Calendar,

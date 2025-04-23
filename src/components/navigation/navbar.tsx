@@ -11,7 +11,7 @@ import {
 import { List, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import { announcement } from "@/data/announcement";
-import { AnnouncementBanner } from "./announcement-banner";
+import { AnnouncementBanner } from "@/components/navigation/announcement-banner";
 
 const Navbar = ({ eventLink }: { eventLink: string }) => {
   const pathname = usePathname();
@@ -51,7 +51,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             <div className="flex-shrink-0">
               <a href="/">
                 <Image
-                  src="/logo-wide-dark.webp"
+                  src="/images/logo/logo-wide-dark.webp"
                   alt="DMG Logo"
                   width={196}
                   height={196}

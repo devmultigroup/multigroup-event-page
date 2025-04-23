@@ -1,7 +1,7 @@
 import { Event } from "@/types";
 import React from "react";
 import Image from "next/image";
-import Heading from "./heading";
+import Heading from "@/components/common/heading";
 import { slugify } from "@/lib/slugify";
 
 interface EventImageGalleryProps {

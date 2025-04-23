@@ -106,7 +106,7 @@ const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
         aria-expanded={isActive}
       >
         <img
-          src="/logo-small-black.png"
+          src="/images/logo/logo-small-black.png"
           alt="Toggle Button Icon"
           className={`select-none absolute inset-0 w-1/2 h-1/2 object-contain transition-transform duration-300 mx-auto my-auto ${
             isActive ? "rotate-180" : ""

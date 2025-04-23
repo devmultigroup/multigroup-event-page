@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EventCard from "@/components/event-card";
+import EventCard from "@/components/event-components/event-card";
 import events from "@/data/events";
 import { getLatestEvent } from "@/lib/event-utils";
 import { useEventColor } from "@/context/EventColorContext";

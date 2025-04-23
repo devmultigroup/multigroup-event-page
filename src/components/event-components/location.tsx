@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Map, Marker } from "pigeon-maps";
 import { Location } from "@/types";
 import { MapPin } from "@phosphor-icons/react";
-import Heading from "./heading";
+import Heading from "@/components/common/heading";
 
 interface LocationComponentProps {
   location: Location;

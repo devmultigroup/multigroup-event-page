@@ -4,7 +4,11 @@ export default function Loading() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black">
       {/* Replace "/logo.png" with your logo path */}
-      <img src="/logo-small-white.png" alt="Logo" className="mb-8 w-16" />
+      <img
+        src="/images/logo/logo-small-white.png"
+        alt="Logo"
+        className="mb-8 w-16"
+      />
 
       {/* Loading bar container */}
       <div className="w-48 h-px bg-gray-600 rounded-full overflow-hidden relative">

@@ -117,7 +117,7 @@ export default function EventBadge() {
             {/* Image logo in bottom right */}
             <div className="absolute bottom-4 right-4 h-8 w-8">
               <img
-                src="/logo-small.png" // Replace with your actual image path
+                src="/images/logo/logo-small.png" // Replace with your actual image path
                 alt="Logo"
                 className="w-full h-full object-contain"
               />
