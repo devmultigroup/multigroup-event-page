@@ -1,5 +1,3 @@
-Sure! Here's the full English translation of your file in a code block:
-
 ![screenshot](public/opengraph-image.webp)
 
 <h1 align="center">MultiGroup Events</h1>
