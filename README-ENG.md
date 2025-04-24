@@ -220,6 +220,21 @@ Components related to speakers.
 
 Components downloaded from external sources like Shadcn UI, Aceternity UI, etc.
 
+### Announcement File
+
+```mermaid
+erDiagram
+    ANNOUNCEMENT {
+        boolean show "Whether the announcement bar is visible"
+        string text "The message displayed in the banner"
+        string backgroundColor "Background color of the banner (HEX format)"
+        string textColor "Text color of the banner (HEX format)"
+        string link "URL to be redirected when user clicks (e.g., YouTube)"
+        string linkText "Text for the link button (e.g., 'Watch')"
+        boolean showLink "Determines if the link button should be shown"
+    }
+```
+
 ## Creating a New Event
 
 To create a new event, simply add a new object with the fields mentioned above in the `data/events.ts` file. Just make sure that the names and locations of the photos are correct.

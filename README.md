@@ -214,6 +214,21 @@ Navigasyon özelinde kullanılan bileşenler.
 
 Konuşmacılar ile alakalı olarak kullanılan bileşenler
 
+### Duyuru Dosyası
+
+```mermaid
+erDiagram
+    ANNOUNCEMENT {
+        boolean show "Duyuru çubuğunun görünür olup olmadığını belirtir"
+        string text "Banner'da gösterilen mesaj"
+        string backgroundColor "Banner'ın arka plan rengi (HEX formatında)"
+        string textColor "Banner'ın metin rengi (HEX formatında)"
+        string link "Kullanıcı tıkladığında yönlendirilecek URL (örneğin, YouTube)"
+        string linkText "Link butonunun metni (örneğin, 'İzle')"
+        boolean showLink "Link butonunun gösterilip gösterilmeyeceğini belirler"
+    }
+```
+
 #### Harici Bileşenler
 
 (src/components/ui)
