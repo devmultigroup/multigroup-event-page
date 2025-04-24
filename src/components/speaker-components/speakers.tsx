@@ -23,7 +23,7 @@ const Speakers: React.FC<SpeakerProps> = ({ speakers }) => {
   };
 
   return (
-    <section className="w-5/6 mx-auto md:px-0 px-4">
+    <section className="w-5/6 2xl:w-2/3 mx-auto md:px-0 px-4">
       <div className="flex flex-wrap justify-center gap-4">
         {speakers.map((speaker) => (
           <div

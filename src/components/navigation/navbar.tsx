@@ -44,10 +44,10 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
     <>
       <AnnouncementBanner />
       <header
-        className={`${announcement.show ? "top-[40px] sm:top-[44px]" : "top-0"} absolute w-full z-50 px-6 sm:px-12 bg-color-primary py-2`}
+        className={`${announcement.show ? "top-[40px] sm:top-[44px]" : "top-0"} absolute w-full z-50 px-4 sm:px-4 bg-color-primary py-2`}
       >
-        <div className="mx-auto px-8 sm:px-6 lg:px-16">
-          <div className="flex h-20 items-center justify-between">
+        <div className="mx-auto ">
+          <div className="flex h-20 items-center justify-between w-5/6 mx-auto">
             <div className="flex-shrink-0">
               <a href="/">
                 <Image

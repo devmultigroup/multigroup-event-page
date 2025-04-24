@@ -25,7 +25,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative text-color-background py-6 px-2 md:px-12 flex flex-col items-center justify-center min-h-60 bg-color-secondary w-5/6 mx-auto mb-12 mt-[30px] rounded-2xl">
+    <footer className="relative text-color-background py-6 px-2 md:px-12 flex flex-col items-center justify-center min-h-60 bg-color-secondary w-5/6 2xl:w-2/3 mx-auto mb-12 mt-12 rounded-2xl">
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl gap-y-6">
         <div className="flex items-center gap-3">
           <Image

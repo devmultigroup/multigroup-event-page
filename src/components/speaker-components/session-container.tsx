@@ -217,11 +217,11 @@ export default function SessionContainer({
   };
 
   return (
-    <div className="max-w-6xl mx-auto md:w-5/6 pb-16 md:px-0 px-4">
+    <div className=" mx-auto w-full md:w-5/6 2xl:w-2/3 pb-16 md:px-0 px-4 pt-[30px]">
       {/* Room tabs */}
       {rooms.length > 1 && (
         <>
-          <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-2 mt-24 text-center text-color-text">
+          <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-2 text-center text-color-text">
             Seni bekleyen
           </h2>
           <Tabs
@@ -231,7 +231,7 @@ export default function SessionContainer({
             }}
             className="mb-8 mt-4 flex flex-col items-center"
           >
-            <TabsList className="border border-blue-200 rounded-lg p-0 overflow-hidden bg-color-accent shadow-sm">
+            <TabsList className="border border-blue-200 rounded-lg p-1 gap-x-2 overflow-hidden bg-color-accent shadow-sm h-auto">
               {[
                 ...rooms.filter((room) => room !== "Network").sort(),
                 ...rooms.filter((room) => room === "Network"),
@@ -239,7 +239,7 @@ export default function SessionContainer({
                 <TabsTrigger
                   key={`room-tab-${room}`}
                   value={room}
-                  className={`px-8 py-3 text-2xl sm:text-3xl md:text-4xl font-bold rounded-none transition-all duration-200 ${
+                  className={`px-8 py-1 text-xl sm:text-2xl md:text-4xl font-bold rounded-lg transition-all duration-200 ${
                     room === activeRoom
                       ? "bg-color-white text-white"
                       : "bg-color-white text-gray-800 hover:bg-gray-50"
@@ -250,7 +250,7 @@ export default function SessionContainer({
               ))}
             </TabsList>
           </Tabs>
-          <p className="text-lg text-center pb-16">
+          <p className="text-lg max-w-4xl w-5/6 mx-auto text-center pb-16">
             Sektörün önde gelen şirketleri hangi teknolojileri kullanıyor,
             kararlarını neye göre alıyor, geleceği nasıl görüyor? Gelin,
             doğrudan onların ağzından dinleyelim
@@ -340,7 +340,7 @@ export default function SessionContainer({
 
       {isNetworkingEvent ? (
         // For Networking events, show speaker photos without interactive elements
-        <div className="flex flex-wrap justify-center gap-6 max-w-5/6 mx-auto bg-color-primary p-24 rounded-2xl">
+        <div className="flex flex-wrap justify-center gap-6 max-w-5/6 mx-auto bg-color-primary p-8 rounded-2xl">
           {filteredSessions.map((session) => {
             const speaker = event.speakers.find(
               (s) => s.fullName === session.speakerName,
@@ -383,25 +383,27 @@ export default function SessionContainer({
                 (s.room === session.room || (!s.room && !session.room)),
             );
             const hasConflict = hasTimeConflict(session) && !isSelected;
+
             return (
               <Card
                 key={`session-card-${session.speakerName}-${session.topic}-${session.room || ""}`}
-                className={`w-full mx-auto p-4 py-8 rounded-2xl select-none transition-all overflow-hidden ${
+                className={`w-full mx-auto p-4 py-6 rounded-2xl select-none transition-all overflow-hidden ${
                   isSelected
                     ? "border-2 border-color-accent outline outline-2 outline-color-accent outline-offset-0"
                     : ""
                 } bg-color-primary`}
               >
+                {/* MOBILE: image + time+checkbox in row, topic below */}
+                {/* MOBILE layout (image spans two rows) */}
                 <div
-                  className="flex items-center justify-between hover:cursor-pointer"
+                  className="flex flex-col sm:hidden gap-3"
                   onClick={() => {
                     if (!isPastEvent) toggleSessionSelection(session);
                   }}
                 >
-                  {/* Left Section: Image + Info */}
-                  <div className="flex items-center space-x-4">
-                    {/* Speaker Image */}
-                    <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden border-4 border-white shadow-md">
+                  <div className="flex items-start gap-4">
+                    {/* Image spanning 2 rows */}
+                    <div className="relative w-16 aspect-square rounded-full overflow-hidden border-4 border-white shadow-md shrink-0 row-span-2">
                       <Image
                         src={`/images/speakers/${slugify(session.speakerName)}.webp`}
                         alt={session.speakerName}
@@ -411,8 +413,63 @@ export default function SessionContainer({
                       />
                     </div>
 
-                    {/* Text Info */}
-                    <div>
+                    {/* Name & Time + Checkbox */}
+                    <div className="flex flex-col flex-1 gap-1">
+                      <p className="font-bold text-color-text text-lg">
+                        {session.speakerName}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-semibold text-color-text whitespace-nowrap">
+                          {session.startTime} - {session.endTime}
+                        </p>
+                        {!isPastEvent && (
+                          <div className="flex items-center gap-2">
+                            {hasConflict && (
+                              <Warning size={16} className="text-red-500" />
+                            )}
+                            <Checkbox
+                              aria-label="checkbox"
+                              checked={isSelected}
+                              onCheckedChange={() =>
+                                toggleSessionSelection(session)
+                              }
+                              className={`border rounded ${
+                                isSelected
+                                  ? "bg-color-accent text-white"
+                                  : "bg-transparent text-transparent"
+                              } ${hasConflict ? "border-red-500" : "border-color-accent"}`}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Topic below */}
+                  <div className="text-left">
+                    <p className="text-color-text text-sm">{session.topic}</p>
+                  </div>
+                </div>
+
+                {/* DESKTOP/TABLET layout unchanged */}
+                <div
+                  className="hidden sm:flex flex-row items-center justify-between gap-4"
+                  onClick={() => {
+                    if (!isPastEvent) toggleSessionSelection(session);
+                  }}
+                >
+                  {/* Left: Image + Info */}
+                  <div className="flex items-center gap-4 flex-1 min-w-0">
+                    <div className="relative w-[60px] aspect-square rounded-full overflow-hidden border-4 border-white shadow-md shrink-0">
+                      <Image
+                        src={`/images/speakers/${slugify(session.speakerName)}.webp`}
+                        alt={session.speakerName}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-col">
                       <p className="font-bold text-color-text text-lg">
                         {session.speakerName}
                       </p>
@@ -420,12 +477,11 @@ export default function SessionContainer({
                     </div>
                   </div>
 
-                  {/* Right Section: Time + Checkbox */}
-                  <div className="flex flex-col items-end gap-2">
-                    <p className="text-sm font-semibold text-color-text">
+                  {/* Right: Time + Checkbox */}
+                  <div className="flex flex-col items-end gap-2 shrink-0">
+                    <p className="text-sm font-semibold text-color-text whitespace-nowrap">
                       {session.startTime} - {session.endTime}
                     </p>
-
                     {!isPastEvent && (
                       <div className="flex items-center gap-2">
                         {hasConflict && (

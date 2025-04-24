@@ -26,7 +26,7 @@ const ActionCard: React.FC<ActionCardProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="w-5/6 mx-auto flex flex-col lg:flex-row items-center justify-between bg-[#f3f1fc] rounded-3xl px-6 lg:px-12">
+    <section className="w-5/6 2xl:w-2/3 mx-auto flex flex-col lg:flex-row items-center justify-between bg-[#f3f1fc] rounded-3xl px-6 lg:px-12">
       {variant === "right-image" ? (
         <>
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-4">

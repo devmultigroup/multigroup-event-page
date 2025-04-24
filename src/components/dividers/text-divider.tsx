@@ -21,7 +21,7 @@ export default function TextDivider() {
   ];
 
   return (
-    <section className="w-5/6 mx-auto py-12">
+    <section className="w-5/6 2xl:w-2/3 mx-auto py-12">
       <div className="border-t border-b border-color-accent py-12">
         {/* Desktop Layout */}
         <div className="hidden lg:flex justify-between items-center">
@@ -70,7 +70,7 @@ export default function TextDivider() {
           {contentItems.map((item, i) => (
             <div
               key={i}
-              className="w-full text-left text-color-text font-medium"
+              className="w-full text-center text-color-text font-medium"
             >
               <h3 className="text-xl font-bold">{item.title}</h3>
               <p>{item.text}</p>

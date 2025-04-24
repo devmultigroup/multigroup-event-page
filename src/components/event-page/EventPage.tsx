@@ -73,56 +73,66 @@ export default function EventPage({
       </Head>
 
       {/* Hero Section */}
-      <div
-        className="relative flex items-center justify-center px-6 sm:px-12 bg-color-background"
-        style={{ minHeight }}
-      >
-        {/* <EventBadge /> */}
-        {/* Event Name (Top Left) */}
-        <motion.div
-          className="select-none absolute top-24 sm:top-32 lg:left-24 text-color-text text-4xl sm:text-6xl font-extrabold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }} // removed extra delay for faster render
-        >
-          {event.name}
-          <div className="text-xl font-normal pt-12">
-            {event.heroDescription}
-          </div>
-
-          {/* CTA Button */}
+      <div className="flex flex-col items-center justify-between bg-color-background w-5/6 mx-auto py-24 min-h-screen">
+        {/* Top Section with Event Name */}
+        <div className="w-full">
           <motion.div
-            className="mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="select-none text-color-text text-4xl sm:text-6xl font-extrabold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            <a href="https://kommunity.com/devmultigroup">
-              <Button
-                borderRadius="0.75rem"
-                className="bg-transparent text-color-text"
-              >
-                Yerinizi Ayırtın
-              </Button>
-            </a>
+            {event.name}
+            <div className="text-xl font-normal pt-12">
+              {event.heroDescription}
+            </div>
+
+            {/* CTA Button */}
+            <motion.div
+              className="mt-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <a href="https://kommunity.com/devmultigroup">
+                <Button
+                  borderRadius="0.75rem"
+                  className="bg-transparent text-color-text"
+                >
+                  Yerinizi Ayırtın
+                </Button>
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Bottom Section */}
         <motion.div
-          className="select-none absolute bottom-16 lg:bottom-24 w-full px-6 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-8"
+          className="select-none w-full flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 mt-8"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
           {/* Initial Metrics */}
           <motion.div
-            className="select-none text-color-text text-xl sm:text-4xl px-2 py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
+            className="select-none text-color-text text-xl sm:text-4xl py-4 md:py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
             variants={fadeInUp}
           >
-            {/* <p>{getFormattedDate(event.date)}</p>
-            <p>{event.location.name}</p> */}
-            <CountdownTimer targetDate={event.date} />
+            <div className="flex justify-left items-left text-color-text w-full gap-x-6">
+              {event.initialMetrics.map((metric, index) => (
+                <div
+                  key={`metric-${index}`}
+                  className={`flex flex-col items-left justify-left text-center md:text-left ${index < event.initialMetrics.length - 1 ? "pr-6 border-r-2 border-color-accent" : ""}`}
+                >
+                  <span className="text-2xl sm:text-4xl font-bold">
+                    {metric.value}+
+                  </span>
+                  <span className="text-sm sm:text-base font-medium mt-1">
+                    {metric.title}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Organizers */}

@@ -2,7 +2,7 @@ import { ChatsCircle, Microphone, Sparkle } from "@phosphor-icons/react";
 
 export default function IconDivider() {
   return (
-    <section className="w-5/6 mx-auto py-12">
+    <section className="w-5/6 2xl:w-2/3 mx-auto py-12">
       <div className="border-t border-b border-color-accent py-12 flex flex-col gap-10 md:flex-row md:justify-between md:items-center text-color-text">
         <div className="flex items-center gap-4">
           <div className="p-4 rounded-xl border border-color-accent shadow-xl bg-white">

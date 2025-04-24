@@ -1,3 +1,4 @@
+import { slugify } from "@/lib/slugify";
 import { Event } from "@/types";
 
 const events: Event[] = [
@@ -182,7 +183,8 @@ const events: Event[] = [
     ],
     sessions: [
       {
-        topic: "Future of Android Development",
+        topic:
+          "Room ve DataStore Kullanımı: Android'de Veri Saklama Yöntemleri",
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "Özcan Zafer Ayan",
@@ -192,14 +194,14 @@ const events: Event[] = [
         topic: "Cross-Platform Mobile Frameworks",
         startTime: "10:00",
         endTime: "12:30",
-        speakerName: "Jane Smith",
+        speakerName: "Özcan Zafer Ayan",
         room: "Network",
       },
       {
         topic: "Cross-Platform Mobile Frameworks2",
         startTime: "10:00",
         endTime: "12:30",
-        speakerName: "Jane Smith",
+        speakerName: "Özcan Zafer Ayan",
         room: "Network",
       },
       {
@@ -269,8 +271,8 @@ const events: Event[] = [
     ],
     initialMetrics: [
       { title: "Etkinlik Kontenjan", value: 600 },
-      { title: "Etkinlik Kontenjan", value: 600 },
-      { title: "Etkinlik Kontenjan", value: 600 },
+      { title: "Etkinlik Konuşmacı", value: 30 },
+      { title: "Katılan Şirket", value: 50 },
     ],
     // afterMetrics: {
     //   applications: "700",
