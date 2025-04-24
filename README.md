@@ -214,6 +214,12 @@ Navigasyon özelinde kullanılan bileşenler.
 
 Konuşmacılar ile alakalı olarak kullanılan bileşenler
 
+#### Harici Bileşenler
+
+(src/components/ui)
+
+Shadcn UI, Aceternity UI gibi harici kaynaklardan indirilen bileşenler.
+
 ### Duyuru Dosyası
 
 ```mermaid
@@ -228,12 +234,6 @@ erDiagram
         boolean showLink "Link butonunun gösterilip gösterilmeyeceğini belirler"
     }
 ```
-
-#### Harici Bileşenler
-
-(src/components/ui)
-
-Shadcn UI, Aceternity UI gibi harici kaynaklardan indirilen bileşenler.
 
 ## Yeni Etkinlik Oluşturma
 
