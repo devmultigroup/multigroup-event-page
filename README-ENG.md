@@ -222,6 +222,8 @@ Components downloaded from external sources like Shadcn UI, Aceternity UI, etc.
 
 ### Announcement File
 
+(src/data/announcement.ts)
+
 ```mermaid
 erDiagram
     ANNOUNCEMENT {
