@@ -230,7 +230,7 @@ Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts`
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Developer-MultiGroup/multigroup-event-page&type=Timeline)](https://star-history.com/#fDeveloper-MultiGroup/multigroup-event-page)
 
-## License
+## Lisans
 
 Bu projenin [lisansına](LICENSE) göz atın.
 
