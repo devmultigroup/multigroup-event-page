@@ -222,6 +222,8 @@ Shadcn UI, Aceternity UI gibi harici kaynaklardan indirilen bileşenler.
 
 ### Duyuru Dosyası
 
+(src/data/announcement.ts)
+
 ```mermaid
 erDiagram
     ANNOUNCEMENT {
