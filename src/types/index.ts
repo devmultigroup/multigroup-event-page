@@ -1,7 +1,6 @@
 export type Speaker = {
   fullName: string;
   title: string;
-  phrase?: string;
   company?: string;
   instagram?: string;
   linkedin?: string;

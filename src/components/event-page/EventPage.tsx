@@ -15,6 +15,7 @@ import { Button } from "../ui/moving-border";
 import ActionCard from "../event-components/action-card";
 import IconDivider from "../dividers/icon-divider";
 import TextDivider from "../dividers/text-divider";
+import { slugify } from "@/lib/slugify";
 // import EventBadge from "../event-badge";
 
 interface EventPageProps {
@@ -156,7 +157,7 @@ export default function EventPage({
           variant="right-image"
           name={event.name}
           description={event.cardDescription}
-          image="/images/mockups/mode-conf.png"
+          image={`/images/mockups/${slugify(event.name)}.webp`}
         />
 
         {/* Divider-1 */}
@@ -219,7 +220,7 @@ export default function EventPage({
           description="Eğer hala yerini ayırtmadıysan bu harika deneyimin bir parçası olmak 1 tık uzağında. Seni etkinlik sayfamıza alalım!"
           buttonLabel="Aramıza Katıl"
           buttonLink={event.registerLink}
-          image="/images/mockups/reserved.png"
+          image="/images/mockups/reserved.webp"
         />
       </div>
     </div>

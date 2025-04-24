@@ -37,7 +37,7 @@ export default function TextDivider() {
           <div className="p-6 rounded-xl border border-color-accent shadow-xl bg-white relative">
             <div className="w-10 h-10 rounded-md flex items-center justify-center">
               <img
-                src="/images/logo/logo-small-black.png"
+                src="/images/logo/logo-small.webp"
                 alt="Image"
                 className="w-[50px] h-auto bottom-0 rounded-md mx-auto"
               />
@@ -60,7 +60,7 @@ export default function TextDivider() {
           <div className="p-6 rounded-xl border border-color-accent shadow-xl bg-white mb-6">
             <div className="w-10 h-10 rounded-md flex items-center justify-center">
               <img
-                src="/images/logo/logo-small-black.png"
+                src="/images/logo/logo-small.webp"
                 alt="Image"
                 className="w-[50px] h-auto bottom-0 rounded-md mx-auto"
               />

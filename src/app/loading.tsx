@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-black">
       {/* Replace "/logo.png" with your logo path */}
       <img
-        src="/images/logo/logo-small-white.png"
+        src="/images/logo/logo-small-white.webp"
         alt="Logo"
         className="mb-8 w-16"
       />

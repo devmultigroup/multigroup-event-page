@@ -41,8 +41,6 @@ const events: Event[] = [
       {
         fullName: "Özcan Zafer Ayan",
         title: "CTO at MobileTech",
-        phrase:
-          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
         company: "Trendyol",
         linkedin: "https://www.linkedin.com/in/daronyondem/",
         twitter: "https://x.com/daronyondem",
@@ -150,8 +148,6 @@ const events: Event[] = [
       {
         fullName: "Özcan Zafer Ayan",
         title: "CTO at MobileTech",
-        phrase:
-          "Konuşma yaptığım en ilgi çekici topluluk, herkese tavsiye ederim!",
         company: "Trendyol",
         linkedin: "https://www.linkedin.com/in/daronyondem/",
         twitter: "https://x.com/daronyondem",

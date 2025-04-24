@@ -1,8 +1,17 @@
 ![screenshot](public/opengraph-image.webp)
 
-# MultiGroup Etkinlik Sayfası
+<h1 align="center">MultiGroup Etkinlikleri</h1>
 
-[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/chetanraj/awesome-github-badges) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) [![License: GNU 3.0](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/) [![GitHub issues](https://img.shields.io/github/issues/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
+<div align="center">
+
+[![Made With Love](https://img.shields.io/badge/Made%20With-Love%20<3-red.svg)](https://github.com/chetanraj/awesome-github-badges)
+[![Where Developers Become Together](https://img.shields.io/badge/Where%20Developers%20Become-Together!-blue.svg)](https://kommunity.com/devmultigroup)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![License: GNU 3.0](https://img.shields.io/badge/License-GNU%203.0-orange.svg)](https://opensource.org/license/gpl-3-0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/pulls/)
+[![GitHub issues](https://img.shields.io/github/issues/Developer-MultiGroup/multigroup-event-page.svg)](https://GitHub.com/Developer-MultiGroup/multigroup-event-page/issues/)
+
+</div>
 
 ## Genel Bakış
 
@@ -26,7 +35,7 @@ Bu repository Developer MultiGroup'un etkinliklerine kolayca ulaşabilmeniz içi
 - **Vercel:** Kod dağıtımı.
 - **Framer:** Bileşen ve sayfa animasyonları.
 
-## Etkinlik Dosyalarının Yönetimi
+## Proje Dosyalarının Yönetimi
 
 ### Event Type Yapısı
 
@@ -37,17 +46,21 @@ classDiagram
     class Event {
         +number id
         +string name
-        +string subTitle
-        +string title
-        +string description
+        +string heroDescription
+        +string cardDescription
         +Location location
         +string registerLink
         +string videoUrl
         +string date
-        +string[] sponsors
+        +Organizer[] organizers
         +Speaker[] speakers
         +Session[] sessions
-        +AfterMetrics? afterMetrics
+        +Sponsor[] sponsors
+        +Ticket[] tickets
+        +string[] images
+        +InitialMetric[] initialMetrics (max 3)
+        +AfterMetrics afterMetrics
+        +ColorPalette colorPalette
     }
 
     class Location {
@@ -59,15 +72,44 @@ classDiagram
 
     class Speaker {
         +string fullName
-        +string photoUrl
         +string title
+        +string company
+        +string instagram
+        +string linkedin
+        +string twitter
+    }
+
+    class Organizer {
+        +number id
+        +string name
+        +string designation
+        +string image
     }
 
     class Session {
+        +string room
         +string topic
         +string startTime
         +string endTime
         +string speakerName
+    }
+
+    class Sponsor {
+        +string tier ("platin"|"altın"|"gümüş"|"bronz")
+        +string sponsorSlug
+    }
+
+    class Ticket {
+        +string type
+        +string description
+        +number price
+        +string link
+        +string[] perks
+    }
+
+    class InitialMetric {
+        +string title
+        +number value
     }
 
     class AfterMetrics {
@@ -81,10 +123,24 @@ classDiagram
         +string satisfaction
     }
 
+    class ColorPalette {
+        +string primary
+        +string secondary
+        +string accent
+        +string background
+        +string text
+    }
+
     Event *-- Location : has
-    Event *-- Speaker : contains
-    Event *-- Session : contains
-    Event *-- AfterMetrics : tracks
+    Event *-- Organizer : organized_by
+    Event *-- Speaker : features
+    Event *-- Session : includes
+    Event *-- Sponsor : backed by
+    Event *-- Ticket : offers
+    Event *-- InitialMetric : highlights
+    Event *-- AfterMetrics : evaluates
+    Event *-- ColorPalette : themed by
+
 ```
 
 ### Fotoğraf Klasörleri
@@ -92,7 +148,10 @@ classDiagram
 ```bash
 /public/images
     ├── events
-    │   └── etkinlik-adi
+    │   └── event-name
+    ├── logo
+    ├── mockups
+    ├── organizer
     ├── speakers
     └── sponsors
 ```
@@ -103,6 +162,18 @@ Projenin fotoğraf depolama yapısı yukarıdaki gibidir.
 
 Her etkinliğin kendisiyle alakalı 3 adet fotoğraf belirtilen isimlerde kendi isminin altında (slugify edilmiş isim) bulunur.
 
+#### Logolar
+
+MultiGroup adına kullanılan logoların depolandığı dosya dizinidir.
+
+#### Mockup'lar
+
+Etkinlikler özelinde ve kart tasarımlarında kullanılan mockup'ların biriktirildiği dizindir.
+
+#### Organizatör Fotoğrafları
+
+Etkinlik organizatörlerinin giriş sayfasında kullanılmak üzere toplanan fotoğraflarının bulunduğu dosya dizini.
+
 #### Konuşmacı Fotoğrafları
 
 Tüm konuşmacıların fotoğrafları slugify edilmiş isimler ile bu klasörde tutulur ve herhangi bir etkinliğe konuşmacı eklenirken o isimle eklendiğinde fotoğraflar otomatik olarak bu klasörden alınır
@@ -110,6 +181,44 @@ Tüm konuşmacıların fotoğrafları slugify edilmiş isimler ile bu klasörde 
 #### Sponsor Fotoğrafları
 
 Sponsor fotoğraflarının mantığı da konuşmacılarla aynıdır. Slugify edilmiş bir isim ile sponsorların logoları bu klasörün içerisinde tutulur ve gerektiğinde etkinlik objesindeki array yapısına bu isim eklenir.
+
+### Component Klasörleri
+
+#### Ortak Bileşenler
+
+(src/components/common)
+
+Diğer bileşenlerde ortak olarak kullanılan, proje genelinde ihtiyaç duyulan bileşenler.
+
+#### Ayırıcı Bileşenler
+
+(src/components/dividers)
+
+Bölüm geçişlerinde kullanılan bileşenler.
+
+#### Etkinlik Bileşenleri
+
+(src/components/event-components)
+
+Etkinlik sayfasında kullanılan veya etkinliklerle ilgili bileşenler.
+
+#### Navigation Bileşenleri
+
+(src/components/navigation-components)
+
+Navigasyon özelinde kullanılan bileşenler.
+
+#### Konuşmacı Bileşenleri
+
+(src/components/speaker-components)
+
+Konuşmacılar ile alakalı olarak kullanılan bileşenler
+
+#### Harici Bileşenler
+
+(src/components/ui)
+
+Shadcn UI, Aceternity UI gibi harici kaynaklardan indirilen bileşenler.
 
 ## Yeni Etkinlik Oluşturma
 
@@ -125,6 +234,6 @@ Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts`
 
 Bu projenin [lisansına](LICENSE) göz atın.
 
-## Contact
+## İletişim
 
-If you have any questions, feel free to reach out to me at `me@furkanunsalan.dev`.
+Eğer proje hakkında herhangi bir sorunuz olursa bana `me@furkanunsalan.dev` mail adresi üzerinden ulaşabilirsiniz.
