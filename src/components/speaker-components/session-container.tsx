@@ -242,7 +242,7 @@ export default function SessionContainer({
                   className={`px-8 py-1 text-xl sm:text-2xl md:text-4xl font-bold rounded-lg transition-all duration-200 ${
                     room === activeRoom
                       ? "bg-color-white text-white"
-                      : "bg-color-white text-gray-800 hover:bg-gray-50"
+                      : "bg-color-white text-gray-800 hover:bg-gray-100/90"
                   }`}
                 >
                   {room}

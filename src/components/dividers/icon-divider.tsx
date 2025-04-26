@@ -1,4 +1,5 @@
-import { ChatsCircle, Microphone, Sparkle } from "@phosphor-icons/react";
+import { Chats, Microphone, Sparkle, Star } from "@phosphor-icons/react";
+import Image from "next/image";
 
 export default function IconDivider() {
   return (
@@ -13,7 +14,7 @@ export default function IconDivider() {
 
         <div className="flex items-center gap-4">
           <div className="p-4 rounded-xl border border-color-accent shadow-xl bg-white">
-            <ChatsCircle size={24} weight="fill" className="text-color-text" />
+            <Chats size={24} weight="fill" className="text-color-text" />
           </div>
           <h3 className="text-lg font-bold">
             Etkileşim Odaklı Network Alanları
@@ -22,7 +23,13 @@ export default function IconDivider() {
 
         <div className="flex items-center gap-4">
           <div className="p-4 rounded-xl border border-color-accent shadow-xl bg-white">
-            <Sparkle size={24} weight="fill" className="text-color-text" />
+            <Image
+              src="/icons/northern-star.svg"
+              alt="Northern Star Icon"
+              width={32}
+              height={32}
+              className="text-color-text" // eğer SVG'nin içinde fill yoksa renk değiştirmez
+            />
           </div>
           <h3 className="text-lg font-bold">
             Sektörün Önde Gelen Şirketleriyle Birebir

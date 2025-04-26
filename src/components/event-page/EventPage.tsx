@@ -78,13 +78,13 @@ export default function EventPage({
         {/* Top Section with Event Name */}
         <div className="w-full">
           <motion.div
-            className="select-none text-color-text text-4xl sm:text-6xl font-extrabold px-2 pt-8 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
+            className="select-none text-color-text text-4xl sm:text-6xl font-extrabold px-2 pt-24 md:pt-32 max-w-lg sm:max-w-2xl leading-snug sm:leading-[64px] text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
           >
             {event.name}
-            <div className="text-xl font-normal pt-12">
+            <div className="text-xl font-normal pt-8">
               {event.heroDescription}
             </div>
 

@@ -1,6 +1,6 @@
 // Site wide announcement with configration
 export const announcement = {
-  show: true,
+  show: false,
   text: "Her salı 20.00'da Data Commit ve her perşembe 20.00'da HR Break yayınlarımız Youtube Kanalımızda!",
   backgroundColor: "#003B5C", // Dark blue color from the image
   textColor: "#FFFFFF",
