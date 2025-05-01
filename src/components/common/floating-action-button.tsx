@@ -5,7 +5,9 @@ import {
   Coffee,
   YoutubeLogo,
   UsersThree,
+  XLogo,
 } from "@phosphor-icons/react";
+import { link } from "fs";
 import { useState, useEffect, useRef } from "react";
 
 const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
@@ -18,6 +20,11 @@ const FloatingActionButton = ({ alwaysShow }: { alwaysShow: boolean }) => {
       icon: InstagramLogo,
       label: "Instagram",
       link: "https://instagram.com/devmultigroup",
+    },
+    {
+      icon: XLogo,
+      label: "X",
+      link: "https://x.com/devmultigroup",
     },
     {
       icon: LinkedinLogo,

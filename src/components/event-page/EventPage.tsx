@@ -173,7 +173,7 @@ export default function EventPage({
           <SessionContainer event={event} color={event.colorPalette.accent} />
         </motion.div>
 
-        <span id="konuşmacılar"></span>
+        <span id="konusmacilar"></span>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
