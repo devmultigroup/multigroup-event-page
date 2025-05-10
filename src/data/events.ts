@@ -142,22 +142,22 @@ const events: Event[] = [
     speakers: [
       {
         fullName: "Kasım Adalan",
-        title: "Sr. Mobile Developer & Instructor ",
+        title: "Sr. Mobile Developer & Instructor",
         company: "Sabancı University",
       },
       {
         fullName: "Bilal Durnagöl",
-        title: "Expert Architecture Engineer ",
+        title: "Expert Architecture Engineer",
         company: "Garanti BBVA",
       },
       {
         fullName: "İrem Aral",
-        title: "Human Resources Business Partner ",
+        title: "Human Resources Business Partner",
         company: "RoofStacks",
       },
       {
         fullName: "Necati Sözer",
-        title: "Sr. Android Software Engineer ",
+        title: "Sr. Android Software Engineer",
         company: "Lyrebird Studio",
       },
       {
@@ -167,7 +167,7 @@ const events: Event[] = [
       },
       {
         fullName: "Mehmet Niyazi Atlıoğlu",
-        title: "Sr. Android Developer ",
+        title: "Sr. Android Developer",
         company: "Softtech",
       },
       {
@@ -177,13 +177,18 @@ const events: Event[] = [
       },
       {
         fullName: "Emirhan Emmez",
-        title: "Manager Android Engineer ",
+        title: "Manager Android Engineer",
         company: "d360 Bank",
       },
       {
         fullName: "Oğuz Gürler",
-        title: "Mobile Engineering Manager ",
+        title: "Mobile Engineering Manager",
         company: "Commencis",
+      },
+      {
+        fullName: "Melissa Çoralı",
+        title: "Android Developer & Scrum Master",
+        company: "Akbank",
       },
     ],
     sessions: [
@@ -203,6 +208,10 @@ const events: Event[] = [
       },
     ],
     sponsors: [
+      {
+        tier: "",
+        sponsorSlug: "akbank",
+      },
       {
         tier: "",
         sponsorSlug: "appcircle",
