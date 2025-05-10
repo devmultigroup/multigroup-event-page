@@ -188,8 +188,7 @@ const events: Event[] = [
     ],
     sessions: [
       {
-        topic:
-          "",
+        topic: "",
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
         speakerName: "Kasım Adalan",
