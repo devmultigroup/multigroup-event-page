@@ -42,51 +42,51 @@ export default function CountdownTimer({
       ) : (
         <>
           {/* Days */}
-          <div className="flex flex-col items-center mx-2">
-            <span className="text-5xl">{days}</span>
-            <span className="text-xl">Gün</span>
+          <div className="flex flex-col items-center mx-1 md:mx-2">
+            <span className="text-3xl md:text-5xl">{days}</span>
+            <span className="text-base md:text-xl">Gün</span>
           </div>
 
           {/* Custom Divider */}
-          <div className="mx-2">
+          <div className="mx-1 md:mx-2">
             <div
               className="w-px bg-color-text"
-              style={{ height: "4rem" }}
+              style={{ height: "3rem", marginTop: "0.5rem" }}
             ></div>
           </div>
 
           {/* Hours */}
-          <div className="flex flex-col items-center mx-2">
-            <span className="text-5xl">{hours}</span>
-            <span className="text-xl">Saat</span>
+          <div className="flex flex-col items-center mx-1 md:mx-2">
+            <span className="text-3xl md:text-5xl">{hours}</span>
+            <span className="text-base md:text-xl">Saat</span>
           </div>
 
           {/* Custom Divider */}
-          <div className="mx-2">
+          <div className="mx-1 md:mx-2">
             <div
               className="w-px bg-color-text"
-              style={{ height: "4rem" }}
+              style={{ height: "3rem", marginTop: "0.5rem" }}
             ></div>
           </div>
 
           {/* Minutes */}
-          <div className="flex flex-col items-center mx-2">
-            <span className="text-5xl">{minutes}</span>
-            <span className="text-xl">Dakika</span>
+          <div className="flex flex-col items-center mx-1 md:mx-2">
+            <span className="text-3xl md:text-5xl">{minutes}</span>
+            <span className="text-base md:text-xl">Dakika</span>
           </div>
 
           {/* Custom Divider */}
-          <div className="mx-2">
+          <div className="mx-1 md:mx-2">
             <div
               className="w-px bg-color-text"
-              style={{ height: "4rem" }}
+              style={{ height: "3rem", marginTop: "0.5rem" }}
             ></div>
           </div>
 
           {/* Seconds */}
-          <div className="flex flex-col items-center mx-2">
-            <span className="text-5xl">{seconds}</span>
-            <span className="text-xl">Saniye</span>
+          <div className="flex flex-col items-center mx-1 md:mx-2">
+            <span className="text-3xl md:text-5xl">{seconds}</span>
+            <span className="text-base md:text-xl">Saniye</span>
           </div>
         </>
       )}

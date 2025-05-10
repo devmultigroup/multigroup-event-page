@@ -42,7 +42,7 @@ export default function NotFound() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-color-background">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-color-background pt-[25vh] pb-8">
       {/* Animated stars background */}
       {stars.map((star) => (
         <div
@@ -106,7 +106,7 @@ export default function NotFound() {
 
       <Button
         onClick={handleRoute}
-        className="mt-10 md:mt-16 bg-color-accent hover:bg-color-accent/80 text-color-text px-6 md:px-8 py-5 md:py-6 text-base md:text-lg flex items-center gap-2 animate-pulse"
+        className="mt-5 md:mt-8 mb-12 bg-color-accent hover:bg-color-accent/80 text-color-text px-6 md:px-8 py-5 md:py-6 text-base md:text-lg flex items-center gap-2 animate-pulse"
         style={{ animationDuration: "3s" }}
       >
         <Home size={18} />
@@ -150,7 +150,7 @@ export default function NotFound() {
       )}
 
       {/* Hint for the easter egg */}
-      <p className="absolute bottom-4 text-color-text/30 text-[10px] md:text-xs px-4 text-center w-full">
+      <p className="text-color-text/30 text-[10px] md:text-xs px-4 text-center w-full">
         {clickCount > 0 && clickCount < 5
           ? "Devam et, neredeyse başardın..."
           : "Psst... 404'e tıklamayı dene"}
