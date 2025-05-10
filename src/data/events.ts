@@ -161,6 +161,11 @@ const events: Event[] = [
         company: "Lyrebird Studio",
       },
       {
+        fullName: "Seyfeddin Başsaraç",
+        title: "Creative Developer",
+        company: "Teknasyon",
+      },
+      {
         fullName: "Mehmet Niyazi Atlıoğlu",
         title: "Sr. Android Developer ",
         company: "Softtech",
@@ -184,66 +189,40 @@ const events: Event[] = [
     sessions: [
       {
         topic:
-          "Room ve DataStore Kullanımı: Android'de Veri Saklama Yöntemleri",
+          "",
         startTime: "10:00", // Hour only
         endTime: "11:00", // Hour only
-        speakerName: "Özcan Zafer Ayan",
+        speakerName: "Kasım Adalan",
         room: "Oturumlar",
       },
       {
-        topic: "Cross-Platform Mobile Frameworks",
-        startTime: "10:00",
-        endTime: "12:30",
-        speakerName: "Özcan Zafer Ayan",
-        room: "Network",
-      },
-      {
-        topic: "Cross-Platform Mobile Frameworks2",
-        startTime: "10:00",
-        endTime: "12:30",
-        speakerName: "Özcan Zafer Ayan",
-        room: "Network",
-      },
-      {
-        topic: "Cross-Platform Mobile Frameworks3",
-        endTime: "12:30",
-        speakerName: "Jane Smith",
-        room: "Network",
-      },
-      {
-        topic: "Cross-Platform Mobile Frameworks4",
-        startTime: "10:00",
-        endTime: "12:30",
-        speakerName: "Jane Smith",
-        room: "Network",
-      },
-      {
-        topic: "Cross-Platform Mobile Frameworks5",
-        startTime: "10:00",
-        endTime: "12:30",
-        speakerName: "Jane Smith",
-        room: "Network",
-      },
-      {
-        topic: "Cross-Platform Mobile Frameworks6",
-        startTime: "10:00",
-        endTime: "12:30",
-        speakerName: "Jane Smith",
+        topic: "",
+        startTime: "",
+        endTime: "",
+        speakerName: "Seyfeddin Başsaraç",
         room: "Network",
       },
     ],
     sponsors: [
       {
         tier: "",
+        sponsorSlug: "appcircle",
+      },
+      {
+        tier: "",
+        sponsorSlug: "commencis",
+      },
+      {
+        tier: "",
         sponsorSlug: "d360-bank",
       },
       {
         tier: "",
-        sponsorSlug: "lyrebird-studio",
+        sponsorSlug: "garanti-bbva",
       },
       {
         tier: "",
-        sponsorSlug: "softtech",
+        sponsorSlug: "lyrebird-studio",
       },
       {
         tier: "",
@@ -252,6 +231,14 @@ const events: Event[] = [
       {
         tier: "",
         sponsorSlug: "sabanci-university",
+      },
+      {
+        tier: "",
+        sponsorSlug: "softtech",
+      },
+      {
+        tier: "",
+        sponsorSlug: "teknasyon",
       },
     ],
     tickets: [

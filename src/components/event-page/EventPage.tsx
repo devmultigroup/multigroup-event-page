@@ -16,6 +16,7 @@ import ActionCard from "../event-components/action-card";
 import IconDivider from "../dividers/icon-divider";
 import TextDivider from "../dividers/text-divider";
 import { slugify } from "@/lib/slugify";
+import { MapPin } from "@phosphor-icons/react";
 // import EventBadge from "../event-badge";
 
 interface EventPageProps {
@@ -86,6 +87,12 @@ export default function EventPage({
             {event.name}
             <div className="text-xl font-normal pt-8">
               {event.heroDescription}
+              <br />
+              <br />
+              <div className="flex items-center gap-2 text-color-secondary">
+                <MapPin size={24} weight="fill" />
+                <span>{event.location.name}</span>
+              </div>
             </div>
 
             {/* CTA Button */}
@@ -203,7 +210,7 @@ export default function EventPage({
             >
               Her zaman hayalimizdeki ilham verici etkinlikler için sponsor
               bulamıyoruz, ama şimdiye dek etkinliklerimize katılmış ve memnun
-              kalmış 500’den fazla destekçimiz sayesinde hayalimize biraz daha
+              kalmış 500'den fazla destekçimiz sayesinde hayalimize biraz daha
               yakınız.
             </HighlightHeading>
             <EventTickets tickets={event.tickets} />
