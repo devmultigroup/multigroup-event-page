@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import type { Event } from "@/types";
-import CountdownTimer from "@/components/common/countdown-timer";
+// import CountdownTimer from "@/components/common/countdown-timer";
 import SessionContainer from "@/components/speaker-components/session-container";
 import SpeakerCarousel from "@/components/speaker-components/speakers";
 import SponsorSlider from "@/components/speaker-components/sponsors-slider";
@@ -16,7 +16,6 @@ import ActionCard from "../event-components/action-card";
 import IconDivider from "../dividers/icon-divider";
 import TextDivider from "../dividers/text-divider";
 import { slugify } from "@/lib/slugify";
-import { MapPin } from "@phosphor-icons/react";
 // import EventBadge from "../event-badge";
 
 interface EventPageProps {
@@ -90,7 +89,6 @@ export default function EventPage({
               <br />
               <br />
               <div className="flex items-center gap-2 text-color-secondary">
-                <MapPin size={24} weight="fill" />
                 <span>{event.location.name}</span>
               </div>
             </div>
@@ -102,7 +100,7 @@ export default function EventPage({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <a href="https://kommunity.com/devmultigroup">
+              <a href={event.registerLink} target="_blank">
                 <Button
                   borderRadius="0.75rem"
                   className="bg-transparent text-color-text"

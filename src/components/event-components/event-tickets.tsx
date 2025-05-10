@@ -23,6 +23,7 @@ export default function EventTickets({ tickets }: EventTicketsProps) {
           <a
             href={ticket.link}
             className="block w-full text-center bg-color-background text-color-text py-4 px-4 rounded-xl border-2 border-color-accent hover:border-color-secondary hover:bg-color-secondary hover:text-color-background transition-all duration-300 mb-6 text-xl font-medium"
+            target="_blank"
           >
             Destek Olun
           </a>

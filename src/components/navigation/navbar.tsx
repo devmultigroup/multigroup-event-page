@@ -36,7 +36,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
   const navigationItems = [
     { href: "/", label: "Anasayfa" },
     { href: "/etkinlikler", label: "Etkinlikler" },
-    { href: "#konuşmacılar", label: "Konuşmacılar", isScroll: true },
+    { href: "#konusmacilar", label: "Konuşmacılar", isScroll: true },
     { href: "#biletler", label: "Biletler", isScroll: true },
   ];
 

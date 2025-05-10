@@ -23,7 +23,7 @@ const events: Event[] = [
       {
         id: 1,
         name: "Furkan Ünsalan",
-        designation: "Pioneer Member",
+        designation: "Associate Member",
         image: "/images/organizers/furkan-unsalan.webp",
       },
       {
@@ -149,7 +149,7 @@ const events: Event[] = [
         description:
           "Community Supporter bileti ile hem etkinliğin bir parçası olun hem de gelecek etkinliklerimize katkıda bulunun!",
         price: 300,
-        link: "https://kommunity.com",
+        link: "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5/tickets/",
         perks: [
           "Supporterlara özel badge’lere sahip olun",
           "Supporterlara özel supporter wall’a dahil olun",
@@ -160,7 +160,7 @@ const events: Event[] = [
         description:
           "VIP Supporter Ticket ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
         price: 1500,
-        link: "https://kommunity.com",
+        link: "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5/tickets/",
         perks: [
           "Supporterlara özel badge’lere sahip olun",
           "VIP Katılımcılarımıza özel network ve toplantı alanları",

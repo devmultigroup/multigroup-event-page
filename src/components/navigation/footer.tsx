@@ -122,6 +122,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="https://android-blast-off.devmultigroup.com"
+                  target="_blank"
                   className="hover:text-color-accent transition-all duration-300"
                 >
                   Android Blast-Off
@@ -130,6 +131,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="https://genai.devmultigroup.com"
+                  target="_blank"
                   className="hover:text-color-accent transition-all duration-300"
                 >
                   GenAI Fundamentals
@@ -138,6 +140,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="https://github.com/Developer-MultiGroup/DMG-Data-Science-Awesome"
+                  target="_blank"
                   className="hover:text-color-accent transition-all duration-300"
                 >
                   Data Science Awesome
@@ -155,7 +158,8 @@ export default function Footer() {
               Etkinliklerden geri kalmamak için hemen aramıza katıl!
             </p>
             <Link
-              href="#kayıt"
+              href="https://kommunity.com/devmultigroup/"
+              target="_blank"
               className="inline-block border border-color-accent px-4 py-2 rounded-md hover:bg-color-accent transition"
             >
               Yerini Ayırt
@@ -172,6 +176,7 @@ export default function Footer() {
             <Link
               href="https://www.instagram.com/devmultigroup/"
               aria-label="Instagram"
+              target="_blank"
               className="hover:text-color-accent transition-all duration-300"
             >
               <InstagramLogo />
@@ -179,6 +184,7 @@ export default function Footer() {
             <Link
               href="https://x.com/devmultigroup"
               aria-label="X"
+              target="_blank"
               className="hover:text-color-accent transition-all duration-300"
             >
               <XLogo />
@@ -186,6 +192,7 @@ export default function Footer() {
             <Link
               href="https://www.linkedin.com/company/devmultigroup/"
               aria-label="LinkedIn"
+              target="_blank"
               className="hover:text-color-accent transition-all duration-300"
             >
               <LinkedinLogo />
@@ -193,6 +200,7 @@ export default function Footer() {
             <Link
               href="https://github.com/Developer-MultiGroup"
               aria-label="Github"
+              target="_blank"
               className="hover:text-color-accent transition-all duration-300"
             >
               <GithubLogo />
