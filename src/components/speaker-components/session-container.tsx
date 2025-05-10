@@ -352,7 +352,7 @@ export default function SessionContainer({
               >
                 <div className="relative">
                   <Image
-                    src={`/images/speakers/${slugify(session.speakerName)}.jpg`}
+                    src={`/images/speakers/${slugify(session.speakerName)}.webp`}
                     alt={session.speakerName}
                     width={128}
                     height={128}

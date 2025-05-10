@@ -38,25 +38,31 @@ export default function Events() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-color-background">
       <div className="pt-[25vh] grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4">
-        {filteredEvents
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-          )
-          .map((event, index) => {
-            const isLastOddItem =
-              filteredEvents.length % 2 !== 0 &&
-              index === filteredEvents.length - 1;
-            return (
-              <div
-                key={event.id}
-                className={
-                  isLastOddItem ? "col-span-2 flex justify-center" : ""
-                }
-              >
-                <EventCard event={event} />
-              </div>
-            );
-          })}
+        {filteredEvents.length === 0 ? (
+          <div className="col-span-2 flex items-center justify-center min-h-[50vh] text-lg text-gray-600">
+            Geçmiş etkinlik bulunmamaktadır.
+          </div>
+        ) : (
+          filteredEvents
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+            )
+            .map((event, index) => {
+              const isLastOddItem =
+                filteredEvents.length % 2 !== 0 &&
+                index === filteredEvents.length - 1;
+              return (
+                <div
+                  key={event.id}
+                  className={
+                    isLastOddItem ? "col-span-2 flex justify-center" : ""
+                  }
+                >
+                  <EventCard event={event} />
+                </div>
+              );
+            })
+        )}
       </div>
     </div>
   );

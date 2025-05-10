@@ -19,12 +19,7 @@ export default function EventCard({ event }: { event: Event }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const eventImage =
-    event.images && event.images.length > 0
-      ? event.images[0].startsWith("/")
-        ? event.images[0]
-        : `/${event.images[0]}`
-      : "/bg-2.webp";
+  const eventImage = `/images/events/${slugify(event.name)}/1.webp`;
 
   const handleNavigation = () => {
     setLoading(true);

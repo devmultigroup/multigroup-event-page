@@ -110,7 +110,7 @@ const events: Event[] = [
   },
   {
     id: 2,
-    name: "Mobile Developer Conference",
+    name: "Mobile Developer Summit",
     heroDescription:
       "Seni yalnızca bir teknik konferansa değil, ilham verici bir mobil developer buluşmasına davet ediyoruz!",
     cardDescription:
@@ -118,13 +118,13 @@ const events: Event[] = [
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
-      name: "Trendyol Maslak Ofis",
+      name: "Haliç Üniversitesi | Küçük Konferans Salonu",
       subtext:
-        "Located at Moscone Center, easily accessible via public transport.",
-    }, // San Francisco coordinates
+        "Haliç Üniversitesi 5. Levent Kampüsü, Küçük Konferans Salonu",
+    }, 
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
-    videoUrl: "https://example.com/ai-event-video",
+    videoUrl: "",
     date: "2025-05-31T13:00:00+03:00",
     organizers: [
       {
@@ -142,39 +142,44 @@ const events: Event[] = [
     ],
     speakers: [
       {
-        fullName: "Alice Johnson",
-        title: "AI Research Lead",
+        fullName: "Kasım Adalan",
+        title: "Sr. Mobile Developer & Instructor ",
+        company: "Sabancı University",
       },
       {
-        fullName: "Özcan Zafer Ayan",
-        title: "CTO at MobileTech",
-        company: "Trendyol",
-        linkedin: "https://www.linkedin.com/in/daronyondem/",
-        twitter: "https://x.com/daronyondem",
+        fullName: "Bilal Durnagöl",
+        title: "Expert Architecture Engineer ",
+        company: "Garanti BBVA",
       },
       {
-        fullName: "Alice Johnson2",
-        title: "AI Research Lead",
+        fullName: "İrem Aral",
+        title: "Human Resources Business Partner ",
+        company: "RoofStacks"
       },
       {
-        fullName: "Bob William2",
-        title: "CTO at MobileTech",
+        fullName: "Necati Sözer",
+        title: "Sr. Android Software Engineer ",
+        company: "Lyrebird Studio"
       },
       {
-        fullName: "Alice Johnson3",
-        title: "AI Research Lead",
+        fullName: "Mehmet Niyazi Atlıoğlu",
+        title: "Sr. Android Developer ",
+        company: "Softtech"
       },
       {
-        fullName: "Bob Williams3",
-        title: "CTO at MobileTech",
+        fullName: "Osman Çelik",
+        title: "Co-Founder ",
+        company: "Appcircle"
       },
       {
-        fullName: "Alice Johnson4",
-        title: "AI Research Lead",
+        fullName: "Emirhan Emmez",
+        title: "Manager Android Engineer ",
+        company: "d360 Bank"
       },
       {
-        fullName: "Bob Williams4",
-        title: "CTO at MobileTech",
+        fullName: "Oğuz Gürler",
+        title: "Mobile Engineering Manager ",
+        company: "Commencis"
       },
     ],
     sessions: [
@@ -230,8 +235,24 @@ const events: Event[] = [
     ],
     sponsors: [
       {
-        tier: "platin",
-        sponsorSlug: "trendyol",
+        tier: "",
+        sponsorSlug: "d360-bank",
+      },
+      {
+        tier: "",
+        sponsorSlug: "lyrebird-studio",
+      },
+      {
+        tier: "",
+        sponsorSlug: "softtech",
+      },
+      {
+        tier: "",
+        sponsorSlug: "roofstacks",
+      },
+      {
+        tier: "",
+        sponsorSlug: "sabanci-university",
       },
     ],
     tickets: [
