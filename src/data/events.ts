@@ -119,9 +119,8 @@ const events: Event[] = [
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
       name: "Haliç Üniversitesi | Küçük Konferans Salonu",
-      subtext:
-        "Haliç Üniversitesi 5. Levent Kampüsü, Küçük Konferans Salonu",
-    }, 
+      subtext: "Haliç Üniversitesi 5. Levent Kampüsü, Küçük Konferans Salonu",
+    },
     registerLink:
       "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5",
     videoUrl: "",
@@ -154,32 +153,32 @@ const events: Event[] = [
       {
         fullName: "İrem Aral",
         title: "Human Resources Business Partner ",
-        company: "RoofStacks"
+        company: "RoofStacks",
       },
       {
         fullName: "Necati Sözer",
         title: "Sr. Android Software Engineer ",
-        company: "Lyrebird Studio"
+        company: "Lyrebird Studio",
       },
       {
         fullName: "Mehmet Niyazi Atlıoğlu",
         title: "Sr. Android Developer ",
-        company: "Softtech"
+        company: "Softtech",
       },
       {
         fullName: "Osman Çelik",
         title: "Co-Founder ",
-        company: "Appcircle"
+        company: "Appcircle",
       },
       {
         fullName: "Emirhan Emmez",
         title: "Manager Android Engineer ",
-        company: "d360 Bank"
+        company: "d360 Bank",
       },
       {
         fullName: "Oğuz Gürler",
         title: "Mobile Engineering Manager ",
-        company: "Commencis"
+        company: "Commencis",
       },
     ],
     sessions: [
