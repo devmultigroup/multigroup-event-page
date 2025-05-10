@@ -60,7 +60,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://cloud.umami.is/script.js"
-          data-website-id="13873dc5-f94b-4d7f-9399-781076df22f6"
+          data-website-id={process.env.UMAMI_PROJECT_ID}
         ></Script>
       </head>
       <body className={`${montserrat.variable} bg-color-background`}>
