@@ -22,15 +22,21 @@ const events: Event[] = [
     organizers: [
       {
         id: 1,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
+      {
+        id: 2,
         name: "Furkan Ünsalan",
         designation: "Associate Member",
         image: "/images/organizers/furkan-unsalan.webp",
       },
       {
-        id: 2,
-        name: "Serkan Alc",
-        designation: "Partner Manager",
-        image: "/images/organizers/serkan-alc.webp",
+        id: 3,
+        name: "Elif Çağıl",
+        designation: "Associate Member",
+        image: "/images/organizers/elif-cagil.webp",
       },
     ],
     speakers: [
@@ -83,6 +89,16 @@ const events: Event[] = [
         fullName: "Melissa Çoralı",
         title: "Android Developer & Scrum Master",
         company: "Akbank",
+      },
+      {
+        fullName: "Kadriye Macit",
+        title: "Senior Flutter Developer",
+        company: "Alleo",
+      },
+      {
+        fullName: "Levent Kantaroglu",
+        title: "Mobile Team Lead",
+        company: "Turkish Technology",
       },
     ],
     sessions: [
@@ -141,6 +157,10 @@ const events: Event[] = [
       {
         tier: "",
         sponsorSlug: "teknasyon",
+      },
+      {
+        tier: "",
+        sponsorSlug: "alleo",
       },
     ],
     tickets: [
