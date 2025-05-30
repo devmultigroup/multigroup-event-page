@@ -117,24 +117,27 @@ export default function SessionContainer({
   };
 
   const hasTimeConflict = (session: Session): boolean => {
-    return selectedSessions.some((selected) => {
-      if (
-        selected.speakerName === session.speakerName &&
-        selected.topic === session.topic &&
-        selected.room === session.room
-      ) {
-        return false;
-      }
-      const sessionStart = timeToMinutes(session.startTime);
-      const sessionEnd = timeToMinutes(session.endTime);
-      const selectedStart = timeToMinutes(selected.startTime);
-      const selectedEnd = timeToMinutes(selected.endTime);
-      return (
-        (sessionStart >= selectedStart && sessionStart < selectedEnd) ||
-        (sessionEnd > selectedStart && sessionEnd <= selectedEnd) ||
-        (sessionStart <= selectedStart && sessionEnd >= selectedEnd)
-      );
-    });
+    // disable conflict logic
+
+    // return selectedSessions.some((selected) => {
+    //   if (
+    //     selected.speakerName === session.speakerName &&
+    //     selected.topic === session.topic &&
+    //     selected.room === session.room
+    //   ) {
+    //     return false;
+    //   }
+    //   const sessionStart = timeToMinutes(session.startTime);
+    //   const sessionEnd = timeToMinutes(session.endTime);
+    //   const selectedStart = timeToMinutes(selected.startTime);
+    //   const selectedEnd = timeToMinutes(selected.endTime);
+    //   return (
+    //     (sessionStart >= selectedStart && sessionStart < selectedEnd) ||
+    //     (sessionEnd > selectedStart && sessionEnd <= selectedEnd) ||
+    //     (sessionStart <= selectedStart && sessionEnd >= selectedEnd)
+    //   );
+    // });
+    return false
   };
 
   const toggleSessionSelection = (session: Session) => {
@@ -229,7 +232,7 @@ export default function SessionContainer({
             onValueChange={(value) => {
               setActiveRoom(value);
             }}
-            className="mb-8 mt-4 flex flex-col items-center"
+            className="mb-2 mt-4 flex flex-col items-center"
           >
             <TabsList className="border border-blue-200 rounded-lg p-1 gap-x-2 overflow-hidden bg-color-accent shadow-sm h-auto">
               {[
@@ -250,6 +253,9 @@ export default function SessionContainer({
               ))}
             </TabsList>
           </Tabs>
+          <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-2 text-center text-color-text">
+            Oturumları
+          </h2>
           <p className="text-lg max-w-4xl w-5/6 mx-auto text-center pb-16">
             Sektörün önde gelen şirketleri hangi teknolojileri kullanıyor,
             kararlarını neye göre alıyor, geleceği nasıl görüyor? Gelin,
@@ -382,7 +388,11 @@ export default function SessionContainer({
                 s.topic === session.topic &&
                 (s.room === session.room || (!s.room && !session.room)),
             );
-            const hasConflict = hasTimeConflict(session) && !isSelected;
+
+            // disable conflict logic
+
+            // const hasConflict = hasTimeConflict(session) && !isSelected;
+            const hasConflict = false
 
             return (
               <Card
