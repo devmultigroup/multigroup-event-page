@@ -137,7 +137,7 @@ export default function SessionContainer({
     //     (sessionStart <= selectedStart && sessionEnd >= selectedEnd)
     //   );
     // });
-    return false
+    return false;
   };
 
   const toggleSessionSelection = (session: Session) => {
@@ -392,7 +392,7 @@ export default function SessionContainer({
             // disable conflict logic
 
             // const hasConflict = hasTimeConflict(session) && !isSelected;
-            const hasConflict = false
+            const hasConflict = false;
 
             return (
               <Card
