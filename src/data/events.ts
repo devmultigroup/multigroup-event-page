@@ -111,24 +111,9 @@ const events: Event[] = [
         company: "Turkish Technology",
       },
       {
-        fullName: "Nilüfer Erdoğan",
-        title: "Sr. iOS Developer",
-        company: "sahibinden",
-      },
-      {
-        fullName: "Aysu Yarkın",
-        title: "People & Culture Generalist",
-        company: "usersdot",
-      },
-      {
         fullName: "Ece Bahtiyar",
         title: "Founder",
         company: "appleads",
-      },
-      {
-        fullName: "Zafer Atlı",
-        title: "Sr. Software Engineer",
-        company: "aktif-tech",
       },
       {
         fullName: "Kaan Enes Kapıcı",
@@ -144,11 +129,6 @@ const events: Event[] = [
         fullName: "Alper Tekin",
         title: "Co-Founder",
         company: "setgreet",
-      },
-      {
-        fullName: "Simge Akkılıç",
-        title: "Senior Human Resources Specialist",
-        company: "exclusive-networks",
       },
       {
         fullName: "Göker Güner",
@@ -281,13 +261,6 @@ const events: Event[] = [
         speakerName: "Emirhan Emmez",
         room: "Yan Salon",
       },
-      {
-        topic: "Experiences from Large-Scale Flutter Projects",
-        startTime: "17.20",
-        endTime: "17.50",
-        speakerName: "Levent Kantaroğlu",
-        room: "Yan Salon",
-      },
       // {
       //   topic: "",
       //   startTime: "",
@@ -315,10 +288,6 @@ const events: Event[] = [
       },
       {
         tier: "",
-        sponsorSlug: "sahibinden",
-      },
-      {
-        tier: "",
         sponsorSlug: "d360-bank",
       },
       {
@@ -343,10 +312,6 @@ const events: Event[] = [
       },
       {
         tier: "",
-        sponsorSlug: "aktif-tech",
-      },
-      {
-        tier: "",
         sponsorSlug: "appleads",
       },
       {
@@ -363,19 +328,11 @@ const events: Event[] = [
       },
       {
         tier: "",
-        sponsorSlug: "usersdot",
-      },
-      {
-        tier: "",
         sponsorSlug: "bilyoner",
       },
       {
         tier: "",
         sponsorSlug: "gelir-idaresi-baskanligi",
-      },
-      {
-        tier: "",
-        sponsorSlug: "exclusive-networks",
       },
       {
         tier: "",
