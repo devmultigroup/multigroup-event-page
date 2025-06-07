@@ -176,11 +176,11 @@ const events: Event[] = [
     //   satisfaction: "90%",
     // },
     colorPalette: {
-      primary: "244.29, 100%, 97.25%",
-      secondary: "250, 6.98%, 16.86%",
-      accent: "199.53, 75.44%, 77.65%",
-      background: "0, 0%, 100%",
-      text: "250, 6.98%, 16.86%",
+      primary: "162, 85%, 96%", // Very light mint green
+      secondary: "160, 8%, 17%", // Dark grayish with mint undertone
+      accent: "168, 70%, 75%", // Medium mint green
+      background: "0, 0%, 100%", // Pure white (unchanged)
+      text: "250, 6.98%, 16.86%", // Original text color (unchanged)
     },
   },
   {

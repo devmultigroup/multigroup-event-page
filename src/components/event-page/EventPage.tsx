@@ -11,7 +11,7 @@ import SponsorSlider from "@/components/speaker-components/sponsors-slider";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import EventTickets from "../event-components/event-tickets";
 import HighlightHeading from "@/components/common/heading";
-import { Button } from "../ui/moving-border";
+import { MovingBorderButton } from "../ui/moving-border";
 import ActionCard from "../event-components/action-card";
 import IconDivider from "../dividers/icon-divider";
 import TextDivider from "../dividers/text-divider";
@@ -88,7 +88,7 @@ export default function EventPage({
               {event.heroDescription}
               <br />
               <br />
-              <div className="flex items-center gap-2 text-color-secondary">
+              <div className="flex items-center gap-2 text-color-text">
                 <span>{event.location.name}</span>
               </div>
             </div>
@@ -101,12 +101,12 @@ export default function EventPage({
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <a href={event.registerLink} target="_blank">
-                <Button
+                <MovingBorderButton
                   borderRadius="0.75rem"
                   className="bg-transparent text-color-text"
                 >
                   Yerinizi Ayırtın
-                </Button>
+                </MovingBorderButton>
               </a>
             </motion.div>
           </motion.div>
