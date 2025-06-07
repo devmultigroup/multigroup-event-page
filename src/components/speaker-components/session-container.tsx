@@ -254,7 +254,7 @@ export default function SessionContainer({
             </TabsList>
           </Tabs>
           <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-2 text-center text-color-text">
-            Oturumları
+            Konuşmaları
           </h2>
           <p className="text-lg max-w-4xl w-5/6 mx-auto text-center pb-16">
             Sektörün önde gelen şirketleri hangi teknolojileri kullanıyor,

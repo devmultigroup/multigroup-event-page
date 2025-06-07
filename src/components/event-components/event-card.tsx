@@ -29,19 +29,6 @@ export default function EventCard({ event }: { event: Event }) {
 
   return (
     <div className="max-w-lg bg-color-primary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 m-4">
-      {/* Card Header with Image */}
-      <div className="relative w-full h-48 overflow-hidden">
-        <Image
-          src={eventImage}
-          alt={`${event.name} event image`}
-          width={500}
-          height={192}
-          className="object-cover w-full h-full"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/20" />
-      </div>
-
       {/* Card Content */}
       <div className="p-6">
         <h3 className="text-xl font-bold text-zinc-900 mb-4 border-b border-color-tertiary pb-3">

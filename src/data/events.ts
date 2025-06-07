@@ -3,12 +3,193 @@ import { Event } from "@/types";
 
 const events: Event[] = [
   {
+    id: 2,
+    name: "Web Developer Summit 2025",
+    heroDescription:
+      "Seni sadece bir web konferansına değil, modern web teknolojilerinin tüm renklerini keşfedeceğin, ilham verici bir buluşmaya davet ediyoruz!",
+    cardDescription:
+      "Frontend'den backend'e, modern web teknolojilerine ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecan verici deneyimin bir parçası ol. Gelecek yıla kalma, bu yıl tanışalım!",
+    location: {
+      latitude: 41.085660366250444,
+      longitude: 28.950240039927138,
+      name: "Tech Istanbul | Şişli",
+      subtext: "Haliç Üniversitesi 5. Levent Kampüsü, Küçük Konferans Salonu",
+    },
+    registerLink:
+      "https://kommunity.com/devmultigroup/events/web-developer-summit-25-d7d891d6",
+    videoUrl: "",
+    date: "2025-06-14T13:00:00+03:00",
+    organizers: [
+      {
+        id: 1,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
+      {
+        id: 2,
+        name: "Furkan Ünsalan",
+        designation: "Associate Member",
+        image: "/images/organizers/furkan-unsalan.webp",
+      },
+      {
+        id: 3,
+        name: "Esra Kelleci",
+        designation: "Pioneer Member",
+        image: "/images/organizers/esra-kelleci.webp",
+      },
+    ],
+    speakers: [
+      {
+        fullName: "Serkan Alc",
+        title: "Founder & Community Lead",
+        company: "multigroup",
+      },
+      {
+        fullName: "Oğuzhan Aslan",
+        title: "Engineering Manager",
+        company: "PTTAvm",
+      },
+      {
+        fullName: "Çiğdem Kadakoğlu",
+        title: "Senior DevOps/Cloud Engineer",
+        company: "EPAM Systems",
+      },
+      {
+        fullName: "Mercan Karacabey Eke",
+        title: "Software Architect",
+        company: "TOM Technology of Money",
+      },
+      {
+        fullName: "Emre Hızlı",
+        title: ".NET Architect",
+        company: "",
+      },
+      {
+        fullName: "Alper Tunga",
+        title: "CTO",
+        company: "Oricin",
+      },
+      {
+        fullName: "Furkan Portakal",
+        title: "Sr. Frontend Developer",
+        company: "Şans-Tech",
+      },
+    ],
+    sessions: [
+      // Ana Salon
+      {
+        topic: "Açılış Konuşması",
+        startTime: "13.00",
+        endTime: "13.10",
+        speakerName: "Serkan Alc",
+        room: "Ana Salon",
+      },
+      {
+        topic: "The Future of Frontend Architecture ",
+        startTime: "13.10",
+        endTime: "13.30",
+        speakerName: "Oğuzhan Aslan",
+        room: "Ana Salon",
+      },
+      {
+        topic: "",
+        startTime: "",
+        endTime: "",
+        speakerName: "Furkan Portakal",
+        room: "Network",
+      },
+      // {
+      //   topic: "",
+      //   startTime: "",
+      //   endTime: "",
+      //   speakerName: "Seyfeddin Başsaraç",
+      //   room: "Network",
+      // },
+    ],
+    sponsors: [
+      {
+        tier: "",
+        sponsorSlug: "epam-systems",
+      },
+      {
+        tier: "",
+        sponsorSlug: "pttavm",
+      },
+      {
+        tier: "",
+        sponsorSlug: "tom-technology-of-money",
+      },
+      {
+        tier: "",
+        sponsorSlug: "oricin",
+      },
+      {
+        tier: "",
+        sponsorSlug: "sans-tech",
+      },
+    ],
+    tickets: [
+      {
+        type: "Community Supporter Ticket",
+        description:
+          "Community Supporter bileti ile hem etkinliğin bir parçası olun hem de gelecek etkinliklerimize katkıda bulunun!",
+        price: 300,
+        link: "https://kommunity.com/devmultigroup/events/web-developer-summit-25-d7d891d6/tickets/",
+        perks: [
+          "Supporterlara özel badge'lere sahip olun",
+          "Supporterlara özel supporter wall'a dahil olun",
+        ],
+      },
+      {
+        type: "VIP Supporter Ticket",
+        description:
+          "VIP Supporter Ticket ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
+        price: 1500,
+        link: "https://kommunity.com/devmultigroup/events/web-developer-summit-25-d7d891d6/tickets/",
+        perks: [
+          "Supporterlara özel badge'lere sahip olun",
+          "VIP Katılımcılarımıza özel network ve toplantı alanları",
+          "Etkinliği güzel hatırlatacak güzel ikramlar",
+          "Supporterlara özel supporter wall'a dahil olun",
+        ],
+      },
+    ],
+    images: [
+      "/images/events/mobile-developer-summit-2024/1.webp",
+      "/images/events/mobile-developer-summit-2024/2.webp",
+      "/images/events/mobile-developer-summit-2024/3.webp",
+    ],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 100 },
+      { title: "Etkinlik Konuşmacı", value: 20 },
+      { title: "Katılan Şirket", value: 10 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
+    colorPalette: {
+      primary: "244.29, 100%, 97.25%",
+      secondary: "250, 6.98%, 16.86%",
+      accent: "199.53, 75.44%, 77.65%",
+      background: "0, 0%, 100%",
+      text: "250, 6.98%, 16.86%",
+    },
+  },
+  {
     id: 1,
     name: "Mobile Developer Conference",
     heroDescription:
-      "Seni yalnızca bir teknik konferansa değil, ilham verici bir mobil developer buluşmasına davet ediyoruz!",
+      "Seni sadece bir web konferansına değil, modern web teknolojilerinin tüm renklerini keşfedeceğin, ilham verici bir buluşmaya davet ediyoruz!",
     cardDescription:
-      "Mobil development'a ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecana sen de ortak ol. Gelecek yıla kalma bu yıl tanışalım!",
+      "Frontend'den backend'e, modern web teknolojilerine ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecan verici deneyimin bir parçası ol. Gelecek yıla kalma, bu yıl tanışalım!",
     location: {
       latitude: 41.085660366250444,
       longitude: 28.950240039927138,
@@ -347,8 +528,8 @@ const events: Event[] = [
         price: 300,
         link: "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5/tickets/",
         perks: [
-          "Supporterlara özel badge’lere sahip olun",
-          "Supporterlara özel supporter wall’a dahil olun",
+          "Supporterlara özel badge'lere sahip olun",
+          "Supporterlara özel supporter wall'a dahil olun",
         ],
       },
       {
@@ -358,10 +539,10 @@ const events: Event[] = [
         price: 1500,
         link: "https://kommunity.com/devmultigroup/events/mobile-developer-conference-2025-445c54f5/tickets/",
         perks: [
-          "Supporterlara özel badge’lere sahip olun",
+          "Supporterlara özel badge'lere sahip olun",
           "VIP Katılımcılarımıza özel network ve toplantı alanları",
           "Etkinliği güzel hatırlatacak güzel ikramlar",
-          "Supporterlara özel supporter wall’a dahil olun",
+          "Supporterlara özel supporter wall'a dahil olun",
         ],
       },
     ],
