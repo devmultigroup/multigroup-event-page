@@ -103,4 +103,5 @@ export type Event = {
   initialMetrics: MaxThreeInitialMetrics;
   afterMetrics?: AfterMetrics;
   colorPalette: ColorPalette;
+  navigable?: boolean; // If false, event is not navigable
 };

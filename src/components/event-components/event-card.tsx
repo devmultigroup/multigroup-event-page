@@ -118,21 +118,25 @@ export default function EventCard({
                 year ===
                 Math.max(...availableYears.map((y) => parseInt(y))).toString();
 
+              const isDisabled = event.navigable === false;
+
               return (
                 <button
                   key={year}
                   onClick={() => {
+                    if (isDisabled) return;
                     if (isLatestEvent && isLatestYear) {
                       router.push("/");
                     } else {
                       router.push(`/etkinlikler/${eventSlugForYear}`);
                     }
                   }}
+                  disabled={isDisabled}
                   className={`px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
                     year === selectedYear
                       ? "bg-color-accent text-color-text"
                       : "bg-color-accent/20 text-color-text hover:bg-color-accent/40 hover:-translate-y-1 hover:scale-105"
-                  }`}
+                  } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   {year}
                 </button>
@@ -142,9 +146,9 @@ export default function EventCard({
 
           {/* Action Button */}
           <Button
-            onClick={handleNavigation}
-            disabled={loading}
-            className="bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg"
+            onClick={event.navigable === false ? undefined : handleNavigation}
+            disabled={loading || event.navigable === false}
+            className={`bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${event.navigable === false ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             {loading ? (
               <span className="flex items-center gap-2">

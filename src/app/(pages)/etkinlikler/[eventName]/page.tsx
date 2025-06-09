@@ -16,7 +16,7 @@ export default function DynamicEventPage({
   const { setCurrentEvent } = useEventColor();
   const eventDetails: Event | null = getEventBySlug(params.eventName);
 
-  if (!eventDetails) {
+  if (!eventDetails || eventDetails.navigable === false) {
     notFound();
   }
 
