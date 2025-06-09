@@ -1,13 +1,16 @@
 "use client";
 
-import { getLatestEvent, getSecondLatestEvent } from "@/lib/event-utils";
+import {
+  getClosestUpcomingEvent,
+  getSecondLatestEvent,
+} from "@/lib/event-utils";
 import { useEffect } from "react";
 import { useEventColor } from "@/context/EventColorContext";
 import EventPage from "@/components/event-page/EventPage";
 import { LanyardCard } from "@/components/lanyard-badge";
 
 export default function HeroPage() {
-  const latestEventDetails = getLatestEvent();
+  const latestEventDetails = getClosestUpcomingEvent();
   const secondLatest = getSecondLatestEvent();
   const { setCurrentEvent } = useEventColor();
 

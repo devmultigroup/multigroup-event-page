@@ -3,7 +3,7 @@
 import { use, useEffect } from "react";
 import type { Event } from "@/types";
 import { notFound } from "next/navigation";
-import { getEventBySlug, getLatestEvent } from "@/lib/event-utils";
+import { getEventBySlug } from "@/lib/event-utils";
 import { useEventColor } from "@/context/EventColorContext";
 import EventPage from "@/components/event-page/EventPage";
 
@@ -15,13 +15,8 @@ export default function DynamicEventPage({
   const params = use(paramsPromise);
   const { setCurrentEvent } = useEventColor();
   const eventDetails: Event | null = getEventBySlug(params.eventName);
-  const latestEvent = getLatestEvent();
 
-  // if (!eventDetails) {
-  //   notFound();
-  // }
-
-  if (!eventDetails || eventDetails.id === latestEvent.id) {
+  if (!eventDetails) {
     notFound();
   }
 
@@ -31,7 +26,5 @@ export default function DynamicEventPage({
     }
   }, [eventDetails]);
 
-  return (
-    <EventPage event={eventDetails} previousEvent={latestEvent} hero={false} />
-  );
+  return <EventPage event={eventDetails} hero={false} />;
 }

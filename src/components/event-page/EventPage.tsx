@@ -20,7 +20,7 @@ import { slugify } from "@/lib/slugify";
 
 interface EventPageProps {
   event: Event;
-  previousEvent: Event;
+  previousEvent?: Event;
   hero: boolean;
 }
 

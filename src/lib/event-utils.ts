@@ -53,3 +53,11 @@ export function getSecondLatestEvent(): Event {
   // Return the second latest event
   return sortedEvents[sortedEvents.length - 2];
 }
+
+export function getClosestUpcomingEvent(): Event | null {
+  const now = new Date();
+  const upcoming = events
+    .filter((e) => new Date(e.date) > now)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  return upcoming[0] || null;
+}
