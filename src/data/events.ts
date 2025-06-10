@@ -65,14 +65,19 @@ const events: Event[] = [
         company: "",
       },
       {
-        fullName: "Alper Tunga",
-        title: "CTO",
-        company: "Oricin",
-      },
-      {
         fullName: "Furkan Portakal",
         title: "Sr. Frontend Developer",
         company: "Şans-Tech",
+      },
+      {
+        fullName: "Vehbi Emiroğlu",
+        title: "CTO",
+        company: "Samba Pos",
+      },
+      {
+        fullName: "Emine Gürcü",
+        title: "Senior UI/UX Designer",
+        company: "Reactor Technology",
       },
     ],
     sessions: [
@@ -92,10 +97,45 @@ const events: Event[] = [
         room: "Ana Salon",
       },
       {
+        topic: "Think. Train. Deploy. Docker’s AI-Powered ModelOps Workflow",
+        startTime: "14.00",
+        endTime: "14.20",
+        speakerName: " Çiğdem Kadakoğlu",
+        room: "Ana Salon",
+      },
+      {
+        topic: "Strangler Pattern & Beyond: Modernizing Legacy Architectures ",
+        startTime: "14.30",
+        endTime: "14.50",
+        speakerName: "Mercan Karacabey Eke",
+        room: "Ana Salon",
+      },
+      {
+        topic: "GraphQL - The Future of APIs",
+        startTime: "15.30",
+        endTime: "16.00",
+        speakerName: "Vehbi Emiroğlu",
+        room: "Ana Salon",
+      },
+      {
+        topic: "Angular SSR ",
+        startTime: "16.10",
+        endTime: "16.30",
+        speakerName: "Emre Hızlı",
+        room: "Ana Salon",
+      },
+      {
         topic: "",
         startTime: "",
         endTime: "",
         speakerName: "Furkan Portakal",
+        room: "Network",
+      },
+      {
+        topic: "",
+        startTime: "",
+        endTime: "",
+        speakerName: "Emine Gürcü",
         room: "Network",
       },
       // {
@@ -121,11 +161,15 @@ const events: Event[] = [
       },
       {
         tier: "",
-        sponsorSlug: "oricin",
+        sponsorSlug: "sans-tech",
       },
       {
         tier: "",
-        sponsorSlug: "sans-tech",
+        sponsorSlug: "samba-pos",
+      },
+      {
+        tier: "",
+        sponsorSlug: "reactor-technology",
       },
     ],
     tickets: [
