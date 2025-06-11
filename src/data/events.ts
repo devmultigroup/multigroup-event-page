@@ -9,10 +9,9 @@ const events: Event[] = [
     cardDescription:
       "Frontend'den backend'e, modern web teknolojilerine ilgi duyuyorsan, bu etkinliği kaçırmak istemeyeceksin! Şimdiden yerini ayırt ve bu heyecan verici deneyimin bir parçası ol. Gelecek yıla kalma, bu yıl tanışalım!",
     location: {
-      latitude: 41.085660366250444,
-      longitude: 28.950240039927138,
       name: "Tech Istanbul | Şişli",
-      subtext: "Haliç Üniversitesi 5. Levent Kampüsü, Küçük Konferans Salonu",
+      subtext:
+        "Şişli Habitat Kütüphane içerisnde bulunan Tech Istanbul etkinlik alanı.",
     },
     registerLink:
       "https://kommunity.com/devmultigroup/events/web-developer-summit-25-d7d891d6",
@@ -124,6 +123,7 @@ const events: Event[] = [
         speakerName: "Emre Hızlı",
         room: "Ana Salon",
       },
+      // Network
       {
         topic: "",
         startTime: "",

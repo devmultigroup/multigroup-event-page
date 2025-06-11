@@ -1,4 +1,4 @@
-![screenshot](public/opengraph-image.webp)
+![screenshot](public/images/opengraph-image.png)
 
 <h1 align="center">MultiGroup Etkinlikleri</h1>
 
@@ -239,7 +239,156 @@ erDiagram
 
 ## Yeni Etkinlik Oluşturma
 
-Yeni bir etkinlik oluştururken yukarında belirtilen alanları `data/events.ts` dosyasında yeni bir obje oluşturup yazmak yeterlidir. Sadece dikkat edilmesi gerek konu fotoğrafların isimleri ve koyuldukları yerlerdir.
+Yeni bir etkinlik oluşturmak için `src/data/events.ts` dosyasında yukarıda belirtilen Event tipine uygun bir obje oluşturmanız yeterlidir. İşte detaylı adımlar:
+
+### 1. Temel Bilgiler
+
+```typescript
+{
+  id: 3, // Benzersiz ID (mevcut en yüksek ID'den büyük olmalı)
+  name: "Etkinlik Adı 2025", // Etkinlik ismi mutlaka yıl post-fix'i içermelidir
+  heroDescription: "Ana sayfa hero bölümünde görünecek açıklama",
+  cardDescription: "Etkinlik kartında görünecek kısa açıklama",
+  registerLink: "Kayıt linki (Kommunity veya başka platform)",
+  videoUrl: "", // Varsa video linki
+  date: "2025-12-31T13:00:00+03:00", // ISO 8601 formatında tarih
+}
+```
+
+### 2. Konum Bilgileri
+
+```typescript
+location: {
+  latitude: 41.085660366250444, // Google Maps'ten alınan koordinat
+  longitude: 28.950240039927138,
+  name: "Mekan Adı",
+  subtext: "Detaylı adres bilgisi"
+}
+```
+
+### 3. Organizatörler
+
+```typescript
+organizers: [
+  {
+    id: 1,
+    name: "Organizatör Adı",
+    designation: "Pozisyon",
+    image: "/images/organizers/organizator-adi.webp", // Slugify edilmiş isim
+  },
+];
+```
+
+### 4. Konuşmacılar
+
+```typescript
+speakers: [
+  {
+    fullName: "Konuşmacı Adı",
+    title: "Ünvan",
+    company: "Şirket Adı",
+    // Opsiyonel sosyal medya linkleri:
+    // instagram: "kullanici_adi",
+    // linkedin: "kullanici_adi",
+    // twitter: "kullanici_adi"
+  },
+];
+```
+
+### 5. Oturumlar
+
+```typescript
+sessions: [
+  {
+    topic: "Oturum Konusu",
+    startTime: "13.00", // HH.MM formatında
+    endTime: "13.30",
+    speakerName: "Konuşmacı Adı",
+    room: "Salon Adı", // "Ana Salon", "Yan Salon", "Network" vb.
+  },
+];
+```
+
+### 6. Sponsorlar
+
+```typescript
+sponsors: [
+  {
+    tier: "", // "platin", "altın", "gümüş", "bronz" (şu an kullanılmıyor)
+    sponsorSlug: "sponsor-adi", // Slugify edilmiş sponsor adı
+  },
+];
+```
+
+### 7. Biletler
+
+```typescript
+tickets: [
+  {
+    type: "Bilet Türü",
+    description: "Bilet açıklaması",
+    price: 300, // Fiyat (TL)
+    link: "Bilet satın alma linki",
+    perks: ["Avantaj 1", "Avantaj 2"],
+  },
+];
+```
+
+### 8. Görseller
+
+```typescript
+images: [
+  "/images/events/etkinlik-adi/1.webp",
+  "/images/events/etkinlik-adi/2.webp",
+  "/images/events/etkinlik-adi/3.webp",
+];
+```
+
+### 9. Metrikler
+
+```typescript
+initialMetrics: [
+  { title: "Metrik Başlığı", value: 100 },
+  { title: "Başka Metrik", value: 50 }
+], // Maksimum 3 adet
+
+// Etkinlik sonrası metrikler (opsiyonel)
+// afterMetrics: {
+//   applications: "700",
+//   vipGuests: "200+",
+//   supporter: "250+",
+//   speakers: "40",
+//   workingParticipant: "70%",
+//   jobSeeker: "45%",
+//   jobProvider: "75%",
+//   satisfaction: "90%"
+// }
+```
+
+### 10. Renk Paleti
+
+```typescript
+colorPalette: {
+  primary: "162, 85%, 96%", // HSL formatında
+  secondary: "160, 8%, 17%",
+  accent: "168, 70%, 75%",
+  background: "0, 0%, 100%",
+  text: "250, 6.98%, 16.86%"
+}
+```
+
+### Önemli Notlar:
+
+- **Fotoğraf İsimlendirmesi:** Tüm fotoğraflar slugify edilmiş isimlerle kaydedilmelidir
+- **Dosya Formatları:** Fotoğraflar `.webp` formatında olmalıdır
+- **Klasör Yapısı:** Etkinlik fotoğrafları `/public/images/events/etkinlik-adi/` klasöründe saklanmalıdır
+- **Konuşmacı Fotoğrafları:** `/public/images/speakers/` klasöründe slugify edilmiş isimlerle saklanmalıdır
+- **Sponsor Logoları:** `/public/images/sponsors/` klasöründe slugify edilmiş isimlerle saklanmalıdır
+- **Organizatör Fotoğrafları:** `/public/images/organizers/` klasöründe saklanmalıdır
+
+### Örnek Kullanım:
+
+Mevcut etkinliklerin yapısını incelemek için `src/data/events.ts` dosyasındaki örnekleri referans alabilirsiniz.
 
 ## Repo Aktivitesi
 

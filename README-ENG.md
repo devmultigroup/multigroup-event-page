@@ -1,4 +1,4 @@
-![screenshot](public/opengraph-image.webp)
+![screenshot](public/images/opengraph-image.png)
 
 <h1 align="center">MultiGroup Events</h1>
 
@@ -239,7 +239,156 @@ erDiagram
 
 ## Creating a New Event
 
-To create a new event, simply add a new object with the fields mentioned above in the `data/events.ts` file. Just make sure that the names and locations of the photos are correct.
+To create a new event, you need to add a new object that conforms to the Event type mentioned above in the `src/data/events.ts` file. Here are the detailed steps:
+
+### 1. Basic Information
+
+```typescript
+{
+  id: 3, // Unique ID (must be greater than the highest existing ID)
+  name: "Event Name 2025", // Event name must include a year postfix
+  heroDescription: "Description that will appear in the hero section of the main page",
+  cardDescription: "Short description that will appear on the event card",
+  registerLink: "Registration link (Kommunity or other platform)",
+  videoUrl: "", // Video link if available
+  date: "2025-12-31T13:00:00+03:00", // Date in ISO 8601 format
+}
+```
+
+### 2. Location Information
+
+```typescript
+location: {
+  latitude: 41.085660366250444, // Coordinates from Google Maps
+  longitude: 28.950240039927138,
+  name: "Venue Name",
+  subtext: "Detailed address information"
+}
+```
+
+### 3. Organizers
+
+```typescript
+organizers: [
+  {
+    id: 1,
+    name: "Organizer Name",
+    designation: "Position",
+    image: "/images/organizers/organizer-name.webp", // Slugified name
+  },
+];
+```
+
+### 4. Speakers
+
+```typescript
+speakers: [
+  {
+    fullName: "Speaker Name",
+    title: "Title",
+    company: "Company Name",
+    // Optional social media links:
+    // instagram: "username",
+    // linkedin: "username",
+    // twitter: "username"
+  },
+];
+```
+
+### 5. Sessions
+
+```typescript
+sessions: [
+  {
+    topic: "Session Topic",
+    startTime: "13.00", // HH.MM format
+    endTime: "13.30",
+    speakerName: "Speaker Name",
+    room: "Room Name", // "Main Hall", "Side Hall", "Network", etc.
+  },
+];
+```
+
+### 6. Sponsors
+
+```typescript
+sponsors: [
+  {
+    tier: "", // "platinum", "gold", "silver", "bronze" (currently not used)
+    sponsorSlug: "sponsor-name", // Slugified sponsor name
+  },
+];
+```
+
+### 7. Tickets
+
+```typescript
+tickets: [
+  {
+    type: "Ticket Type",
+    description: "Ticket description",
+    price: 300, // Price (TL)
+    link: "Ticket purchase link",
+    perks: ["Benefit 1", "Benefit 2"],
+  },
+];
+```
+
+### 8. Images
+
+```typescript
+images: [
+  "/images/events/event-name/1.webp",
+  "/images/events/event-name/2.webp",
+  "/images/events/event-name/3.webp",
+];
+```
+
+### 9. Metrics
+
+```typescript
+initialMetrics: [
+  { title: "Metric Title", value: 100 },
+  { title: "Another Metric", value: 50 }
+], // Maximum 3 items
+
+// Post-event metrics (optional)
+// afterMetrics: {
+//   applications: "700",
+//   vipGuests: "200+",
+//   supporter: "250+",
+//   speakers: "40",
+//   workingParticipant: "70%",
+//   jobSeeker: "45%",
+//   jobProvider: "75%",
+//   satisfaction: "90%"
+// }
+```
+
+### 10. Color Palette
+
+```typescript
+colorPalette: {
+  primary: "162, 85%, 96%", // In HSL format
+  secondary: "160, 8%, 17%",
+  accent: "168, 70%, 75%",
+  background: "0, 0%, 100%",
+  text: "250, 6.98%, 16.86%"
+}
+```
+
+### Important Notes:
+
+- **Photo Naming:** All photos should be saved with slugified names
+- **File Formats:** Photos should be in `.webp` format
+- **Folder Structure:** Event photos should be stored in `/public/images/events/event-name/` folder
+- **Speaker Photos:** Should be stored in `/public/images/speakers/` folder with slugified names
+- **Sponsor Logos:** Should be stored in `/public/images/sponsors/` folder with slugified names
+- **Organizer Photos:** Should be stored in `/public/images/organizers/` folder
+
+### Example Usage:
+
+You can refer to the examples in the `src/data/events.ts` file to examine the structure of existing events.
 
 ## Repo Activity
 
