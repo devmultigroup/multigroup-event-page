@@ -88,7 +88,7 @@ export default function EventPage({
               {event.heroDescription}
               <br />
               <br />
-              <div className="flex items-center gap-2 text-color-text">
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-color-text">
                 <span>{event.location.name}</span>
               </div>
             </div>
