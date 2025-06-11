@@ -405,3 +405,9 @@ Check out this project's [license](LICENSE).
 If you have any questions about the project, you can contact me via email at `me@furkanunsalan.dev`.
 
 Let me know if you'd like this in a separate file or with any formatting changes!
+
+## Event Banner Image Feature
+
+- Event cards now display a responsive banner image on the right (desktop) or after the tags (on mobile).
+- The image is loaded from `/public/images/banners/{event-slug}-{year}.webp`, where `event-slug` is the slugified event name without the year, and `year` is the latest available.
+- Place your banner images in this folder and name them accordingly. For example: `mobile-developer-conference-2025.webp`.

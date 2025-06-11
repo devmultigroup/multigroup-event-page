@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import { slugify } from "@/lib/slugify";
 import { useRouter } from "next/navigation";
 import { getFormattedDate } from "@/lib/event-utils";
+import Image from "next/image";
 
 interface EventCardProps {
   event: Event;
@@ -65,103 +66,163 @@ export default function EventCard({
           : "border-gray-100"
       }`}
     >
-      <div className="p-8">
-        {/* Hashtags */}
-        <div className="flex gap-2 mb-6 items-center">
-          {hashtags.map((tag, index) => (
-            <span key={index} className="text-sm text-color-text font-medium">
-              {tag}
-            </span>
-          ))}
-          {isLatestEvent && (
-            <span className="bg-color-secondary text-white px-3 py-1 rounded-full text-xs font-semibold ml-2">
-              GÜNCEL
-            </span>
-          )}
-        </div>
+      <div className="flex flex-col md:flex-row items-stretch p-8 gap-6 md:gap-10">
+        {/* Left: Text Content */}
+        <div className="flex-1 min-w-0 flex flex-col justify-center">
+          {/* Hashtags */}
+          <div className="flex gap-2 mb-6 items-center">
+            {hashtags.map((tag, index) => (
+              <span key={index} className="text-sm text-color-text font-medium">
+                {tag}
+              </span>
+            ))}
+            {isLatestEvent && (
+              <span className="bg-color-secondary text-white px-3 py-1 rounded-full text-xs font-semibold ml-2">
+                GÜNCEL
+              </span>
+            )}
+          </div>
+          {/* Mobile: Banner Image after tags */}
+          <div className="block md:hidden mb-4">
+            {(() => {
+              const baseName = event.name
+                .replace(/\s+\d{4}$|-\d{4}$/, "")
+                .toLowerCase()
+                .replace(/ /g, "-");
+              const latestYear = Math.max(
+                ...availableYears.map((y) => parseInt(y)),
+              );
+              const imagePath = `/images/banners/${baseName}-${latestYear}.webp`;
+              return (
+                <Image
+                  src={imagePath}
+                  alt={eventTitle}
+                  width={480}
+                  height={270}
+                  className="rounded-2xl w-full h-auto object-cover shadow-md"
+                  style={{ background: "#f3f0fa" }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                  priority={isLatestEvent}
+                />
+              );
+            })()}
+          </div>
+          <div className="space-y-6">
+            {/* Content */}
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-color-text mb-2">
+                {eventTitle} {eventYear}
+              </h2>
 
-        <div className="space-y-6">
-          {/* Content */}
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-color-text mb-2">
-              {eventTitle} {eventYear}
-            </h2>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-color-text mb-4">
+                <div className="flex items-center gap-2 justify-start">
+                  <Calendar weight="fill" size={18} />
+                  <span className="font-medium">
+                    {getFormattedDate(event.date)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 justify-start">
+                  <MapPin weight="fill" size={18} />
+                  <span>{event.location.name}</span>
+                </div>
+              </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-color-text mb-4">
-              <div className="flex items-center gap-2 justify-start">
-                <Calendar weight="fill" size={18} />
-                <span className="font-medium">
-                  {getFormattedDate(event.date)}
-                </span>
-              </div>
-              <div className="flex items-center gap-2 justify-start">
-                <MapPin weight="fill" size={18} />
-                <span>{event.location.name}</span>
-              </div>
+              <p className="text-color-text leading-relaxed">
+                {event.heroDescription}
+              </p>
             </div>
 
-            <p className="text-color-text leading-relaxed">
-              {event.heroDescription}
-            </p>
+            {/* Year Selector */}
+            <div className="flex items-center gap-1 mt-2 select-none">
+              {availableYears.map((year) => {
+                const baseName = event.name.replace(/\s+\d{4}$|-\d{4}$/, "");
+                const eventNameForYear = `${baseName} ${year}`;
+                const eventSlugForYear = slugify(eventNameForYear);
+                const isLatestYear =
+                  year ===
+                  Math.max(
+                    ...availableYears.map((y) => parseInt(y)),
+                  ).toString();
+                const isDisabled = event.navigable === false;
+                const isSelected = year === selectedYear;
+                return (
+                  <button
+                    key={year}
+                    onClick={() => {
+                      if (isDisabled) return;
+                      if (isLatestEvent && isLatestYear) {
+                        router.push("/");
+                      } else {
+                        router.push(`/etkinlikler/${eventSlugForYear}`);
+                      }
+                    }}
+                    disabled={isDisabled}
+                    className={`transition-all duration-150 text-base md:text-lg font-semibold pr-2 py-1 rounded-md border-none outline-none focus:outline-none
+                      ${isSelected ? "font-extrabold text-[#4d002f] bg-transparent opacity-100" : "font-semibold text-color-text opacity-40 hover:opacity-80 hover:bg-color-accent/10 cursor-pointer"}
+                      ${isDisabled ? "opacity-30 cursor-not-allowed" : ""}
+                    `}
+                    style={{
+                      WebkitTextStroke: isSelected
+                        ? "0.3px #4d002f"
+                        : undefined,
+                    }}
+                    tabIndex={isDisabled ? -1 : 0}
+                    type="button"
+                  >
+                    {year}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Action Button */}
+            <Button
+              onClick={event.navigable === false ? undefined : handleNavigation}
+              disabled={loading || event.navigable === false}
+              className={`bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${event.navigable === false ? "opacity-50 cursor-not-allowed" : ""}`}
+            >
+              {loading ? (
+                <span className="flex items-center gap-2">
+                  <Loader2 className="animate-spin" size={16} />
+                  Yükleniyor...
+                </span>
+              ) : (
+                <>
+                  {isLatestEvent ? "Ana Sayfaya Git" : "Daha Fazla"}
+                  <ArrowRight className="ml-2" weight="bold" size={16} />
+                </>
+              )}
+            </Button>
           </div>
-
-          {/* Year Selector */}
-          <div className="flex items-center gap-3">
-            {availableYears.map((year) => {
-              // Construct the event name for this year
-              const baseName = event.name.replace(/\s+\d{4}$|-\d{4}$/, "");
-              const eventNameForYear = `${baseName} ${year}`;
-              const eventSlugForYear = slugify(eventNameForYear);
-
-              // Check if this is the latest year (highest year number)
-              const isLatestYear =
-                year ===
-                Math.max(...availableYears.map((y) => parseInt(y))).toString();
-
-              const isDisabled = event.navigable === false;
-
-              return (
-                <button
-                  key={year}
-                  onClick={() => {
-                    if (isDisabled) return;
-                    if (isLatestEvent && isLatestYear) {
-                      router.push("/");
-                    } else {
-                      router.push(`/etkinlikler/${eventSlugForYear}`);
-                    }
-                  }}
-                  disabled={isDisabled}
-                  className={`px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
-                    year === selectedYear
-                      ? "bg-color-accent text-color-text"
-                      : "bg-color-accent/20 text-color-text hover:bg-color-accent/40 hover:-translate-y-1 hover:scale-105"
-                  } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
-                >
-                  {year}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Action Button */}
-          <Button
-            onClick={event.navigable === false ? undefined : handleNavigation}
-            disabled={loading || event.navigable === false}
-            className={`bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${event.navigable === false ? "opacity-50 cursor-not-allowed" : ""}`}
-          >
-            {loading ? (
-              <span className="flex items-center gap-2">
-                <Loader2 className="animate-spin" size={16} />
-                Yükleniyor...
-              </span>
-            ) : (
-              <>
-                {isLatestEvent ? "Ana Sayfaya Git" : "Daha Fazla"}
-                <ArrowRight className="ml-2" weight="bold" size={16} />
-              </>
-            )}
-          </Button>
+        </div>
+        {/* Right: Banner Image (desktop only) */}
+        <div className="flex-1 items-center justify-center min-w-[200px] max-w-md mx-auto md:mx-0 hidden md:flex">
+          {(() => {
+            const baseName = event.name
+              .replace(/\s+\d{4}$|-\d{4}$/, "")
+              .toLowerCase()
+              .replace(/ /g, "-");
+            const latestYear = Math.max(
+              ...availableYears.map((y) => parseInt(y)),
+            );
+            const imagePath = `/images/banners/${baseName}-${latestYear}.webp`;
+            return (
+              <Image
+                src={imagePath}
+                alt={eventTitle}
+                width={480}
+                height={270}
+                className="rounded-2xl w-full h-auto object-cover shadow-md"
+                style={{ background: "#f3f0fa" }}
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+                priority={isLatestEvent}
+              />
+            );
+          })()}
         </div>
       </div>
     </div>

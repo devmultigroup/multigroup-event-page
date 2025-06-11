@@ -390,6 +390,12 @@ colorPalette: {
 
 Mevcut etkinliklerin yapısını incelemek için `src/data/events.ts` dosyasındaki örnekleri referans alabilirsiniz.
 
+## Etkinlik Banner Görseli Özelliği
+
+- Etkinlik kartları artık sağda (masaüstü) veya etiketlerden sonra (mobilde) duyarlı bir banner görseli gösterir.
+- Görsel, `/public/images/banners/{etkinlik-slug}-{yil}.webp` yolundan yüklenir. Burada `etkinlik-slug` yıl eklenmemiş, slugify edilmiş etkinlik adıdır ve `yil` mevcut en yeni yıldır.
+- Banner görsellerinizi bu klasöre, uygun şekilde isimlendirerek ekleyebilirsiniz. Örneğin: `mobile-developer-conference-2025.webp`.
+
 ## Repo Aktivitesi
 
 <!-- ![Alt](https://repobeats.axiom.co/api/embed/94a2829520bc7e0ee83043b228c0db765d31cf5b.svg "Repobeats analytics image") -->
