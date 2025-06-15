@@ -61,3 +61,11 @@ export function getClosestUpcomingEvent(): Event | null {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   return upcoming[0] || null;
 }
+
+export function getMostRecentPastEvent(): Event | null {
+  const now = new Date();
+  const past = events
+    .filter((e) => new Date(e.date) <= now)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return past[0] || null;
+}
