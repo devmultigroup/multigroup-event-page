@@ -29,7 +29,7 @@ const events: Event[] = [
         name: "Furkan Ünsalan",
         designation: "Associate Member",
         image: "/images/organizers/furkan-unsalan.webp",
-      }
+      },
     ],
     speakers: [
       {
@@ -51,7 +51,7 @@ const events: Event[] = [
       {
         tier: "",
         sponsorSlug: "",
-      }
+      },
     ],
     tickets: [
       {
@@ -93,7 +93,7 @@ const events: Event[] = [
       background: "0, 0%, 100%", // Pure white (unchanged)
       text: "250, 6.98%, 16.86%", // Original text color (unchanged)
     },
-    navigable: false
+    navigable: false,
   },
   {
     id: 2,

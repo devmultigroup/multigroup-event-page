@@ -13,7 +13,7 @@ import EventPage from "@/components/event-page/EventPage";
 export default function HeroPage() {
   const upcomingEvent = getClosestUpcomingEvent();
   const mostRecentPastEvent = getMostRecentPastEvent();
-  
+
   // Determine which event to show
   let latestEventDetails;
   if (upcomingEvent && upcomingEvent.navigable !== false) {
@@ -23,7 +23,7 @@ export default function HeroPage() {
     // Otherwise, use the most recent past event
     latestEventDetails = mostRecentPastEvent;
   }
-  
+
   const secondLatest = getSecondLatestEvent();
   const { setCurrentEvent } = useEventColor();
 
