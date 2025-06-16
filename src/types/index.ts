@@ -87,6 +87,7 @@ export type ColorPalette = {
 
 export type Event = {
   id: number;
+  navigable?: boolean; // If false, event is not navigable
   name: string;
   heroDescription: string;
   cardDescription: string;
@@ -103,5 +104,4 @@ export type Event = {
   initialMetrics: MaxThreeInitialMetrics;
   afterMetrics?: AfterMetrics;
   colorPalette: ColorPalette;
-  navigable?: boolean; // If false, event is not navigable
 };

@@ -149,7 +149,7 @@ export default function Events() {
 
   return (
     <div className="min-h-screen bg-color-background">
-      <div className="pt-[20vh] max-w-6xl mx-auto px-4 space-y-8">
+      <div className="pt-[20vh] w-5/6 2xl:w-2/3 mx-auto space-y-8">
         {upcomingEvents.length > 0 && (
           <div className="space-y-8">
             {upcomingEvents.map((props) => (
@@ -164,7 +164,7 @@ export default function Events() {
           <hr className="my-8 border-t border-gray-300" />
         )}
         {completedEvents.length > 0 && (
-          <div className="space-y-8">
+          <div className="space-y-8 ">
             {completedEvents.map((props) => (
               <EventCard
                 key={`${props.event.id}-${props.selectedYear}`}

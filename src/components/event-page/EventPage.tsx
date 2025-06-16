@@ -88,7 +88,7 @@ export default function EventPage({
               {event.heroDescription}
               <br />
               <br />
-              <div className="flex items-center justify-center lg:justify-start gap-2 text-color-text">
+              <div className="flex justify-center items-center lg:justify-start lg:items-start text-color-text w-full gap-x-6">
                 <span>{event.location.name}</span>
               </div>
             </div>
@@ -105,7 +105,9 @@ export default function EventPage({
                   borderRadius="0.75rem"
                   className="bg-transparent text-color-text"
                 >
-                  Yerinizi Ayırtın
+                  {new Date(event.date) < new Date()
+                    ? "Etkinliği Görüntüle"
+                    : "Yerinizi Ayırtın"}
                 </MovingBorderButton>
               </a>
             </motion.div>
@@ -124,7 +126,7 @@ export default function EventPage({
             className="select-none text-color-text text-xl sm:text-4xl py-4 md:py-1 rounded-lg text-center lg:text-left w-full font-extrabold"
             variants={fadeInUp}
           >
-            <div className="flex justify-left items-left text-color-text w-full gap-x-6">
+            <div className="flex justify-center items-center lg:justify-start lg:items-start text-color-text w-full gap-x-6">
               {event.initialMetrics.map((metric, index) => (
                 <div
                   key={`metric-${index}`}
@@ -211,7 +213,7 @@ export default function EventPage({
               kalmış 500'den fazla destekçimiz sayesinde hayalimize biraz daha
               yakınız.
             </HighlightHeading>
-            <EventTickets tickets={event.tickets} />
+            <EventTickets tickets={event.tickets} eventDate={event.date} />
           </>
         )}
 

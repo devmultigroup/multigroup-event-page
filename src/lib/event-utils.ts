@@ -69,3 +69,26 @@ export function getMostRecentPastEvent(): Event | null {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return past[0] || null;
 }
+
+// Returns the event for a given base name and year (e.g., 'Mobile Developer Conference', '2024')
+export function getEventByBaseNameAndYear(
+  baseName: string,
+  year: string,
+): Event | null {
+  // Normalize baseName for comparison
+  const normalizedBase = baseName
+    .trim()
+    .toLowerCase()
+    .replace(/[-\s]+/g, "-");
+  return (
+    events.find((event) => {
+      const eventName = event.name.trim().toLowerCase();
+      // Remove year from event name for base comparison
+      const eventBase = eventName
+        .replace(/[-\s]?\d{4}$/, "")
+        .replace(/[-\s]+/g, "-");
+      const eventYear = eventName.match(/(\d{4})$/)?.[1];
+      return eventBase === normalizedBase && eventYear === year;
+    }) || null
+  );
+}

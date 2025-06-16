@@ -3,6 +3,7 @@ import { Event } from "@/types";
 const events: Event[] = [
   {
     id: 3,
+    navigable: false,
     name: "MultiGroup Developer Gathering 2025",
     heroDescription:
       "Yıl boyunca sektöre yön veren büyük teknoloji konferanslarının ardından, şimdi onları birlikte değerlendirme zamanı!",
@@ -93,10 +94,10 @@ const events: Event[] = [
       background: "0, 0%, 100%", // Pure white (unchanged)
       text: "250, 6.98%, 16.86%", // Original text color (unchanged)
     },
-    navigable: false,
   },
   {
     id: 2,
+    navigable: true,
     name: "Web Developer Summit 2025",
     heroDescription:
       "Seni sadece bir web konferansına değil, modern web teknolojilerinin tüm renklerini keşfedeceğin, ilham verici bir buluşmaya davet ediyoruz!",
@@ -709,6 +710,51 @@ const events: Event[] = [
       accent: "199.53, 75.44%, 77.65%",
       background: "0, 0%, 100%",
       text: "250, 6.98%, 16.86%",
+    },
+  },
+  // Past events redirecting to kommunity
+  {
+    id: 4,
+    navigable: false,
+    name: "Mobile Developer Conference 2024",
+    heroDescription:
+      "Tüm mobile developer'lara sesleniyoruz! Mobile Development'taki yenilikleri keşfedeceğiniz heyecan verici bir konferans için bize katılmaya ne dersiniz?",
+    cardDescription: "",
+    location: {
+      name: "",
+      subtext: "",
+    },
+    registerLink:
+      "https://kommunity.com/devmultigroup/events/mobile-developer-conference-24-fcd7f10c",
+    videoUrl: "",
+    date: "2024-03-09T13:00:00+03:00",
+    organizers: [],
+    speakers: [],
+    sessions: [],
+    sponsors: [],
+    tickets: [],
+    images: [],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 200 },
+      { title: "Etkinlik Konuşmacı", value: 10 },
+      { title: "Katılan Şirket", value: 10 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
+    colorPalette: {
+      primary: "162, 85%, 96%", // Very light mint green
+      secondary: "160, 8%, 17%", // Dark grayish with mint undertone
+      accent: "168, 70%, 75%", // Medium mint green
+      background: "0, 0%, 100%", // Pure white (unchanged)
+      text: "250, 6.98%, 16.86%", // Original text color (unchanged)
     },
   },
 ];

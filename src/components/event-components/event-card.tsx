@@ -2,11 +2,16 @@
 import { useState } from "react";
 import type { Event } from "@/types";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, MapPin } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  Calendar,
+  CaretRight,
+  MapPin,
+} from "@phosphor-icons/react";
 import { Loader2 } from "lucide-react";
 import { slugify } from "@/lib/slugify";
 import { useRouter } from "next/navigation";
-import { getFormattedDate } from "@/lib/event-utils";
+import { getFormattedDate, getEventByBaseNameAndYear } from "@/lib/event-utils";
 import Image from "next/image";
 
 interface EventCardProps {
@@ -27,6 +32,14 @@ export default function EventCard({
 
   const handleNavigation = () => {
     setLoading(true);
+    const eventDate = new Date(event.date);
+    const now = new Date();
+    const isPast = eventDate < now;
+    if (event.navigable === false && isPast && event.registerLink) {
+      window.open(event.registerLink, "_blank");
+      setLoading(false);
+      return;
+    }
     if (isLatestEvent) {
       router.push("/");
     } else {
@@ -69,8 +82,29 @@ export default function EventCard({
       <div className="flex flex-col md:flex-row items-stretch p-8 gap-6 md:gap-10">
         {/* Left: Text Content */}
         <div className="flex-1 min-w-0 flex flex-col justify-center">
-          {/* Hashtags */}
-          <div className="flex gap-2 mb-6 items-center">
+          {/* Hashtags and YAKINDA label - Mobile: label on top, hashtags below */}
+          {/* Mobile version: label on top, hashtags below */}
+          <div className="block md:hidden mb-6">
+            {isLatestEvent && (
+              <div className="mb-1">
+                <span className="bg-color-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  YAKLAŞIYOR
+                </span>
+              </div>
+            )}
+            <div className="flex gap-2 items-center">
+              {hashtags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-sm text-color-text font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* Desktop version: hashtags and label on the same line */}
+          <div className="hidden md:flex gap-2 mb-6 items-center">
             {hashtags.map((tag, index) => (
               <span key={index} className="text-sm text-color-text font-medium">
                 {tag}
@@ -78,7 +112,7 @@ export default function EventCard({
             ))}
             {isLatestEvent && (
               <span className="bg-color-secondary text-white px-3 py-1 rounded-full text-xs font-semibold ml-2">
-                GÜNCEL
+                YAKLAŞIYOR
               </span>
             )}
           </div>
@@ -145,13 +179,28 @@ export default function EventCard({
                   Math.max(
                     ...availableYears.map((y) => parseInt(y)),
                   ).toString();
-                const isDisabled = event.navigable === false;
+                // Get the event for this year
+                const eventForYear = getEventByBaseNameAndYear(baseName, year);
+                // Fallback to current event if not found (shouldn't happen)
+                const eventData = eventForYear || event;
+                const eventDate = new Date(eventData.date);
+                const now = new Date();
+                const isPast = eventDate < now;
+                const isDisabled = eventData.navigable === false && !isPast;
                 const isSelected = year === selectedYear;
                 return (
                   <button
                     key={year}
                     onClick={() => {
                       if (isDisabled) return;
+                      if (
+                        eventData.navigable === false &&
+                        isPast &&
+                        eventData.registerLink
+                      ) {
+                        window.open(eventData.registerLink, "_blank");
+                        return;
+                      }
                       if (isLatestEvent && isLatestYear) {
                         router.push("/");
                       } else {
@@ -179,9 +228,23 @@ export default function EventCard({
 
             {/* Action Button */}
             <Button
-              onClick={event.navigable === false ? undefined : handleNavigation}
-              disabled={loading || event.navigable === false}
-              className={`bg-color-secondary text-white hover:bg-color-accent hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${event.navigable === false ? "opacity-50 cursor-not-allowed" : ""}`}
+              onClick={
+                event.navigable === false &&
+                !(new Date(event.date) < new Date())
+                  ? undefined
+                  : handleNavigation
+              }
+              disabled={
+                loading ||
+                (event.navigable === false &&
+                  !(new Date(event.date) < new Date()))
+              }
+              className={`group bg-color-secondary text-white hover:bg-gray-600 hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${
+                event.navigable === false &&
+                !(new Date(event.date) < new Date())
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -190,8 +253,26 @@ export default function EventCard({
                 </span>
               ) : (
                 <>
-                  {isLatestEvent ? "Ana Sayfaya Git" : "Daha Fazla"}
-                  <ArrowRight className="ml-2" weight="bold" size={16} />
+                  {event.navigable === false &&
+                  !(new Date(event.date) < new Date()) ? (
+                    <span className="flex items-center">Çok Yakında!</span>
+                  ) : (
+                    <span className="flex items-center">
+                      <span>Daha Fazla</span>
+                      <span className="relative ml-2 inline-flex items-center justify-center w-5 h-5 align-middle">
+                        <CaretRight
+                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:translate-x-2"
+                          weight="bold"
+                          size={16}
+                        />
+                        <ArrowRight
+                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+                          weight="bold"
+                          size={16}
+                        />
+                      </span>
+                    </span>
+                  )}
                 </>
               )}
             </Button>
