@@ -2,6 +2,91 @@ import { Event } from "@/types";
 
 const events: Event[] = [
   {
+    id: 4,
+    navigable: false,
+    name: "Data Science Summit 2025",
+    heroDescription:
+      "Veriyle düşünen, yapay zekâyla üreten, geleceği birlikte şekillendirenlerin buluşma noktası! En yeni teknolojiler, ilham veren konuşmalar ve sınırsız keşif seni bekliyor.",
+    cardDescription: "",
+    location: {
+      name: "",
+      subtext: "",
+    },
+    registerLink: "",
+    videoUrl: "",
+    date: "2025-08-23T13:00:00+03:00",
+    organizers: [
+      {
+        id: 1,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
+    ],
+    speakers: [
+      {
+        fullName: "Serkan Alc",
+        title: "Founder & Community Lead",
+        company: "multigroup",
+      },
+    ],
+    sessions: [
+      // {
+      //   topic: "",
+      //   startTime: "",
+      //   endTime: "",
+      //   speakerName: "",
+      //   room: "",
+      // },
+    ],
+    sponsors: [
+      {
+        tier: "",
+        sponsorSlug: "",
+      },
+    ],
+    tickets: [
+      {
+        type: "Gathering Ticker",
+        description:
+          "Bu bilet, sadece bir koltuk değil — WWDC’den Google I/O’ya, OpenAI’den Figma’ya yılın en büyük konferanslarında duyurulan gelişmeleri konuşacağımız, geleceğin teknolojilerini bugünden yakalayacağın, yeni insanlarla tanışıp topluluğun bir parçası olacağın bir günün anahtarı. Aramıza hoş geldin!",
+        price: 0,
+        link: "https://kommunity.com/devmultigroup/events/multigroup-developer-gathering-2025-3f23948e/tickets/",
+        perks: [
+          "Supporterlara özel badge'lere sahip olun",
+          "Supporterlara özel supporter wall'a dahil olun",
+        ],
+      },
+    ],
+    images: [
+      "/images/events/mobile-developer-summit-2024/1.webp",
+      "/images/events/mobile-developer-summit-2024/2.webp",
+      "/images/events/mobile-developer-summit-2024/3.webp",
+    ],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 200 },
+      { title: "Etkinlik Konuşmacı", value: 10 },
+      { title: "Katılan Şirket", value: 10 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
+    colorPalette: {
+      primary: "162, 85%, 96%", // Very light mint green
+      secondary: "160, 8%, 17%", // Dark grayish with mint undertone
+      accent: "168, 70%, 75%", // Medium mint green
+      background: "0, 0%, 100%", // Pure white (unchanged)
+      text: "250, 6.98%, 16.86%", // Original text color (unchanged)
+    },
+  },
+  {
     id: 3,
     navigable: false,
     name: "MultiGroup Developer Gathering 2025",

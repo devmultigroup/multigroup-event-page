@@ -157,10 +157,12 @@ export default function EventCard({
                     {getFormattedDate(event.date)}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 justify-start">
-                  <MapPin weight="fill" size={18} />
-                  <span>{event.location.name}</span>
-                </div>
+                {event.location.name !== "" && (
+                  <div className="flex items-center gap-2 justify-start">
+                    <MapPin weight="fill" size={18} />
+                    <span>{event.location.name}</span>
+                  </div>
+                )}
               </div>
 
               <p className="text-color-text leading-relaxed">
