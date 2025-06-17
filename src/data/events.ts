@@ -842,6 +842,50 @@ const events: Event[] = [
       text: "250, 6.98%, 16.86%", // Original text color (unchanged)
     },
   },
+  {
+    id: 4,
+    navigable: false,
+    name: "Mobile Developer Conference 2023",
+    heroDescription:
+      "Tüm mobile developer'lara sesleniyoruz! Mobile Development'taki yenilikleri keşfedeceğiniz heyecan verici bir konferans için bize katılmaya ne dersiniz?",
+    cardDescription: "",
+    location: {
+      name: "",
+      subtext: "",
+    },
+    registerLink:
+      "https://kommunity.com/devmultigroup/events/mobil-developer-zone-0e660272",
+    videoUrl: "",
+    date: "2023-09-01T13:00:00+03:00",
+    organizers: [],
+    speakers: [],
+    sessions: [],
+    sponsors: [],
+    tickets: [],
+    images: [],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 200 },
+      { title: "Etkinlik Konuşmacı", value: 10 },
+      { title: "Katılan Şirket", value: 10 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
+    colorPalette: {
+      primary: "162, 85%, 96%", // Very light mint green
+      secondary: "160, 8%, 17%", // Dark grayish with mint undertone
+      accent: "168, 70%, 75%", // Medium mint green
+      background: "0, 0%, 100%", // Pure white (unchanged)
+      text: "250, 6.98%, 16.86%", // Original text color (unchanged)
+    },
+  },
 ];
 
 export default events;
