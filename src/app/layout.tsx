@@ -53,6 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const latestEventLink = getLatestEventLink();
+  console.log(latestEventLink ? latestEventLink : "boş");
 
   return (
     <html lang="en">

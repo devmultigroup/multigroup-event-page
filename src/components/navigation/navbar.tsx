@@ -92,11 +92,13 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
                 <div className="absolute inset-0 bg-color-accent transition-transform duration-300 ease-in-out rounded-md" />
                 <div className="absolute inset-0 bg-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out rounded-md flex items-center justify-center">
                   <span className="relative z-10 font-medium text-sm">
-                    Kayıt Ol
+                    Aramıza Katıl
                   </span>
                 </div>
               </a>
-              <span className="invisible font-medium text-sm">Kayıt Ol</span>
+              <span className="invisible font-medium text-sm">
+                Aramıza Katıl
+              </span>
             </Button>
           </div>
 
@@ -149,7 +151,7 @@ const Navbar = ({ eventLink }: { eventLink: string }) => {
             className="mt-6 rounded-lg text-lg text-black border-black px-8 py-3"
           >
             <a href={eventLink} target="_blank" rel="noreferrer">
-              Kayıt Ol
+              Aramıza Katıl
             </a>
           </Button>
         </div>

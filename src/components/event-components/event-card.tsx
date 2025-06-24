@@ -79,9 +79,9 @@ export default function EventCard({
           : "border-gray-100"
       }`}
     >
-      <div className="flex flex-col md:flex-row items-stretch p-8 gap-6 md:gap-10">
+      <div className="flex flex-col md:flex-row items-stretch p-8 gap-8 md:gap-12">
         {/* Left: Text Content */}
-        <div className="flex-1 min-w-0 flex flex-col justify-center">
+        <div className="flex-1 min-w-0 flex flex-col justify-center max-w-xl lg:max-w-lg xl:max-w-xl">
           {/* Hashtags and YAKINDA label - Mobile: label on top, hashtags below */}
           {/* Mobile version: label on top, hashtags below */}
           <div className="block md:hidden mb-6">
@@ -229,59 +229,93 @@ export default function EventCard({
             </div>
 
             {/* Action Button */}
-            <Button
-              onClick={
-                event.navigable === false &&
-                !(new Date(event.date) < new Date())
-                  ? undefined
-                  : handleNavigation
-              }
-              disabled={
-                loading ||
-                (event.navigable === false &&
-                  !(new Date(event.date) < new Date()))
-              }
-              className={`group bg-color-secondary text-white hover:bg-gray-600 hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${
-                event.navigable === false &&
-                !(new Date(event.date) < new Date())
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
-            >
-              {loading ? (
-                <span className="flex items-center gap-2">
-                  <Loader2 className="animate-spin" size={16} />
-                  Yükleniyor...
-                </span>
-              ) : (
-                <>
-                  {event.navigable === false &&
-                  !(new Date(event.date) < new Date()) ? (
-                    <span className="flex items-center">Çok Yakında!</span>
-                  ) : (
-                    <span className="flex items-center">
-                      <span>Daha Fazla</span>
-                      <span className="relative ml-2 inline-flex items-center justify-center w-5 h-5 align-middle">
-                        <CaretRight
-                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:translate-x-2"
-                          weight="bold"
-                          size={16}
-                        />
-                        <ArrowRight
-                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
-                          weight="bold"
-                          size={16}
-                        />
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button
+                onClick={
+                  event.navigable === false &&
+                  !(new Date(event.date) < new Date())
+                    ? undefined
+                    : handleNavigation
+                }
+                disabled={
+                  loading ||
+                  (event.navigable === false &&
+                    !(new Date(event.date) < new Date()))
+                }
+                className={`group bg-color-secondary text-white hover:bg-gray-600 hover:shadow-md active:bg-color-accent transition-all duration-300 px-6 py-3 rounded-lg ${
+                  event.navigable === false &&
+                  !(new Date(event.date) < new Date())
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
+              >
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="animate-spin" size={16} />
+                    Yükleniyor...
+                  </span>
+                ) : (
+                  <>
+                    {event.navigable === false &&
+                    !(new Date(event.date) < new Date()) ? (
+                      <span className="flex items-center">Çok Yakında!</span>
+                    ) : (
+                      <span className="flex items-center">
+                        <span>Daha Fazla</span>
+                        <span className="relative ml-2 inline-flex items-center justify-center w-5 h-5 align-middle">
+                          <CaretRight
+                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:translate-x-2"
+                            weight="bold"
+                            size={16}
+                          />
+                          <ArrowRight
+                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+                            weight="bold"
+                            size={16}
+                          />
+                        </span>
                       </span>
-                    </span>
-                  )}
+                    )}
+                  </>
+                )}
+              </Button>
+
+              {/* Additional buttons for upcoming events */}
+              {!(new Date(event.date) < new Date()) && (
+                <>
+                  {/* Biletler Button */}
+                  {event.tickets &&
+                    event.tickets.length > 0 &&
+                    event.tickets[0]?.link && (
+                      <Button
+                        onClick={() =>
+                          window.open(event.tickets![0].link, "_blank")
+                        }
+                        className="bg-black text-white hover:bg-gray-800 hover:shadow-md active:bg-gray-900 transition-all duration-300 px-6 py-3 rounded-lg"
+                      >
+                        <span className="flex items-center">Biletler</span>
+                      </Button>
+                    )}
+
+                  {/* Sponsor Ol Button */}
+                  <Button
+                    onClick={() =>
+                      window.open(
+                        "mailto:developermultigroup@gmail.com",
+                        "_blank",
+                      )
+                    }
+                    className="bg-black text-white hover:bg-gray-800 hover:shadow-md active:bg-gray-900 transition-all duration-300 px-6 py-3 rounded-lg"
+                  >
+                    <span className="flex items-center">Sponsor Ol</span>
+                  </Button>
                 </>
               )}
-            </Button>
+            </div>
           </div>
         </div>
         {/* Right: Banner Image (desktop only) */}
-        <div className="flex-1 items-center justify-center min-w-[200px] max-w-md mx-auto md:mx-0 hidden md:flex">
+        <div className="hidden md:flex flex-1 items-center justify-center">
           {(() => {
             const baseName = event.name
               .replace(/\s+\d{4}$|-\d{4}$/, "")
@@ -292,18 +326,20 @@ export default function EventCard({
             );
             const imagePath = `/images/banners/${baseName}-${latestYear}.webp`;
             return (
-              <Image
-                src={imagePath}
-                alt={eventTitle}
-                width={480}
-                height={270}
-                className="rounded-2xl w-full h-auto object-cover shadow-md"
-                style={{ background: "#f3f0fa" }}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-                priority={isLatestEvent}
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <Image
+                  src={imagePath}
+                  alt={eventTitle}
+                  width={480}
+                  height={270}
+                  className="rounded-2xl w-full h-auto max-h-[400px] object-cover shadow-md"
+                  style={{ background: "#f3f0fa" }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                  priority={isLatestEvent}
+                />
+              </div>
             );
           })()}
         </div>

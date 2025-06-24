@@ -43,8 +43,10 @@ export function getEventBySlug(slug: string) {
 }
 
 export function getLatestEventLink(): string {
-  const latestEvent = getLatestEvent();
-  return latestEvent.registerLink;
+  const latestEvent = getClosestUpcomingEvent();
+  return latestEvent
+    ? latestEvent.registerLink
+    : "https://kommunity.com/devmultigroup";
 }
 
 export function getSecondLatestEvent(): Event {
