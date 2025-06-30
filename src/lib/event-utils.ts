@@ -72,6 +72,16 @@ export function getMostRecentPastEvent(): Event | null {
   return past[0] || null;
 }
 
+export function getLatestNavigableEvent(): Event | null {
+  const navigableEvents = events.filter((e) => e.navigable !== false);
+  if (navigableEvents.length === 0) return null;
+
+  const sortedNavigable = navigableEvents.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+  return sortedNavigable[0];
+}
+
 // Returns the event for a given base name and year (e.g., 'Mobile Developer Conference', '2024')
 export function getEventByBaseNameAndYear(
   baseName: string,

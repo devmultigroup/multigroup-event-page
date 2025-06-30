@@ -51,7 +51,7 @@ const events: Event[] = [
         description:
           "Bu bilet, sadece bir koltuk değil — WWDC’den Google I/O’ya, OpenAI’den Figma’ya yılın en büyük konferanslarında duyurulan gelişmeleri konuşacağımız, geleceğin teknolojilerini bugünden yakalayacağın, yeni insanlarla tanışıp topluluğun bir parçası olacağın bir günün anahtarı. Aramıza hoş geldin!",
         price: 0,
-        link: "https://kommunity.com/devmultigroup/events/multigroup-developer-gathering-2025-3f23948e/tickets/",
+        link: "https://kommunity.com/devmultigroup/events/data-science-summit-2025-336f257d/tickets/",
         perks: [
           "Supporterlara özel badge'lere sahip olun",
           "Supporterlara özel supporter wall'a dahil olun",

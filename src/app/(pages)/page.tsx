@@ -4,6 +4,7 @@ import {
   getClosestUpcomingEvent,
   getSecondLatestEvent,
   getMostRecentPastEvent,
+  getLatestNavigableEvent,
 } from "@/lib/event-utils";
 import { useEffect } from "react";
 import { useEventColor } from "@/context/EventColorContext";
@@ -11,18 +12,8 @@ import EventPage from "@/components/event-page/EventPage";
 // import { LanyardCard } from "@/components/lanyard-badge";
 
 export default function HeroPage() {
-  const upcomingEvent = getClosestUpcomingEvent();
-  const mostRecentPastEvent = getMostRecentPastEvent();
-
-  // Determine which event to show
-  let latestEventDetails;
-  if (upcomingEvent && upcomingEvent.navigable !== false) {
-    // If there's an upcoming event and it's navigable, use it
-    latestEventDetails = upcomingEvent;
-  } else {
-    // Otherwise, use the most recent past event
-    latestEventDetails = mostRecentPastEvent;
-  }
+  // Get the latest navigable event regardless of whether it's upcoming or past
+  const latestEventDetails = getLatestNavigableEvent();
 
   const secondLatest = getSecondLatestEvent();
   const { setCurrentEvent } = useEventColor();
