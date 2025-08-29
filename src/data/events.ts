@@ -3,24 +3,31 @@ import { Event } from "@/types";
 const events: Event[] = [
   {
     id: 4,
-    navigable: false,
+    navigable: true,
     name: "Data Science Summit 2025",
     heroDescription:
       "Veriyle düşünen, yapay zekâyla üreten, geleceği birlikte şekillendirenlerin buluşma noktası! En yeni teknolojiler, ilham veren konuşmalar ve sınırsız keşif seni bekliyor.",
-    cardDescription: "",
+    cardDescription:
+      "Veri biliminin nabzını tutan konuşmalar ve sektörün öncü şirketleriyle tanışma fırsatları. İlham veren konuşmacılar, networking alanları ve kariyer fırsatlarıyla dopdolu bir gün sizleri bekliyor. Veri biliminin geleceğini birlikte şekillendirelim!",
     location: {
-      name: "",
-      subtext: "",
+      name: "KWORKS Şişli",
+      subtext: "Şişli KWORKS ofisinde bulunan harika bir etkinlik alanı.",
     },
-    registerLink: "",
+    registerLink: "https://lodos.sh/event/96882134119504469163/details",
     videoUrl: "",
-    date: "2025-08-23T13:00:00+03:00",
+    date: "2025-09-06T13:00:00+03:00",
     organizers: [
       {
         id: 1,
         name: "Serkan Alc",
         designation: "Partner Manager",
         image: "/images/organizers/serkan-alc.webp",
+      },
+      {
+        id: 2,
+        name: "Furkan Ünsalan",
+        designation: "Associate Member",
+        image: "/images/organizers/furkan-unsalan.webp",
       },
     ],
     speakers: [
@@ -29,32 +36,128 @@ const events: Event[] = [
         title: "Founder & Community Lead",
         company: "multigroup",
       },
+      {
+        fullName: "Ayşe Unye",
+        title: "Lead Data Architect",
+        company: "RoofStacks",
+      },
+      {
+        fullName: "Kardel Rüveyda Çetin",
+        title: "Software Development Lead",
+        company: "Doğuş Teknoloji",
+      },
+      {
+        fullName: "Ferhat İşyapan",
+        title: "Data Director",
+        company: "BiTaksi",
+      },
+      {
+        fullName: "Halil İbrahim Yıldırım",
+        title: "Head of Data",
+        company: "TOM Technology of Money",
+      },
+      {
+        fullName: "Deniz Alkan",
+        title: "Senior Lead Data Analyst",
+        company: "Beko",
+      },
     ],
     sessions: [
-      // {
-      //   topic: "",
-      //   startTime: "",
-      //   endTime: "",
-      //   speakerName: "",
-      //   room: "",
-      // },
+      {
+        topic: "Açılış Konuşması",
+        startTime: "13.00",
+        endTime: "13.10",
+        speakerName: "Serkan Alc",
+        room: "Ana Salon",
+      },
+      {
+        topic: "1. Oturum",
+        startTime: "13.10",
+        endTime: "13.30",
+        speakerName: "Ayse Unye",
+        room: "Ana Salon",
+      },
+      {
+        topic: "2. Oturum",
+        startTime: "14.00",
+        endTime: "14.20",
+        speakerName: "Kardel Rüveyda Çetin",
+        room: "Ana Salon",
+      },
+      {
+        topic: "3. Oturum",
+        startTime: "14.30",
+        endTime: "14.50",
+        speakerName: "Ferhat İşyapan",
+        room: "Ana Salon",
+      },
+      {
+        topic: "4. Oturum",
+        startTime: "15.30",
+        endTime: "16.00",
+        speakerName: "Halil İbrahim Yıldırım",
+        room: "Ana Salon",
+      },
+      {
+        topic: "5. Oturum",
+        startTime: "16.10",
+        endTime: "16.30",
+        speakerName: "Deniz Alkan",
+        room: "Ana Salon",
+      },
     ],
     sponsors: [
       {
         tier: "",
-        sponsorSlug: "",
+        sponsorSlug: "tom-technology-of-money",
+      },
+      {
+        tier: "",
+        sponsorSlug: "roofstacks",
+      },
+
+      {
+        tier: "",
+        sponsorSlug: "multigroup",
+      },
+      {
+        tier: "",
+        sponsorSlug: "dogus-teknoloji",
+      },
+      {
+        tier: "",
+        sponsorSlug: "bitaksi",
+      },
+      {
+        tier: "",
+        sponsorSlug: "beko",
       },
     ],
     tickets: [
       {
-        type: "Gathering Ticker",
+        type: "Community Supporter Ticket",
         description:
-          "Bu bilet, sadece bir koltuk değil — WWDC’den Google I/O’ya, OpenAI’den Figma’ya yılın en büyük konferanslarında duyurulan gelişmeleri konuşacağımız, geleceğin teknolojilerini bugünden yakalayacağın, yeni insanlarla tanışıp topluluğun bir parçası olacağın bir günün anahtarı. Aramıza hoş geldin!",
+          "Community Supporter bileti ile etkinliğimize katılabilir ve topluluğumuza destek olabilirsiniz.",
         price: 0,
-        link: "https://kommunity.com/devmultigroup/events/data-science-summit-2025-336f257d/tickets/",
+        link: "https://lodos.sh/event/96882134119504469163/details",
         perks: [
-          "Supporterlara özel badge'lere sahip olun",
-          "Supporterlara özel supporter wall'a dahil olun",
+          "Etkinlik süreci boyunca tüm oturumlara katılabilme imkanı.",
+          "Süreç içi ikramlardan yararlanma fırsatı",
+          "Süreç içi networking oturumlarından yararlanma fırsatı",
+          "Community Supporter Wall'a İsminizi Ekletme Fırsatı: Destekçilerimiz arasında adınızı görme imkanı",
+        ],
+      },
+      {
+        type: "VIP Supporter Ticket",
+        description:
+          "VIP Supporter bileti ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
+        price: 0,
+        link: "https://lodos.sh/event/96882134119504469163/details",
+        perks: [
+          "VIP Katılımcı alanlarına erişim fırsatı: VIP Katılımcılarımıza özel network ve toplantı alanları",
+          "Talebe Göre ekstra kahve Seçenekleri: Damak tadınıza uygun kahve seçenekleri",
+          "Özel ikramlardan yararlanma fırsatı: Etkinliği güzel hatırlatacak güzel ikramlar",
+          "VIP Supporter Walla İsminizi Ekletme Fırsatı: Destekçilerimiz arasında adınızı görme imkanı.",
         ],
       },
     ],
@@ -64,8 +167,8 @@ const events: Event[] = [
       "/images/events/mobile-developer-summit-2024/3.webp",
     ],
     initialMetrics: [
-      { title: "Etkinlik Kontenjan", value: 200 },
-      { title: "Etkinlik Konuşmacı", value: 10 },
+      { title: "Etkinlik Kontenjan", value: 500 },
+      { title: "Etkinlik Konuşmacı", value: 15 },
       { title: "Katılan Şirket", value: 10 },
     ],
     // afterMetrics: {
