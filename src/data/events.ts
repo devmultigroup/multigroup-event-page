@@ -138,7 +138,7 @@ const events: Event[] = [
         type: "Community Supporter Ticket",
         description:
           "Community Supporter bileti ile etkinliğimize katılabilir ve topluluğumuza destek olabilirsiniz.",
-        price: 0,
+        price: 300,
         link: "https://lodos.sh/event/96882134119504469163/details",
         perks: [
           "Etkinlik süreci boyunca tüm oturumlara katılabilme imkanı.",
@@ -151,7 +151,7 @@ const events: Event[] = [
         type: "VIP Supporter Ticket",
         description:
           "VIP Supporter bileti ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
-        price: 0,
+        price: 1500,
         link: "https://lodos.sh/event/96882134119504469163/details",
         perks: [
           "VIP Katılımcı alanlarına erişim fırsatı: VIP Katılımcılarımıza özel network ve toplantı alanları",
