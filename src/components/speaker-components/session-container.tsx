@@ -54,7 +54,7 @@ export default function SessionContainer({
   useEffect(() => {
     if (event.sessions && event.sessions.length > 0) {
       const uniqueRooms = Array.from(
-        new Set(event.sessions.map((session) => session.room || "Main"))
+        new Set(event.sessions.map((session) => session.room || "Main")),
       );
       setRooms(uniqueRooms);
       if (uniqueRooms.length > 0 && !activeRoom) {
@@ -147,7 +147,7 @@ export default function SessionContainer({
       (s) =>
         s.speakerName === session.speakerName &&
         s.topic === session.topic &&
-        (s.room === session.room || (!s.room && !session.room))
+        (s.room === session.room || (!s.room && !session.room)),
     );
 
     if (isSelected) {
@@ -158,8 +158,8 @@ export default function SessionContainer({
               s.speakerName === session.speakerName &&
               s.topic === session.topic &&
               (s.room === session.room || (!s.room && !session.room))
-            )
-        )
+            ),
+        ),
       );
     } else {
       if (hasTimeConflict(session)) {
@@ -177,7 +177,7 @@ export default function SessionContainer({
   // Filter sessions for the current active room
   const filteredSessions = activeRoom
     ? event.sessions.filter(
-        (session) => (session.room || "Main") === activeRoom
+        (session) => (session.room || "Main") === activeRoom,
       )
     : event.sessions;
 
@@ -188,7 +188,7 @@ export default function SessionContainer({
       (session) =>
         session.room === "Network" ||
         session.topic?.toLowerCase().includes("network") ||
-        session.speakerName.toLowerCase().includes("network")
+        session.speakerName.toLowerCase().includes("network"),
     );
 
   // Animation variants for the session badges
@@ -215,7 +215,7 @@ export default function SessionContainer({
 
   const handleRoute = () => {
     router.push(
-      "https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN"
+      "https://www.youtube.com/playlist?list=PLQvJkakaBRKcEf3tq169jkNvoyiQN2XzN",
     );
   };
 
@@ -349,7 +349,7 @@ export default function SessionContainer({
         <div className="flex flex-wrap justify-center gap-6 max-w-5/6 mx-auto bg-color-primary p-8 rounded-2xl">
           {filteredSessions.map((session) => {
             const speaker = event.speakers.find(
-              (s) => s.fullName === session.speakerName
+              (s) => s.fullName === session.speakerName,
             );
             return (
               <div
@@ -386,7 +386,7 @@ export default function SessionContainer({
               (s) =>
                 s.speakerName === session.speakerName &&
                 s.topic === session.topic &&
-                (s.room === session.room || (!s.room && !session.room))
+                (s.room === session.room || (!s.room && !session.room)),
             );
 
             // disable conflict logic

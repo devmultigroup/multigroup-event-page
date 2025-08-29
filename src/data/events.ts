@@ -53,8 +53,8 @@ const events: Event[] = [
       },
       {
         fullName: "Halil İbrahim Yıldırım",
-        title: "Head of Data",
-        company: "TOM Technology of Money",
+        title: "Data & AI Leader",
+        company: "",
       },
       {
         fullName: "Deniz Alkan",
