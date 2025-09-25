@@ -2,6 +2,309 @@ import { Event } from "@/types";
 
 const events: Event[] = [
   {
+    id: 5,
+    navigable: true,
+    name: "Web Developer Conference 2025",
+    heroDescription:
+      "Web geliştirme dünyasının en güncel trendlerini keşfetmek, sektörün öncü isimlerinden ilham almak ve güçlü bir network kurmak için gereken her şeyi size sunuyoruz.",
+    cardDescription:
+      "Web geliştiriciliğe ilgi duyanların yıllık buluşması Web Developer Conference hızla yaklaşıyor! MultiGroup tarafından düzenlenen bu büyük yazılım zirvesi, önde gelen konuşmacıları, özel konukları ve değerli sponsorlarıyla size verimli bir hafta sonu sunmak için hazırlanıyor. Bu heyecan verici yolculuğa hazır mısınız?",
+    location: {
+      name: "Kadir Has Üniversitesi",
+      subtext: "Kadir Has Üniversitesi, Cibali Kampüsü Etkinlik Alanı",
+    },
+    registerLink: "https://lodos.sh/event/62944986376529159230/details",
+    videoUrl: "",
+    date: "2025-09-27T13:00:00+03:00",
+    organizers: [
+      {
+        id: 1,
+        name: "Serkan Alc",
+        designation: "Partner Manager",
+        image: "/images/organizers/serkan-alc.webp",
+      },
+      {
+        id: 2,
+        name: "Furkan Ünsalan",
+        designation: "Associate Member",
+        image: "/images/organizers/furkan-unsalan.webp",
+      },
+      {
+        id: 3,
+        name: "Esra Kelleci",
+        designation: "Pioneer Member",
+        image: "/images/organizers/esra-kelleci.webp",
+      },
+    ],
+    speakers: [
+      // Ana Salon Konuşmacıları
+      {
+        fullName: "Feyza Demirel",
+        title: "Solutions Architect",
+        company: "aws",
+      },
+      {
+        fullName: "Mehmet Nuri Yaman",
+        title: "Chief Executive Officer",
+        company: "lodos",
+      },
+      {
+        fullName: "Murat Yücedağ",
+        title: "Senior Instructor",
+        company: "udemy",
+      },
+      {
+        fullName: "Fatih Kadir Akın",
+        title: "DevRel Manager",
+        company: "teknasyon",
+      },
+      {
+        fullName: "Kardel Rüveyda Çetin",
+        title: "Software Development Lead",
+        company: "dogus-teknoloji",
+      },
+      {
+        fullName: "Ümit Samimi",
+        title: "Software Development Director",
+        company: "finartz",
+      },
+      // Network Alan Konuşmacıları
+      {
+        fullName: "Burak Karakus",
+        title: "Backend Tech Lead",
+        company: "hepsiburada",
+      },
+      {
+        fullName: "Sefa Yalçındağ",
+        title: "Frontend Developer",
+        company: "turkish-technology",
+      },
+      {
+        fullName: "Melis Dinçol",
+        title: "UX Designer",
+        company: "microsoft",
+      },
+      {
+        fullName: "Tekin Ağgül",
+        title: "Frontend Architect",
+        company: "rg-labs",
+      },
+      {
+        fullName: "Çağrı Çolakoğlu",
+        title: "Senior Team Lead",
+        company: "ziyarem",
+      },
+      {
+        fullName: "Urem Sancaktutan",
+        title: "Software Developer",
+        company: "logo",
+      },
+      {
+        fullName: "Selen Dumanoğulları",
+        title: "Sr Backend Development Engineer",
+        company: "aktif-tech",
+      },
+      {
+        fullName: "İsmail Özçelik",
+        title: "Software Architect",
+        company: "q-kare",
+      },
+      {
+        fullName: "Selen Koşar",
+        title: "Sr Software Developer",
+        company: "gaming-gen-tr",
+      },
+      {
+        fullName: "Mutlu Özkurt",
+        title: "Software Development Specialist",
+        company: "lc-waikiki",
+      },
+      {
+        fullName: "Sencer Öztüfekçi",
+        title: "Sr Software Developer",
+        company: "the-big-thing",
+      },
+      {
+        fullName: "Serkan Alc",
+        title: "Community Lead",
+        company: "multigroup",
+      },
+    ],
+    sessions: [
+      {
+        topic: "Açılış Konuşması",
+        startTime: "13.00",
+        endTime: "13.10",
+        speakerName: "Serkan Alc",
+        room: "Ana Salon",
+      },
+      {
+        topic: "TBA",
+        startTime: "",
+        endTime: "",
+        speakerName: "Feyza Demirel",
+        room: "Ana Salon",
+      },
+      {
+        topic: "TBA",
+        startTime: "",
+        endTime: "",
+        speakerName: "Mehmet Nuri Yaman",
+        room: "Ana Salon",
+      },
+      {
+        topic: "TBA",
+        startTime: "",
+        endTime: "",
+        speakerName: "Murat Yücedağ",
+        room: "Ana Salon",
+      },
+      {
+        topic: "TBA",
+        startTime: "",
+        endTime: "",
+        speakerName: "Fatih Kadir Akın",
+        room: "Ana Salon",
+      },
+      {
+        topic: "TBA",
+        startTime: "",
+        endTime: "",
+        speakerName: "Kardel Rüveyda Çetin",
+        room: "Ana Salon",
+      },
+    ],
+    sponsors: [
+      {
+        tier: "",
+        sponsorSlug: "aws",
+      },
+      {
+        tier: "",
+        sponsorSlug: "lodos",
+      },
+      {
+        tier: "",
+        sponsorSlug: "udemy",
+      },
+      {
+        tier: "",
+        sponsorSlug: "teknasyon",
+      },
+      {
+        tier: "",
+        sponsorSlug: "dogus-teknoloji",
+      },
+      {
+        tier: "",
+        sponsorSlug: "finartz",
+      },
+      {
+        tier: "",
+        sponsorSlug: "hepsiburada",
+      },
+      {
+        tier: "",
+        sponsorSlug: "turkish-technology",
+      },
+      {
+        tier: "",
+        sponsorSlug: "microsoft",
+      },
+      {
+        tier: "",
+        sponsorSlug: "rg-labs",
+      },
+      {
+        tier: "",
+        sponsorSlug: "ziyarem",
+      },
+      {
+        tier: "",
+        sponsorSlug: "logo",
+      },
+      {
+        tier: "",
+        sponsorSlug: "aktif-tech",
+      },
+      {
+        tier: "",
+        sponsorSlug: "q-kare",
+      },
+      {
+        tier: "",
+        sponsorSlug: "gaming-gen-tr",
+      },
+      {
+        tier: "",
+        sponsorSlug: "lc-waikiki",
+      },
+      {
+        tier: "",
+        sponsorSlug: "the-big-thing",
+      },
+      {
+        tier: "",
+        sponsorSlug: "multigroup",
+      },
+    ],
+    tickets: [
+      {
+        type: "Community Supporter Ticket",
+        description:
+          "Community Supporter bileti ile etkinliğimize katılabilir ve topluluğumuza destek olabilirsiniz.",
+        price: 300,
+        link: "https://lodos.sh/event/62944986376529159230/tickets",
+        perks: [
+          "Etkinlik süreci boyunca tüm oturumlara katılabilme imkanı.",
+          "Süreç içi ikramlardan yararlanma fırsatı",
+          "Süreç içi networking oturumlarından yararlanma fırsatı",
+          "Community Supporter Wall'a İsminizi Ekletme Fırsatı: Destekçilerimiz arasında adınızı görme imkanı",
+        ],
+      },
+      {
+        type: "VIP Supporter Ticket",
+        description:
+          "VIP Supporter bileti ile etkinlik deneyiminizi özelleştirin ve gelecek etkinliklerimize katkıda bulunarak bize destek olun!",
+        price: 1500,
+        link: "https://lodos.sh/event/62944986376529159230/tickets",
+        perks: [
+          "VIP Katılımcı alanlarına erişim fırsatı: VIP Katılımcılarımıza özel network ve toplantı alanları",
+          "Talebe Göre ekstra kahve Seçenekleri: Damak tadınıza uygun kahve seçenekleri",
+          "Özel ikramlardan yararlanma fırsatı: Etkinliği güzel hatırlatacak güzel ikramlar",
+          "VIP Supporter Walla İsminizi Ekletme Fırsatı: Destekçilerimiz arasında adınızı görme imkanı.",
+        ],
+      },
+    ],
+    images: [
+      "/images/events/mobile-developer-summit-2024/1.webp",
+      "/images/events/mobile-developer-summit-2024/2.webp",
+      "/images/events/mobile-developer-summit-2024/3.webp",
+    ],
+    initialMetrics: [
+      { title: "Etkinlik Kontenjan", value: 750 },
+      { title: "Etkinlik Konuşmacı", value: 20 },
+      { title: "Katılan Şirket", value: 15 },
+    ],
+    // afterMetrics: {
+    //   applications: "700",
+    //   vipGuests: "200+",
+    //   supporter: "250+",
+    //   speakers: "40",
+    //   workingParticipant: "70%",
+    //   jobSeeker: "45%",
+    //   jobProvider: "75%",
+    //   satisfaction: "90%",
+    // },
+    colorPalette: {
+      primary: "244.29, 100%, 97.25%",
+      secondary: "250, 6.98%, 16.86%",
+      accent: "199.53, 75.44%, 77.65%",
+      background: "0, 0%, 100%",
+      text: "250, 6.98%, 16.86%",
+    },
+  },
+  {
     id: 4,
     navigable: true,
     name: "Data Science Summit 2025",
